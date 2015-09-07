@@ -1,0 +1,3 @@
+<%  @budgets[:paginate].each do |budget|%>
+  <%= render :partial => "item",:locals => {:budget => budget}%>
+<% end %>

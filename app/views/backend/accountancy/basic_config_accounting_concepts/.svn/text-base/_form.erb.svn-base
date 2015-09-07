@@ -1,0 +1,20 @@
+<div id="" class="content_form">
+    <% f.inputs "Configuración general" do %>
+          <% @basic_config_accounting_concepts.each do |basic_config_accounting_concept| %>
+            <% semantic_fields_for basic_config_accounting_concept do |bcac| %>
+              <div>
+                  <div class="subc c50l">
+                      <% bcac.inputs do  %>
+                        <%= bcac.input :name,:input_html => {:class => ""} %>
+                    <% end %>
+                  </div>	
+                  <div class="subc c50r">
+                      <% bcac.inputs do  %>
+                            <%= bcac.input :accounting_accounting_concept,:input_html => {:class => ""} %>
+                      <% end %>
+                  </div>	
+              </div>
+            <% end %>  
+        <% end %>
+    <% end %>
+</div>

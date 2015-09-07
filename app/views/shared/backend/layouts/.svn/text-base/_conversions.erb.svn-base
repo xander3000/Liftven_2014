@@ -1,0 +1,11 @@
+<div id="content_conversions">
+  <label>Conversiones</label>
+
+  <ul style="padding-top: 0.2em;margin-left: 25%;list-style: none inside none;">
+    <li><%= "#{(packing_material.quantity*1).to_i} (#{packing_material.presentation_unit_type.name})"  %></li>
+    <% packing_material.presentation_unit_type.presentation_unit_type_conversions.each do |presentation_unit_type_conversion| %>
+    <li><%= "#{(packing_material.quantity*presentation_unit_type_conversion.proportion).to_i} (#{presentation_unit_type_conversion.presentation_unit_type_to.name})"  %></li>
+    <% end %>
+  </ul>
+  
+</div>

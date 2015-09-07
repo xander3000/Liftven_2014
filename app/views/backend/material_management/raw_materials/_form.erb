@@ -1,0 +1,45 @@
+<div id="tabs">
+	<ul>
+		  <li id="tab-1"><a href="#tabs-1">General</a></li>
+		  <li id="tab-2"><a href="#tabs-2">Compras</a></li>
+		  <li id="tab-3"><a href="#tabs-3">Almacenamiento</a></li>
+		  <li id="tab-4"><a href="#tabs-4">Contabilidad</a></li>
+		  <li id="tab-5"><a href="#tabs-5">Stock planta</a></li>
+		  <li id="tab-6" class=""><a href="#tabs-6">Historico de movimientos</a></li>
+	</ul>
+        <div class="css-panes">
+          <div style="display:block"></div>
+        </div>
+	<div id="tabs-1">
+		<%= render :partial => "form_1",:locals => {:f => f} %>
+	</div>
+	<div id="tabs-2">
+		<%= render :partial => "form_2",:locals => {:f => f} %>
+	</div>
+	<div id="tabs-3">
+		<%= render :partial => "form_3",:locals => {:f => f} %>
+	</div>
+        <div id="tabs-4">
+		<%= render :partial => "form_4",:locals => {:f => f} %>
+	</div>
+	<div id="tabs-5">
+		<%= render :partial => "form_5",:locals => {:f => f} %>
+	</div>
+        <div id="tabs-6" class="">
+		<%= render :partial => "show_6",:locals => {:f => f} %>
+	</div>
+
+</div>
+
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+                $( "#tabs" ).tabs();
+                $("button, input:submit,input:button,a.button ").button();
+                $("#material_raw_material_name").blur( function () {$(".input_name").val($(this).val())});
+                $("#material_raw_material_material_base_measure_unit_id").change( function () {
+						$(".select_measure_unit").val($(this).val()).change().changeReference("select_measure_unit");
+					 });
+	});
+</script>

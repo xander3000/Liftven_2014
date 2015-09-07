@@ -1,0 +1,10 @@
+<li>
+  <a href="#">Pedido <%= @purchase_requisition.code%> <span class="arrow"></span></a>
+  <ul style='width: 250px;'>
+      <li><%= link_to "Nuevo",new_backend_material_management_purchase_requisition_url%></li>
+      <li class="disabled"><%= link_to "Detalle",backend_material_management_purchase_requisition_url(@purchase_requisition)%></li>
+      <li type='separator'></li>
+		<li class=""><%= link_to "Verificar",(@purchase_requisition.is_register? ? backend_material_management_purchase_requisition_verify_url(@purchase_requisition) : "#"),:class => @purchase_requisition.is_register? ? "" : "disabled" %></li>
+		<li class=""><%= link_to "Aprobar",(@purchase_requisition.is_verify? ? backend_material_management_purchase_requisition_approve_url(@purchase_requisition) : "#"),:class => @purchase_requisition.is_verify? ? "" : "disabled" %></li>
+  </ul>
+</li>

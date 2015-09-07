@@ -1,0 +1,18 @@
+	page << "$('#cash_bank_bank_reconciliation_cash_bank_bank_account_id,#cash_bank_bank_reconciliation_accounting_accountant_account_id').children().remove().end()"
+if @success
+	page.show "filelimit-fine-uploader";
+	page.replace_html "uploader-script", :partial => "uploader"
+		if @bank_accounts.size > 1
+			page << "$('#cash_bank_bank_reconciliation_cash_bank_bank_account_id').append(jQuery('<option></option>').val(' ').html('-- Seleccione una cuenta --'));"
+		end
+		@bank_accounts.each do |bank_account|
+			page << "$('#cash_bank_bank_reconciliation_cash_bank_bank_account_id').append(jQuery('<option></option>').val('#{bank_account.id}').html('#{bank_account.number_with_current_balance}'));"
+		end
+
+		if @bank_accounts.size == 1
+			page << "$('#cash_bank_bank_reconciliation_cash_bank_bank_account_id').change();"
+		end
+
+else
+	page.hide "filelimit-fine-uploader";
+end

@@ -1,0 +1,128 @@
+/* 
+    Document   : session
+    Created on : 31/07/2011, 08:03:10 PM
+    Author     : gabriel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+
+
+body{
+    background: #ffffff;
+}
+
+#main 
+{
+    border: 0 none;
+    background: #ffffff url(/images/backgrounds/global/bg_login.png) repeat-x ;
+    min-height:  500px;
+    text-align: center;
+}
+
+#main #logo{
+    margin-top: 40px
+}
+
+
+#main-container{
+   margin-top: 10px;
+}
+
+
+
+#login-box{
+    
+    background: none repeat scroll 0 0 #F1F1F1;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+    -moz-box-shadow:1px 1px 4px #666;
+    -webkit-box-shadow:1px 1px 4px #666;
+    box-shadow:1px 1px 4px #666;
+    width: 355px;
+    color: #666666;
+
+}
+
+#login-box h2{
+    color: #666666;
+
+}
+
+#login-box label{
+    font-size: 130%;
+}
+
+#login-box table{
+    border: none;
+}
+
+#login-box input[type="text"],#login-box input[type="password"]{
+
+    background-color: #FFF;
+    border: 1px solid #C2C2C2;
+    font-size: 16px;
+    padding: 10px 4px 6px 3px;
+    width: 205px;
+}
+
+#login-box input[type="submit"]{
+   
+     font-size: 130%;
+}
+
+#login-box div.error{
+    color: red;
+}
+
+
+#login-box #QapTcha {
+    border: none;
+}
+/*
+#login-box {
+    background: url("images/login-box-backg.png") no-repeat scroll left top transparent;
+    color: #EBEBEB;
+    font: 12px Arial,Helvetica,sans-serif;
+    height: 352px;
+    padding: 58px 76px 0;
+    width: 333px;
+}
+
+
+#login-box h2 {
+    color: #EBEBEB;
+    font: bold 44px "Calibri",Arial;
+    margin: 0;
+    padding: 0;
+}
+
+#login-box-name {
+    display: inline;
+    float: left;
+    margin: 0 0 7px;
+    padding: 14px 10px 0 0;
+    text-align: right;
+    width: 80px;
+}
+
+#login-box-field {
+    display: inline;
+    float: left;
+    margin: 0 0 7px;
+    width: 230px;
+}
+
+div.login-box-name {
+    display: inline;
+    float: left;
+    margin: 0 0 7px;
+    padding: 14px 10px 0 0;
+    text-align: right;
+    width: 80px;
+}*/

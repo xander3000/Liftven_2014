@@ -1,0 +1,16 @@
+<div>
+  <% semantic_form_remote_for @cash_journal_count, :update => "#{controller.controller_name}_container",:url => backend_cashbank_cash_journal_create_cash_journal_count_url(@cash_journal),:html => {:class => "form_generate"} do |f| %>
+        <%= render :partial => "form_cash_journal_count",:locals => {:f => f} %>
+  <%= link_to_function "ARQUEAR CAJA","generate()", :disable_with => "Por favor espere...",:id => "contable_document-button",:class => "button" %>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+        function generate()
+        {
+          result = confirm("¿Esta seguro de ejecutar esta acción?")
+          if (result)
+            $(".form_generate").submit();
+        }
+
+</script>

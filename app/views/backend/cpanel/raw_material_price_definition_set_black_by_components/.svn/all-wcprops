@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cpanel/raw_material_price_definition_set_black_by_components
+END
+edit.erb
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cpanel/raw_material_price_definition_set_black_by_components/edit.erb
+END
+index.erb
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cpanel/raw_material_price_definition_set_black_by_components/index.erb
+END
+update.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cpanel/raw_material_price_definition_set_black_by_components/update.rjs
+END

@@ -1,0 +1,85 @@
+/* 
+    Document   : jquery.overlay
+    Created on : 11/09/2011, 09:09:02 PM
+    Author     : gabriel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+/*BEGIN: overlay*/
+    div.overlay {
+            color:#333;
+            background: #FFF;
+            display:none;
+            width:500px;
+            text-align:left;
+            border:1px solid #D2D2D2;
+				left: 30%;
+/*
+            -moz-border-radius:6px;
+            -webkit-border-radius:6px;
+            border-radius:6px;
+            -moz-box-shadow: 0 0 50px #D2D2D2;
+            -webkit-box-shadow: 0 0 50px #D2D2D2;
+            box-shadow: 0 0 50px #D2D2D2;
+-*/
+
+    }
+    div.overlay .close
+    {
+        cursor: pointer;
+        position: absolute;
+        right: 5px;
+        top: 5px;
+    }
+    /* container for external content. uses vertical scrollbar, if needed */
+
+    div.headerWrap{
+        min-height: 50px;
+        background: #fff;
+        border-bottom: 1px solid #D2D2D2;
+       /* -moz-box-shadow: 0 0 50px #D2D2D2;
+        -webkit-box-shadow: 0 0 50px #D2D2D2;
+        box-shadow: 0 0 50px #D2D2D2;*/
+
+    }
+	 div.contentWrap{
+            -moz-border-radius:6px;
+            -webkit-border-radius:6px;
+            border-radius:6px;
+	}
+    div.headerWrap h2{
+         color: #333;
+    }
+
+    div.headerWrapContent,div.mainWrapContent,div.footerWrapContent{
+        padding: 15px;
+    }
+    div.mainWrap {
+        height:441px;
+        overflow-y:auto;
+        background: red;
+    }
+
+    div.mainWrapContent ul li{
+        list-style: none;
+    }
+
+    div.footerWrap{
+        min-height: 50px;
+        background: #fff;
+        border-top: 1px solid #D2D2D2;
+       /* -moz-box-shadow: 0 0 50px #D2D2D2;
+        -webkit-box-shadow: 0 0 50px #D2D2D2;
+        box-shadow: 0 0 50px #D2D2D2;*/
+
+    }
+
+
+
+/*END: overlay*/

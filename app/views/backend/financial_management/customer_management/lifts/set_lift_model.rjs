@@ -1,0 +1,5 @@
+page << "$('#crm_projects_lift_crm_projects_lift_model_id').children().remove().end()"
+page << "$('#crm_projects_lift_crm_projects_lift_model_id').append(jQuery('<option></option>').val(' ').html('-- Seleccione uno --'));"
+@lift_models.each do |lift_model|
+	page << "$('#crm_projects_lift_crm_projects_lift_model_id').append(jQuery('<option></option>').val('#{lift_model.id}').html('#{lift_model.name}'));"
+end

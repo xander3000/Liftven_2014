@@ -1,0 +1,48 @@
+<div class="right control">
+		<%= @title.upcase %>  Nº <span><%= format_code(@budget.order.id, "06") %></span>
+</div>
+  <div id="details">
+    <b>NOMBRE O RAZÓN SOCIAL: </b> <%= @budget.client.name %><br/>
+    <b>C.I. / RIF: </b><%= @budget.client.identification_document %><br/>
+    <b>DOMICILIO FISCAL: </b><%= @budget.client.address %><br/>
+    <b>FECHA: </b><%= l  @budget.created_at %><br/>
+    <b>TLFS: </b><%= @budget.client.phone %><br/>
+    <b>CORREO ELECTRÓNICO: </b><%= @budget.client.email %><br/>
+	 <b>ORDEN(ES) DE PRODUCCI&Oacute;N ASOCIDA(S): </b><%= @budget.orders.map(&:id).map(&:to_code).join(",") %><br/>
+    <hr/>
+    <div id="form_items">
+      <table border="0">
+        <thead>
+          <tr>
+            <td class="code center">
+              Producto
+            </td>
+            <td class="amount center">
+              Cant.
+            </td>
+            <td class="description">
+              Componentes
+            </td>
+            <td class="dimensions center">
+              Dimensiones
+            </td>
+            <td class="note">
+              Observaciones
+            </td>
+            <td class="unit_price right">
+              Precio Unitario
+            </td>
+            <td  class="total_price right">
+              Total (Bs.)
+            </td>
+          </tr>
+        </thead>
+        <tbody id="product_by_budgets_items">
+          <%= render :partial => "product_by_budgets",:locals => {:print_advance_payment => true} %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<div class="right control">
+		<%= @title.upcase %>  Nº <span><%= format_code(@budget.order.id, "06") %></span>
+</div>

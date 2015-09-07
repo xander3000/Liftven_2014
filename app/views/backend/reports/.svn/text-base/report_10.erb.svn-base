@@ -1,0 +1,73 @@
+<div id="container"></div>
+
+
+<script type="text/javascript">
+  $(function () {
+    var chart;
+    $(document).ready(function() {
+       <%=
+          last_months = Time.now.months_since_to_now(6).inspect
+          categories =  Supplier.all.map(&:name).uniq.inspect
+        %>
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'container',
+                type: 'column'
+            },
+            title: {
+                text: 'Proveedor vs Facturación'
+            },
+            xAxis: {
+                categories: <%= last_months%>
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Total comprado al mes (%)'
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                backgroundColor: '#FFFFFF',
+                align: 'left',
+                verticalAlign: 'top',
+                x: 100,
+                y: 70,
+                floating: true,
+                shadow: true
+            },
+            tooltip: {
+                formatter: function() {
+                    return ''+
+                        this.series.name +': '+ this.y +' ('+ Math.round(this.percentage) +'%)';
+                }
+            },
+            plotOptions: {
+                column: {
+                     stacking: 'percent'
+                }
+            },
+                series: [{
+                name: 'Total Facturado',
+                data: [155.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6]
+
+            }, {
+                name: '<%= categories.split("\"")[1] %>',
+                data: [75.6, 18.8, 65.8, 34.66, 54.0, 45.6, 35.0]
+
+            }, {
+                name: '<%= categories.split("\"")[3] %>',
+                data: [15.6, 25.6, 39.7, 14.98, 64.0, 96.0, 50.0]
+
+            }, {
+                name: '<%= categories.split("\"")[5] %>',
+                data: [64.7, 27.1, 0.9, 79.56, 26.0, 34.4, 50.6]
+
+            }]
+        });
+    });
+
+});
+</script>
+
+

@@ -1,0 +1,46 @@
+/* 
+    Document   : aboutus
+    Created on : 02/10/2011, 07:29:58 PM
+    Author     : gabriel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+html{
+    background-color: #FFF;
+    
+}
+
+.short-info_nav ul li a{
+    color: #6D6F70;
+}
+
+.short-info_nav ul li a.active,.short-info_nav ul li a:hover{
+    color: #FFF;
+}
+
+
+#what_is_venom .short-info_background{
+    background-image: url(/images/backgrounds/aboutus/what_is_venom.jpg);
+}
+
+
+#what_we_do .short-info_background{
+    background-image:  url(/images/backgrounds/aboutus/what_we_do.jpg);
+}
+
+#our_mision .short-info_background{
+    background-image:  url(/images/backgrounds/aboutus/our_mision.jpg);
+}
+
+#our_vision .short-info_background{
+    background-image:  url(/images/backgrounds/aboutus/our_vision.jpg);
+}
+
+
+

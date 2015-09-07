@@ -1,0 +1,9 @@
+
+if @success
+	page << "$('#account_payable_payment_order_amount,#account_payable_payment_order_amount_withheld_committed').val('#{@total}')"
+	
+else
+	page.show_message_errors(@errors, "message_overlay", nil)
+
+end
+

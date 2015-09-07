@@ -1,0 +1,185 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/1418/trunk/Venom/app/views/backend/cashbank/bank_movements
+END
+_form_total.erb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/1348/trunk/Venom/app/views/backend/cashbank/bank_movements/_form_total.erb
+END
+new_revert.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cashbank/bank_movements/new_revert.rjs
+END
+set_accounting_concept.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cashbank/bank_movements/set_accounting_concept.rjs
+END
+set_bank_movement_operation_type.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/1367/trunk/Venom/app/views/backend/cashbank/bank_movements/set_bank_movement_operation_type.rjs
+END
+index.erb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/1371/trunk/Venom/app/views/backend/cashbank/bank_movements/index.erb
+END
+set_involvement_type.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/1418/trunk/Venom/app/views/backend/cashbank/bank_movements/set_involvement_type.rjs
+END
+update.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/1085/trunk/Venom/app/views/backend/cashbank/bank_movements/update.rjs
+END
+_form_header.erb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/1402/trunk/Venom/app/views/backend/cashbank/bank_movements/_form_header.erb
+END
+_form_retentions.erb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cashbank/bank_movements/_form_retentions.erb
+END
+add_movement_position.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/1367/trunk/Venom/app/views/backend/cashbank/bank_movements/add_movement_position.rjs
+END
+_new_revert.erb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cashbank/bank_movements/_new_revert.erb
+END
+show.erb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/1147/trunk/Venom/app/views/backend/cashbank/bank_movements/show.erb
+END
+_items.erb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/1374/trunk/Venom/app/views/backend/cashbank/bank_movements/_items.erb
+END
+remove_movement_position.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/1367/trunk/Venom/app/views/backend/cashbank/bank_movements/remove_movement_position.rjs
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/1375/trunk/Venom/app/views/backend/cashbank/bank_movements/show.html.erb
+END
+set_bank_accounts_by_criterion.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/1230/trunk/Venom/app/views/backend/cashbank/bank_movements/set_bank_accounts_by_criterion.rjs
+END
+process_movements_by_criterion.erb
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/1257/trunk/Venom/app/views/backend/cashbank/bank_movements/process_movements_by_criterion.erb
+END
+set_movement_to_revert.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cashbank/bank_movements/set_movement_to_revert.rjs
+END
+edit.erb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/1364/trunk/Venom/app/views/backend/cashbank/bank_movements/edit.erb
+END
+movements_by_criterion.erb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/1257/trunk/Venom/app/views/backend/cashbank/bank_movements/movements_by_criterion.erb
+END
+set_check_number.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cashbank/bank_movements/set_check_number.rjs
+END
+set_bank_account.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cashbank/bank_movements/set_bank_account.rjs
+END
+create.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/1085/trunk/Venom/app/views/backend/cashbank/bank_movements/create.rjs
+END
+new.erb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/1186/trunk/Venom/app/views/backend/cashbank/bank_movements/new.erb
+END
+_items_retentions.erb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cashbank/bank_movements/_items_retentions.erb
+END
+_set_movement_to_revert.erb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cashbank/bank_movements/_set_movement_to_revert.erb
+END
+set_reference_document.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/1367/trunk/Venom/app/views/backend/cashbank/bank_movements/set_reference_document.rjs
+END
+revert.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cashbank/bank_movements/revert.rjs
+END
+_form.erb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/1415/trunk/Venom/app/views/backend/cashbank/bank_movements/_form.erb
+END
+_form_items.erb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/1398/trunk/Venom/app/views/backend/cashbank/bank_movements/_form_items.erb
+END

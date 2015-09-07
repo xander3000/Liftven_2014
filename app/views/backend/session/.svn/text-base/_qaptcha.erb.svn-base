@@ -1,0 +1,8 @@
+         <tr>
+           <td>
+              <label>Verificación</label>
+           </td>
+           <td>
+             <div id="QapTcha"></div>
+           </td>
+         </tr>

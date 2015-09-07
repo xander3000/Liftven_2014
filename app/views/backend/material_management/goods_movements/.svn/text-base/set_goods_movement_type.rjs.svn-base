@@ -1,0 +1,10 @@
+page.hide("material_goods_movement_supplier_name_input")
+page << "$('#material_goods_movement_supplier_id,#material_goods_movement_supplier_name').val('')"
+page << "$('#material_goods_movement_material_goods_movement_reason_id').children().remove().end()"
+page << "$('#material_goods_movement_material_goods_movement_reason_id').append(jQuery('<option></option>').val('').html('-- Seleccione --'));"
+page << "$('#new_material_goods_movement input.reset,#new_material_goods_movement select.reset ').val('')"
+page.hide("material_goods_movement_doc_id_input","material_goods_movement_supplier_name_input")
+page.replace_html "items", :text => ""
+@goods_movement_reasons.each do |item|
+    page << "$('#material_goods_movement_material_goods_movement_reason_id').append(jQuery('<option></option>').val('#{item.id}').html('#{item.name}'));"
+  end

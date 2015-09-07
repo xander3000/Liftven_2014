@@ -1,0 +1,7 @@
+page << "$('#material_goods_movement_doc_type').val('')"
+page.replace_html "items", :text => ""
+
+if @goods_movement_reason
+	page << "$('#material_goods_movement_doc_type').val('#{@goods_movement_reason.tag_name}')"
+	page.show("material_goods_movement_doc_id_input")
+end

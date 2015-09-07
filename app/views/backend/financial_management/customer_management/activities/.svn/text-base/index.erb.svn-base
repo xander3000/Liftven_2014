@@ -1,0 +1,52 @@
+<%= include_javascript("jquery.dataTables.min.js") %>
+<%= include_stylesheet("jquery.datatable.css") %>
+
+
+<div class="actionsBar right no-print">
+  <%= link_to(image_tag("icons/arrow_left.png"),backend_cpanel_home_index_url,:class => "button",:title => "Regresar") %>
+  |
+  <%= link_to(image_tag("icons/add.png"),new_backend_financial_management_customer_management_activity_url,:class => "button") %>
+</div>
+<hr/>
+
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="listing" width="100%">
+	<thead>
+		<tr>
+			<th><%= Crm::Activity.human_attribute_name("subject")%> </th>
+			<th><%= Crm::Activity.human_attribute_name("crm_contact")%> </th>
+			<th><%= Crm::Activity.human_attribute_name("related_to")%> </th>
+			<th><%= Crm::Activity.human_attribute_name("assigned_to")%> </th>
+			<th><%= Crm::Activity.human_attribute_name("created_at")%> </th>
+		</tr>
+	</thead>
+	<tbody>
+	  <% @activities.each do |item|  %>
+	  <tr onclick="window.location.href='<%= backend_financial_management_customer_management_activity_url(item) %>'">
+			 <td class="left"><%= item.subject%> </td>
+			 <td class="left"><%= item.crm_contact.name%> </td>
+			 <td class="left"><%= item.related_to.name%> </td>
+			 <td class="left"><%= item.assigned_to.name%> </td>
+			 <td class="left"><%= l item.created_at%> </td>
+		  </tr>
+		<% end %>
+	</tbody>
+</table>
+
+
+
+
+<script type="text/javascript">
+  var oTable;
+
+  $(document).ready(function() {
+		oTable =  $('#listing').dataTable({
+            oLanguage: {
+                sUrl: "/javascripts/i18n/jquery.DataTables-es.txt"
+            }
+        });
+
+  });
+
+
+
+</script>

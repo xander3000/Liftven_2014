@@ -1,0 +1,45 @@
+<% @invoices.each do |invoice| %>
+      <tr>
+        <td class="border-right">
+          <%= invoice.client.contact.fullname %>
+        </td>
+        <td class="border-right">
+          <%= invoice.sub_total.to_currency %>
+        </td>
+        <td class="border-right">
+          <%= invoice.total.to_currency %>
+        </td>
+        <td class="border-right">
+          <%= l invoice.created_at %>
+        </td>
+        <td class="border-right">
+          <%= invoice.payment_method_type.name %>
+        </td>
+        <td class="border-right states">
+          <% state = invoice.actual_tracking_state.state %>
+          <ul>
+            <li class="state_name">
+              <%=  state.name %>
+            </li>
+            <li>
+              <% if invoice.payment_method_type.is_immediately_pay %>
+                    <%= link_to_function(image_tag("/images/icons/accept.png"),nil,:style => "",:class => "",:id => "#{invoice.code}") %>
+              <% else %>
+                <span class="dropDownContainer">
+                      
+                      <%= link_to_function(image_tag(invoice.is_expired? ? "/images/icons/error.png" : "/images/icons/delete_h.png"),nil,:style => "",:class => " dropdown no-selected",:id => "#{invoice.code}") %>
+                        <dd>
+                          <ul class=" ui-widget-content ui-corner-bottom">
+                              <% states = State.all_apply_to_invoices(:not_in => {:key => 'id',:value => state.id})  %>
+                            <% states.each do |state| %>
+                              <li><a id="" href="#" rev="pepe" rel="<%= state.id  %> " accesskey="<%= backend_invoice_change_state_url(invoice) %>"><%= state.name   %></a></li>
+                            <% end %>
+                          </ul>
+                        </dd>
+                 </span>
+              <% end %>
+            </li>
+          </ul>
+        </td>
+      </tr>
+<% end %>

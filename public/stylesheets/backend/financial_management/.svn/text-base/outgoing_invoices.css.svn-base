@@ -1,0 +1,106 @@
+/* 
+    Document   : invoices
+    Created on : 16/08/2011, 06:50:01 AM
+    Author     : gabriel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+@import "../contable_document.css";
+
+.dataTables_length,.dataTables_filter{
+	margin-bottom: 5px;
+}
+
+.dataTables_filter input{
+	 border: 1px solid #C2C2C2;
+    padding: 4px;
+}
+.dataTables_length select {
+	 padding: 4px;
+}
+
+table.display tr.odd td, table.display tr.even td{
+	 padding: 3px 10px;
+	cursor: pointer;
+}
+
+table.display tr th,table.display tr td{
+	 border-left: 1px solid #C2C2C2;
+	 border-right: 1px solid #C2C2C2;
+
+}
+
+#detail_payment_invoice #tabs.ui-widget-content{
+	border: none;
+}
+
+#invoice_only_issue_input label{
+	padding-left: 0;
+}
+
+#invoice_show
+{
+    border: 1px solid #D2D2D2;
+    padding: 10px;
+   color: #808080;
+
+    
+}
+
+
+#invoice_show #letterhead
+{
+    margin: 15px 0;
+}
+
+#invoice_show #letterhead div.subc ul
+{
+    display: block;
+    padding-top: 15px;
+}
+
+#invoice_show #letterhead div.subc li
+{
+    list-style: circle;
+    display: inline-block;
+}
+
+#invoice_show #details
+{
+    border: 1px solid #D2D2D2;
+    padding: 10px;
+    background: #F1F1F1;
+    -moz-border-radius:0 25px 0 25px;
+    -webkit-border-radius:0 25px 0 25px;
+    border-radius: 0 25px 0 25px;
+    
+}
+
+#invoice_show  #details
+{
+    color: #000;
+}
+
+#invoice_show  #details b
+{
+    color: #808080;
+}
+#invoice_show  #details hr
+{
+    border-color: #000;
+}
+
+
+#invoice_show  #details table
+{
+    border: none;
+}
+
+#invoice_show  #details #footer_total
+{
+    margin-top: 5px;
+}

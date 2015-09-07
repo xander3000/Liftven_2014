@@ -1,0 +1,17 @@
+
+<div id="contact_form" class="content_form">
+  <% semantic_fields_for @goods_receipt do |p| %>
+    <% p.inputs "Datos de cabecera" do %>
+		<%= p.input :purchase_order,:as => :string,:input_html => {:size => 10,:class => "right",:name => "goods_receipt[purchase_order_id]"}%>
+		<%= p.input :supplier,:wrapper_html => {:class => "hidden"}%>
+      <%= p.input :supplier,:as => :string,:input_html => {:name => "supplier_name",:readonly => true} %>
+      <%= p.input :create_by,:input_html => {:disabled => "disabled"} %>
+      <%= p.input :posting_date,:as => :string,:input_html => {:disabled => "disabled"}  %>
+    <% end %>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+
+</script>
+

@@ -1,0 +1,221 @@
+<%= include_javascript("jquery.tablesorter.min") %>
+<%= include_javascript("jquery.highcharts.min") %>
+<%= include_stylesheet("jquery.tablesorter") %>
+<%
+  total_unexpired = 0
+  total_warning = 0
+  total_expired = 0
+  count_by_state = {}
+%>
+
+
+
+<div class="internal-block">
+  <h1>Técnicos por Estados</h1>
+  <table id="technicians_by_order_states" class="tablesorter">
+    <thead>
+      <tr>
+        <th class="border-right  left">
+          Técnicos
+        </th>
+        <% @states.each do |state| %>
+        <th class="border-right left">
+          <%= state.name %>
+          <% count_by_state[state.id.to_s] = 0 %>
+        </th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% @technicians_by_states.each do |technician| %>
+      <tr>
+        <td class="border-right">
+          <%= technician[:user].name %>
+        </td>
+        <% technician[:orders].each do |order_state| %>
+        <td class="border-right">
+          <%= order_state[:count]%>
+          <% count_by_state[order_state[:state].id.to_s] += order_state[:count] %>
+        </td>
+        <% end %>
+      </tr>
+      <% end %>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td class="border-right border-top">
+          <i>Total: </i>
+        </td>
+        <% @states.each do |state| %>
+          <td class="border-right border-top">
+           <%= count_by_state[state.id.to_s] %>
+          </td>
+        <% end %>
+
+      </tr>
+    </tfoot>
+  </table>
+</div>
+
+
+<div class="internal-block">
+  <h1>Técnicos por Estatus</h1>
+  <table id="technicians_by_order_status" class="tablesorter">
+    <thead>
+      <tr>
+        <th class="border-right">
+          Técnicos
+        </th>
+        <th class="border-right">
+          Ordenes No Vencidas
+        </th>
+        <th class="border-right">
+          Ordenes por Vencerse
+        </th>
+        <th>
+          Ordenes Vencidas
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @technicians_by_order_status.each do |technician| %>
+      <tr>
+        <td class="border-right">
+          <%= technician[:user].name %>
+        </td>
+        <% unexpired = technician[:orders][:unexpired].size%>
+        <td class="border-right">
+          <%= unexpired %>
+        </td>
+        <% warning =  technician[:orders][:warning].size %>
+        <td class="border-right <%= warning.zero? ? "" : "warning" %>">
+          <%= warning %>
+        </td>
+        <% expired =  technician[:orders][:expired].size %>
+        <td class="<%= expired.zero? ? "" : "expired" %>">
+          <%= expired %>
+        </td>
+      </tr>
+      <%
+        total_unexpired += unexpired
+        total_warning += warning
+        total_expired += expired
+      %>
+      <% end %>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td class="border-right border-top">
+          <i>Total: </i>
+        </td>
+        <td class="border-right border-top">
+          <%=  total_unexpired %>
+        </td>
+        <td class="border-right border-top  <%= total_warning.zero? ? "" : "warning" %>">
+          <%=  total_warning %>
+        </td>
+        <td class=" border-top  <%= total_expired.zero? ? "" : "expired" %>">
+          <%=  total_expired %>
+        </td>
+      </tr>
+    </tfoot>
+
+  </table>
+</div>
+
+
+<% content_for :main_content_block_right do %>
+     <div class="internal-block">
+  <h1>Movimientos de Ordenes y Presupuestos</h1>
+  <div id="container" style="height: 45%; width: 400px"></div>
+</div>
+<% end %>
+
+
+
+
+
+<script type="text/javascript">
+
+
+ var chart;
+ var seriesOptions = [];
+ var categories;
+  $(document).ready(function()
+    {
+     
+		
+		<% if not @technicians_by_states.empty? %>
+			 $("#technicians_by_order_status").tablesorter( {sortList: [[3,1]]});
+      <% end %>
+	 	$.getJSON('<%= backend_budgets_url("json")%>',	function(data) {
+                      loadData(0,data);
+		});
+
+		$.getJSON('<%= backend_orders_url("json")%>',	function(data) {
+				  loadData(1,data);
+					 createChart();
+		});
+
+        function loadData(indice,data){
+            categories = data["CATEGORIES"];
+            seriesOptions[indice] = {
+                name: data["NAME"],
+                data: data["DATA"]
+            };
+        }
+
+	function createChart() {
+          
+                chart = new Highcharts.Chart({
+                      chart: {
+                         renderTo: 'container',
+                         defaultSeriesType: 'line'
+                      },
+                      title: {
+                         text: ''
+                      },
+      /*
+                      subtitle: {
+                         text: 'Source: WorldClimate.com'
+                      },*/
+                      xAxis: {
+                         categories: categories
+                      },
+                      yAxis: {
+                         title: {
+                            text: 'Cantidad'
+                         }
+                      },
+                      /*tooltip: {
+
+                         formatter: function() {
+                            return '<b>'+ this.series.name +'</b><br/>'+
+                               this.x +': '+ this.y +'Â°C';
+                         }
+                      },*/
+                      credits: {
+                         enabled: false
+                      },
+                      plotOptions: {
+                         line: {
+                            dataLabels: {
+                               enabled: true
+                            }
+                         }
+                      },
+                      series: seriesOptions
+		});
+
+	}
+
+
+
+
+});
+
+
+
+
+
+</script>

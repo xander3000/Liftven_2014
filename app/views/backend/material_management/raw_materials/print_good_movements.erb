@@ -1,0 +1,57 @@
+<div>
+  <div id="content_info_voucher">
+	 <div class="subc c55l">
+		<div class="">
+		  <h2><%= COMPANY_NAME %></h2>
+		  <b><%= COMPANY_IDENTIFICATION_DOCUMENT.upcase %></b><br/>
+		</div>
+	 </div>
+	 <div class="subc c40r left">
+		<div class="">
+		  <h2>MOVIMIENTOS DE MATERIAL <%= @raw_material.name.upcase %> </h2>
+		  <b>Hasta la fecha <%= l Time.now  %></b>
+		</div>
+	 </div>
+	 <br/>
+	 <hr/>
+	 <b>Movimientos</b>
+
+<table class="no-border" >
+	<thead>
+		<tr>
+			 <th><%= Material::GoodsMovementPosition.human_attribute_name("id")%> </th>
+			 <th><%= Material::GoodsMovementPosition.human_attribute_name("quantity")%> </th>
+			 <th><%= Material::GoodsMovement.human_attribute_name("base")%> </th>
+			 <th><%= Material::GoodsMovement.human_attribute_name("posting_date")%> </th>
+			 <th><%= Material::GoodsMovement.human_attribute_name("create_by")%> </th>
+			 <th><%= Material::GoodsMovement.human_attribute_name("supplier")%> </th>
+			 <th><%= Material::GoodsMovement.human_attribute_name("material_goods_movement_type")%> </th>
+			 <th><%= Material::GoodsMovement.human_attribute_name("material_goods_movement_reason")%> </th>
+			 <th><%= Material::GoodsMovement.human_attribute_name("doc_type")%> </th>
+			 <th><%= Material::GoodsMovement.human_attribute_name("doc")%> </th>
+		</tr>
+	</thead>
+	<tbody>
+	  <% @raw_material_goods_movement_positions.each do |position|  %>
+			 <%
+				good_movement = position.material_goods_movement
+			 %>
+          <tr>
+				<td class="center"><%= position.id.to_code%> </td>
+				<td class="center"><%= position.quantity.to_currency(false)%> <%= @raw_material.material_order_measure_unit.name  %></td>
+				<td class="center"><%= good_movement.id.to_code%> </td>
+				<td class="center"><%= l  good_movement.posting_date.to_date %> </td>
+				<td class="center"><%= good_movement.create_by.name%> </td>
+				<td class="center"><%= good_movement.supplier.name%> </td>
+				<td class="center"><%= good_movement.material_goods_movement_type.name%> </td>
+				<td class="center"><%= good_movement.material_goods_movement_reason.name%> </td>
+				<td class="center"><%= good_movement.doc.class.model_humanize_name%> </td>
+				<td class="center"><%= good_movement.doc.id.to_code%> </td>
+		  </tr>
+		<% end if @raw_material_goods_movement_positions%>
+	</tbody>
+</table>
+
+
+  </div>
+</div>

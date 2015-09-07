@@ -1,0 +1,55 @@
+<div id="tabs">
+	<ul>
+                <li id="tab-1"><a href="#tabs-1">General</a></li>
+		<li id="tab-2"><a href="#tabs-2">Componentes</a></li>
+                <li id="tab-3"><a href="#tabs-3">Accesorios</a></li>
+                <li id="tab-4"><a href="#tabs-4">Precios</a></li>
+                <li id="tab-5"><a href="#tabs-5">Promociones</a></li>
+	</ul>
+        <div class="css-panes">
+          <div style="display:block"></div>
+        </div>
+	<div id="tabs-1">
+		<%= render :partial => "form_1",:locals => {:f => f} %>
+	</div>
+	<div id="tabs-2">
+		<%= render :partial => "form_2",:locals => {:f => f} %>
+	</div>
+	<div id="tabs-3">
+		<%= render :partial => "form_3",:locals => {:f => f} %>
+	</div>
+        <div id="tabs-4">
+		<%#= render :partial => "form_4",:locals => {:f => f} %>
+	</div>
+        <div id="tabs-5">
+		<%= render :partial => "form_5",:locals => {:f => f} %>
+	</div>
+</div>
+
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+          $("#product_product_type_id").change();
+                $( "#tabs" ).tabs({
+                        select: function(event, ui) {
+                          product_components = new Array();
+                          $('#product_components_input ol li [type=checkbox]').each(function(index) {
+                            if($(this).is(':checked'))
+                              product_components.push($(this).val());
+                          });
+                          $.ajax({
+                            url: '<%= check_product_component_types_backend_products_url%>',
+                            type: 'post',
+                            data: {
+                                product_components_ids: product_components,
+                                product_id: <%= @product.id || 0 %>
+                            }
+                        });
+
+                        }
+                  });
+                $("#tab-4").hide();
+                $("button, input:submit,input:button,a.button ").button();
+	});
+</script>

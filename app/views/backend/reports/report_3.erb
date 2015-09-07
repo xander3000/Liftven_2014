@@ -1,0 +1,108 @@
+<div id="container"></div>
+
+
+<script type="text/javascript">
+  $(function () {
+       var chart;
+    $(document).ready(function() {
+        <%=
+          categories = Time.now.months_since_to_now(6).inspect
+        %>
+
+        var colors = Highcharts.getOptions().colors,
+        categories = <%= categories  %>,
+            name = 'Meses',
+            data = [{
+                    y: 35.11,
+                    color: colors[0]
+                }, {
+                    y: 15.63,
+                    color: colors[1]
+                }, {
+                    y: 11.94,
+                    color: colors[2]
+                }, {
+                    y: 15.15,
+                    color: colors[3]
+                }, {
+                    y: 4.14,
+                    color: colors[4]
+                }, {
+                    y: 16.14,
+                    color: colors[5]
+                }];
+
+     
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'container',
+                type: 'column'
+            },
+
+            title: {
+                text: 'Facturación último semestre'
+            },
+            xAxis: {
+                categories: categories
+            },
+            yAxis: {
+                title: {
+                    text: '% de facturación'
+                }
+            },
+            plotOptions: {
+                column: {
+                    cursor: 'pointer',
+                    point: {
+                        events: {
+                            click: function() {
+                                var drilldown = this.drilldown;
+                                if (drilldown) { // drill down
+                                    setChart(drilldown.name, drilldown.categories, drilldown.data, drilldown.color);
+                                } else { // restore
+                                    setChart(name, categories, data);
+                                }
+                            }
+                        }
+                    },
+                    dataLabels: {
+                        enabled: true,
+                        color: colors[0],
+                        style: {
+                            fontWeight: 'bold'
+                        },
+                        formatter: function() {
+                            return this.y +'%';
+                        }
+                    }
+                }
+            },
+
+            series: [{
+                name: name,
+                data: data,
+                color: 'white'
+            }],
+            exporting: {
+                          buttons:
+                          {
+                             popUpBtn: {
+                               symbol: 'url(<%= image_path("icons/page_excel.png")%>)',
+                                x: -62,
+                                symbolFill: '#B5C9DF',
+                                hoverSymbolFill: '#779ABF',
+                                _titleKey: 'Exportar a Excel',
+                                onclick: function() {
+                                    window.location="<%= export_report_2_backend_reports_url %>";
+                                }
+                              }
+                          }
+
+                }
+        });
+    });
+
+});
+</script>
+
+

@@ -1,0 +1,36 @@
+/* 
+    Document   : state_matrices
+    Created on : 28/08/2011, 05:27:41 PM
+    Author     : gabriel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+#state_matrices{
+    overflow-x: auto;
+    width: 100%;
+}
+
+#state_matrices td.heading{
+    background-color: #FFFFFF;
+    color: #000000;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+}
+
+
+#state_matrices td.heading-item{
+    background: none repeat scroll 0 0 #EBEBEB;
+    border-left: 1px solid #FFFFFF;
+    border-bottom: 1px solid #FFFFFF;
+}
+
+#state_matrices td.item div.input
+{
+    padding: 3px;
+}

@@ -1,0 +1,9 @@
+<li>
+  <a href="#">Banco <%= @bank.name%> <span class="arrow"></span></a>
+  <ul style="width: 200px;">
+      <li><%= link_to "Nuevo",new_backend_cashbank_bank_url%></li>
+      <li class="disabled"><%= link_to "Detalle",backend_cashbank_bank_url(@bank)%></li>
+		 <li type='separator'></li>
+		<li class="disabled"><%= link_to "Cuentas bancarias",backend_cashbank_bank_bank_accounts_url(@bank)%></li>
+  </ul>
+</li>

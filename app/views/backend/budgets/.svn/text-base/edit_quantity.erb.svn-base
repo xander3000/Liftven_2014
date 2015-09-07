@@ -1,0 +1,27 @@
+<div>
+  <% semantic_form_remote_for @budget, :update => "#{controller.controller_name}_container",:url => frontend_budget_url(@budget) do |f| %>
+        <%= render :partial => "form",:locals => {:f => f} %>
+  <%#= submit_tag "EDITAR", :disable_with => "Por favor espere...",:id => "budget-button" %>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+
+  $(document).ready(function(){
+    $("#contact_form input[type='text']").attr("disabled",true);
+    $("#form_items table thead #item_product_form").hide();
+    $("a.external-overlay[rel]").overlay({
+                mask: {
+                        color: '#000',
+                        loadSpeed: 200,
+                        opacity: 0.9
+                },
+                onBeforeLoad: function() {
+                    var wrap = this.getOverlay().find(".contentWrap");
+                    wrap.load(this.getTrigger().attr("href"));
+                }
+      });
+  });
+</script>
+
+     

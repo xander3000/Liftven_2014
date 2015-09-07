@@ -1,0 +1,29 @@
+<% content_for :venom_navigation do %>
+<ul id="venom-primary-links">
+  <li id="venom-overview"><a>Presupuestos</a></li>
+  <li><a>Test</a></li>
+</ul>
+<% end %>
+
+<div class="block info">
+    <div id="" class="description">
+      <h2 class="separator">Define el trabajo</h2>
+    </div>
+    <div id="budget">
+      <% form_remote_for @product_by_budget, :url => add_cart_frontend_budgets_url do  |f| %>
+        <%= render :partial => "form",:locals => {:f => f} %>
+      <p class="right">
+        <%= button_to_remote("Calcular",:url => calculate_frontend_budgets_url,:with => "$('#budget form').serialize()",:html => {:class => "secondary"})  %>
+
+        <%= submit_tag "Agregar al carrito",:class => "secondary",:id => "add_to_cart"  %>
+      </p>
+      <% end %>
+    </div>
+  </div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("form").reset();
+  });
+
+</script>

@@ -1,0 +1,5 @@
+page << "$('#security_permission_config_panel_submodule_id').children().remove().end()";
+page << "$('#security_permission_config_panel_submodule_id').append(jQuery('<option></option>').val(' ').html(' '));"
+@module.config_panel_submodules.each do |item|
+	page << "$('#security_permission_config_panel_submodule_id').append(jQuery('<option></option>').val('#{item.id}').html('#{item.name}'));"
+end

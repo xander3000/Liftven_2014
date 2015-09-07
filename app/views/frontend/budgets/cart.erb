@@ -1,0 +1,34 @@
+<div>
+  <div id="cart" class="c75l subc">
+    <%= render :partial => "cart" %>
+  </div>
+  <div class="c20r subc">
+      <br/>
+      <br/>
+    <div id="order-summary" class="info">
+        <%= render :partial => "order_summary" %>
+        <div id="order_process">
+          <% if payment_method_selected %>
+            <%= link_to_remote "Realizar pedido", :url => frontend_budgets_url,:confirm =>"Se procederá a generar su pedido" , :html => {:class => "submit"} %>
+          <% else %>
+            <%= link_to "Método de pago",select_payment_frontend_budgets_url,:html => {:class => "submit"} %>
+          <% end %>
+        </div>
+        <div id="order_actions">
+          <ul>
+            <li id="order_delete">
+              <p>
+                <%= link_to_function("Eliminar","alert('eliminando')") %>
+              </p>
+            </li>
+            <li class="separator">|</li>
+            <li id="order_print">
+              <p>
+                <%= link_to_function("Imprimir","print()") %>
+              </p>
+            </li>
+          </ul>
+        </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,4 @@
+<ul>
+  <li><a href="#Home"><%= link_to(image_tag("clients/#{PROJECT_NAME}/logos/isotipo2.png"),backend_cpanel_home_index_url())%> </a></li>
+  <li type='separator'></li>
+</ul>

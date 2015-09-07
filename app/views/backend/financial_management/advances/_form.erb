@@ -1,0 +1,31 @@
+<%= render :partial => "form_header",:locals => {:f => f} %>
+
+
+
+<script type="text/javascript">
+
+		   $(document).ready(function(){
+				 $("#accounting_advance_date").datepicker({
+				  changeMonth: true,
+				  dateFormat: 'yy-mm-dd',
+				  minDate: "c-45",
+				  maxDate: "+15",
+				  yearRange: 'c-80:c+30',
+				  beforeShowDay: noWeekendsOrHolidays
+				});
+				
+				$("#accounting_advance_amount").blur( function () {
+				  $("#accounting_advance_balance").val($(this).val())
+				  /*if(!current_balance)
+					 current_balance = 0
+				  balance = parseFloat($("#accounting_advance_balance").val())
+				  amount = parseFloat($("#accounting_advance_amount").val())
+				  if(balance < amount )
+					 alert_error("el monto debe ser menor al balance.")
+				  else
+					 balance = current_balance - amount
+				  $("#accounting_advance_balance").val(balance)*/
+				});
+			});
+
+</script>

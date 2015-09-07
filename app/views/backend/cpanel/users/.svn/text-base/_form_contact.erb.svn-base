@@ -1,0 +1,66 @@
+
+<div id="" class="content_form">
+  <%  semantic_fields_for @contact do |s| %>
+    <% s.inputs "Datos del personal" do %>
+		<%= s.input :identification_document,:input_html  => {:size => 15,:class => "cedula",:title => "V-xxxxxxxxx, completar con ceros (0)"}%>
+                <%= s.input :fullname,:input_html => {:size => 35} %>
+		<hr/>
+		<%= s.input :phone,:input_html => {:size => 35,:class => "phone"} %>
+		<%= s.input :cellphone,:input_html => {:size => 35} %>
+		<%= s.input :email,:input_html => {:size => 25} %>
+		<%= s.input :address,:input_html => {} %>
+    <% end %>
+  <% end %>
+
+</div>
+
+<script type="text/javascript">
+  			$("#payroll_staff_birthday").datepicker({
+          changeMonth: true,
+			 changeYear:true,
+          dateFormat: 'yy-mm-dd',
+			 yearRange: '-65:-18'
+        }).attr("readonly",true);
+
+		   $(document).ready(function(){ // Script del Navegador
+			 		   $(".cedula").blur( function () {
+						  $("#payroll_staff_rif").val('')
+						  $("#payroll_staff_rif_input").append('<%= image_tag "icons/loader.gif",:width => "16"  %>')
+						  $(this).val($(this).val().toUpperCase())
+						  letter_value = {"V" : 1,"E":2};
+						  letter_key = {"1" : "V","2":"E"};
+						  digit_value = [4,3,2,7,6,5,4,3,2];
+						  document_identification = (letter_value[$(this).val()[0]]+$(this).val().substring(2))
+						  
+						  validator_digit = 0;
+						 $.each(document_identification.split(''),function( intIndex, objValue ){
+							validator_digit += digit_value[intIndex]*parseInt(objValue)
+						});
+						validator_digit = 11-validator_digit%11
+						validator_digit = validator_digit > 9 ? 0 : validator_digit;
+						
+						document_identification_c = letter_key[document_identification[0]]+document_identification.substring(1)+validator_digit
+						$.ajax({
+						  type: "POST",
+						  url: "<%= document_identification_lookup_seniat_backend_base_url %>",
+						  data: {doc: document_identification_c},
+						  success:function(result){
+							 $("#payroll_staff_rif_input span").remove()
+							 
+								 if(result.success)
+									$("#payroll_staff_rif").val(letter_key[document_identification[0]]+"-"+document_identification.substring(1)+"-"+validator_digit);
+								 else{
+									$("#payroll_staff_rif_input").append("<span class='red'>"+result.message_error+"</span>")
+									$("#payroll_staff_rif").val("N/P")
+								}
+
+						  }
+						});
+						$("#payroll_staff_rif_input img").remove()
+
+						  //$("#payroll_staff_rif").val();
+						});
+
+			});
+
+</script>

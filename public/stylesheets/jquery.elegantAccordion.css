@@ -1,0 +1,135 @@
+ul.accordion{
+    list-style:none;   
+    font-family: Verdana;
+    font-size: 16px;
+    font-style: italic;
+    line-height: 1.5em;
+}
+ul.accordion > li{
+    float:right;
+    width:115px;
+    height:480px;
+    display:block;
+    border-right:2px solid #fff;
+    border-bottom:2px solid #fff;
+    background-color:#fff;
+    background-repeat:no-repeat;
+    background-position:center center;
+    position:relative;
+    overflow:hidden;
+    cursor:default;
+    -moz-box-shadow:1px 3px 15px #555;
+    -webkit-box-shadow:1px 3px 15px #555;
+    box-shadow:1px 3px 15px #555;
+}
+ul.accordion > li.opacityUp{
+    /*opacity:0.5;*/
+}
+
+ul.accordion > li.bg1{
+    background-image:url(/images/general/portfolio/1.jpg);
+}
+ul.accordion > li.bg2{
+    background-image:url(/images/general/portfolio/2.jpg);
+}
+ul.accordion > li.bg3{
+    background-image:url(/images/general/portfolio/3.jpg);
+}
+ul.accordion > li.bg4{
+    background-image:url(/images/general/portfolio/4.jpg);
+}
+ul.accordion > li.bleft{
+    border-left:2px solid #fff;
+}
+ul.accordion > li .heading{
+    background-color:#fff;
+    padding:10px;
+    margin-top:60px;
+    opacity:0.9;
+    text-transform:uppercase;
+    font-style:normal;
+    font-weight:bold;
+    letter-spacing:1px;
+    font-size:14px;
+    color:#444;
+    text-align:center;
+    text-shadow:-1px -1px 1px #ccc;
+    cursor: pointer;
+}
+ul.accordion > li .description{
+    position:absolute;
+    width:480px;
+    height:200px;
+    height: auto;
+    bottom:0px;
+    left:0px;
+    display:none;
+}
+ul.accordion > li .description h2{
+    text-transform:uppercase;
+    font-style:normal;
+    font-weight:bold;
+    letter-spacing:1px;
+    font-size:35px;
+    color:#444;
+    text-align:left;
+    margin:0px 0px 15px 20px;
+    text-shadow:-1px -1px 1px #ccc;
+}
+ul.accordion > li .description p{
+    line-height:14px;
+    margin:10px 22px;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: normal;
+    text-transform: none;
+    letter-spacing: normal;
+    line-height: 1.6em;
+}
+
+ul.accordion > li .description ul li{
+    margin: 0 0px 0px 5px;
+    width: 100px;
+    display: inline-block;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+ul.accordion > li .description.servicios_varios ul li{
+    width: 150px;
+}
+
+ul.accordion > li .description.gigantografia ul li{
+    width: 170px;
+    width: 150px !important;
+}
+ul.accordion > li .description ul li a{
+    text-decoration: none;
+}
+
+/*
+ul.accordion > li .description a{
+    position:absolute;
+    bottom:5px;
+    left:20px;
+    text-transform:uppercase;
+    font-style:normal;
+    font-size:11px;
+    text-decoration:none;
+    color:#888;
+}
+ul.accordion > li .description a:hover{
+    color:#333;
+    text-decoration:underline;
+}*/
+
+ul.accordion > li .bgDescription{
+    background:transparent url(/images/backgrounds/bg_description.png) repeat-x top left;
+    height:340px;
+    position:absolute;
+    bottom:0px;
+    left:0px;
+    width:100%;
+    display:none;
+}

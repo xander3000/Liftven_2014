@@ -1,0 +1,3 @@
+if @purchase_requisition
+  page.replace_html "items",:partial => "items"
+end

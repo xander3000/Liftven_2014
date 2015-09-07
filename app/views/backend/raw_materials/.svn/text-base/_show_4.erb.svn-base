@@ -1,0 +1,32 @@
+<div>
+  <div class="top-actions ">
+    <%#= link_to_remote(image_tag("icons/table_add.png"), :update => "form_container", :update => "#{controller.controller_name}_container", :url => new_backend_raw_material_url,:html => {:title => "Agregar Materia Prima"}) %>
+    <%#= link_to_remote(image_tag("icons/delete.png"), :url => backend_raw_material_url(@raw_material),:confirm => "¿Está seguro que desea eliminar '#{@raw_material.name}'?",:html => {:title => "Eliminar #{@raw_material.name}"}) %>
+  </div>
+  <hr/>
+  <%= render :partial => "inventories"  %>
+  <br/>
+  <div class="top-actions right">
+    <%= link_to(image_tag("icons/table_add.png"), backend_raw_material_new_inventory_url(@raw_material),:title => "Agregar Inventario",:class => "external-overlay button",:rel => ".overlay") %>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+
+    $(document).ready(function() {
+      $("a.external-overlay[rel]").overlay({
+            mask: {
+                    color: '#000',
+                    loadSpeed: 200,
+                    opacity: 0.9
+            },
+            onBeforeLoad: function() {
+                var wrap = this.getOverlay().find(".contentWrap");
+                wrap.load(this.getTrigger().attr("href"));
+            }
+          });
+  });
+
+
+</script>

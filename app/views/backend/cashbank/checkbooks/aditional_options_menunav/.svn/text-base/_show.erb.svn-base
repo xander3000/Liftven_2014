@@ -1,0 +1,7 @@
+<li>
+  <a href="#">Chequera <%= @checkbook.cash_bank_bank_account.name%> <span class="arrow"></span></a>
+  <ul style="width: 200px;">
+      <li><%= link_to "Nuevo",new_backend_cashbank_checkbook_url%></li>
+      <li class="disabled"><%= link_to "Detalle",backend_cashbank_checkbook_url(@checkbook)%></li>
+  </ul>
+</li>

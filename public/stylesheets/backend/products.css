@@ -1,0 +1,102 @@
+/* 
+    Document   : products
+    Created on : 02/08/2011, 08:42:25 PM
+    Author     : gabriel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+form.formtastic fieldset > ol > li label
+{
+    width: 30%;
+}
+
+#name_image_form
+{
+    margin-bottom: 10px;
+}
+
+#product_image_form
+{
+    border: 1px solid #000;
+    padding: 5px;
+    width: 100px;
+    height: 100px;
+}
+
+#product_name.top
+{
+    margin-top: 9%;
+    max-width: 77%;
+}
+
+#product_min_quantity_page_component_type_input p.inline-hints{
+    margin: 0;
+}
+
+#product_presentation label
+{
+       display: block;
+    float: left;
+    padding-top: 0.2em;
+    width: 79%;
+}
+
+#product_presentation_input label
+{
+  width: 37%;
+}
+
+#product_presentation_input input
+{
+    max-width: 60%;
+}
+
+#product_unit_type_input select
+{
+    
+}
+
+#price_list_product input
+{
+    max-width: 90%;
+}
+
+#price_list_product label{
+    width: 15%
+}
+
+#price_list_product table th,#price_list_product_added table th{
+    text-align: left;
+}
+
+#price_list_product #add_price_list_product
+{
+    background: #f1ad1b url(/images/backgrounds/bg_button2.png)repeat-x scroll 50% 50% ;
+    background: #f1ad1b ;
+    border: 1px solid #D3D3D3;
+}
+#price_list_product #add_price_list_product:hover
+{
+    background: #f18700;
+}
+
+
+#tabs
+{
+    border: 0;
+}
+
+
+  #accordion ul li{
+    padding: 5px;
+    margin-bottom: 5px;
+    width: 130px;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+}

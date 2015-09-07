@@ -1,0 +1,51 @@
+<div>
+  <table frame="border" rules="cols" >
+	 <thead>
+		<tr>
+		  <th>
+			 Codigo
+		  </th>
+		  <th>
+			 Concepto
+		  </th>
+		  <th>
+			 Frecuencia de pago
+		  </th>
+		  <th>
+			 Monto
+		  </th>
+                  <th>
+			 Observación
+		  </th>
+                  <th style="width: 5px;"></th>
+
+
+		</tr>
+	 </thead>
+	 <tbody>
+		<% @payroll_employee.payroll_variable_concepts.each do |variable_concept| %>
+		<tr>
+		  <td>
+			 <%= variable_concept.code %>
+		  </td>
+		  <td>
+			 <%= variable_concept.name %>
+		  </td>
+		  <td>
+			 <%= variable_concept.payroll_payment_frequency.name %>
+		  </td>
+		  <td>
+			 <%= number_to_currency(variable_concept.amount.to_f,:delimiter => ".", :separator => ",", :unit => "Bs") %>
+		  </td>
+		  <td>
+			 <%= variable_concept.note %>
+		  </td>
+                  <td>
+                          <%= link_to_remote(image_tag("icons/delete.png"),:url => backend_human_resource_employee_remove_variable_concept_url(@payroll_employee,variable_concept),:confirm => "¿Desea usted eliminar este concepto del empleado?",:html => {:class => "",:title => "Eliminar"})  %>
+                  </td>
+
+		</tr>
+		<% end %>
+	 </tbody>
+  </table>
+</div>

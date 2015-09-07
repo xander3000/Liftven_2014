@@ -1,0 +1,9 @@
+page << "$('#account_payable_payment_order_accounting_accountant_account_id').children().remove().end()"
+if @success
+		page << "$('#account_payable_payment_order_accounting_accountant_account_id').append(jQuery('<option></option>').val('#{@bank_account.accounting_accountant_account.id}').html('#{@bank_account.accounting_accountant_account.fullname}'));"
+else
+	if @bank_account
+		page.show_errors([@bank_account], "message_overlay", nil)
+	end
+end
+

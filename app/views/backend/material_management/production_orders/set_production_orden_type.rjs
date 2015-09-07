@@ -1,0 +1,9 @@
+page << "$('#material_production_order_proyect_name').children().remove().end()";
+
+if @production_orden_type
+	page.show "material_production_order_proyect_name_input"
+	page << "$('#material_production_order_proyect_name').append(jQuery('<option ></option>').val(' ').html(' '));"
+  ["Ocumare del Tuy","Sra Iliana","CAPEV II","Promotora 2024","Imercom","Carlos Tocuto","Sr. Gabriel"].each do |item|
+    page << "$('#material_production_order_proyect_name').append(jQuery('<option></option>').val('#{item}').html('#{item}'));"
+  end
+end

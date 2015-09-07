@@ -1,0 +1,4 @@
+if @success
+  page.alert(1)
+end
+

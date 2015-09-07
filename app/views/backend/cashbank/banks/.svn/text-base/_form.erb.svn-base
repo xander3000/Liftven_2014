@@ -1,0 +1,9 @@
+
+<div id="" class="content_form">
+	 <br/>
+    <% f.inputs "Información General" do %>
+		<%= f.input :code,:input_html => {:size => 4,:maxlength => 4}%>
+		<%= f.input :name,:input_html => {:size => 20,:class => "uppercase"}%>
+		<%= f.input :fullname,:input_html => {:size => 20,:readonly => true,:class => "uppercase"}%>
+    <% end %>
+</div>

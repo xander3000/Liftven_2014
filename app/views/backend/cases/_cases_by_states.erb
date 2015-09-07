@@ -1,0 +1,72 @@
+<%  @cases.each do |cases_by_state|%>
+      <%= render :partial => "item_by_state",:locals => {:cases_by_state => cases_by_state}%>
+<% end %>
+
+<div class="item">
+    <div class="toolbar">
+      <div class="c70l subc left pagination">
+        <%= link_to "<","",:class => "button" %>
+        <%= link_to ">","",:class => "button" %>
+        <span>1/10</span>
+      </div>
+      <div class="c30r subc right">
+        <h2>
+          <span class="count">(0)</span>
+          &nbsp;
+          <span class="state">Segunda Etapa</span>
+        </h2>
+      </div>
+    </div>
+    <div class="panel_items">
+      <%#  cases_by_state[:paginate].each do |caso|%>
+        <%#= render :partial => "item",:locals => {caso => caso,:item_class => cycle("side-left","side-right")} %>
+      <%# end %>
+    </div>
+    <div class="clearing"></div>
+    <div class="right">
+      <%= link_to image_tag("/images/icons/expand.gif"),"#",:class => "goTop button" %>
+      <%= link_to image_tag("/images/icons/anchor.png"),"#",:class => "goTop button" %>
+    </div>
+    <hr/>
+    <br/>
+    <br/>
+
+</div>
+
+<div class="item">
+    <div class="toolbar">
+      <div class="c70l subc left pagination">
+        <%= link_to "<","",:class => "button" %>
+        <%= link_to ">","",:class => "button" %>
+        <span>1/10</span>
+      </div>
+      <div class="c30r subc right">
+        <h2>
+          <span class="count">(0)</span>
+          &nbsp;
+          <span class="state">Tercera Etapa</span>
+        </h2>
+      </div>
+    </div>
+    <div class="panel_items">
+      <%#  cases_by_state[:paginate].each do |caso|%>
+        <%#= render :partial => "item",:locals => {caso => caso,:item_class => cycle("side-left","side-right")} %>
+      <%# end %>
+    </div>
+    <div class="clearing"></div>
+    <div class="right">
+      <%= link_to image_tag("/images/icons/expand.gif"),"#",:class => "goTop button" %>
+      <%= link_to image_tag("/images/icons/anchor.png"),"#",:class => "goTop button" %>
+    </div>
+    <hr/>
+    <br/>
+    <br/>
+
+</div>
+
+
+<script type="text/javascript">
+      $(document).ready(function(){ // Script del Navegador
+        $("button, input:submit,input:button,a.button ").button();
+      });
+</script>

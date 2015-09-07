@@ -1,0 +1,22 @@
+
+<div id="" class="content_form">
+    <% f.inputs "Información General" do %>
+		<%= f.input :name,:input_html => {:class => "top",:size => 15}%>
+		<%= f.input :cash_bank_bank,:input_html => {}%>
+		<%= f.input :bank_account_type,:input_html => {}%>
+		<%= f.input :accounting_accountant_account_id,:as => :string,:wrapper_html => {:class => "hidden"}%>
+		<%= f.input :accounting_accountant_account_name,:as => :string,:input_html => {:size => 10}%>
+		<%= f.input :number,:input_html => {:size => 21}%>
+		<%= f.input :open_date,:input_html => {}%>
+		<%= f.input :initial_balance,:input_html => {:size => 10}%>
+		<%= f.input :current_balance,:input_html => {:size => 10}%>
+		<%= f.input :used_checkbook,:input_html => {}%>
+    <% end %>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+
+  });
+
+</script>

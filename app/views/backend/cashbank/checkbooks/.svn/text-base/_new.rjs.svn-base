@@ -1,0 +1,1 @@
+page.replace_html "dialog-form", :partial => "new"

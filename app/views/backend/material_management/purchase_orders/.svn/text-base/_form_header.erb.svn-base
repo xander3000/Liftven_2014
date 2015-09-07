@@ -1,0 +1,15 @@
+<div id="contact_form" class="content_form">
+  
+    <% f.inputs "Datos de cabecera" do %>
+      <%= f.input :supplier,:wrapper_html => {:class => "hidden"},:input_html => {:onchange => remote_function(:url => get_quotation_requisition_supplier_backend_material_management_purchase_orders_url,:with => "$(this).serialize()" )}%>
+      <%= f.input :supplier_name,:input_html => {} %>
+      <%= f.input :currency_type %>
+      <%= f.input :create_by,:input_html => {:disabled => "disabled"} %>
+      <%= f.input :posting_date,:as => :string,:input_html => {:disabled => "disabled"}  %>
+    <% end %>
+</div>
+
+<script type="text/javascript">
+
+</script>
+

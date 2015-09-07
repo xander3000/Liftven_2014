@@ -1,0 +1,25 @@
+<%= javascript_include_tag "jquery.lookupSeniat" %>
+
+<%= render :partial => "form_contact",:locals => {:f => f} %>
+<%= render :partial => "form_user",:locals => {:f => f} %>
+
+
+<script type="text/javascript">
+
+		   $(document).ready(function(){
+
+				$("input.blocked").attr("readonly", true).click(function() {
+				    return false;
+				});
+				 $( "#tabs" ).tabs();
+				  $("#contact_identification_document").lookupSeniat({
+					 urlSearch: "<%= document_identification_lookup_seniat_backend_base_url %>",
+					 inputFullname: "contact_fullname",
+					 spinner: '<%= image_tag "icons/loader.gif",:width => "16" %>'
+				  });
+
+
+
+			});
+
+</script>

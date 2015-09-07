@@ -1,0 +1,35 @@
+<div id="detail_incoming_invoice">
+  <div class="headerWrap">
+    <div class="headerWrapContent">
+		<h2>Seleccionar retenciones</h2>
+    </div>
+  </div>
+  <div class="mainWrapContent">
+	   <% semantic_form_remote_for @supplier_withholding_tax, :update => "#{controller.controller_name}_container",:url => add_withholding_tax_backend_financial_management_suppliers_url,:html => {:class => "form_generate"} do |f| %>
+			 <div>
+				<% f.inputs do %>
+				  <%= f.input :accounting_withholding_taxe_type,:collection => @withholding_taxe_types,:wrapper_html => {},:input_html => {} %>
+				  <%= f.input :min_amount,:wrapper_html => {},:input_html => {:class => "amount"} %>
+                                  <%= f.input :subtrahend,:wrapper_html => {},:input_html => {:class => "amount"} %>
+				<% end %>
+	 		 </div>
+		<% end %>
+
+
+  </div>
+
+  <div class="footerWrap">
+    <div class="footerWrapContent right">
+      <%= button_to_function("Añadir", "$(\"#new_supplier_withholding_taxe\").submit()")  %>
+		
+    </div>
+  </div>
+
+</div>
+<script type="text/javascript">
+ 
+  $(document).ready(function(){ // Script del Navegador
+    $("button, input:submit,input:button,a.button ").button();
+	 amount_keypress();
+  });
+</script>

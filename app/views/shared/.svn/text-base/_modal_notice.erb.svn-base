@@ -1,0 +1,25 @@
+<%= include_stylesheet("jquery.overlay_2.css") %>
+<div class="facebox" id="modal-notice">
+
+	<div>
+              <%= messages %>
+		<!-- yes/no buttons -->
+	</div>
+
+</div>
+
+
+<script type="text/javascript">
+   $(document).ready(function(){
+     $("#modal-notice").overlay({
+	
+	mask: {
+		color: '#fff',
+		loadSpeed: 200,
+		opacity: 0.5
+	},
+	closeOnClick: false,
+	load: true
+    });
+ });
+</script>

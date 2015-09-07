@@ -1,0 +1,4 @@
+page << "$('#account_payable_payment_order_control_number').val('')"
+if @checkbook
+	page << "$('#account_payable_payment_order_control_number').val('#{@voucher}')"
+end

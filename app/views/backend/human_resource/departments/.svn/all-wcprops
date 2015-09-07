@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/1186/trunk/Venom/app/views/backend/human_resource/departments
+END
+new.erb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/1186/trunk/Venom/app/views/backend/human_resource/departments/new.erb
+END
+create.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/1131/trunk/Venom/app/views/backend/human_resource/departments/create.rjs
+END
+show.erb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/1186/trunk/Venom/app/views/backend/human_resource/departments/show.erb
+END
+_form.erb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/1131/trunk/Venom/app/views/backend/human_resource/departments/_form.erb
+END
+edit.erb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/1186/trunk/Venom/app/views/backend/human_resource/departments/edit.erb
+END
+index.erb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/1131/trunk/Venom/app/views/backend/human_resource/departments/index.erb
+END
+update.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/1131/trunk/Venom/app/views/backend/human_resource/departments/update.rjs
+END

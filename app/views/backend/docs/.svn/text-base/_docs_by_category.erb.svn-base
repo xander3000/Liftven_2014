@@ -1,0 +1,8 @@
+<%= link_to("Casos",backend_cases_url) %> > <%= link_to("Documentos Nº #{@case.id.to_code("05")}",backend_case_docs_url(@case)) %>
+<br/>
+<br/>
+<div class="block-container-items">
+  <%  @docs.each do |docs_by_category|%>
+		  <%= render :partial => "item_by_category",:locals => {:docs_by_category => docs_by_category}%>
+  <% end %>
+</div>

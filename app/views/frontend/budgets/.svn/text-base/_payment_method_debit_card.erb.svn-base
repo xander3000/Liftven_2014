@@ -1,0 +1,29 @@
+    <div class="subc c25l">
+        <%= image_tag "buttons/credit_debit_card.png" %>
+    </div>
+    <div class="subc c70r">
+      <h2>Tarjetas de crédito o débito</h2>
+      <p id="credit_debit_card_note" class="note"><%= COMPANY_NAME %> acepta tarjetas de crédito Visa o MasterCard de cualquier banco y tarjetas de débito Maestro Mercantil.</p>
+      <div>
+      <fieldset id="credit_debit_card_info" class="hidden form">
+        <legend>Ingrese los datos de su tarjeta de crédito  o débito:</legend>
+        <%= f.radio_button :payment_method_type_id,"1",{:class => "hidden"} %>
+        <ul>
+          <li>
+            <p>
+
+              <%= f.label :transaction_number, f.object.class.human_attribute_name('transaction_number')  %>
+              <%= f.text_field :transaction_number %>
+            </p>
+          </li>
+          <li>
+            <p>
+              <%= f.label :transaction_date, f.object.class.human_attribute_name('transaction_date')  %>
+              <%= f.text_field :transaction_date %>
+            </p>
+          </li>
+
+        </ul>
+      </fieldset>
+      </div>
+    </div>

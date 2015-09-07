@@ -1,0 +1,24 @@
+<div>
+<fieldset class="border">
+  <hr/>
+  <legend>Valor por metro cuadrado (M2)</legend>
+    <div class="panel_header">
+    <div>
+      <br/>
+      <b><%= @value_square_meter_raw_material.class.human_attribute_name("base_value")%>:</b>&nbsp;
+      <%= number_to_currency(@value_square_meter_raw_material.base_value, :delimiter => ".", :separator => ",", :unit => "Bs")  %>
+    </div>
+      <br/>
+  </div>
+</fieldset>
+</div>
+
+
+<script type="text/javascript">
+
+    $(document).ready(function() {
+
+  });
+
+
+</script>

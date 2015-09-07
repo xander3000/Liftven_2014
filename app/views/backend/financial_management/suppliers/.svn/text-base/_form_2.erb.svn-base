@@ -1,0 +1,12 @@
+<div id="" class="content_form">
+  <%  semantic_fields_for @supplier do |s| %>
+    <% s.inputs "Datos bancarios" do %>
+		<%= s.input :bank,:input_html  => {:size => 23}%>
+		<%= s.input :bank_account_number,:input_html  => {:size => 23,:class => "account_number"}%>
+		<%= s.input :bank_account_name,:input_html => {:size => 35} %>
+	 <% end %>
+
+  <% end %>
+
+</div>
+

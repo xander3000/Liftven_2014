@@ -1,0 +1,6 @@
+if @success
+	page.redirect_to backend_cashbank_bank_url(@bank)
+else
+	page.show_errors([@bank], "message_overlay", nil)
+end
+

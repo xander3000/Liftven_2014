@@ -1,0 +1,12 @@
+if @success
+	if @payment_method_type.require_additional_information
+		page << "$('.additional_information').show()"
+	else
+		page << "$('.additional_information').hide()"
+	end
+	if @payment_method_type.is_credit_debit_card?
+		page << "$('.additional_pos_card_terminal_information').show()"
+	else
+		page << "$('.additional_pos_card_terminal_information').hide()"
+	end
+end

@@ -1,0 +1,8 @@
+if @color_mode_type.is_sin_impresion?
+  page << "$('#product_component_id_#{@product_component_type_id}element_type_PrintingType').removeClass('select_price')"
+  page << "$('#PrintingType_icon_#{@product_component_type_id}').hide()"
+else
+  page << "$('#product_component_id_#{@product_component_type_id}element_type_PrintingType').addClass('select_price')"
+  page << "$('#PrintingType_icon_#{@product_component_type_id}').show()"
+end
+

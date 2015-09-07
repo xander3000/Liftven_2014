@@ -1,0 +1,45 @@
+<div id="form_items">
+  <table frame="border" rules="cols" >
+    <thead>
+      <tr>
+        <th class="material">
+          <%= Material::GoodsReceiptPosition.human_attribute_name(:raw_material)%>
+        </th>
+        <th class="quantity">
+          <%= Material::GoodsReceiptPosition.human_attribute_name(:quantity)%>
+        </th>
+
+        <th class="delivery_date">
+          <%= Material::GoodsReceiptPosition.human_attribute_name(:delivery_date)%>
+        </th>
+
+      </tr>
+      <tr id="item_product_form">
+        <td class=" center">
+			 <%= text_field_tag "material_name","",:placeholder => "Ingrese material" %>
+          <%= hidden_field_tag "material_purchase_order_position[material_raw_material_id]","",:class => "" %>
+        </td>
+        <td class="center quantity">
+			 <%= text_field_tag "material_purchase_order_position[quantity]","",:class => "quantity"%>
+        </td>
+
+        <td class="delivery_date">
+			 <%= text_field_tag "material_purchase_order_position[delivery_date]","",:class => "",:size => 5,:readonly => true %>
+        </td>
+        <td class="center">
+          <%#= link_to_remote image_tag("icons/add.png"), :url => add_backend_purchase_orders_url,:with => "$('#item_product_form input, #item_product_form select').serialize()",:html => {:id => "add_product_button",:class => "hidden"} %>
+        </td>
+      </tr>
+    </thead>
+    <tbody id="items">
+      <%= render :partial => "items" %>
+    </tbody>
+  </table>
+</div>
+
+<script type="text/javascript">
+
+	$(document).ready(function(){
+
+	});
+</script>

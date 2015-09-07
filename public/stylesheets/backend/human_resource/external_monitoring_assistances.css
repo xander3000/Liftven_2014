@@ -1,0 +1,202 @@
+/*
+    Document   : monitoring_assistances
+    Created on : 05/07/2014, 11:09:39 PM
+    Author     : gabriel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/*
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+
+
+body{
+    background: #ffffff;
+}
+
+#main
+{
+    border: 0 none;
+    background: #ffffff url(/images/backgrounds/global/bg_login.png) repeat-x ;
+    min-height:  500px;
+    text-align: center;
+}
+
+#main #logo{
+    margin-top: 3px
+}
+
+input.top[type="text"]{
+    color: #A8B2AC;
+    font-size: 2em;
+    letter-spacing: 0;
+	  border: 1px solid #C2C2C2;
+    padding: 4px;
+}
+
+
+
+#main-container{
+   margin-top: 30px;
+}
+
+
+
+#login-box{
+
+    background: none repeat scroll 0 0 #F1F1F1;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+    -moz-box-shadow:1px 1px 4px #666;
+    -webkit-box-shadow:1px 1px 4px #666;
+    box-shadow:1px 1px 4px #666;
+    width: 355px;
+    color: #666666;
+
+}
+
+#document_identification_search{
+	padding: 10px 0 15px 0;
+}
+
+
+div.block-container-items{
+	
+}
+
+h2{
+    color: #666666;
+
+}
+
+
+.block-item{
+	height: 60px;
+	width:  450px;
+}
+
+.block-item-text{
+	 height: 50px;
+}
+
+
+.block-item-text .name_document_identificacion{
+	text-align: left;
+}
+.block-item-text span.name{
+	text-align: left;
+	font-weight: bold;
+	color: #666666;
+	font-size: 1.4em;
+}
+.block-item-text span.document_identificacion, .block-item-text span.location{
+	text-align: left;
+	font-weight: bold;
+	color: #666666;
+	font-size: 0.8em;
+}
+.block-item-text .image_icon{
+	text-align: left;
+}
+
+.block-item-text .image_icon img{
+	-moz-border-radius:50%;
+    -webkit-border-radius:50%;
+    border-radius:50%;
+}
+
+.cntSeparator {
+    color: #000000;
+    font-size: 54px;
+    margin: 10px 7px;
+}
+.desc{
+	margin: 7px 3px;
+}
+
+.accountchooser-card ol li button {
+    border-left: 4px solid transparent;
+}
+.accountchooser-card ol li button, .accountchooser-card ol li .remove-entry {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: transparent;
+    background-image: url("//ssl.gstatic.com/accounts/ui/arrow_right_1x.png");
+    background-origin: padding-box;
+    background-position: 308px center;
+    background-repeat: no-repeat;
+    background-size: 21px 21px;
+    border: 0 none;
+    cursor: pointer;
+    display: block;
+    height: 100%;
+    outline: medium none;
+    padding: 15px 20px;
+    text-align: left;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+button, input[type="button"], input[type="submit"] {
+    font-family: Arial,sans-serif;
+    font-size: 13px;
+}
+.accountchooser-card ol {
+    list-style: none outside none;
+}
+html, body {
+    color: #404040;
+    direction: ltr;
+    font-family: Arial,sans-serif;
+    font-size: 13px;
+}
+html, body {
+    color: #404040;
+    direction: ltr;
+    font-family: Arial,sans-serif;
+    font-size: 13px;
+}
+.desc div {
+    color: #000000;
+    float: left;
+    font-family: Arial;
+    font-size: 13px;
+    font-weight: bold;
+    margin-right: 65px;
+    width: 70px;
+}
+
+
+#login-box label{
+    font-size: 130%;
+}
+
+#login-box table{
+    border: none;
+}
+
+#login-box input[type="text"],input[type="password"]{
+
+    background-color: #FFF;
+    border: 1px solid #C2C2C2;
+    font-size: 16px;
+    padding: 5px 4px 6px 3px;
+    width: 205px;
+}
+
+#login-box input[type="submit"]{
+
+     font-size: 130%;
+}
+
+#login-box div.error{
+    color: red;
+}
+
+
+#login-box #QapTcha {
+    border: none;
+}

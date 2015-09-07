@@ -1,0 +1,33 @@
+<div id="new_delivery_note_form">
+  <div class="headerWrap">
+    <div class="headerWrapContent">
+		<h2>Nota de entrega nº <%= format_code(@delivery_note.code,"05")%> </h2>
+    </div>
+  </div>
+  <div class="mainWrapContent">
+	 <div>
+		<p>
+		  Nombre / Razón Social: <b><%= @budget.client.name %></b><br/>
+		  CI / RIF: <b><%= @budget.client.identification_document %></b><br/>
+		  Dirección: <b><%= @budget.client.address %></b><br/>
+		  Telf: <b><%= @budget.client.phone %></b><br/>
+		  Fecha: <b><%= l Time.now %> </b><br/>
+		</p>
+	 </div>
+	 <div>
+     <% form_layout :container_id => "delivery_note" do %>
+		  <%= render :partial => "form_delivery_note" %>
+      <% end %>
+	 </div>
+  </div>
+  <div class="footerWrap">
+    <div class="footerWrapContent right">
+      <%= button_to_function("Guardar", "$(\"#new_delivery_note\").submit()")  %>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function(){ // Script del Navegador
+    $("button, input:submit,input:button,a.button ").button();
+  });
+</script>

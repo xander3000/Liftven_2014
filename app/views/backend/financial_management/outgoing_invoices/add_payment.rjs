@@ -1,0 +1,6 @@
+if @success
+	page << "$('#new_incoming_invoice_billing').reset()"
+	page.replace_html "incoming_invoice_billings", :partial => "detail_payments"
+else
+	page.alert("No es posible procesar su pago")
+end

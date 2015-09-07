@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/1200/trunk/Venom/app/views/backend/material_management/goods_movements
+END
+_form.erb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/1102/trunk/Venom/app/views/backend/material_management/goods_movements/_form.erb
+END
+_form_items.erb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/material_management/goods_movements/_form_items.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/1186/trunk/Venom/app/views/backend/material_management/goods_movements/show.html.erb
+END
+set_goods_movement_type.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/1102/trunk/Venom/app/views/backend/material_management/goods_movements/set_goods_movement_type.rjs
+END
+index.erb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/1200/trunk/Venom/app/views/backend/material_management/goods_movements/index.erb
+END
+confirm_doc.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/1102/trunk/Venom/app/views/backend/material_management/goods_movements/confirm_doc.rjs
+END
+new.erb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/1186/trunk/Venom/app/views/backend/material_management/goods_movements/new.erb
+END
+create.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/material_management/goods_movements/create.rjs
+END
+_form_header.erb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/1102/trunk/Venom/app/views/backend/material_management/goods_movements/_form_header.erb
+END
+set_goods_movement_reason.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/material_management/goods_movements/set_goods_movement_reason.rjs
+END
+add.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/material_management/goods_movements/add.rjs
+END
+show.erb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/1101/trunk/Venom/app/views/backend/material_management/goods_movements/show.erb
+END
+_items.erb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/material_management/goods_movements/_items.erb
+END

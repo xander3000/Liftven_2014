@@ -1,0 +1,11 @@
+page << "$('#cash_bank_cash_journal_position_cash_bank_cash_journal_position_concept_type_id').children().remove().end()";
+page << "$('#cash_bank_cash_journal_position_cash_bank_cash_journal_position_concept_type_id').append(jQuery('<option></option>').val(' ').html(' '));"
+#page << "$('#cash_bank_cash_journal_position_cash_bank_cash_journal_position_concept_type_id-menu').children().remove().end()";
+#page << "$('#cash_bank_cash_journal_position_cash_bank_cash_journal_position_concept_type_id-menu').append(jQuery(\"<li id='ui-id-#{0}' class='ui-menu-item' tabindex='-1' role='option'></li>\").html(' '));"
+
+if @position_category_type
+		@position_concept_types.each do |item|
+    page << "$('#cash_bank_cash_journal_position_cash_bank_cash_journal_position_concept_type_id').append(jQuery('<option></option>').val('#{item.id}').html('#{item.name}'));"
+	#	page << "$('#cash_bank_cash_journal_position_cash_bank_cash_journal_position_concept_type_id-menu').append(jQuery(\"<li id='ui-id-#{item.id}' class='ui-menu-item' tabindex='-1' role='option'></li>\").html('#{item.name}'));"
+  end
+end

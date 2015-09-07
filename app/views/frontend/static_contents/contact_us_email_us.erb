@@ -1,0 +1,34 @@
+<style type="text/css">
+  .facebox .contentWrap {
+    max-height: 390px;
+  }
+</style>
+
+<div id="contact_us_email_us">
+  <h2>Contacto Venom</h2><br/>
+  <p>Estamos aqu&iacute; para ayudar con cualquier pregunta o comentario. S&iacute; solo queres decir <i>Hola!!</i>, es ch&eacute;vere tambi&eacute;n. </p>
+  <hr/>
+  <br/>
+
+  <p>
+    <label>Nombre</label><br/>
+    <%= text_field_tag "" %>
+  </p>
+  <p>
+    <label>Correo</label><br/>
+    <%= text_field_tag "" %>
+  </p>
+  <p>
+    <label>Asunto</label><br/>
+    <%= text_field_tag "" %>
+  </p>
+  <p>
+    <label>Pregunta / Comentario</label><br/>
+    <%= text_area_tag "","",:size => "27x5" %>
+  </p>
+  <p class="right">
+    <%= button_to_function("Enviar", "alert('Su mensaje fue enviado')")%>
+  </p>
+</div>
+
+  

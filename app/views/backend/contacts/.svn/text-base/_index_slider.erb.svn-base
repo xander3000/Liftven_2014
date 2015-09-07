@@ -1,0 +1,25 @@
+<div class="slider-content">
+  <ul>
+    <% Contact::LETTERS.each do |letter|  %>
+    <div class="slider-content-letter">
+
+
+      <li id="<%= letter %>"><a name="<%= letter %>" class="title"><%= letter.capitalize %></a>
+        <ul>
+          <% @contacts[letter.to_sym].each do |contact| %>
+            <li>
+              <%= link_to_remote contact.fullname,:update => "#{controller.controller_name}_container",:url => backend_contact_url(contact),:method => "get" %>
+            </li>
+          <% end %>
+        </ul>
+      </li>
+      </div>
+    <% end %>
+  </ul>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#slider').sliderNav();
+	});
+</script>

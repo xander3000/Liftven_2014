@@ -1,0 +1,56 @@
+
+
+<div id="tabs">
+	<ul>
+		<li id="tab-1"><a href="#tabs-1">General</a></li>
+		<li id="tab-2"><a href="#tabs-2">Pagos</a></li>
+		<li id="tab-3"><a href="#tabs-3">Retenciones impuestos</a></li>
+		<li id="tab-4" class="hidden"><a href="#tabs-4">Facturación por compras</a></li>
+		<li id="tab-5" class="hidden"><a href="#tabs-5">Cuentas por pagar</a></li>
+		<li id="tab-6" class="hidden"><a href="#tabs-6">Notas de crédito</a></li>
+	</ul>
+
+	<div id="tabs-1">
+		<%= render :partial => "form_1" %>
+	</div>
+	<div id="tabs-2">
+		<%= render :partial => "form_2" %>
+	</div>
+	<div id="tabs-3">
+		<%= render :partial => "form_3",:locals => {:f => f} %>
+	</div>
+	 <div id="tabs-4">
+		<%= render :partial => "show_3",:locals => {:f => f}  if defined? show %>
+	</div>
+	<div id="tabs-5">
+		<%= render :partial => "show_4",:locals => {:f => f}  if defined? show %>
+	</div>
+  <div id="tabs-6" class="">
+	 <%= render :partial => "show_5",:locals => {:f => f} if defined? show %>
+	</div>
+</div>
+
+
+
+<script type="text/javascript">
+
+		   $(document).ready(function(){
+
+				$("input.blocked").attr("readonly", true).click(function() {
+				    return false;
+				});
+				 $( "#tabs" ).tabs();
+				  $("#contact_identification_document").lookupSeniat({
+					 urlSearch: "<%= document_identification_lookup_seniat_backend_base_url %>",
+					 inputFullname: "contact_fullname",
+					 spinner: '<%= image_tag "icons/loader.gif",:width => "16" %>',
+					 inputRateRetention: "supplier_rate_retention",
+					 inputIsTaxpayer: "supplier_is_taxpayer",
+					 inputIsRetentionAgent: "supplier_is_retention_agent"
+				  });
+
+
+
+			});
+
+</script>

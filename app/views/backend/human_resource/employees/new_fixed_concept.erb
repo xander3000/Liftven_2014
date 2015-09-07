@@ -1,0 +1,28 @@
+<div>
+<div class="headerWrap">
+    <div class="headerWrapContent">
+          <h2>Agregar concepto Fijo</h2>
+    </div>
+  </div>
+  <div class="mainWrapContent">
+  <% semantic_form_remote_for @employee_fixed_concept,:url => backend_human_resource_employee_add_fixed_concept_url(@payroll_employee),:html => {:id => "new_payroll_fixed_concept",:class => "form_generate",:method => "post"} do |f| %>
+	 <% f.inputs do%>
+		<%= f.input :amount,:label => false,:input_html => {:placeholder => "Monto",:class => "top",:size => 40} %>
+		<%= f.input :unit,:input_html => {:size => 5}  %>
+		<%= f.input :payroll_concept_personal_type,:collection => @payroll_concept_personal_types %>
+		<%= f.input :payroll_payment_frequency,:input_html => {} %>
+	 <% end %>
+  <% end %>
+  </div>
+<div class="footerWrap">
+    <div class="footerWrapContent right">
+      <%= button_to_function("Agregar", "$(\".form_generate\").submit()",:class => "button")  %>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+      $(document).ready(function(){ // Script del Navegador
+        $("button, input:submit,input:button,a.button ").button();
+      });
+</script>

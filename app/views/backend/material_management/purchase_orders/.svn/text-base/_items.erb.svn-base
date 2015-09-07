@@ -1,0 +1,24 @@
+<% @purchase_order_positions ||= current_purchase_order_positions_objects %>
+<% @purchase_order_positions.each do |purchase_order_position| %>
+
+	 <tr class="item <%= cycle("odd","ever")%> ">
+		<td>
+		  <%= purchase_order_position.material_raw_material.name %>
+		</td>
+		<td>
+		  <%= purchase_order_position.quantity %>
+		</td>
+		<td>
+		  <%= purchase_order_position.material_order_measure_unit.name %>
+		</td>
+		<td>
+		  <%= purchase_order_position.delivery_date %>
+		</td>
+		<td>
+		  <%= number_to_currency(purchase_order_position.sub_total, :delimiter => ".", :separator => ",", :unit => "Bs") %>
+		</td>
+		<td>
+		  <%= number_to_currency(purchase_order_position.total, :delimiter => ".", :separator => ",", :unit => "Bs") %>
+		</td>
+	 </tr>
+<% end %>

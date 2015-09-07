@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/1274/trunk/Venom/test/functional/backend/accountancy
+END
+accountant_accounts_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/592/trunk/Venom/test/functional/backend/accountancy/accountant_accounts_controller_test.rb
+END
+basic_config_accounting_concepts_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/!svn/ver/1274/trunk/Venom/test/functional/backend/accountancy/basic_config_accounting_concepts_controller_test.rb
+END
+accounting_concepts_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/593/trunk/Venom/test/functional/backend/accountancy/accounting_concepts_controller_test.rb
+END

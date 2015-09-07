@@ -1,0 +1,59 @@
+<%= include_javascript("jquery.dataTables.min.js") %>
+<%= include_stylesheet("jquery.datatable.css") %>
+<div class="actionsBar right no-print">
+<%= link_to(image_tag("icons/arrow_left.png"),backend_cpanel_home_index_url,:class => "button",:title => "Regresar") %>
+  |
+<%= link_to(image_tag("icons/add.png"),new_backend_human_resource_position_url,:class => "button",:title => "Agregar nuevo cargo") %>
+  
+
+</div>
+<hr/>
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="positions" width="100%">
+	<thead>
+		<tr>
+		  <th><%= Payroll::Position.human_attribute_name("id")%> </th>
+		  <th><%= Payroll::Position.human_attribute_name("name")%> </th>
+		  <th><%= Payroll::Position.human_attribute_name("full_name")%> </th>
+		  <th><%= Payroll::Position.human_attribute_name("payroll_position_type")%> </th>
+		</tr>
+	</thead>
+	<tbody>
+	  <% @payroll_positions.each do |payroll_position|  %>
+		 <tr  onclick="window.location.href='<%= backend_human_resource_position_url(payroll_position) %>'">
+			<td class="center"><%= payroll_position.id.to_code%> </td>
+			 <td class="center"><%= payroll_position.name%> </td>
+			 <td class="center"><%= payroll_position.full_name%> </td>
+			 <td class="center"><%= payroll_position.payroll_position_type.name%> </td>
+		  </tr>
+		<% end %>
+	</tbody>
+</table>
+
+
+
+
+<script type="text/javascript">
+  var oTable;
+
+  function fnGetSelected(oTableLocal) {
+    var aReturn = new Array();
+    var aTrs = oTableLocal.fnGetNodes();
+
+    for (var i = 0; i < aTrs.length; i++) {
+        if ($(aTrs[i]).hasClass('row_selected')) {
+            aReturn.push(aTrs[i]);
+        }
+    }
+    return aReturn;
+}
+  $(document).ready(function() {
+		oTable =  $('#positions').dataTable({
+            oLanguage: {
+                sUrl: "/javascripts/i18n/jquery.DataTables-es.txt"
+            }
+        });
+  });
+
+
+
+</script>

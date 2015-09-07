@@ -1,0 +1,26 @@
+
+<div id="" class="content_form">
+    <% f.inputs "Datos de cabecera" do %>
+		<%= f.input :period,:input_html  => {:class => "reset",:size => 6,:maxlength => 7,:onblur => remote_function(:url => set_period_backend_cashbank_bank_reconciliations_url,:with => "$(this).serialize()")}%>
+		<%= f.input :initial_date,:input_html  => {:class => "reset",:readonly => true,:size => 15}%>
+		<%= f.input :final_date,:input_html  => {:class => "reset",:readonly => true,:size => 15}%>
+		<%= f.input :cash_bank_bank,:input_html  => {:onchange => remote_function(:url => set_bank_backend_cashbank_bank_reconciliations_url,:with => "$(this).serialize()"),:class => "reset"}%>
+		  <%= f.input :cash_bank_bank_account,:collection => [],:input_html => {:onchange => remote_function(:url => set_bank_account_backend_cashbank_bank_reconciliations_url,:with => "$(this).serialize()+'&bank_reconciliation_period='+$('#cash_bank_bank_reconciliation_period').val()"),:class => " reset"} %>
+		<%= f.input :accounting_accountant_account,:collection => [],:input_html => {:class => "reset"} %>
+		<%= f.input :upload_filename_reconciliation,:as => :hidden %>
+    <% end %>
+
+	 <div class="actionsBar">
+		<div id="filelimit-fine-uploader" style="float: left" class="hidden"></div>
+		<div id="process_reconciliation" class="hidden" style="float: left"><%= link_to_remote(image_tag("icons/cog_go.png"),:url => process_reconciliation_backend_cashbank_bank_reconciliations_url,:with => "$('#cash_bank_bank_reconciliation_period').serialize()+'&bank_account_id='+$('#cash_bank_bank_reconciliation_cash_bank_bank_account_id').val()",:html => {:class => "button"})%></div>
+	 </div>
+	 <div class="clearing"></div>
+  </div>
+
+<div id="uploader-script"></div>
+<script type="text/javascript">
+  $(document).ready(function() {
+	 
+  });
+</script>
+

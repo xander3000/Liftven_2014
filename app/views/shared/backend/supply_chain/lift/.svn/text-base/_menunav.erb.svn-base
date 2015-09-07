@@ -1,0 +1,24 @@
+<ul>
+  <li><a href="#Home"><%= link_to(image_tag("clients/#{PROJECT_NAME}/logos/isotipo2.png"),backend_cpanel_home_index_url())%> </a></li>
+  <li type='separator'></li>
+  <li>
+	 <a href="#">Procesos<span class="arrow"></span></a>
+            <ul style='width: 250px;'>
+              <li>Ingeniería
+                <ul style='width: 220px;'>
+                  <li>Diseño de ascensores
+                    <ul style='width: 220px;'>
+                      <li>
+                        <%= link_to "Listado",backend_supply_chain_lift_material_for_manufacturing_phases_url%>
+                      </li>
+                      <li>
+                        <%= link_to "Nuevo",new_backend_supply_chain_lift_material_for_manufacturing_phase_url%>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+		</li>
+		<%= yield :aditional_options_menunav  %>
+</ul>

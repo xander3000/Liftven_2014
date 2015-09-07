@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/1322/trunk/Venom/app/views/backend/supply_chain/lift/material_for_manufacturing_phases
+END
+delete_lift_material_for_manufacturing_phase.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/!svn/ver/1322/trunk/Venom/app/views/backend/supply_chain/lift/material_for_manufacturing_phases/delete_lift_material_for_manufacturing_phase.rjs
+END
+new_lift_material_for_manufacturing_phase.erb
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/!svn/ver/1322/trunk/Venom/app/views/backend/supply_chain/lift/material_for_manufacturing_phases/new_lift_material_for_manufacturing_phase.erb
+END
+show.erb
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/1322/trunk/Venom/app/views/backend/supply_chain/lift/material_for_manufacturing_phases/show.erb
+END
+_form.erb
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/1322/trunk/Venom/app/views/backend/supply_chain/lift/material_for_manufacturing_phases/_form.erb
+END
+add_lift_material_for_manufacturing_phase.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/!svn/ver/1322/trunk/Venom/app/views/backend/supply_chain/lift/material_for_manufacturing_phases/add_lift_material_for_manufacturing_phase.rjs
+END
+_form_items.erb
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/!svn/ver/1322/trunk/Venom/app/views/backend/supply_chain/lift/material_for_manufacturing_phases/_form_items.erb
+END
+_lift_material_for_manufacturing_phases.erb
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/!svn/ver/1322/trunk/Venom/app/views/backend/supply_chain/lift/material_for_manufacturing_phases/_lift_material_for_manufacturing_phases.erb
+END
+index.erb
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/1322/trunk/Venom/app/views/backend/supply_chain/lift/material_for_manufacturing_phases/index.erb
+END
+new.erb
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/1322/trunk/Venom/app/views/backend/supply_chain/lift/material_for_manufacturing_phases/new.erb
+END
+create.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/1322/trunk/Venom/app/views/backend/supply_chain/lift/material_for_manufacturing_phases/create.rjs
+END
+_form_header.erb
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/1322/trunk/Venom/app/views/backend/supply_chain/lift/material_for_manufacturing_phases/_form_header.erb
+END

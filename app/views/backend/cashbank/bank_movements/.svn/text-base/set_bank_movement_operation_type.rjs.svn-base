@@ -1,0 +1,57 @@
+	page << "$('#cash_bank_bank_movement_position_reference_document_type').children().remove().end()"
+	page << "$('#cash_bank_bank_movement_accounting_accounting_concept_id').children().remove().end()"
+	page << "$('#cash_bank_bank_movement_cash_bank_involvement_type_id,#cash_bank_bank_movement_position_cash_bank_involvement_type_id').children().remove().end()"
+	page << "$('#cash_bank_bank_movement_cash_bank_bank_account_id').children().remove().end()"
+	page << "$('#cash_bank_bank_movement_accounting_accountant_account_id').children().remove().end()"
+	page << "$('#cash_bank_bank_movement_reference_document_type').children().remove().end()"
+	page << "$('#cash_bank_bank_movement_vale,#cash_bank_bank_movement_cash_bank_bank_id').val('')"
+
+	page << "$('#cash_bank_bank_movement_accounting_accounting_concept_id').append(jQuery('<option></option>').val('').html(''));"
+	page << "$('#cash_bank_bank_movement_cash_bank_involvement_type_id,#cash_bank_bank_movement_position_cash_bank_involvement_type_id').append(jQuery('<option></option>').val('').html(''));"
+	page << "$('#cash_bank_bank_movement_position_reference_document_type').append(jQuery('<option></option>').val('').html('')).hide();"
+	page << "$('#cash_bank_bank_movement_position_reference_document_id').hide();"
+	page.show "item_product_form"
+
+	page << "$('#form_retention .like_input,#footer_total .like_input').html('')"
+	page << "$('#form_retention input.reset, #footer_total input.reset').val('0')"
+
+	page.replace_html "items", :text => ""
+
+if @bank_movement_operation_type
+  page.show "item_product_form"
+	@accounting_accounting_concepts.each do |item|
+    page << "$('#cash_bank_bank_movement_accounting_accounting_concept_id').append(jQuery('<option></option>').val('#{item.id}').html('#{item.name}'));"
+  end
+	if @involvement_types.size > 1
+		selected = ""
+	else
+		selected = "selected"
+	end
+	@involvement_types.each do |item|
+    page << "$('#cash_bank_bank_movement_position_cash_bank_involvement_type_id').append(jQuery('<option #{selected}></option>').val('#{item.id}').html('#{item.name}'));"
+  end
+	page << "$('#cash_bank_bank_movement_cash_bank_involvement_type_id,#cash_bank_bank_movement_position_cash_bank_involvement_type_id').change()"
+	if @bank_movement_operation_type.is_debit
+		page << "$('#cash_bank_bank_movement_beneficiary_name,#cash_bank_bank_movement_beneficiary_id').val('').removeAttr('readonly')"
+		
+	else
+		page << "$('#cash_bank_bank_movement_beneficiary_name,#cash_bank_bank_movement_beneficiary_id').val('').attr('readonly',true)"
+		page << "$('#cash_bank_bank_movement_beneficiary_name').val('#{@supplier_owner.name}').attr('readonly',true)"
+		page << "$('#cash_bank_bank_movement_beneficiary_id').val('#{@supplier_owner.id}').attr('readonly',true)"
+	end
+	if @document_reference_types.size > 1
+		selected = ""
+	else
+		selected = "selected"
+	end
+	@document_reference_types.each do |key,value|
+			page << "$('#cash_bank_bank_movement_position_reference_document_type').append(jQuery('<option #{selected}></option>').val('#{value}').html('#{key}'));"
+	end
+
+	if @bank_movement_operation_type.require_check?
+		page << "$('#cash_bank_bank_movement_cash_bank_checkbook_input').show()"
+	else
+		page << "$('#cash_bank_bank_movement_cash_bank_checkbook_input').hide()"
+	end
+end
+

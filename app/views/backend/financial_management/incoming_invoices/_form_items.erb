@@ -1,0 +1,102 @@
+<div id="form_items" class="content_form ">
+  <% f.inputs "Posiciones",:class => "positions " do %>
+  
+    <table frame="border" rules="cols" >
+      <thead>
+        <tr>
+          <th>
+            #
+          </th>
+          <th class="material">
+            <%= AccountPayable::IncomingInvoicePosition.human_attribute_name(:description)%>
+          </th>
+          <th class="material">
+            <%= AccountPayable::IncomingInvoicePosition.human_attribute_name(:material_order_measure_unit)%>
+          </th>
+          <th class="quantity">
+            <%= AccountPayable::IncomingInvoicePosition.human_attribute_name(:quantity)%>
+          </th>
+           <th class="unit_price">
+            <%= AccountPayable::IncomingInvoicePosition.human_attribute_name(:sub_total)%>
+          </th>
+          <th class="unit_price">
+            <%= AccountPayable::IncomingInvoicePosition.human_attribute_name(:taxable)%>
+          </th>
+          <th class="unit_price">
+            <%= AccountPayable::IncomingInvoicePosition.human_attribute_name(:tax)%>
+          </th>
+          <th class="unit_price">
+            <%= AccountPayable::IncomingInvoicePosition.human_attribute_name(:tax_amount)%>
+          </th>
+
+          <th class="total_price" colspan="2">
+            <%= AccountPayable::IncomingInvoicePosition.human_attribute_name(:total)%>
+          </th>
+          
+        </tr>
+        <tr id="item_product_form" class="">
+         <% semantic_fields_for AccountPayable::IncomingInvoicePosition.new do |ivp| %>
+              <td class=" center">
+                  
+              </td>
+              <td class=" center">
+                <%= ivp.input :description,:label => false,:wrapper_html => {:placeholder => "Ingrese material / descripción"}  %>
+                <%= ivp.input :material_raw_material,:label => false,:wrapper_html => {:class => "hidden"}  %>
+              </td>
+              <td class="center unit">
+                <%= ivp.input :material_order_measure_unit,:label => false,:input_html => {:class => "quantity"}%>
+              </td>
+              <td class="center quantity">
+                <%= ivp.input :quantity,:label => false,:input_html => {:class => "quantity amount"}%>
+              </td>
+              <td class="sub_total right">
+                <%= ivp.input :sub_total,:label => false,:input_html => {:class => "right prices amount",:size => 11,:placeholder => "Precio Unitario"}%>
+              </td>
+              <td class="sub_total right">
+                <%= ivp.input :taxable,:label => false,:input_html => {:class => "right prices amount",:size => 11,:readonly => true,:placeholder => "Sub total"}%>
+              </td>
+              <td class="tax right">
+                <%= ivp.input :tax,:label => false,:input_html => {:class => "right prices ",:placeholder => ""}%>
+              </td>
+              <td class="tax right">
+                <%= ivp.input :tax_amount,:label => false,:input_html => {:class => "right prices amount",:size => 11,:readonly => true,:placeholder => "Impuesto"}%>
+              </td>
+
+              <td class="total right">
+                <p id="total_currency" class="like_input hidden"></p>
+                <%= ivp.input :total,:label => false,:input_html => {:placeholder => "Precio total",:readonly => true,:class => "right prices amount",:size => "11"}%>
+              </td>
+              <td class="center" style="width: 24px;">
+                <%= link_to_remote image_tag("icons/add.png"), :url => add_backend_financial_management_incoming_invoices_url,:with => "$('#item_product_form input, #item_product_form select').serialize()",:html => {:id => "add_product_button",:class => "hidden"} %>
+              </td>
+
+          <% end %>
+       </tr>
+      </thead>
+      <tbody id="items">
+        <%= render :partial => "items" %>
+      </tbody>
+    </table>
+  <% end %>
+  <% semantic_fields_for @incoming_invoice do |p| %>
+	<% p.inputs "Datos fiscales",:class => "" do %>
+  		<div id="incoming_invoice_retentions" titles="Retenciones de impuestos">
+			 <%= render :partial => "show_incoming_invoice_retentions" if !@incoming_invoice.retained_amount.zero?  %>
+	  </div>
+  <table>
+	 <tbody id="totals_container">
+		<%= render :partial => "totals" %>
+	 </tbody>
+  </table>
+
+
+	 <% end %>
+  <% end %>
+  
+</div>
+<script type="text/javascript">
+
+	$(document).ready(function(){
+
+	});
+</script>

@@ -1,0 +1,23 @@
+<%= render :partial => "form_header",:locals => {:f => f} %>
+<%= render :partial => "form_items",:locals => {:f => f} %>
+
+
+
+<script type="text/javascript">
+
+  
+		$(document).ready(function(){
+
+
+		  $("#material_goods_receipt_purchase_order").blur( function () {
+			$.ajax({
+                  type: "POST",
+                  url: "<%= confirm_purchase_order_backend_goods_receipts_url %>",
+                  data: {purchase_order_id: $(this).val()}
+          });
+		  });
+
+	
+		  
+	});
+</script>

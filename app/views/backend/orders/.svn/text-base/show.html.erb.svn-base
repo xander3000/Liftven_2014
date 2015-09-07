@@ -1,0 +1,546 @@
+<%= include_javascript("jquery.fn.gantt.js") %>
+<%= include_stylesheet("jquery.gantt.css") %>
+<%
+  caso = @order.caso
+  budget = caso.budget
+  new_notification = caso.has_new_notifications?
+%>
+<div id="details">
+  <div>
+		<div class="c50l subc">
+		  <%= link_to "Volver",backend_orders_url,:class => "buttons"%>
+		  <%  if true or caso.actual_tracking_state.state.is_initial? and not @order.canceled  %>
+			 | <%= link_to_remote("Anular orden",:url => backend_order_cancel_url(@order),:html => {:class => "buttons"},:confirm => "¿Esta seguro que desea anular la orden #{format_code(@order.id,"06")}?") %>
+		  <% end %>
+		  | <%=  link_to("Generar Nota de Entrega ",backend_order_new_delivery_note_url(@order),:class => "external-overlay",:rel => ".overlay")%>
+		  | Detalle de la Orden
+		</div>
+		<div class="c50l subc right">
+		  <%= link_to(image_tag("icons/printer.png"),backend_order_url(@order,"pdf"),:class => "button right",:title =>"Imprimir orden") %>
+		</div>
+  </div>
+  <div class="panel_header">
+
+      <div class="c50l subc">
+        <h2><%= format_code(@order.id,"06") %></h2>
+      </div>
+      <div class="c50l subc right">
+        <div id="change_state">
+          <%= render :partial => "change_state",:locals => {:caso => caso} %>
+        </div>
+      </div>
+      <div>
+        <h2 class="uppercase"><%= @order.client.name%></h2>
+      </div>
+    <div>
+     <b>
+      Asunto
+    </b>
+      <br/>
+      <b class="value"><%= caso.subject %></b>
+    </div>
+
+    <% if budget %>
+      <br/>
+      <div>
+       <b>
+        Presupuesto
+      </b>
+        <br/>
+        <b class="value"><%= format_code(budget.id,"06") %></b>
+      </div>
+    <% end %>
+    <br/>
+    <div>
+     <b>
+      Forma de Pago
+    </b>
+      <br/>
+		
+      <% if budget.with_advance_payment %>
+      <b class="value"><%= budget.payment_method_type.full_name %></b>
+      <% else %>
+      <b class="value">Sin anticipo</b>
+      <% end %>
+    </div>
+    <br/>
+    <div>
+     <b>
+      Fecha y Hora de entrega
+    </b>
+      <br/>
+      <b class="delivery_date <%= "#{@order.actual_status}_order"%> "><%= l caso.budget.delivery_date %> <%= caso.budget.delivery_time %> </b>
+    </div>
+    <br/>
+    <div>
+     <b>
+      Responsable
+    </b>
+      <br/>
+      <b class=""><%= caso.budget.responsible %></b>
+    </div>
+    <br/>
+    <div id="assigned">
+     <b>
+      Asignada a:
+    </b>
+      <br/>
+      <ul>
+            <% caso.actual_trackers(false).each do |tracker| %>
+              <li><%= link_to(tracker.name,backend_order_show_tracker_url(@order,tracker),:class => "external-overlay",:rel => ".overlay") %></li>
+            <% end %>
+      </ul>
+    </div>
+    <br/>
+  </div>
+  <div>
+    <b>Descripción</b><br/>
+    <p>
+      <%= caso.note %>
+    </p>
+  </div>
+  <div id="tracking_states">
+    <div class="panel_header">
+      <h3>Seguimiento de la Orden</h3>
+    </div>
+    <div class="panel_items">
+      <% caso.tracking_states.each do |tracking_state| %>
+        <div class="item">
+          <div class="left c20l subc subcl ">
+            <%= tracking_state.state.name %>
+          </div>
+          <div class="c66r subc subcr">
+            <%= l tracking_state.created_at %>. &nbsp; <%= tracking_state.user.contact.fullname %>.
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="right">
+    <%= link_to image_tag("/images/icons/anchor.png"),"#",:class => "goTop button" %>
+  </div>
+  <div id="docs">
+    <div class="panel_header">
+      <h3>Artefactos asociados</h3>
+    </div>
+    <div class="panel_items">
+      <%= link_to "Presupuesto (#{format_code(caso.budget.id,"06")})",backend_budget_url(budget),:class => "button" if caso.has_budget? %>
+		<%= link_to "Orden de compra (#{format_code(budget.order.id,"06")})",backend_budget_purchase_order_url(budget),:class => "button" %>
+
+		<% if not @delivery_notes.empty? %>
+		  <span style="border: 1px #BABABA solid;padding: 10px 5px; margin-right: 5px;">
+			 <% @order.delivery_notes.each  do |delivery_note| %>
+				<%= link_to "Nota de entrega (#{format_code(delivery_note.id,"06")})",backend_order_show_delivery_note_url(@order,delivery_note),:class => "button", :popup => true%>
+			 <% end %>
+		  </span>
+		<% end %>
+		<%= link_to "Diseño personalizado (#{format_code(caso.digital_card.id,"06")})",backend_order_digital_card_url(@order,caso.digital_card),:class => "button", :popup => true if caso.has_digital_card? %>
+      <%= link_to "Enviar Diseño",backend_order_new_design_url(@order),:class => "button" if caso.can_generate_new_diseno? %>
+      <% if caso.has_design? %>
+        <%= link_to "Diseño (#{format_code(caso.design.id,"06")})",backend_order_show_design_url(@order),:class => "button", :popup => true  %>
+        <%= link_to "Decisión Diseño (#{format_code(caso.design.id,"06")})",backend_order_new_decision_design_url(@order),:class => "button", :popup => true%>
+      <% end %>
+		<%= link_to "Factura (#{format_code(budget.invoice_of_advance_payment.id,"06")}) del anticipo",backend_invoice_url(budget.invoice_of_advance_payment),:class => "button", :popup => true if budget.has_invoice_for_advance_payment? %>
+      <%= link_to "Generar Factura",backend_new_invoice_from_budget_url(caso.budget),:class => "button" if caso.can_generate_new_factura? %>
+		
+      <%= link_to "Factura (#{format_code(caso.invoice.id,"06")})",backend_invoice_url(caso.invoice),:class => "button", :popup => true if caso.has_invoice? %>
+
+    </div>
+  </div>
+  <div class="right">
+    <%= link_to image_tag("/images/icons/anchor.png"),"#",:class => "goTop button" %>
+  </div>
+  <div id="actions_panel" class="hidden">
+    <div class="panel_header">
+      <h3>Acciones</h3>
+    </div>
+    <div class="panel_items">
+		  <div class="item">
+          <div class="left c20l subc subcl ">
+            Cortar
+          </div>
+          <div class="c75r subc ">
+				<div class=" c75l subc ">
+				  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				</div>
+				<div class="c20r subc right">
+				  <%= link_to(image_tag("icons/page_white_acrobat.png"),"/pdfs/ConciliacionBancaria_000001_ExtractoBancario.pdf") %>
+				  
+				  |
+				  <%= link_to(image_tag("icons/page_white_flash.png"),"/pdfs/ConciliacionBancaria_000001_ExtractoBancario.pdf") %>
+				  |
+				  <%= check_box_tag "","" %>
+				</div>
+
+          </div>
+        </div>
+		  <div class="item">
+          <div class="left c20l subc subcl ">
+            Perforar
+          </div>
+          <div class="c75r subc ">
+				<div class=" c75l subc ">
+				  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				</div>
+				<div class="c20r subc right">
+				  <%= link_to(image_tag("icons/page_white_flash.png"),"/pdfs/ConciliacionBancaria_000001_ExtractoBancario.pdf") %>
+				  |
+				  <%= check_box_tag "","" %>
+				</div>
+          </div>
+        </div>
+		  <div class="item">
+          <div class="left c20l subc subcl ">
+            Medir
+          </div>
+          <div class="c75r subc ">
+				<div class=" c75l subc ">
+				  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				</div>
+				<div class="c20r subc right">
+				  <%= link_to(image_tag("icons/page_white_acrobat.png"),"/pdfs/ConciliacionBancaria_000001_ExtractoBancario.pdf") %>
+				  |
+				  <%= check_box_tag "","" %>
+				</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="left c20l subc subcl ">
+            Soldar
+          </div>
+          <div class="c75r subc ">
+				<div class=" c75l subc ">
+				  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				</div>
+				<div class="c20r subc right">
+				  <%= link_to(image_tag("icons/page_white_acrobat.png"),"/pdfs/ConciliacionBancaria_000001_ExtractoBancario.pdf") %>
+				  |
+				  <%= link_to(image_tag("icons/page_white_excel.png"),"/pdfs/ConciliacionBancaria_000001_ExtractoBancario.pdf") %>
+				  |
+				  <%= link_to(image_tag("icons/page_white_flash.png"),"/pdfs/ConciliacionBancaria_000001_ExtractoBancario.pdf") %>
+				  |
+				  <%= check_box_tag "","" %>
+				</div>
+
+          </div>
+        </div>
+        <div class="item">
+          <div class="left c20l subc subcl ">
+            Montar
+          </div>
+          <div class="c75r subc ">
+				<div class=" c75l subc ">
+				  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				</div>
+				<div class="c20r subc right">
+				  <%= link_to(image_tag("icons/page_white_acrobat.png"),"/pdfs/ConciliacionBancaria_000001_ExtractoBancario.pdf") %>
+				  |
+				  <%= link_to(image_tag("icons/page_white_excel.png"),"/pdfs/ConciliacionBancaria_000001_ExtractoBancario.pdf") %>
+				  |
+				  <%= link_to(image_tag("icons/page_white_flash.png"),"/pdfs/ConciliacionBancaria_000001_ExtractoBancario.pdf") %>
+				  |
+				  <%= check_box_tag "","" %>
+				</div>
+
+          </div>
+        </div>
+        <div class="item">
+          <div class="left c20l subc subcl ">
+            Pintar
+          </div>
+          <div class="c75r subc ">
+				<div class=" c75l subc ">
+				  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				</div>
+				<div class="c20r subc right">
+				  <%= link_to(image_tag("icons/page_white_acrobat.png"),"/pdfs/ConciliacionBancaria_000001_ExtractoBancario.pdf") %>
+				  |
+				  <%= link_to(image_tag("icons/page_white_excel.png"),"/pdfs/ConciliacionBancaria_000001_ExtractoBancario.pdf") %>
+				  |
+				  <%= link_to(image_tag("icons/page_white_flash.png"),"/pdfs/ConciliacionBancaria_000001_ExtractoBancario.pdf") %>
+				  |
+				  <%= check_box_tag "","" %>
+				</div>
+
+          </div>
+        </div>
+        <div class="item">
+          <div class="left c20l subc subcl ">
+            Mover
+          </div>
+          <div class="c75r subc ">
+				<div class=" c75l subc ">
+				  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				</div>
+				<div class="c20r subc right">
+				  <%= link_to(image_tag("icons/page_white_acrobat.png"),"/pdfs/ConciliacionBancaria_000001_ExtractoBancario.pdf") %>
+				  |
+				  <%= link_to(image_tag("icons/page_white_excel.png"),"/pdfs/ConciliacionBancaria_000001_ExtractoBancario.pdf") %>
+				  |
+				  <%= link_to(image_tag("icons/page_white_flash.png"),"/pdfs/ConciliacionBancaria_000001_ExtractoBancario.pdf") %>
+				  |
+				  <%= check_box_tag "","" %>
+				</div>
+
+          </div>
+        </div>
+        <div class="item">
+          <div class="left c20l subc subcl ">
+            Limpiar
+          </div>
+          <div class="c75r subc ">
+				<div class=" c75l subc ">
+				  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				</div>
+				<div class="c20r subc right">
+				  <%= link_to(image_tag("icons/page_white_acrobat.png"),"/pdfs/ConciliacionBancaria_000001_ExtractoBancario.pdf") %>
+				  |
+				  <%= link_to(image_tag("icons/page_white_excel.png"),"/pdfs/ConciliacionBancaria_000001_ExtractoBancario.pdf") %>
+				  |
+				  <%= link_to(image_tag("icons/page_white_flash.png"),"/pdfs/ConciliacionBancaria_000001_ExtractoBancario.pdf") %>
+				  |
+				  <%= check_box_tag "","" %>
+				</div>
+
+          </div>
+        </div>
+    </div>
+  </div>
+  <div id="gantt_panel" class="hidden">
+    <div class="panel_header">
+      <h3>Planificación</h3>
+    </div>
+    <div class="panel_items">
+		<div class="gantt"></div>
+    </div>
+  </div>
+  <div class="hidden">
+  <div id="attachments">
+    <div class="panel_header">
+      <h3>Adjuntos</h3>
+    </div>
+    <div class="panel_items">
+      <%= link_to image_tag("/images/icons/page_white_picture.png")+"file_name","#",:class => "button" %>
+      <%= link_to image_tag("/images/icons/page_white_acrobat.png")+"file_name","#",:class => "button" %>
+    </div>
+  </div>
+  <div class="right">
+    <%= link_to image_tag("/images/icons/anchor.png"),"#",:class => "goTop button" %>
+  </div>
+  </div>
+  <div id="notifications">
+    <div class="panel_header">
+      <h3>Listas de Notificaciones</h3>
+    </div>
+    <div class="panel_items">
+      <% caso.notifications.each do |notification| %>
+      <div class="item <%= !notification.read ? "warning":""%>  ">
+        <div class="c80l subc">
+          <h4><%= notification.subject%></h4>
+        </div>
+        <div class="c18r subc right">
+         <%= !notification.read ? "<span class='new'>Nuevo</span>":""%>
+        </div>
+        <p><%= notification.note%> </p>
+        <div class="c80l subc">
+          <%= l notification.created_at%>
+        </div>
+        <div class="c18r subc right">
+          <%= notification.transmitter.name %>
+        </div>
+      </div>
+      <% notification.read_done if !notification.read %>
+      <% end %>
+    </div>
+  </div>
+  <div class="right">
+    <%= link_to image_tag("/images/icons/anchor.png"),"#",:class => "goTop button" %>
+  </div>
+  <div id="comments">
+    <div class="panel_header">
+      <h3>Listas de Comentarios</h3>
+    </div>
+    <div class="panel_items">
+      <% caso.comments.each do |comment| %>
+      <div class="item">
+        <p><%= comment.note%> </p>
+        <div class="c80l subc">
+          <%= l comment.created_at%>
+        </div>
+        <div class="c18r subc right">
+          <%= comment.user.name %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="right">
+    <%= link_to image_tag("/images/icons/comment_add.png"),backend_order_new_comment_url(@order),:class => "external-overlay button",:rel => ".overlay" ,:title => "Agregar comentario" %>
+    <%= link_to image_tag("/images/icons/anchor.png"),"#",:class => "goTop button" %>
+  </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+      <% if flash[:notice] %>
+        $.notifyBar({
+          html: "<%= flash[:notice] %>",
+          delay: 3000,
+          animationSpeed: "normal",
+          cls: "success"
+        });
+      <% end %>
+
+
+      $("a.external-overlay[rel]").overlay({
+            mask: {
+                    color: '#000',
+                    loadSpeed: 200,
+                    opacity: 0.9
+            },
+            onBeforeLoad: function() {
+                var wrap = this.getOverlay().find(".contentWrap");
+                wrap.load(this.getTrigger().attr("href"));
+            }
+          });
+
+
+          $('#notifications div.item.warning').highlightFade({
+            speed:4000,
+            start:'white',
+            end:'#FFCBCB',
+            interval : 500
+
+          });
+
+          $('#notifications div.item.warning span').highlightFade({
+            speed:100000,
+            start:'yellow',
+            interval : 300
+          });
+
+          <% if new_notification %>
+            $('html,body').animate({scrollTop:$('#notifications').offset().top+'px'}, 500);return false;
+          <% end %>
+
+
+				"use strict";
+/*
+			$(".gantt").gantt({
+				source: [{
+					name: "Etapa 1",
+					desc: "Anclajes de cabina",
+					values: [{
+						id: "t01",
+						from: "/Date(1320192000000)/",
+						to: "/Date(1322401600000)/",
+						label: "Requirement Gathering",
+						customClass: "ganttRed"
+					}]
+				},{
+					name: " ",
+					desc: "Anclajes de contrapeso",
+					values: [{
+						id: "t02",
+						from: "/Date(1322611200000)/",
+						to: "/Date(1323302400000)/",
+						label: "Scoping",
+						customClass: "ganttRed",
+						dep: "t01"
+					}]
+				},{
+					name: "Etapa 2",
+					desc: "Amortiguadores/ resortes",
+					values: [{
+						from: "/Date(1323802400000)/",
+						to: "/Date(1325685200000)/",
+						label: "Development",
+						customClass: "ganttGreen"
+					}]
+				},{
+					name: " ",
+					desc: "Anclajes fijación de máquina",
+					values: [{
+						from: "/Date(1325685200000)/",
+						to: "/Date(1325695200000)/",
+						label: "Showcasing",
+						customClass: "ganttBlue"
+					}]
+				},{
+					name: "Etapa 3",
+					desc: "Aceitera de cabina",
+					values: [{
+						from: "/Date(1326785200000)/",
+						to: "/Date(1325785200000)/",
+						label: "Development",
+						customClass: "ganttGreen"
+					}]
+				},{
+					name: " ",
+					desc: "Aceitera de contrapeso",
+					values: [{
+						from: "/Date(1328785200000)/",
+						to: "/Date(1328905200000)/",
+						label: "Showcasing",
+						customClass: "ganttBlue"
+					}]
+				},{
+					name: "Liberación",
+					desc: "Prueba calidad",
+					values: [{
+						from: "/Date(1330011200000)/",
+						to: "/Date(1336611200000)/",
+						label: "Training",
+						customClass: "ganttOrange"
+					}]
+				},{
+					name: " ",
+					desc: "Visita SENCAMER",
+					values: [{
+						from: "/Date(1336611200000)/",
+						to: "/Date(1338711200000)/",
+						label: "Deployment",
+						customClass: "ganttOrange"
+					}]
+				}],
+				navigate: "scroll",
+				scale: "weeks",
+				maxScale: "months",
+				minScale: "days",
+				itemsPerPage: 10,
+				onItemClick: function(data) {
+					alert("Item clicked - show some details");
+				},
+				onAddClick: function(dt, rowId) {
+					alert("Empty space clicked - add an item!");
+				},
+				onRender: function() {
+					if (window.console && typeof console.log === "function") {
+						console.log("chart rendered");
+					}
+				}
+			});
+
+			$(".gantt").popover({
+				selector: ".bar",
+				title: "I'm a popover",
+				content: "And I'm the content of said popover.",
+				trigger: "hover"
+			});
+
+			prettyPrint();
+
+*/
+
+
+
+
+
+
+
+
+
+
+      });
+</script>

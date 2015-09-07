@@ -1,0 +1,48 @@
+<% semantic_fields_for @cash_count_movement do |ccm| %>
+		  <% @cash_count_positions.each do |cash_count_position| %>
+			 <tr class="item <%= cycle("odd","odd")%> ">
+				<td class="center">
+				  <%= cash_count_position.measure_change_denomination.fullname %>
+				</td>
+				<td class="center">
+				  <%=  cash_count_position.quantity %>
+				</td>
+				<td class="right" colspan="2">
+				  
+				  <%= number_to_currency(cash_count_position.total_amount, :delimiter => ".", :separator => ",", :unit => "") %>
+				</td>
+			 </tr>
+			 <% end %>
+		     <tr id="" class="right border-top">
+				<td id="" class="totalizers" colspan="3">
+				  TOTAL
+				</td>
+				<td class="">
+
+					 <%= ccm.input :total_amount_cash,:as => :hidden %>
+				  
+				  <%= number_to_currency(@cash_count_movement.total_amount_cash, :delimiter => ".", :separator => ",", :unit => "") %>
+				</td>
+			 </tr>
+		     <tr id="" class="right ">
+				<td id="" class="totalizers" colspan="3">
+				  DIFERENCIA
+				</td>
+				<td class="">
+				   <%= ccm.input :diference_amount_cash,:as => :hidden %>
+				   <%  diference_amount_cash =  @cash_count_movement.diference_amount_cash >= 0 %>
+				  <b class="<%= diference_amount_cash ? "green" : "red" %>">
+					 <%= diference_amount_cash ? "+" : "" %>
+					 <%= number_to_currency(@cash_count_movement.diference_amount_cash, :delimiter => ".", :separator => ",", :unit => "") %>
+				  </b>
+				</td>
+			 </tr>
+		     <tr id="" class="right">
+				<td id="" class="totalizers" colspan="3">
+				  OBSERVACION
+				</td>
+				<td class="">
+
+				</td>
+			 </tr>
+  <% end %>

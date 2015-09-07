@@ -1,0 +1,10 @@
+<li>
+  <a href="#">Caja menor <span class="arrow"><%= @cash_journal.id.to_code%></span></a>
+  <ul style='width: 250px;'>
+      <li><%= link_to "Nuevo",new_backend_cashbank_cash_journal_url%></li>
+      <li class="disabled"><%= link_to "Detalle",backend_cashbank_cash_journal_url(@cash_journal)%></li>
+      
+      <li type='separator'></li>
+      <li><%= link_to "Arqueo",backend_cashbank_cash_journal_new_cash_journal_count_url(@cash_journal),:class => ""%></li>
+  </ul>
+</li>

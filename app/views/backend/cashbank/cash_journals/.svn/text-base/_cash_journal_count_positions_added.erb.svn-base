@@ -1,0 +1,45 @@
+<% total_amount_counts = 0 %>
+<% semantic_fields_for @cash_journal_count do |cjc| %>
+		  <% @cash_count_journal_positions.each do |cash_count_journal_position| %>
+			 <tr class="item <%= cycle("odd","odd")%> ">
+				<td class="center">
+				  <%= cash_count_journal_position.measure_change_denomination.fullname %>
+				</td>
+				<td class="center">
+				  <%=  cash_count_journal_position.quantity %>
+				</td>
+				<td class="right" colspan="2">
+
+				  <%= number_to_currency(cash_count_journal_position.total_amount, :delimiter => ".", :separator => ",", :unit => "") %>
+				</td>
+			 </tr>
+                         <% total_amount_counts += cash_count_journal_position.total_amount %>
+			 <% end %>
+		     <tr id="" class="right border-top">
+				<td id="" class="totalizers" colspan="3">
+				  TOTAL
+				</td>
+				<td class="">
+
+					 <%= cjc.input :total_amount_count,:as => :hidden %>
+
+				  <%= number_to_currency(@cash_journal_count.total_amount_count, :delimiter => ".", :separator => ",", :unit => "") %>
+				</td>
+			 </tr>
+		     <tr id="" class="right ">
+				<td id="" class="totalizers" colspan="3">
+				  DIFERENCIA
+				</td>
+				<td class="">
+                                  
+					<% difference_amount_count = total_amount_counts + @cash_journal_count.total_amount_register - @cash_journal.opening_balance_amount %>
+				   <%= cjc.input :difference_amount_count,:as => :hidden,:input_html => {:value => difference_amount_count} %>
+				   
+				  <b class="<%= (difference_amount_count >= 0) ? "green" : "red" %>">
+					 <%= (difference_amount_count >= 0) ? "+" : "" %>
+					 <%= number_to_currency(difference_amount_count, :delimiter => ".", :separator => ",", :unit => "") %>
+				  </b>
+				</td>
+			 </tr>
+
+  <% end %>

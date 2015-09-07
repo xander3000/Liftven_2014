@@ -1,0 +1,79 @@
+<% has_a_component_type_with_dimension = @product.has_a_component_type_with_dimension? %>
+<% @product.product_component_types.each do |product_component_type| %>
+
+
+<fieldset>
+  <legend><%= product_component_type.name if @product.product_component_types.size > 1 %> </legend>
+  <% Product.elements_types.each do |element_type|  %>
+    <% elements = @product.elements_by_product_components_type(element_type.to_s, product_component_type)  %>
+    <% if !elements.empty?  %>
+		<p id="<%= "#{element_type.to_s}_#{product_component_type.id}"%>">
+			 <label><%= element_type::HUMANIZE_MODEL_NAME %> </label>
+			 <% if element_type.to_s.eql?(PageSizeType.to_s) %>
+				  <% onchange = remote_function(:url => frontend_budgets_custom_paper_size_url(product_component_type.id),:with => "$(this).serialize()")  %>
+			 <% elsif element_type.to_s.eql?(PaperType.to_s) %>
+				  <% onchange = remote_function(:url => frontend_budgets_custom_paper_type_url(product_component_type.id),:with => "$(this).serialize()")  %>
+			 <% elsif element_type.to_s.eql?(ColorModeType.to_s) %>
+				  <% onchange = remote_function(:url => frontend_budgets_custom_color_mode_type_url(product_component_type.id),:with => "$(this).serialize()")  %>
+			 <% else %>
+				  <% onchange = ""  %>
+			 <% end %>
+			 <%= select "product_component_id[#{product_component_type.id}]", "element_type[#{element_type.to_s}]",options_from_collection_for_select(elements, 'id', 'name'),{:include_blank => true},{:onchange => onchange} %>
+		  </p>
+    <% end %>
+  <% end %>
+  <% if product_component_type.is_multiple? %>
+	 <p>
+		<label>Cant. Tripa</label>
+		<span>
+		  <%= text_field_tag('product_by_budget[quantity_page_sheet]',nil, :title => "#{ProductByBudget.human_attribute_name('quantity_page_sheet')}", :class => "quantity_page_sheet select_price" )  %>
+		</span>
+	 </p>
+  <% end %>
+<% end %>
+
+	 <p>
+		<label>Dimensiones</label>
+      <span id="side_dimensions">
+		  <%= text_field_tag "side_dimension_x",nil,:name => "product_by_budget[side_dimension_x]",:class =>"dimension"    %>
+			 x
+		  <%= text_field_tag "side_dimension_y",nil,:name => "product_by_budget[side_dimension_y]",:class =>"dimension"   %>
+		  <%= hidden_field_tag "page_size_type",0,:class => "select_price dimension" %>
+		</span>
+    </p>
+
+
+
+
+</fieldset>
+<% if @product.has_accesories? %>
+  <fieldset>
+      <label>Accesorios</label>
+    <ul>
+      <% @product.accessories.each do |accessory| %>
+      <li>
+        <span>
+          <%= check_box_tag("accessories_ids[]", accessory.id,nil,:id => "accessories_ids_#{accessory.id}",:class => "select_price") %>
+          <%= label_tag("accessories_ids_#{accessory.id}",accessory.name) %>
+        </span>
+      </li>
+      <% end %>
+    </ul>
+
+  </fieldset>
+
+
+
+<script type="text/javascript">
+
+
+  $(document).ready(function(){
+
+  });
+
+</script>
+
+
+
+<% end %>
+

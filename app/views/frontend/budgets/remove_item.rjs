@@ -1,0 +1,4 @@
+# TODO Operate on the page object
+page.replace_html "cart", :partial => "cart"
+page.replace_html "order-summary", :partial => "order_summary"
+

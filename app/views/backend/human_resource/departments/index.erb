@@ -1,0 +1,57 @@
+<%= include_javascript("jquery.dataTables.min.js") %>
+<%= include_stylesheet("jquery.datatable.css") %>
+<div class="actionsBar right no-print">
+<%= link_to(image_tag("icons/arrow_left.png"),backend_cpanel_home_index_url,:class => "button",:title => "Regresar") %>
+  |
+<%= link_to(image_tag("icons/add.png"),new_backend_human_resource_department_url,:class => "button",:title => "Agregar nuevo departamento") %>
+  
+
+</div>
+<hr/>
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="departments" width="100%">
+	<thead>
+		<tr>
+		  <th><%= Payroll::Department.human_attribute_name("id")%> </th>
+		  <th><%= Payroll::Department.human_attribute_name("tag_name")%> </th>
+		  <th><%= Payroll::Department.human_attribute_name("name")%> </th>
+		</tr>
+	</thead>
+	<tbody>
+	  <% @payroll_departments.each do |payroll_department|  %>
+		 <tr  onclick="window.location.href='<%= backend_human_resource_department_url(payroll_department) %>'">
+			<td class="center"><%= payroll_department.id.to_code%> </td>
+			<td class="center"><%= payroll_department.tag_name%> </td>
+			 <td class="center"><%= payroll_department.name%> </td>
+		  </tr>
+		<% end %>
+	</tbody>
+</table>
+
+
+
+
+<script type="text/javascript">
+  var oTable;
+
+  function fnGetSelected(oTableLocal) {
+    var aReturn = new Array();
+    var aTrs = oTableLocal.fnGetNodes();
+
+    for (var i = 0; i < aTrs.length; i++) {
+        if ($(aTrs[i]).hasClass('row_selected')) {
+            aReturn.push(aTrs[i]);
+        }
+    }
+    return aReturn;
+}
+  $(document).ready(function() {
+		oTable =  $('#departments').dataTable({
+            oLanguage: {
+                sUrl: "/javascripts/i18n/jquery.DataTables-es.txt"
+            }
+        });
+  });
+
+
+
+</script>

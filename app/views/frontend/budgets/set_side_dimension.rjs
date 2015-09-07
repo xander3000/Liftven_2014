@@ -1,0 +1,7 @@
+if @standard_measure
+  page << "$('#product_by_budget_side_dimension_x').val(#{@standard_measure.side_dimension_x})"
+  page << "$('#product_by_budget_side_dimension_y').val(#{@standard_measure.side_dimension_y})"
+else
+  page << "$('#product_by_budget_side_dimension_x').val('')"
+  page << "$('#product_by_budget_side_dimension_y').val('')"
+end

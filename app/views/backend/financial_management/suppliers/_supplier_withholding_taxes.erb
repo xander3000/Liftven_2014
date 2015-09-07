@@ -1,0 +1,66 @@
+<% @supplier_withholding_taxes ||= current_supplier_withholding_taxes %>
+
+
+<% if !@supplier_withholding_taxes.empty? %>
+  <table>
+	 <thead>
+		<tr>
+		  <th><%= SupplierWithholdingTaxe.human_attribute_name("accounting_withholding_taxe_type")%> </th>
+		  <th><%= Accounting::WithholdingTaxeType.human_attribute_name("percentage")%></th>
+		  <th><%= SupplierWithholdingTaxe.human_attribute_name("min_amount")%></th>
+		 
+		</tr>
+	 </thead>
+	 <tbody>
+	 <% @supplier_withholding_taxes.each do |supplier_withholding_tax| %>
+		<tr>
+		  <td class="center"><%= supplier_withholding_tax.accounting_withholding_taxe_type.name %> </td>
+		  <td class="center"><%= supplier_withholding_tax.accounting_withholding_taxe_type.percentage %></td>
+		  <td class="center"><%= supplier_withholding_tax.min_amount.to_f.to_currency(false) %></td>
+		  
+		</tr>
+		<% end %>
+	 </tbody>
+  </table>
+<br/>
+<div class="right">
+  <%= link_to "+  Añadir retenciones de línea",new_withholding_tax_backend_financial_management_suppliers_url,:class => "external-overlay-supplier",:rel=>".overlay"  unless @current_action.eql?("show")%>
+</div>
+<% else %>
+
+<div id="" class="center" style="background-color: #F9F8F8;border: 1px dashed #E3E3E3;color: #137DCF !important; margin-bottom: 12px; padding: 12px 0 12px 9px; text-align: center;">
+  <%= link_to "+  Añadir retenciones de línea",new_withholding_tax_backend_financial_management_suppliers_url,:class => "external-overlay-supplier new_withholding_tax",:rel=>".overlay" unless @current_action.eql?("show") %>
+  <%= "Ningún dato disponible en esta tabla" if @current_action.eql?("show")%>
+</div>
+<% end %>
+
+
+<script type="text/javascript">
+ $(document).ready(function() {
+
+
+			 $("a.external-overlay-supplier").overlay({
+				mask: {
+						  color: '#000',
+						  loadSpeed: 200,
+						  opacity: 0.9
+				},
+				onBeforeLoad: function() {
+					 
+					 var wrap = this.getOverlay().find(".contentWrap");
+					  
+					 identification_document = $("#contact_identification_document").val();
+					 if(identification_document == ""){
+						
+						alert_error("Debe ingresar el Doc. identificación")
+						}
+					 else{
+						identification_document = identification_document[0]
+						wrap.load(this.getTrigger().attr("href")+"?identification_document_type="+identification_document);
+					 }
+				},
+				onLoad:function() {}
+			 });
+  });
+
+</script>

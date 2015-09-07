@@ -1,0 +1,6 @@
+if  @success
+	page.redirect_to backend_material_management_purchase_requisition_url(@purchase_requisition)
+else
+  page.show_errors([@purchase_requisition], "message_overlay", nil)
+end
+

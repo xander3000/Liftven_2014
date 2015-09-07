@@ -1,0 +1,20 @@
+<%= include_javascript("jquery-ui-timepicker-addon.js") %>
+
+<div class="actionsBar right no-print">
+  <%= link_to(image_tag("icons/arrow_left.png"),backend_financial_management_customer_management_meetings_url,:class => "button",:title => "Regresar") %>
+</div>
+<hr/>
+<div>
+  <% semantic_form_remote_for @meeting, :update => "#{controller.controller_name}_container",:url => backend_financial_management_customer_management_meetings_url,:html => {:class => "form_generate"} do |f| %>
+  <div class="">
+	 <%= render :partial => "form",:locals => {:f => f} %>
+  </div>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+	 $(document).ready(function(){
+               $(".crm_meeting input, .crm_meeting select, .crm_meeting textarea").attr("disabled","disabled");
+	});
+
+</script>

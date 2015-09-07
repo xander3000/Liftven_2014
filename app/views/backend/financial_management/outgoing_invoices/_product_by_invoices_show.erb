@@ -1,0 +1,109 @@
+<%
+  sub_total = 0
+  total = 0
+  discount = @invoice.nil?  ? 0 : @invoice.discount.to_f
+  advance_payment = @invoice.nil?  ? 0 : @invoice.advance_payment.to_f
+  tax = @invoice.nil? ? 0 : @invoice.tax
+
+%>
+
+<% @product_by_invoices.each do |item| %>
+  <%
+    sub_total += item.total_price
+  %>
+  <tr class="item ">
+      <td class="code center">
+        <%= item.product_name %>
+      </td>
+      <td class="quantity center">
+        <%= item.quantity %>
+      </td>
+      <td class="description">
+        <%
+           products_components = []
+          if @invoice.nil? or @from_budget
+
+            product_component_by_invoices = @components_by_invoices[item.id_temporal.to_s.to_sym]
+          else
+            product_component_by_invoices = {}
+             item.product_component_by_invoices.each do |product_component_by_invoice|
+                product_component_by_invoices[product_component_by_invoice.product_component_type_id.to_s.to_sym] = [] if product_component_by_invoices[product_component_by_invoice.product_component_type_id.to_s.to_sym].nil?
+                product_component_by_invoices[product_component_by_invoice.product_component_type_id.to_s.to_sym] << product_component_by_invoice
+             end
+          end
+             product_component_by_invoices.each do |product_component_id,product_components|
+                components = []
+                product_component_type = ProductComponentType.find(product_component_id.to_s)
+                product_components.each do |product_component|
+                  components << "#{product_component["element_type"].constantize::HUMANIZE_MODEL_NAME}: #{product_component["element_type"].constantize.find(product_component["element_id"]).name}"
+                end
+                products_components << "<i>#{product_component_type.name}:</i> #{components.join(", ")} "
+             end if product_component_by_invoices
+         %>
+        <%= products_components.join("<br/>")%>
+        <br/>
+        <span>
+          <%= "<i>#{ProductByInvoice.human_attribute_name('quantity_page_sheet')}:</i> #{item.quantity_page_sheet}" if item.quantity_page_sheet %>
+        </span>
+        <br/>
+        <%
+          accesories = []
+          accesories_by_invoices = @invoice.nil? ? @accesories_by_invoices[item.id_temporal.to_s.to_sym] : item.accesory_component_by_invoices
+
+          accesories_by_invoices.each do |accesories_by_invoice|
+            accesories << accesories_by_invoice.accessory_component_type.name
+          end if accesories_by_invoices
+
+        %>
+      <%= "<i>Accesorios:</i> #{accesories.join(", ")} " if not accesories.empty? %>
+      </td>
+      <td class="unit_price right">
+       <%= number_to_currency(item.unit_price, :delimiter => ".", :separator => ",", :unit => "Bs") %>
+      </td>
+      <td  class="total_price right">
+        <%= number_to_currency(item.total_price, :delimiter => ".", :separator => ",", :unit => "Bs") %>
+      </td>
+
+      
+    </tr>
+<% end if @product_by_invoices %>
+  
+   <tr id="footer_total" class="right border-top">
+    <td id="sub-total" class="totalizers" colspan="4">
+      SUB-TOTAL
+    </td>
+    <td class="no-border-right">
+      <%= number_to_currency(sub_total, :delimiter => ".", :separator => ",", :unit => "") %>
+    </td>
+  </tr>
+
+  <tr class="right">
+    <td class="totalizers" colspan="4">
+      IVA <b><%= AppConfig.tax %> %</b>
+		<% tax = ((@invoice.nil? or @invoice.tax.zero?) ? (sub_total*AppConfig.tax/100) : @invoice.tax) %>
+    </td>
+    <td id="tax" class="no-border-right">
+      <%= number_to_currency(tax, :delimiter => ".", :separator => ",", :unit => "") %>
+    </td>
+  </tr>
+
+
+
+
+  <tr id="" class="right">
+    <td id="" class="totalizers " colspan="4">
+      TOTAL
+    </td>
+    <td id="" class="no-border-right border-top">
+		<% total = ((@invoice.nil? or @invoice.total.zero?) ? (tax+sub_total) : @invoice.total) %>
+      <%= number_to_currency(total, :delimiter => ".", :separator => ",", :unit => "") %>
+    </td>
+  </tr>
+
+
+  <script type="text/javascript">
+     $(document).ready(function(){
+
+			
+     });
+  </script>

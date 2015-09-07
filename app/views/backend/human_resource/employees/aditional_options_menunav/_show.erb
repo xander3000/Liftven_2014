@@ -1,0 +1,14 @@
+<li>
+  <a href="#">Empleado<span class="arrow"></span></a>
+  <ul style='width: 250px;'>
+      <li><%= link_to "Nuevo",new_backend_human_resource_employee_url%></li>
+      <li class="disabled"><%= link_to "Detalle",backend_human_resource_employee_url(@payroll_employee)%></li>
+      <li><%= link_to "Editar",edit_backend_human_resource_employee_url(@payroll_employee)%> </li>
+      <li type='separator'></li>
+      <li><%= link_to "Ajuste sueldo",@payroll_employee.is_graduate? ? "#" : backend_human_resource_employee_new_historical_wage_adjustment_url(@payroll_employee),:class => "#{(@payroll_employee.is_graduate? ? 'disabled': 'external-overlay')}",:rel=>".overlay"%></li>
+      <li><%= link_to "Cambio Tipo Personal",@payroll_employee.is_graduate? ? "#" : backend_human_resource_employee_change_personal_type_url(@payroll_employee),:class => "#{(@payroll_employee.is_graduate? ? 'disabled': 'external-overlay')}",:rel=>".overlay"%></li>
+      <li><%= link_to "Egresar",@payroll_employee.is_graduate? ? "#" : backend_human_resource_employee_graduation_url(@payroll_employee),:class => "#{(@payroll_employee.is_graduate? ? 'disabled': 'external-overlay')}",:rel=>".overlay"%></li>
+      <li type='separator'></li>
+      <li><%= link_to "Generar constancia de trabajo",backend_human_resource_employee_proof_employment_url(@payroll_employee)%></li>
+  </ul>
+</li>

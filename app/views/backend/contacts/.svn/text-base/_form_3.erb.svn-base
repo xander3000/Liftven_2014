@@ -1,0 +1,55 @@
+<div>
+	<h3>Clientes</h3>
+	<hr/>
+		<% semantic_fields_for @client do |c| %>
+                  <% c.inputs do %>
+                    <%= c.input :client_type %>
+                    <%= c.input :price_list %>
+                    <%= c.input :client_discount_type %>
+                    <%= c.input :client_reputation_type %>
+                  <% end %>
+                <% end %>
+	<div class="hidden">
+
+
+	<h3>Proveedores</h3>
+	<hr/>
+          <p>
+              <% semantic_fields_for @supplier do |s| %>
+                  <% s.inputs do %>
+                    <%= s.input :person_name_contact %>
+                    <%= s.input :person_phone_contact,:input_html => {:style => "max-width:80px;"} %>
+                  <% end %>
+                <% end %>
+          </p>
+
+
+
+        <h3>Empleado</h3>
+	<hr/>
+          <p>
+            <% semantic_fields_for @employee do |e| %>
+                  <% e.inputs do %>
+                    <%= e.input :in_case_of_emergency_notify %>
+                    <%= e.input :emergency_phone,:input_html => {:style => "max-width:80px;"} %>
+                    <%= e.input :join_date,:as => :string,:input_html => {:style => "max-width:80px;"} %>
+                    <%= e.input :position %>
+                    <%= e.input :salary,:input_html => {:style => "max-width:80px;text- align:right"} %>
+                  <% end %>
+                <% end %>
+          </p>
+  </div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function(){
+          $( "#client_client_discount_type_id" ).after("<span>%</span>");
+          $("#employee_join_date").datepicker({
+              changeMonth: true,
+              changeYear: true,
+              dateFormat: 'yy-mm-dd',
+              maxDate: "-0",
+              minDate: "-8Y"
+
+          });
+	});
+</script>

@@ -1,0 +1,51 @@
+<% if !@product_component_types.empty? %>
+  <div id="accordion">
+    <% @product_component_types.each do |product_component_type| %>
+      <h3><a href="#"><%= product_component_type.name%></a></h3>
+      <div>
+      <ul>
+        <% Product.elements_types.each do |element_type|%>
+          <li class="ui-state-default ui-corner-all">
+            <%= link_to element_type::HUMANIZE_MODEL_NAME, backend_select_element_type_url(product_component_type.id,element_type.to_s),:class => "external-overlay",:rel => ".overlay"  %>
+          </li>
+        <% end %>
+        <% if product_component_type.is_multiple %>
+          <% semantic_fields_for @product do |p| %>
+            <% p.inputs do %>
+            <%= p.input :dossier_type,:label => false,:hint => "Tipo de tripa",:input_html => {} %>
+            <%= p.input :min_quantity_page_component_type,:label => false,:hint => "Cant. pag. mínimas",:input_html => {:size => 5} %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </ul>
+      </div>
+
+    <% end %>
+  </div>
+<% else %>
+  <div class="help-message">
+    <p>Debe seleccionar al menos un <b>Componente</b> seguido de haber seleccionado un Tipo de Producto en la sección General </p>
+  </div>
+<% end %>
+
+
+<style type="text/css">
+
+</style>
+
+<script type="text/javascript">
+	$(function() {
+            $( "#accordion" ).accordion();
+            $("a.external-overlay[rel]").overlay({
+                mask: {
+                        color: '#000',
+                        loadSpeed: 200,
+                        opacity: 0.9
+                },
+                onBeforeLoad: function() {
+                    var wrap = this.getOverlay().find(".contentWrap");
+                    wrap.load(this.getTrigger().attr("href"));
+                }
+              });
+	});
+</script>

@@ -1,0 +1,53 @@
+<%= include_javascript("jquery.dataTables.min.js") %>
+<%= include_stylesheet("jquery.datatable.css") %>
+<div class="actionsBar right no-print">
+  <%= link_to(image_tag("icons/arrow_left.png"),backend_cpanel_home_index_url,:class => "button",:title => "Regresar") %>
+  |
+    <%= link_to(image_tag("icons/add.png"),new_backend_financial_management_credit_note_url,:class => "button") %>
+</div>
+<hr/>
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="credit_notes" width="100%">
+	<thead>
+		<tr>
+			<th><%= CreditNote.human_attribute_name("id")%> </th>
+			<th><%= CreditNote.human_attribute_name("client")%> </th>
+			<th><%= CreditNote.human_attribute_name("invoice")%> </th>
+			<th><%= CreditNote.human_attribute_name("credit_note_emision_type")%> </th>
+			<th><%= CreditNote.human_attribute_name("created_at")%> </th>
+			<th><%= CreditNote.human_attribute_name("administrative_expenses")%> </th>
+			<th><%= CreditNote.human_attribute_name("total")%> </th>
+		</tr>
+	</thead>
+	<tbody>
+	  <% @credit_notes.each do |credit_note|  %>
+		 <tr onclick="window.location.href='<%= backend_financial_management_credit_note_url(credit_note) %>'">
+			 <td class="left"><%=  format_code(credit_note.id,"05")%> </td>
+			 <td class="left"><%= credit_note.client.name%></td>
+			 <td class="left"><%= format_code(credit_note.invoice.id,"06")%></td>
+			 <td class="left"><%= credit_note.credit_note_emision_type.name%></td>
+			 <td class="center"><%= credit_note.created_at.to_date%></td>
+			 <td class="right"><%=  number_to_currency(credit_note.administrative_expenses , :delimiter => ".", :separator => ",", :unit => "")%></td>
+			 <td class="right"><%=  number_to_currency(credit_note.total, :delimiter => ".", :separator => ",", :unit => "")%></td>
+		  </tr>
+		<% end %>
+	</tbody>
+</table>
+
+
+
+
+<script type="text/javascript">
+  var oTable;
+
+  $(document).ready(function() {
+		oTable =  $('#credit_notes').dataTable({
+            oLanguage: {
+                sUrl: "/javascripts/i18n/jquery.DataTables-es.txt"
+            }
+        });
+	
+  });
+
+
+
+</script>

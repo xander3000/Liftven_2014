@@ -1,0 +1,59 @@
+<% contact = @tracker.category.contact  %>
+<div>
+  <div class="headerWrap">
+    <div class="headerWrapContent">
+      <h2>Gestión al seguidor  </h2>
+    </div>
+  </div>
+  <div class="mainWrapContent">
+     <div class="">
+          <div>
+            <h2 class="uppercase"><%= contact.fullname %></h2>
+          </div>
+        <% if current_user.has_permission?("orders_backend") %>
+         <div>
+           <br/>
+            <b>Reasignar pedido</b>&nbsp;
+            <%= format_code(@order.id,"05") %>
+            <b>a: </b>
+            <%= select "user","id", @trackers.collect {|p| [ p.name, p.id ] }, {:prompt => '-- Seleccione Personal --'},:onchange => remote_function(:url => backend_order_reassign_tracker_url(@order,@tracker),:with => "jQuery(this).serialize()",:confirm => "¿Esta seguro de reasignar este pedido?")   %>
+         </div>
+       <% end %>
+        <div>
+         <br/>
+          <b>Número de Pedidos asignados:</b>&nbsp;
+          <%= @tracker.category.assigned_orders %>
+       </div>
+       <hr/>
+       <% if contact.is_employee?  %>
+        <div>
+          <br/>
+          <b>Cargo:</b>&nbsp;
+          <% position = contact.employee.position   %>
+          <%= position ? position.name : "No asigando"  %>
+        </div>
+       <% end %>
+        <div>
+          <br/>
+          <b>Teléfono(s):</b>&nbsp;
+          <%= contact.phone %>
+        </div>
+        <div>
+          <br/>
+          <b>Celular(es):</b>&nbsp;
+          <%= contact.cellphone %>
+        </div>
+        <div>
+          <br/>
+          <b>Correo Electrónico:</b>&nbsp;
+          <%= mail_to contact.email, contact.email %>
+        </div>
+
+     </div>
+  </div>
+  <div class="footerWrap">
+    <div class="footerWrapContent right">
+      
+    </div>
+  </div>
+</div>

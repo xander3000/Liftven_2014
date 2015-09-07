@@ -1,0 +1,293 @@
+ActionController::Routing::Routes.draw do |map|
+  # The priority is based upon order of creation: first created -> highest priority.
+
+  # Sample of regular route:
+  #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'
+  # Keep in mind you can assign values other than :controller and :action
+
+  # Sample of named route:
+  #   map.purchase 'products/:id/purchase', :controller => 'catalog', :action => 'purchase'
+  # This route can be invoked with purchase_url(:id => product.id)
+
+  # Sample resource route (maps HTTP verbs to controller actions automatically):
+  #   map.resources :products
+
+  # Sample resource route with options:
+  #   map.resources :products, :member => { :short => :get, :toggle => :post }, :collection => { :sold => :get }
+
+  # Sample resource route with sub-resources:
+  #   map.resources :products, :has_many => [ :comments, :sales ], :has_one => :seller
+  
+  # Sample resource route with more complex sub-resources
+  #   map.resources :products do |products|
+  #     products.resources :comments
+  #     products.resources :sales, :collection => { :recent => :get }
+  #   end
+
+  
+   map.namespace :frontend do |frontend|
+      frontend.resources :aboutus
+      frontend.resources :budgets,:collection => {:select_payment => :get,:payment => :post,:find_products_by_material => :post,:find_product_components_by_product => :post,:set_side_dimension => :post,:add_cart => :post,:calculate => :post,:cart => :get,:remove_item => :post,:paginate => :post} do |budget|
+				frontend.budgets_custom_paper_size 'budgets/product_component_type/:product_component_type/custom_paper_size/',:controller => 'budgets',:action => 'custom_paper_size'
+				frontend.budgets_custom_paper_type 'budgets/product_component_type/:product_component_type/custom_paper_type/',:controller => 'budgets',:action => 'custom_paper_type'
+				frontend.budgets_custom_color_mode_type 'budgets/product_component_type/:product_component_type/custom_color_mode_type/',:controller => 'budgets',:action => 'custom_color_mode_type'
+      end
+
+      frontend.find_products_by_category 'budgets/find_products_by_category/:finished_product_category_type_id/',:controller => 'budgets',:action => 'find_products_by_category'
+      frontend.custom_paper_size 'budgets/product_component_type/:product_component_type/custom_paper_size/',:controller => 'budgets',:action => 'custom_paper_size'
+      frontend.custom_paper_type 'budgets/product_component_type/:product_component_type/custom_paper_type/',:controller => 'budgets',:action => 'custom_paper_type'
+      frontend.new_with_digital_card_budgets 'budgets/new_with_digital/:id_temporal', :controller => 'budgets', :action => 'new_with_digital_card'
+      frontend.resources :contacts,:collection => {}
+      frontend.resources :designs,:collection => {:set_type_design => :post,:set_model_design => :post,:preview => :post,:select_digital_card => :post,:new_2 => :get,:model_design_preview => :get,:model_design_preview_2 => :get,:form_step_1_categories => :get}
+      frontend.wizard_designs 'designs/wizard', :controller => 'designs', :action => 'wizard'
+      #frontend.wizard_step_designs 'designs/wizard_step/step_number/:step_number/step_key/:step_key/step_value/:step_value', :controller => 'designs', :action => 'wizard_step'
+      frontend.wizard_step_designs 'designs/wizard_step/', :controller => 'designs', :action => 'wizard_step'
+      frontend.resources :home
+      frontend.resources :orders,:collection => {:paginate => :post}  do |order|
+        order.new_decision_design "nueva_decision_diseno",:controller => "orders",:action => :new_decision_design, :conditions => { :method => :get }
+        order.discard_design "rechazar_diseno",:controller => "orders",:action => :discard_design, :conditions => { :method => :post }
+        order.accept_design "aceptar_diseno/:code_design/archivo/:code_multimedia_file",:controller => "orders",:action => :accept_design, :conditions => { :method => :post }
+      end
+      frontend.resources :products
+      frontend.resources :session, :collection => {:qaptcha => :post}
+      frontend.resources :users
+      frontend.about_us  'static_content/about_us',:controller => 'static_contents',:action => 'about_us'
+      frontend.contact_us  'static_content/contact_us',:controller => 'static_contents',:action => 'contact_us'
+      frontend.contact_us_email_us  'static_content/contact_us_email_us',:controller => 'static_contents',:action => 'contact_us_email_us'
+      frontend.jobs  'static_content/jobs',:controller => 'static_contents',:action => 'jobs'
+      frontend.portfolio  'static_content/portfolio',:controller => 'static_contents',:action => 'portfolio'
+      frontend.price_list  'static_content/price_list',:controller => 'static_contents',:action => 'price_list'
+      frontend.services  'static_content/services',:controller => 'static_contents',:action => 'services'
+
+   end
+   
+   map.namespace :backend do |backend|
+		 backend.resources :base,:collection => {:document_identification_lookup_seniat => :post}
+     backend.new_invoice_from_budget 'presupuesto/:budget_id/nueva_factura', :controller => 'invoices', :action => 'new_invoice_from_budget'
+     backend.resources :budgets,:collection => {:find_product_components_by_product => :post,:add_product => :post,:set_current_client => :post,:remove_product => :post,:add_discount => :post,:get_additional_payment_method_information => :post,:search => :post} do |budget|
+       budget.order_generate "procesar_presupuesto",:controller => "budgets",:action => "order_generate", :conditions => { :method => :post }
+       budget.edit_quantity 'editar_cantidad',:controller => "budgets",:action => "edit_quantity",:conditions => { :method => :get }
+       budget.update_quantity 'actualizar_cantidad/:product_by_budget_id',:controller => "budgets",:action => "update_quantity",:conditions => { :method => :post }
+       budget.show_product_by_budget 'mostrar_producto_por_presupuesto/:product_by_budget_id',:controller => "budgets",:action => "show_product_by_budget",:conditions => { :method => :get }
+       backend.budgets_custom_paper_size 'budgets/product_component_type/:product_component_type/custom_paper_size/',:controller => 'budgets',:action => 'custom_paper_size'
+       backend.budgets_custom_paper_type 'budgets/product_component_type/:product_component_type/custom_paper_type/',:controller => 'budgets',:action => 'custom_paper_type'
+       backend.budgets_custom_color_mode_type 'budgets/product_component_type/:product_component_type/custom_color_mode_type/',:controller => 'budgets',:action => 'custom_color_mode_type'
+			 budget.purchase_order "imprimir_orden_compra",:controller => "budgets",:action => "purchase_order", :conditions => { :method => :get}
+     end
+     backend.resources :contacts,:collection => {:autocomplete_by_client_name => :get,:autocomplete_by_client_identification => :get,:autocomplete_by_supplier_name => :get,:select_list => :post,:autocomplete_by_contact_name => :get}
+		 backend.resources :cases do |caso|
+			 caso.resources :docs
+		 end
+     
+     backend.namespace :web_design do |web_design|
+         web_design.resources :base
+				 web_design.resources :custom_designs,:collection => {:upload => :post,:delete_prev => :post,:select_multimedia_file_by_type_design => :post,:set_category_design => :post,:add_custom_design_category_type => :get,:process_add_custom_design_category_type => :post}
+         web_design.resources :home_page_slides,:collection => {:upload => :post,:delete_prev => :post}
+				 web_design.resources :portfolios,:collection => {:upload => :post,:delete_prev => :post}
+			 end
+		 
+     backend.namespace :cpanel do |cpanel|
+       cpanel.resources :additional_component_types#,:collection => {:add_state_matrices => :post}
+			 cpanel.resources :accessory_component_types
+			 cpanel.resources :modules
+			 cpanel.resources :submodules
+       cpanel.resources :raw_material_price_definition_set_color_by_components
+       cpanel.resources :raw_material_price_definition_set_black_by_components
+			 cpanel.resources :price_list_component_accesories
+			 cpanel.resources :state_matrices,:collection => {:add_state_matrices => :post}
+       cpanel.resources :digital_cards
+			 cpanel.resources :home
+			 cpanel.resources :users
+       cpanel.resources :roles,:collection => {:search_actions_controller => :post} do |role|
+         role.new_permission 'new_permission',:controller => "roles",:action => "new_permission", :conditions => { :method => :get }
+         role.add_permission 'add_permission',:controller => "roles",:action => "add_permission", :conditions => { :method => :post }
+         role.remove_permission 'remove_permission/:permission_id',:controller => "roles",:action => "remove_permission", :conditions => { :method => :post }
+       end
+       cpanel.resources :permissions
+			 cpanel.namespace :web_page do |web_page|
+				 web_page.resources :custom_designs,:collection => {:upload => :post,:delete_prev => :post,:select_multimedia_file_by_type_design => :post}
+         web_page.resources :home_page_slides,:collection => {:upload => :post,:delete_prev => :post}
+			 end
+     end
+		 backend.namespace :accountancy do |accountancy|
+				accountancy.resources :accountant_accounts do |accountant_account|#,:collection => {:show_child => :post}
+					accountant_account.show_children 'show_children',:controller => 'accountant_accounts',:action => 'show_children', :conditions => { :method => :post }
+				end
+				accountancy.resources	:accounting_concepts,:collection => {:autocomplete_by_accountant_account => :get}
+		 end
+     backend.namespace :human_resource do |human_resource|
+       human_resource.resources :employees,:collection => {:autocomplete_by_name => :get} do |employee|
+         employee.new_fixed_concept 'new_fixed_concept',:controller => 'employees',:action => 'new_fixed_concept', :conditions => { :method => :get }
+				 employee.new_variable_concept 'new_variable_concept',:controller => 'employees',:action => 'new_variable_concept', :conditions => { :method => :get }
+				 employee.add_fixed_concept 'add_fixed_concept',:controller => 'employees',:action => 'add_fixed_concept', :conditions => { :method => :post }
+				 employee.add_variable_concept 'add_variable_concept',:controller => 'employees',:action => 'add_variable_concept', :conditions => { :method => :post }
+         employee.remove_variable_concept 'remove_variable_concept/:payroll_variable_concept_id',:controller => 'employees',:action => 'remove_variable_concept', :conditions => { :method => :post }
+				 employee.proof_employment 'proof_employment/',:controller => 'employees',:action => 'proof_employment', :conditions => { :method => :get }
+         employee.new_historical_wage_adjustment 'new_historical_wage_adjustment/',:controller => 'employees',:action => 'new_historical_wage_adjustment', :conditions => { :method => :get }
+         employee.add_historical_wage_adjustment 'add_historical_wage_adjustment/',:controller => 'employees',:action => 'add_historical_wage_adjustment', :conditions => { :method => :post }
+			 end
+			 human_resource.resources :last_payrolls,:collection => {:new_massive_process => :get,:massive_process => :post,:search_next_payroll_by_personal_type => :post,:create_massive_process => :post} do |last_payroll|
+				 last_payroll.payment_receipt_by_employee 'payment_receipt_by_employee/:employee_id.:format', :controller => :last_payrolls,:action => "payment_receipt_by_employee", :conditions => { :method => :get }
+			 end
+			 human_resource.show_massive_process 'last_payrolls/show_massive_process/:regular_payroll_check_id.:format/',:controller => 'last_payrolls',:action => 'show_massive_process', :conditions => { :method => :get }
+			 human_resource.accept_massive_process 'accept_massive_process/:regular_payroll_check_id.:format/',:controller => 'last_payrolls',:action => 'accept_massive_process', :conditions => { :method => :post }
+       human_resource.resources :concept_personal_types
+       human_resource.resources :concepts
+			 human_resource.resources :departments
+			 human_resource.resources :monitoring_assistances,:collection => {:new_external => :get,:process_external =>:post,:search_employee => :post,:select_date => :post}
+			 human_resource.new_external_form "new_external_form/:employee_id",:controller => :monitoring_assistances, :action => "new_external_form", :conditions => { :method => :get }
+			 human_resource.resources :positions
+     end
+		 backend.namespace :financial_management do |financial_management|
+       financial_management.resources	:clients do |client|
+				 client.resources	:advances,:collection => {:set_balance_from_doc => :post}
+				 client.namespace :customer_management do |crm|
+					 crm.resources :projects do |project|
+						 project.resources :lifts#,:controller => "dssddsd"
+						 project.resources :call_manager_registers#,:controller => "dssddsd"
+					 end
+				 end
+			 end
+			 financial_management.namespace :customer_management do |crm|
+				crm.resources :accounts
+				crm.resources :activities,:collection => {:autocomplete_for_relation => :get}
+				crm.resources :calls,:collection => {:autocomplete_for_relation => :get}
+				crm.resources :contacts,:collection => {}
+				crm.resources :contracts,:collection => {}
+				crm.resources :leads,:collection => {}
+				crm.resources :meetings,:collection => {:autocomplete_for_relation => :get}
+				crm.resources :notes,:collection => {:autocomplete_for_relation => :get}
+				crm.resources :opportunities,:collection => {}
+				crm.resources :quotes,:collection => {:new_position => :get,:add_position => :post}
+			 end
+			 financial_management.resources :payment_schedules,:collection => {:set_bank => :post,:set_incoming_invoice => :post,:autocomplete_set_tenderer => :post,:set_payment_plan=> :post}
+			 financial_management.resources :incoming_invoices,:collection => {:add => :post,:confirm_purchase_order => :post,:account_payable => :get,:set_incoming_invoice_document => :post,:autocomplete_by_document_number => :post,:search_supplier_withholding_taxes => :post} do |incoming_invoice|
+         incoming_invoice.detail 'detail',:controller => 'incoming_invoices',:action => 'detail', :conditions => { :method => :get }
+         incoming_invoice.add_payment 'add_payment',:controller => 'incoming_invoices',:action => 'add_payment', :conditions => { :method => :post }
+				 incoming_invoice.show_voucher_withholding 'show_voucher_withholding',:controller => 'incoming_invoices',:action => 'show_voucher_withholding', :conditions => { :method => :get }
+       end
+       financial_management.resources :purchase_ledgers
+       financial_management.resources :sales_ledgers
+       financial_management.resources :payment_orders,:collection => {:set_payment_order_type => :post,:set_bank_movement_operation_type => :post,:set_bank => :post,:set_involvement_type => :post,:set_bank_account => :post,:add_movement_position => :post,:set_reference_document => :post,:set_check_number => :post,:new_revert => :post,:revert => :post,:set_movement_to_revert => :post,:set_payment_order_document_type => :post}
+				financial_management.new_payment_order_from_payable_account 'payable_account/:payable_account_id/payment_orders/new',:controller => "payment_orders",:action => 'new_payment_order_from_payable_account', :conditions => { :method => :get }
+			 financial_management.resources	:suppliers,:collection => {:new_withholding_tax => :get,:add_withholding_tax => :post} do |supplier|
+			 end
+       financial_management.resources :receivable_accounts
+			 financial_management.resources :payable_accounts
+		 end
+		 backend.namespace :material_management do |material_management|
+			 material_management.resources :raw_materials,:collection => {:autocomplete_by_name => :get} do |raw_material|
+				 raw_material.print_good_movements 'print_good_movements',:controller => "raw_materials",:action => "print_good_movements",:conditions => { :method => :get }
+			 end
+       material_management.resources :production_orders,:collection => {:set_production_orden_type => :post,:add_position => :post}
+			 material_management.resources :goods_receipts,:collection => {:add => :post,:confirm_purchase_order => :post}
+			 material_management.resources :goods_movements,:collection => {:add => :post,:confirm_doc => :post,:set_goods_movement_type => :post,:set_goods_movement_reason => :post,:autocomplete_doc_reason_type_by_supplier => :get}
+		   material_management.resources :purchase_orders,:collection => {:add => :post,:get_quotation_requisition_supplier => :post}
+			 material_management.resources :purchase_requisitions,:collection => {:add => :post} do |purchase_requisition|
+				 purchase_requisition.verify 'verify',:controller => "purchase_requisitions",:action => 'verify', :conditions => { :method => :get }
+				 purchase_requisition.verify_process  'verify_process',:controller => "purchase_requisitions",:action => 'verify_process', :conditions => { :method => :post }
+				 purchase_requisition.approve 'approve',:controller => "purchase_requisitions",:action => 'approve', :conditions => { :method => :get }
+				 purchase_requisition.approve_process  'approve_process',:controller => "purchase_requisitions",:action => 'approve_process', :conditions => { :method => :post }
+			 end
+			 material_management.resources	:quotation_requisitions,:collection => {:get_purchase_requisition_positions => :post} do |quotation_requisition|
+					quotation_requisition.select_best_supplier 'select_best_supplier',:controller => "quotation_requisitions",:action => 'select_best_supplier', :conditions => { :method => :get }
+          quotation_requisition.select_best_supplier_process  'select_best_supplier_process',:controller => "quotation_requisitions",:action => 'select_best_supplier_process', :conditions => { :method => :post }
+			 end
+			 material_management.resources	:measure_units,:collection => {}
+			 material_management.resources	:raw_material_categories,:collection => {}
+		 end
+		 backend.namespace :cashbank do |cash_bank|
+       cash_bank.new_bank_movement_from_receivable_account 'receivable_account/:receivable_account_id/bank_movement',:controller => "bank_movements",:action => 'new_bank_movement_from_receivable_account', :conditions => { :method => :get }
+			 cash_bank.new_bank_movement_from_payable_account 'payable_account/:payable_account_id/bank_movement',:controller => "bank_movements",:action => 'new_bank_movement_from_payable_account', :conditions => { :method => :get }
+       cash_bank.resources :bank_movements,:collection => {:set_bank_movement_operation_type => :post,:set_accounting_concept => :post,:set_involvement_type => :post,:set_bank_account => :post,:add_movement_position => :post,:set_reference_document => :post,:set_check_number => :post,:new_revert => :post,:revert => :post,:set_movement_to_revert => :post}
+			 cash_bank.resources :banks,:collection => {} do |bank|
+				 bank.set_format_print_check 'set_format_print_check',:controller => "banks",:action => "set_format_print_check", :conditions => { :method => :get }
+				 bank.process_set_format_print_check 'process_set_format_print_check',:controller => "banks",:action => "process_set_format_print_check", :conditions => { :method => :get }
+			 end
+			 cash_bank.resources :bank_accounts
+			 cash_bank.resources :checkbooks,:collection => {:search_bank_account_by_bank => :post} do |checkbook|
+         checkbook.check_offereds 'check_offereds',:controller => "checkbooks",:action => 'check_offereds', :conditions => { :method => :get }
+       end
+			 cash_bank.resources :check_offereds,:collection => {:search_bank_account_by_bank => :post,:search_checkbook_by_bank_account => :post}
+			 cash_bank.resources :cashes,:collection => {}
+			 cash_bank.resources :bank_reconciliations,:collection => {:upload_filename_reconciliation => :get,:set_period => :post,:set_bank => :post,:set_bank_account => :post,:process_reconciliation	 => :post} do |bank_reconciliation|
+       cash_bank.resources :cash_journals,:collection => {:set_concept_position => :post} do |cash_journal|
+          cash_journal.new_position 'new_position',:controller => "cash_journals",:action => 'new_position', :conditions => { :method => :get }
+          cash_journal.add_position 'add_position',:controller => "cash_journals",:action => 'add_position', :conditions => { :method => :post }
+        end
+
+				bank_reconciliation.bank_statement 'bank_statement.:format/',:controller => 'bank_reconciliations',:action => 'bank_statement', :conditions => { :method => :get }
+				bank_reconciliation.bank_book 'bank_book.:format/',:controller => 'bank_reconciliations',:action => 'bank_book', :conditions => { :method => :get }
+			 end
+     end
+     backend.resources :packing_materials,:controller => 'cpanel/invoices'
+     backend.resources :credit_notes,:collection => {:search_invoices => :post,:load_product_by_invoice => :post,:add_product => :post,:set_current_client => :post,:remove_product => :post}
+     backend.resources :finished_products,:collection => {:select_presentation_unit_types => :post,:select_presentation_unit_type_measures => :post,:select_presentation_unit_type_measurements => :post}
+     backend.resources :home
+		 backend.resources :incoming_invoices,:collection => {:add => :post,:confirm_purchase_order => :post,:account_payable => :get,:set_incoming_invoice_document => :post,:autocomplete_by_document_number => :post} do |incoming_invoice|
+			 incoming_invoice.detail 'detail',:controller => 'incoming_invoices',:action => 'detail', :conditions => { :method => :get }
+			 incoming_invoice.add_payment 'add_payment',:controller => 'incoming_invoices',:action => 'add_payment', :conditions => { :method => :post }
+		 end
+     backend.resources :invoices,:collection => {:find_product_components_by_product => :post,:add_product => :post,:set_current_client => :post,:remove_product_from_budget => :post,:remove_product_from_invoice => :post,:register_print => :get,:get_additional_payment_method_information => :post,:get_additional_incoming_invoice_billing_information => :post,:add_incoming_invoice_billing => :post,:new_daily_cash_closing => :get,:new_daily_cash_closing_with_old_date => :get,:create_daily_cash_closing => :get,:add_cash_count_position =>:post,:add_pos_card_terminal_position => :post,:daily_cash_closing => :get,:new_daily_cash_opening => :get} do |invoice|
+        backend.invoices_custom_paper_size 'invoices/product_component_type/:product_component_type/custom_paper_size/',:controller => 'invoices',:action => 'custom_paper_size'
+        backend.invoices_custom_paper_type 'invoices/product_component_type/:product_component_type/custom_paper_type/',:controller => 'invoices',:action => 'custom_paper_type'
+        backend.invoices_custom_color_mode_type 'invoices/product_component_type/:product_component_type/custom_color_mode_type/',:controller => 'invoices',:action => 'custom_color_mode_type'
+        invoice.change_state 'change_state/',:controller => 'invoices',:action => 'change_state', :conditions => { :method => :post }
+				invoice.fiscal_print 'impresion_fiscal',:controller => 'invoices',:action => 'print', :conditions => { :method => :post }
+				invoice.detail 'detail',:controller => 'invoices',:action => 'detail', :conditions => { :method => :get }
+				invoice.add_payment 'add_payment',:controller => 'invoices',:action => 'add_payment', :conditions => { :method => :post }
+				invoice.show_voucher_withholding_islr 'show_voucher_withholding_islr.:format',:controller => 'invoices',:action => 'show_voucher_withholding_islr', :conditions => { :method => :get }
+     end
+		 backend.show_daily_cash_closing 'facturacion/cierre_caja_diaro/:daily_cash_closing_id.:format', :controller => 'invoices', :action => 'show_daily_cash_closing'
+		 backend.detail_daily_cash_closing 'invoices/daily_cash_closing/:daily_cash_closing_id/payment_method_type/:payment_method_type_tag_name/detail/', :controller => 'invoices', :action => 'detail_daily_cash_closing', :conditions => { :method => :post }
+     backend.resources :multimedia_files
+		 
+     backend.resources :orders,:collection => {:upload_delete => :delete,:upload => :post, :new_comment => :get, :add_comment => :post,:search => :post,:paginate => :post}  do |orders|
+      orders.change_state "cambiar_estado",:controller => "orders",:action => :change_state, :conditions => { :method => :post }
+      orders.new_comment "nuevo_comentario",:controller => "orders",:action => :new_comment, :conditions => { :method => :get }
+      orders.add_comment "agregar_comentario",:controller => "orders",:action => :add_comment, :conditions => { :method => :post }
+      orders.new_design "nuevo_diseno",:controller => "orders",:action => :new_design, :conditions => { :method => :get }
+      orders.create_design "crear_diseno",:controller => "orders",:action => :create_design, :conditions => { :method => :post }
+      orders.show_design "mostrar_diseno",:controller => "orders",:action => :show_design, :conditions => { :method => :get }
+      orders.new_decision_design "nueva_decision_diseno",:controller => "orders",:action => :new_decision_design, :conditions => { :method => :get }
+      orders.discard_design "rechazar_diseno",:controller => "orders",:action => :discard_design, :conditions => { :method => :post }
+      orders.accept_design "aceptar_diseno/:code_design/archivo/:code_multimedia_file",:controller => "orders",:action => :accept_design, :conditions => { :method => :post }
+			orders.digital_card "diseno_digital_personalizado/:digital_card_id",:controller => "orders",:action => :digital_card, :conditions => { :method => :get }
+      orders.show_tracker "ver_seguidor/seguidor/:tracker_id/",:controller => "orders",:action => :show_tracker, :conditions => { :method => :get }
+      orders.reassign_tracker "reasignar_seguidor/seguidor/:tracker_id/",:controller => "orders",:action => :reassign_tracker, :conditions => { :method => :post }
+      orders.cancel "cancelar_orden/",:controller => "orders",:action => :cancel, :conditions => { :method => :post }
+			orders.new_delivery_note "nueva_nota_entrega/",:controller => "orders",:action => :new_delivery_note, :conditions => { :method => :get }
+			orders.create_delivery_note "crear_nota_entrega/",:controller => "orders",:action => :create_delivery_note, :conditions => { :method => :post }
+			orders.show_delivery_note "ver_nota_entrega/:delivery_note_id.:format",:controller => "orders",:action => :show_delivery_note, :conditions => { :method => :get}
+			
+     end
+     backend.resources :products,:collection => {:add_element_types => :post,:select_product_component_types => :post,:select_price_definition_set_by_component_type => :post,:check_product_component_types => :post,:select_prices => :get,:add_price_list_product => :post,:autocomplete => :get,:autocomplete_by_code => :get,:autocomplete_by_description => :get,:add_promocion => :post,:new_promocion => :get} do |products|
+       products.show_element_type '/tipo_componente/:product_component_type_id/tipo_elemento/:element_type_name/',:controller => "products",:action => :show_element_type, :conditions => { :method => :get }
+       products.select_price_definition 'select_price_definition/',:controller => "products",:action => :select_price_definition, :conditions => { :method => :post }
+     end
+
+     backend.select_element_type '/tipo_componente/:product_component_type_id/tipo_elemento/:element_type_name/',:controller => "products",:action => :select_element_type, :conditions => { :method => :get }
+
+     backend.resources :raw_materials,:collection => {:select_packing_material => :post,:autocomplete_by_name => :get,:packing_material_by_raw_material_category => :post} do |raw_material|
+       raw_material.select_raw_material_category "select_raw_material_category",:controller => "raw_materials",:action => "select_raw_material_category", :conditions => { :method => :post }
+       raw_material.new_inventory "new_inventory",:controller => "raw_materials",:action => "new_inventory", :conditions => { :method => :get }
+       raw_material.add_inventory "agregar_inventario",:controller => "raw_materials",:action => "add_inventory", :conditions => { :method => :post }
+       raw_material.remove_inventory "remove_inventory/:inventory_id",:controller => "raw_materials",:action => "remove_inventory", :conditions => { :method => :post }
+     end
+     backend.resources :reports, :collection => {:report_1 => :post,:export_report_1 => :get,:report_2 => :post,:export_report_2 => :get,:report_3 => :post,:report_4 => :post,:export_report_4 => :get,:report_5 => :get,:report_6 => :get,:report_7 => :get,:report_8 => :get,:report_9 => :get,:report_10 => :get,:report_11 => :get,:report_12 => :get,:report_13 => :get}
+     backend.resources :shortcuts, :collection => {:generate_invoice => :post}
+     backend.resources :customer_details
+     backend.resources :session, :collection => {:qaptcha => :post,:update_user => :put}
+   end
+
+  # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
+   map.root :namespace => "backend",:controller => "session", :action => "new"
+
+  # See how all your routes lay out with "rake routes"
+
+  # Install the default routes as the lowest priority.
+  # Note: These default routes make all actions in every controller accessible via GET requests. You should
+  # consider removing or commenting them out if you're using named routes and resources.
+  map.connect ':controller/:action/:id'
+  map.connect ':controller/:action/:id.:format'
+end

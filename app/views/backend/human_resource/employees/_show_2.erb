@@ -1,0 +1,61 @@
+     <div>
+      <b><%= @employee.class.human_attribute_name('income_date')%>: </b>
+      <span class="value"><%= @employee.income_date.to_default_date %></span>
+    </div>
+    <br/>
+   <div>
+      <b class="green"><%= @employee.class.human_attribute_name('salary')%>: </b>
+      <span class="value"><%= number_to_currency @employee.salary.to_f,:delimiter => ".", :separator => ",", :unit => "Bs" %>. <br/></span>
+    </div>
+    <br/>
+   <div>
+      <b class=""><%= @employee.class.human_attribute_name('payroll_payment_method_type')%>: </b>
+      <span class="value"><%= @employee.payroll_payment_method_type.name %></span>
+    </div>
+    <br/>
+   <div>
+      <b class=""><%= @employee.class.human_attribute_name('account_number')%>: </b>
+      <span class="value"><%= @employee.account_number %></span>
+    </div>
+   <hr/>
+   
+   <div>
+      <b><%= @employee.class.human_attribute_name('payroll_position')%>: </b>
+      <span class="value"><%= @employee.payroll_position.name %></span>
+    </div>
+	 <br/>
+	 <div>
+		<b><%= @employee.class.human_attribute_name('payroll_department')%>: </b>
+      <span class="value"><%= @employee.payroll_department.name %><br/></span>
+    </div>
+	 <br/>
+	 <div>
+		<b><%= @employee.class.human_attribute_name('payroll_personal_type')%>: </b>
+      <span class="value"><%= @employee.payroll_personal_type.name %><br/></span>
+    </div>
+	 <hr/>
+	 <% if @employee.islr_listed? %>
+		<div>
+		  <b><%= @employee.class.human_attribute_name('islr_percentage')%>: </b>
+		  <span class="value"><%= number_to_currency  @employee.islr_percentage,:delimiter => ".", :separator => ",", :unit => "" %><br/></span>
+		</div>
+	 <% end %>
+	 <br/>
+	 <div>
+		<b><%= @employee.class.human_attribute_name('faov_listed')%>: </b>
+      <span class="value"><%= @employee.faov_listed ? "Sí" : "No" %><br/></span>
+    </div>
+	 <br/>
+	 <div>
+		<b><%= @employee.class.human_attribute_name('sso_listed')%>: </b>
+      <span class="value"><%= @employee.sso_listed ? "Sí" : "No" %><br/></span>
+    </div>
+	 <br/>
+	 <div>
+		<b><%= @employee.class.human_attribute_name('spf_listed')%>: </b>
+      <span class="value"><%= @employee.spf_listed ? "Sí" : "No" %><br/></span>
+    </div>
+	 <br/>
+
+
+								

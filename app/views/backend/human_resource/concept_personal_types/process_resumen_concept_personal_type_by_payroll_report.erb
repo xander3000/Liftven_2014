@@ -1,0 +1,44 @@
+<%
+	 owner = Supplier.find_owner
+	 contact = owner.contact
+%>
+
+
+<div id="content_info_voucher">
+	 <div class="subc c55l">
+		<div class="">
+		  <h2><%= contact.fullname.upcase %></h2>
+		  <b><%= owner.identification_document %></b><br/>
+		</div>
+	 </div>
+	 <div class="subc c40r left">
+		<div class="">
+		  <h2>RESUMEN DE CONCEPTOS POR TIPO PERSONAL (NOMINA PROCESADA)</h2>
+		</div>
+	 </div>
+	 <br/>
+	 <hr/>
+
+	 <% @payroll_regular_payroll_check.each do |key,regular_payroll_check| %>
+	 <h3><%= regular_payroll_check[:payroll_personal_type]%></h3>
+	 <table>
+		<thead>
+		  <tr>
+			 <th>
+				Concepto
+  			 </th>
+			 <% regular_payroll_check[:fortnights].each do |fortnight| %>
+				<th>
+				  Monto <%= fortnight[:regular_payroll_check].fortnight%> quincena
+				</th>
+			 <% end %>
+		  </tr>
+		</thead>
+		<tbody>
+		  
+		</tbody>
+	 </table>
+	 <% end %>
+
+
+</div>

@@ -1,0 +1,31 @@
+<div id="new_comment_form">
+  <div class="headerWrap">
+    <div class="headerWrapContent">
+          <h2>Editar</h2>
+    </div>
+  </div>
+  <div class="mainWrapContent">
+     <% form_layout do %>
+        <% semantic_form_remote_for @raw_material_price_definition_set_black_by_component, :url => backend_cpanel_raw_material_price_definition_set_black_by_component_url(@raw_material_price_definition_set_black_by_component) do |f| %>
+          <% f.inputs do  %>
+              <li class="left"><label><%= RawMaterialPriceDefinitionSetColorByComponent.human_attribute_name("component") %></label> <%= @raw_material_price_definition_set_black_by_component.component.name %></li>
+              <%= f.input :raw_material,:input_html => {:style => "width: 70%; "} %>
+              <%= f.input :amount_t %>
+              <%= f.input :amount_tr %>
+              <%= f.input :base_amount %>
+
+          <% end %>
+        <% end %>
+      <% end %>
+  </div>
+  <div class="footerWrap">
+    <div class="footerWrapContent right">
+      <%= button_to_function("Actualizar", "$(\"#raw_material_price_definition_set_black_by_components_container form\").submit()")  %>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function(){ // Script del Navegador
+    $("button, input:submit,input:button,a.button ").button();
+  });
+</script>

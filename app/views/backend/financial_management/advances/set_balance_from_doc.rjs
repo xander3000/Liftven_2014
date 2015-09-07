@@ -1,0 +1,8 @@
+if @doc
+	page << "$('#accounting_advance_balance').val(#{@doc.balance})"
+	page << "var current_balance = #{@doc.balance}"
+	page << "$('#accounting_advance_amount').blur();"
+else
+	page << "$('#accounting_advance_balance').val(0.0)"
+end
+

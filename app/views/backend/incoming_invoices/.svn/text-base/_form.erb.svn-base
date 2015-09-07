@@ -1,0 +1,96 @@
+<%= render :partial => "form_header",:locals => {:f => f} %>
+<%= render :partial => "form_items",:locals => {:f => f} %>
+
+
+
+<script type="text/javascript">
+  function action_after_complete_for_contacts(item){
+    switch (item.code_response) {
+        case ("ok"):
+            $("#incoming_invoice_supplier_id").val(item.supplier_id)
+				
+            break;
+        case ("no-ok"):
+            alert('no-ok');
+            break;
+        default:
+            alert('problemas buscando');
+    }
+  }
+
+  function action_after_complete_for_raw_materials(item){
+    switch (item.code_response) {
+        case ("ok"):
+            $("#material_purchase_order_position_material_raw_material_input").val(item.id);
+            $("#add_product_button").show();
+            break;
+        case ("no-ok"):
+            alert('no-ok');
+            break;
+        default:
+            alert('problemas buscando');
+    }
+  }
+
+		$(document).ready(function(){
+
+		  $("#incoming_invoice_purchase_order").blur( function () {
+			 $(this).strPadLeft(6);
+			 $.ajax({
+				  type: "POST",
+				  url: "<%= confirm_purchase_order_backend_incoming_invoices_url %>",
+				  data: {purchase_order_id: $(this).val()}
+				});
+		  });
+		  $("#incoming_invoice_supplier").autocomplete({
+			  source: "<%= autocomplete_by_supplier_name_backend_contacts_url %>",
+			  minLength: 3,
+			  select: function( event, ui ) {
+				 if(ui.item)
+					 action_after_complete_for_contacts(ui.item);
+			  }
+		  });
+		  $("#incoming_invoice_position_description").autocomplete({
+			  source: "<%= autocomplete_by_name_backend_raw_materials_url %>",
+			  minLength: 3,
+			  search: function( event, ui ) {
+				 $("#incoming_invoice_position_raw_material_id").val("");
+			  },
+			  select: function( event, ui ) {
+				 if(ui.item)
+					 action_after_complete_for_raw_materials(ui.item);
+			  }
+		  });
+
+          $("#incoming_invoice_posting_date").datepicker({
+          changeMonth: true,
+          dateFormat: 'yy-mm-dd',
+          minDate: "-0",
+          maxDate: "+35",
+			 yearRange: 'c-80:c+30',
+          beforeShowDay: noWeekendsOrHolidays
+        });
+
+			$("#incoming_invoice_invoice_date").datepicker({
+          changeMonth: true,
+          dateFormat: 'yy-mm-dd',
+          maxDate: "-35",
+			 yearRange: 'c-80:c+30'
+        });
+
+		$("#sub_total_currency,#incoming_invoice_position_quantity").blur(function(){
+		  $("#incoming_invoice_position_sub_total").val($("#sub_total_currency").val());
+		  sub_total = $("#incoming_invoice_position_sub_total").val();
+		  quantity = $("#incoming_invoice_position_quantity").val();
+		  $("#incoming_invoice_position_total").val(parseFloat(sub_total)*parseInt(quantity));
+			$("#sub_total_currency").parseNumber({format:"#,###.00", locale:"es"});
+			$("#sub_total_currency").formatNumber({format:"#,###.00", locale:"es"});
+			$("#total_currency").html($("#incoming_invoice_position_total").val());
+			$("#total_currency").parseNumber({format:"#,###.00", locale:"es"});
+			$("#total_currency").formatNumber({format:"#,###.00", locale:"es"});
+
+
+		});
+		  
+	});
+</script>

@@ -1,0 +1,20 @@
+<style type="text/css">
+   applet {  }
+</style>
+<script type="text/javascript">
+   function mycallback() {
+    
+       document.getElementById("button").disabled = false;
+   }
+   function myprint() {
+       document.printApplet.print();
+   }
+  </script>
+
+
+<applet code="com.bematech.PrintApplet" name="printApplet" archive="/applets/lib/jna-3.5.0.jar,/applets/lib/plugin.jar,/applets/PrintVoucherRegister.jar">
+   <param name="callback" value="mycallback"/>
+	<param name="invoice_id" value="1"/>
+  </applet>
+  Click here to print the PDF
+  <input type="button" disabled="disabled"  id="button" onClick="myprint()" value="Print" />

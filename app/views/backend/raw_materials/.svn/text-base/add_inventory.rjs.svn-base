@@ -1,0 +1,6 @@
+page << "$('a.external-overlay[rel]').each(function() {$(this).overlay().close();});"
+if @success
+  page.replace_html "tabs-4", :partial => "show_4"
+else
+  page.alert("Su entrada de mercancia no pudo ser procesado")
+end

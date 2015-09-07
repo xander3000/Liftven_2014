@@ -1,0 +1,59 @@
+<%= include_javascript("jquery.dataTables.min.js") %>
+<%= include_stylesheet("jquery.datatable.css") %>
+
+
+<div class="actionsBar right no-print">
+  <%= link_to(image_tag("icons/arrow_left.png"),backend_cpanel_home_index_url,:class => "button",:title => "Regresar") %>
+  |
+  <%= link_to(image_tag("icons/add.png"),new_backend_financial_management_client_url,:class => "button") %>
+</div>
+<hr/>
+
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="clients" width="100%">
+	<thead>
+		<tr>
+			<th style="width: 10px;">St</th>
+			<th><%= Contact.human_attribute_name("identification_document")%> </th>
+			<th><%= Contact.human_attribute_name("fullname")%> </th>
+
+			<th><%= Contact.human_attribute_name("phone")%> </th>
+			<th><%= Contact.human_attribute_name("cellphone")%> </th>
+			<th><%= Contact.human_attribute_name("email")%> </th>
+		</tr>
+	</thead>
+	<tbody>
+	  <% @clients.each do |client|  %>
+		<% if client.contact %>
+		<% contact = client.contact %>
+	  <tr class="external-overlays" rel=".overlay" ref="" onclick="window.location.href='<%= backend_financial_management_client_url(client) %>'">
+			<td class="center" title=""><%= image_tag "icons/bullet_square_green.png"%></td>
+			 <td class="left"><%= contact.identification_document%> </td>
+			 <td class="left"><%= contact.fullname%> </td>
+			
+			 <td class="right"><%= contact.phone%> </td>
+			 <td class="right"><%= contact.cellphone%> </td>
+			 <td class="right"><%= contact.email%> </td>
+		  </tr>
+		<% end %>
+	 <% end %>
+	</tbody>
+</table>
+
+
+
+
+<script type="text/javascript">
+  var oTable;
+
+  $(document).ready(function() {
+		oTable =  $('#clients').dataTable({
+            oLanguage: {
+                sUrl: "/javascripts/i18n/jquery.DataTables-es.txt"
+            }
+        });
+  
+  });
+
+
+
+</script>

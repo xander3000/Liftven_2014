@@ -1,0 +1,49 @@
+<script type="text/javascript">
+	$(document).ready(function() {
+		new qq.FineUploader({
+      element: $('#filelimit-fine-uploader')[0],
+      request: {
+        endpoint: '<%= upload_filename_reconciliation_backend_cashbank_bank_reconciliations_url%>',
+		  params: {
+			 bank_id: $("#cash_bank_bank_reconciliation_cash_bank_bank_id").val()
+		  }
+      },
+		text: {
+		  uploadButton: '<%=link_to(image_tag("icons/arrow_up.png"),"",:class => "button")%> '
+		  },
+      callbacks: {
+        onComplete: function(id, fileName, responseJSON) {
+          if (responseJSON.success) {
+				$.each(responseJSON.data, function(i, item) {
+				  row = $('<tr></tr>').addClass("item");
+
+				  col = $("<td></td>").addClass("center").text(item.date);
+				  row.append(col);
+				  col = $("<td></td>").addClass("center").text(item.reference);
+				  row.append(col);
+				  col = $("<td></td>").addClass("center").text(item.description);
+				  row.append(col);
+				  col = $("<td></td>").addClass("right").text(item.debit_currency);
+				  row.append(col);
+				  col = $("<td></td>").addClass("right").text(item.credit_currency);
+				  row.append(col);
+				  col = $("<td></td>").addClass("right").text(item.balance);
+				  row.append(col);
+				  col = $("<td></td>").addClass("center").text(item.type);
+				  row.append(col);
+				  $("#items_r").append(row);
+				  $("#process_reconciliation").show();
+				  $('#filelimit-fine-uploader').hide();
+				})
+          }
+        }
+      },
+      validation: {
+        itemLimit: 1,
+		   allowedExtensions: ['txt', 'csv']
+      }
+    });
+	 $("button, input:submit,input:button,a.button ").button();
+  });
+
+</script>

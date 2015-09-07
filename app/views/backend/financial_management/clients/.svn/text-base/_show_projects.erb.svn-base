@@ -1,0 +1,51 @@
+<%= include_javascript("jquery.dataTables.min.js") %>
+<%= include_stylesheet("jquery.datatable.css") %>
+<div class="actionsBar right no-print">
+  <%= link_to(image_tag("icons/add.png"),new_backend_financial_management_client_customer_management_project_url(@client),:class => "button") %>
+</div>
+<hr/>
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="projects" width="100%">
+	<thead>
+		<tr>
+                    <th><%= Crm::Project.human_attribute_name("category_type")%> </th>
+                    <th><%= Crm::Project.human_attribute_name("id")%> </th>
+                    <th><%= Crm::Project.human_attribute_name("name")%> </th>
+                    <th><%= Crm::Project.human_attribute_name("entity")%> </th>
+                    <th><%= Crm::Project.human_attribute_name("city")%> </th>
+                    <th><%= Crm::Project.human_attribute_name("init_date")%> </th>
+                    <th><%= Crm::Project.human_attribute_name("end_date")%> </th>
+                    <th><%= Crm::Project.human_attribute_name("crm_projects_executive")%> </th>
+                    <th><%= Crm::Project.human_attribute_name("total_amount")%> </th>
+		</tr>
+	</thead>
+	<tbody>
+	 <% @projects.each do |project| %>
+	  <tr   onclick="window.location.href='<%= backend_financial_management_client_customer_management_project_url(@client,project) %>'">
+		 <td class="center">Transporte vertical</td>
+		  <td class="center"><%= project.id.to_code %> </td>
+		  <td class="center"><%= project.name %> </td>
+		  <td class="center"><%= project.entity.name %> </td>
+		  <td class="center"><%= project.city.name %> </td>
+		  <td class="center"><%= l project.init_date.to_date %> </td>
+		  <td class="center"><%= l project.end_date.to_date if !project.end_date.eql?("") %> </td>
+		  <td class="center"><%= project.crm_projects_executive.name %> </td>
+		  <td class="right"><%= number_to_currency(project.total_amount, :delimiter => ".", :separator => ",", :unit => "")%></td>
+	  </tr>
+	  <% end %>
+	</tbody>
+</table>
+
+<br/>
+
+
+<script type="text/javascript">
+  var oTable;
+
+  $(document).ready(function() {
+		oTable =  $('#projects').dataTable({
+            oLanguage: {
+                sUrl: "/javascripts/i18n/jquery.DataTables-es.txt"
+            }
+        });
+  });
+</script>

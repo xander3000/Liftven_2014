@@ -1,0 +1,56 @@
+<div id="form_items">
+  <table frame="border" rules="cols" >
+    <thead>
+      <tr>
+        <th class="material">
+          <%= IncomingInvoicePosition.human_attribute_name(:description)%>
+        </th>
+		  <th class="material">
+          <%= IncomingInvoicePosition.human_attribute_name(:packing_material)%>
+        </th>
+        <th class="quantity">
+          <%= IncomingInvoicePosition.human_attribute_name(:quantity)%>
+        </th>
+        <th class="unit_price">
+          <%= IncomingInvoicePosition.human_attribute_name(:sub_total)%>
+        </th>
+        <th colspan="2" class="total_price">
+          <%= IncomingInvoicePosition.human_attribute_name(:total)%>
+        </th>
+      </tr>
+      <tr id="item_product_form">
+        <td class=" center">
+			 <%= text_field_tag "incoming_invoice_position[description]","",:placeholder => "Ingrese material / Descripción" %>
+          <%= hidden_field_tag "incoming_invoice_position[raw_material_id]","",:class => "" %>
+        </td>
+		  <td class=" center">
+			 <%= select_tag "incoming_invoice_position[packing_material_id]",options_from_collection_for_select(PackingMaterial.all, "id", "name"), :include_blank => true %>
+        </td>
+        <td class="center quantity">
+			 <%= text_field_tag "incoming_invoice_position[quantity]","",:class => "quantity"%>
+        </td>
+        <td class="sub_total right">
+          <%= hidden_field_tag "incoming_invoice_position[sub_total]","",:placeholder => "Precio total",:class => "right prices",:size => "11" %>
+			 <%= text_field_tag "sub_total_currency","",:placeholder => "Sub total",:class => "right prices",:size => "11" %>
+        </td>
+		  <td class="total right">
+			 <p id="total_currency" class="like_input"></p>
+          <%= hidden_field_tag "incoming_invoice_position[total]","",:placeholder => "Precio total",:readonly => true,:class => "right prices",:size => "11" %>
+        </td>
+        <td class="center" style="width: 25px;">
+          <%= link_to_remote image_tag("icons/add.png"), :url => add_backend_incoming_invoices_url,:with => "$('#item_product_form input, #item_product_form select').serialize()",:html => {:id => "add_product_button",:class => ""} %>
+        </td>
+      </tr>
+    </thead>
+    <tbody id="items">
+      <%= render :partial => "items" %>
+    </tbody>
+  </table>
+</div>
+
+<script type="text/javascript">
+
+	$(document).ready(function(){
+
+	});
+</script>

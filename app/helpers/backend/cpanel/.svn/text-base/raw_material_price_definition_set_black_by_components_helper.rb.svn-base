@@ -1,0 +1,2 @@
+module Backend::Cpanel::RawMaterialPriceDefinitionSetBlackByComponentsHelper
+end

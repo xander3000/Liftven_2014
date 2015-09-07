@@ -1,0 +1,5 @@
+if @success
+	page << "$('a[rel]').each(function() {$(this).overlay().close();});"
+else
+	page.show_errors([@raw_material_category], "message_overlay", nil)
+end

@@ -1,0 +1,2 @@
+page.redirect_to backend_material_management_quotation_requisition_url(@quotation_requisition)
+

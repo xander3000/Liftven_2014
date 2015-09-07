@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/1516/trunk/Venom/app/views/shared/layouts
+END
+_widget_session_sign_in.erb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/877/trunk/Venom/app/views/shared/layouts/_widget_session_sign_in.erb
+END
+_widget_session_sign_out.erb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/343/trunk/Venom/app/views/shared/layouts/_widget_session_sign_out.erb
+END
+_widget_print_to.erb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/1516/trunk/Venom/app/views/shared/layouts/_widget_print_to.erb
+END
+_form.erb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/526/trunk/Venom/app/views/shared/layouts/_form.erb
+END

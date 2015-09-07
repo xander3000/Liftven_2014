@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cpanel/web_page/custom_designs
+END
+delete_prev.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cpanel/web_page/custom_designs/delete_prev.rjs
+END
+_form_upload.erb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cpanel/web_page/custom_designs/_form_upload.erb
+END
+index.erb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cpanel/web_page/custom_designs/index.erb
+END
+new.erb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cpanel/web_page/custom_designs/new.erb
+END
+create.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cpanel/web_page/custom_designs/create.rjs
+END
+_form_prev.erb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cpanel/web_page/custom_designs/_form_prev.erb
+END
+select_multimedia_file_by_type_design.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cpanel/web_page/custom_designs/select_multimedia_file_by_type_design.rjs
+END
+_form.erb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cpanel/web_page/custom_designs/_form.erb
+END

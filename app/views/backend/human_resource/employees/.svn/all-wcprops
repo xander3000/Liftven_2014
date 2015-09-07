@@ -1,0 +1,185 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/1505/trunk/Venom/app/views/backend/human_resource/employees
+END
+create.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/1149/trunk/Venom/app/views/backend/human_resource/employees/create.rjs
+END
+new.erb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/1397/trunk/Venom/app/views/backend/human_resource/employees/new.erb
+END
+change_personal_type.erb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/1502/trunk/Venom/app/views/backend/human_resource/employees/change_personal_type.erb
+END
+_item_by_personal_type.erb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/human_resource/employees/_item_by_personal_type.erb
+END
+_show_fixed_concepts.erb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/985/trunk/Venom/app/views/backend/human_resource/employees/_show_fixed_concepts.erb
+END
+_item.erb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/human_resource/employees/_item.erb
+END
+graduation.erb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/1230/trunk/Venom/app/views/backend/human_resource/employees/graduation.erb
+END
+proof_employment.erb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/1304/trunk/Venom/app/views/backend/human_resource/employees/proof_employment.erb
+END
+add_variable_concept.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/1019/trunk/Venom/app/views/backend/human_resource/employees/add_variable_concept.rjs
+END
+_employees_by_personal_type.erb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/human_resource/employees/_employees_by_personal_type.erb
+END
+_show_1.erb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/human_resource/employees/_show_1.erb
+END
+_show_2.erb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/human_resource/employees/_show_2.erb
+END
+add_historical_wage_adjustment.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/1396/trunk/Venom/app/views/backend/human_resource/employees/add_historical_wage_adjustment.rjs
+END
+_form_employee.erb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/1503/trunk/Venom/app/views/backend/human_resource/employees/_form_employee.erb
+END
+_show_3.erb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/1042/trunk/Venom/app/views/backend/human_resource/employees/_show_3.erb
+END
+_form.erb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/1397/trunk/Venom/app/views/backend/human_resource/employees/_form.erb
+END
+_show_4.erb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/1019/trunk/Venom/app/views/backend/human_resource/employees/_show_4.erb
+END
+remove_variable_concept.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/1035/trunk/Venom/app/views/backend/human_resource/employees/remove_variable_concept.rjs
+END
+index.erb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/1460/trunk/Venom/app/views/backend/human_resource/employees/index.erb
+END
+update.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/1149/trunk/Venom/app/views/backend/human_resource/employees/update.rjs
+END
+add_fixed_concept.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/1223/trunk/Venom/app/views/backend/human_resource/employees/add_fixed_concept.rjs
+END
+new_variable_concept.erb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/1165/trunk/Venom/app/views/backend/human_resource/employees/new_variable_concept.erb
+END
+new_historical_wage_adjustment.erb
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/1505/trunk/Venom/app/views/backend/human_resource/employees/new_historical_wage_adjustment.erb
+END
+process_change_personal_type.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/1502/trunk/Venom/app/views/backend/human_resource/employees/process_change_personal_type.rjs
+END
+_show.erb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/human_resource/employees/_show.erb
+END
+show.erb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/1186/trunk/Venom/app/views/backend/human_resource/employees/show.erb
+END
+_show_variable_concepts.erb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/1077/trunk/Venom/app/views/backend/human_resource/employees/_show_variable_concepts.erb
+END
+new_fixed_concept.erb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/1043/trunk/Venom/app/views/backend/human_resource/employees/new_fixed_concept.erb
+END
+edit.erb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/1230/trunk/Venom/app/views/backend/human_resource/employees/edit.erb
+END
+_form_staff.erb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/1397/trunk/Venom/app/views/backend/human_resource/employees/_form_staff.erb
+END

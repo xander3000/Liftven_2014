@@ -1,0 +1,50 @@
+/* 
+    Document   : home
+    Created on : 30/07/2011, 09:30:39 AM
+    Author     : gabriel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+@import "../layout/3-columns.css";
+
+
+#main div.content-block
+{
+    width: 95%;
+}
+
+#main div.content-block div.block div.container div.top{
+    display: none;
+}
+
+#main div.content-block div.block-left{
+    display: none;
+}
+
+#main div.content-block div.block-center {
+    width: 60%;
+}
+
+#main div.content-block div.block-right{
+    width: 35%;
+    display: inline-block;
+    /*display: none;*/
+}
+
+div.internal-block
+{
+    margin-bottom: 25px;
+    
+}
+
+div.internal-block h1
+{
+    font-size: 1.4em;
+    font-weight: bolder;
+    color: #F14F17;
+}

@@ -1,0 +1,39 @@
+<%= render :partial => "form_header",:locals => {:f => f} %>
+<%= render :partial => "form_items",:locals => {:f => f} %>
+
+
+
+<script type="text/javascript">
+
+  function action_after_complete_for_suppliers(item,rel){
+    switch (item.code_response) {
+        case ("ok"):
+
+            $("#"+rel).val(item.supplier_id)
+				
+            break;
+        case ("no-ok"):
+            alert('no-ok');
+            break;
+        default:
+            alert('problemas buscando');
+    }
+  }
+
+
+  
+		$(document).ready(function(){
+                    $("#material_quotation_requisition_posting_date,#material_quotation_requisition_delivery_date").datepicker({
+                    changeMonth: true,
+                    dateFormat: 'yy-mm-dd',
+                    minDate: "-0",
+                    maxDate: "+35",
+                    yearRange: 'c-80:c+30',
+          beforeShowDay: noWeekendsOrHolidays
+        });
+
+
+
+		  
+	});
+</script>

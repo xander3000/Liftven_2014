@@ -1,0 +1,57 @@
+<div id="credit_note_show">
+  <div id="" class="right control">
+    <%= @title.upcase %> Nº <span><%= format_code(@credit_note.id, "06") %></span>
+  </div>
+  <div id="details">
+    <b>NOMBRE O RAZÓN SOCIAL: </b> <%= @credit_note.client.name %><br/>
+    <b>C.I. / RIF: </b><%= @credit_note.client.identification_document %><br/>
+    <b>DOMICILIO FISCAL: </b><%= @credit_note.client.address %><br/>
+    <b>FECHA: </b><%= l @credit_note.created_at %><br/>
+    <b>TLFS: </b><%= @credit_note.client.phone %><br/>
+    <b>CORREO ELECTRÓNICO: </b><%= @credit_note.client.email %><br/>
+    <hr/>
+    <div id="form_items">
+      <table border="0">
+        <thead>
+          <tr>
+            <td class="code center">
+              Codigo
+            </td>
+            <td class="amount center">
+              Cant.
+            </td>
+            <td class="description">
+              Descripción
+            </td>
+            <td class="dimensions center">
+              Dimensiones
+            </td>
+            <td class="unit_price center">
+              Precio Unitario
+            </td>
+             <td  class="total_price center">
+              Total
+            </td>
+          </tr>
+        </thead>
+        <tbody id="product_by_credit_notes_items">
+          <%= render :partial => "product_by_credit_notes" %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="" class="right control">
+    <%= @title.upcase %>  Nº <span><%= format_code(@credit_note.id, "06") %></span>
+  </div>
+  
+</div>
+
+
+<script type="text/javascript">
+   $(document).ready(function(){
+	  $("#product_by_credit_notes_items input").attr("readonly", "readonly");
+	  $("#product_by_credit_notes_items .actions a").hide();
+	});
+</script>
+

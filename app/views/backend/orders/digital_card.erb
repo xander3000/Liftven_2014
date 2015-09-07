@@ -1,0 +1,21 @@
+<%= include_stylesheet("frontend/designs.css") %>
+<div style="width: 968px">
+    <div id="model_design_preview" class="subc c50l content_model_design_preview">
+
+		<div id="draw_image">
+				<%= image_tag @digital_card.image %>
+				<% @digital_card.digital_card_fields.each do |digital_card_field|  %>
+				  <div style="position:absolute;left: <%= digital_card_field.position_left%>px; top: <%= digital_card_field.position_top%>px;">
+					 <p style="font-size: <%= digital_card_field.font_size%>;color:#<%= digital_card_field.font_color%>"><%= digital_card_field.input_text%></p>
+					 </div>
+				<% end %>
+		</div>
+          
+		<%  %>
+    </div>
+    <div id="model_design_info" class="subc c50r">
+        <%#= render :partial => "#{controller.controller_path}/templates/#{current_type_design}/#{current_model_design}/fields" %>
+    </div>
+</div>
+
+

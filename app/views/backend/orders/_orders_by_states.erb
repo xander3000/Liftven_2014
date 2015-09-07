@@ -1,0 +1,9 @@
+<%  @orders.each do |order_by_state|%>
+      <%= render :partial => "item_by_state",:locals => {:order_by_state => order_by_state}%>
+<% end %>
+
+<script type="text/javascript">
+      $(document).ready(function(){ // Script del Navegador
+        $("button, input:submit,input:button,a.button ").button();
+      });
+</script>

@@ -1,0 +1,19 @@
+<div class="actionsBar right no-print">
+  <%= link_to(image_tag("icons/arrow_left.png"),backend_material_management_quotation_requisitions_url,:class => "button",:title => "Regresar") %>
+</div>
+<div>
+  <% semantic_form_remote_for @quotation_requisition, :update => "#{controller.controller_name}_container",:url => backend_material_management_quotation_requisition_select_best_supplier_process_url(@quotation_requisition),:html => {:method => :post,:class => "form_generate"} do |f| %>
+        <%= render :partial => "select_best_supplier_form",:locals => {:f => f} %>
+  <%= link_to_function "LICITAR","generate()", :disable_with => "Por favor espere...",:id => "contable_document-button",:class => "button" %>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+        function generate()
+        {
+          result = confirm("¿Esta seguro de ejecutar esta acción?")
+          if (result)
+            $(".form_generate").submit();
+        }
+
+</script>

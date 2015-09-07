@@ -1,0 +1,20 @@
+<%
+     supplier_owner = Supplier.find_owner
+     contact = supplier_owner.contact
+%>
+<div>
+  <div class="subc c25l">
+    <%= wicked_pdf_image_tag "clients/#{PROJECT_NAME}/logos/logo3.png" %>
+  </div>
+  <div class="subc c70r">
+    <b><%= supplier_owner.name.upcase %></b><br/>
+    R.I.F.: <%= supplier_owner.identification_document.upcase %><br/>
+    Teléfono: <%= contact.phone %><br/>
+    Dirección: <%= contact.address %><br/>
+  </div>
+    <div class=" center">
+	 <p>
+		<b><%= @title%> </b> <br/>
+	 </p>
+    </div>
+</div>

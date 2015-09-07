@@ -1,0 +1,213 @@
+<%= include_javascript("jquery-ui-timepicker-addon.js") %>
+<div class="actionsBar right">
+  <%#= link_to(image_tag("icons/pencil.png"),backend_budget_edit_quantity_url(@budget),:class =>"button",:title =>"Editar presupuesto") %>
+   <%= link_to(image_tag("icons/printer.png"),backend_budget_url(@budget,"pdf"),:class => "button",:title =>"Imprimir presupuesto") %>
+  <% if @budget.has_order? %>
+  | <%= link_to(image_tag("icons/table_go.png"),backend_order_url(@budget.order),:class => "button",:title =>"Ver orden") %>
+  <% end %>
+</div>
+<br/>
+<div id="budget_show">
+
+
+  <div id="letterhead">
+    <div id="logo"  class="c50l subc">
+    <%= image_tag "clients/#{PROJECT_NAME}/logos/logo2.png" %>
+  </div>
+    <div class="c50r subc">
+      <ul>
+        <li>VOLANTES</li> <li>CATALOGOS</li> <li>REVISTAS</li> <li>FOLLETOS</li> <li>CALENDARIOS</li> <li>HABLADORES</li>
+        <li>DIPTICOS</li> <li>TRIPTICOS</li> <li>TARJETAS DE PRESENTACION</li> <li>TARJETAS EN PAPELES ESPECIALES</li>
+        <li>IMPRESION EN LITHOAUTOADHESIVO</li> <li>AFICHES</li> <li>CARPETAS</li> <li>LIBRETAS</li>
+        <li>MANUALES</li> <li>PENDONES</li> <li>PANCARTAS</li> <li>VALLAS</li> <li>BACKINGS</li> <li>CAJAS DE LUZ</li>
+        <li>VINIL MICROPERFORADO</li> <li>VINIL AUTOADHESIVO</li> <li>VINIL IMANTADO</li> <li>ROTULACION DE VEHICULOS</li>
+        <li>CLEAR</li> <li>BACKLIGHT</li> <li>FROSTER</li> <li>CALCOMANIAS</li>
+      </ul>
+    </div>
+  </div>
+  <div id="" class="right control">
+    <%= @title.upcase %>  Nº <span><%= format_code(@budget.id, "06") %></span>
+  </div>
+  <div id="details">
+    <b>NOMBRE O RAZÓN SOCIAL: </b> <%= @budget.client.name %><br/>
+    <b>C.I. / RIF: </b><%= @budget.client.identification_document %><br/>
+    <b>DOMICILIO FISCAL: </b><%= @budget.client.address %><br/>
+    <b>FECHA: </b><%= l  @budget.created_at %><br/>
+    <b>TLFS: </b><%= @budget.client.phone %><br/>
+    <b>CORREO ELECTRÓNICO: </b><%= @budget.client.email %><br/>
+  
+    <div id="form_items">
+      <table border="0">
+        <thead>
+          <tr class="border-top">
+            <th class="code center">
+              Producto
+            </th>
+            <th class="amount center">
+              Cant.
+            </th>
+            <th class="description">
+              Componentes
+            </th>
+            <th class="dimensions center">
+              Dimensiones
+            </th>
+            <th class="note">
+              Observaciones
+            </th>
+            <th class="unit_price right">
+              Precio Unitario
+            </th>
+            <th  class="total_price right">
+              Total
+            </th>
+          </tr>
+        </thead>
+        <tbody id="product_by_budgets_items">
+          <%= render :partial => "product_by_budgets" %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="right control">
+    <%= @title.upcase %>  Nº <span><%= format_code(@budget.id, "06") %></span>
+  </div>
+  <div>
+	 <br/>
+    <div class="c80l subc center">
+      VENOM Impresos Digitales C. A.<br/>
+      Av. Francisco de Miranda, Multicentro Empresarial del Este,
+      Torre Miranda, Local PB-2, Chacao.<br/>
+      venomdescargas@gmail.com<br/>
+    </div>
+    <div class="c10r subc">
+        RIF. J-29680598-9<br/>
+        TELF. FAX: 0212-740.2088<br/>
+        0212-740.2089<br/><br/>
+        www.venomimpresos.com<br/>
+    </div>
+  </div>
+
+  <br/>
+</div>
+<br/>
+<div>
+  <% if current_user.has_permission?("budgets_backend") and @can_order_generate%>
+    <%= link_to_function "Generar Orden","orderGenerate()", :disable_with => "Por favor espere...",:id => "contable_document-button",:class => "button" unless @budget.has_case? %>
+  <% end %>
+</div>
+<div id="dialog-form" title="Registrar fecha de entrega">
+
+
+    <% semantic_form_remote_for @budget, :url => backend_budget_order_generate_url(@budget),:html => {:method => "post",:class => "form_order_generate"} do |f| %>
+      <% f.inputs do  %>
+		  <%= f.input :total,:as => :hidden,:input_html => {} %>
+        <%= f.input :advance_payment_process,:as => :hidden,:input_html => {:value => true} %>
+        <%= f.input :delivery_date,:as => :string,:input_html => {:style => "max-width:80px;",:readonly => true}  %>
+		  <%= f.input :delivery_time,:as => :string,:input_html => {:style => "max-width:80px;",:readonly => true}  %>
+        <%= f.input :responsible,:wrapper_html => {:class => ""},:input_html => {:size => 15} %>
+        <%= f.input :advance_payment,:wrapper_html => {:class => "with_advance_payment"},:input_html => {:size => 6,:class =>"amount right"} %>
+		  <%= f.input :balance,:wrapper_html => {:class => "with_advance_payment green"},:input_html => {:size => 6,:class =>"amount right green ",:readonly => true} %>
+
+        <%= f.input :payment_method_type,:wrapper_html => {:class => "with_advance_payment"},:input_html => {:class => "",:onchange => remote_function(:url => get_additional_payment_method_information_backend_budgets_url,:with => "$(this).serialize()")} %>
+		  <%= f.input :cash_bank_pos_card_terminal,:wrapper_html => {:class => "with_advance_payment with_payment_method hidden"},:input_html => {} %>
+        <%= f.input :transaction_number,:wrapper_html => {:class => "with_advance_payment with_payment_method hidden"},:input_html => {:size => 15} %>
+        <%= f.input :transaction_date,:wrapper_html => {:class => "with_advance_payment with_payment_method hidden"},:input_html => {:size => 15,:readonly => true} %>
+		  <%= f.input :with_advance_payment,:input_html => {} %>
+		  <%= f.input :invoice_printing_type,:wrapper_html => {:class => " hidden"} %>
+
+      <% end %>
+    <% end %>
+
+    <% InvoicePrintingType.all.each do |invoice_printing_type|  %>
+		<%= link_to_function(image_tag(invoice_printing_type.logo_src), "changeMethodInvoicePrintingType(#{invoice_printing_type.id})",:id => "invoice_printing_type_#{invoice_printing_type.id}",:class => "invoice_printing_types with_advance_payment button",:title => invoice_printing_type.fullname) %>
+	 <% end %>
+
+
+</div>
+
+<script type="text/javascript">
+
+		  function changeMethodInvoicePrintingType(invoice_printing_type_id){
+			 $("#budget_invoice_printing_type_id").val(invoice_printing_type_id);
+			 $(".invoice_printing_types").removeClass("selected");
+			 $("#invoice_printing_type_"+invoice_printing_type_id).addClass("selected")
+		  }
+
+        function orderGenerate()
+        {
+          $( "#dialog-form" ).dialog( "open" );
+        }
+
+        function withAdvancePaymentCheck(){
+			 $(".invoice_printing_types").removeClass("selected");
+			 $("#budget_invoice_printing_type_id").val('');
+          if($("#budget_with_advance_payment").is(':checked')){
+              $('.with_advance_payment').show();
+              $(".with_advance_payment input, .with_advance_payment select").val("");
+            }
+           else{
+              $('.with_advance_payment').hide();
+              $(".with_advance_payment input, .with_advance_payment select").val("");
+            }
+        }
+
+  $(document).ready(function(){
+		var  current_balance = <%=  @budget.balance %>
+       $("#budget_delivery_date").datepicker({
+          changeMonth: true,
+          dateFormat: 'yy-mm-dd',
+          minDate: "-0",
+          maxDate: "+25",
+			 yearRange: 'c-80:c+30',
+          beforeShowDay: noWeekendsOrHolidays,
+			 timeFormat: "hh:mm TT"
+        });
+       $("#budget_delivery_time").timepicker({
+          
+			 timeFormat: "hh:mm TT"
+        });
+      $("#budget_transaction_date").datepicker({
+              changeMonth: true,
+              changeYear: true,
+              dateFormat: 'yy-mm-dd',
+              maxDate: "-0",
+              minDate: "-30"
+        });
+		  $("#budget_advance_payment").blur(function(){
+				total = parseFloat($("#budget_total").val())
+				advance_payment = $("#budget_advance_payment").val() == "" ? 0 : parseFloat($("#budget_advance_payment").val())
+				balance = parseFloat(current_balance);
+				balance = (balance - advance_payment).toFixed(2);
+				$("#budget_balance").val(balance);
+		  });
+       $( "#dialog-form" ).dialog({
+            autoOpen: false,
+            height: 500,
+            width: 310,
+            modal: true,
+            buttons: {
+                "Procesar": function() {
+                  $(".form_order_generate").submit();
+                },
+                Cancelar: function() {
+                    $( this ).dialog( "close" );
+                }
+            },
+            close: function() {
+                //allFields.val( "" ).removeClass( "ui-state-error" );
+					 $("#budget_balance").val(<%=  @budget.balance %>);
+            }
+        });
+        //withAdvancePaymentCheck();
+        $("#budget_with_advance_payment").click(function() {
+			  withAdvancePaymentCheck();
+			  $("#budget_advance_payment").blur();
+        });
+
+
+
+  });
+</script>
+
+     

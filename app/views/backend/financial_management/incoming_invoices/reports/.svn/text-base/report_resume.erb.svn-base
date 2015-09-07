@@ -1,0 +1,58 @@
+<%
+	 owner = Supplier.find_owner
+	 contact = owner.contact
+%>
+
+<div>
+  <div id="content_info_voucher">
+	 <div class="subc c55l">
+		<div class="">
+		  <h2><%= contact.fullname.upcase %></h2>
+		  <b><%= owner.identification_document %></b><br/>
+		</div>
+	 </div>
+	 <div class="subc c40r left">
+		<div class="">
+		  <h2>RESUMEN DE ENTRADA DE FACTURAS</h2>
+		  <b>Hasta la fecha <%= l Time.now  %></b>
+		</div>
+	 </div>
+	 <br/>
+	 <hr/>
+
+
+	 <table class="no-border">
+		<thead>
+		  <tr>
+			 <th class="left">Material / Descripción </th>
+			 <th class="left">Unidad</th>
+			 <th class="left">Ctd. pedido</th>
+		  </tr>
+		</thead>
+		<tbody class="">
+                  <%
+                    @incoming_invoices.each do |incoming_invoice|
+                  %>
+                    <% if incoming_invoice.has_materials? %>
+				<tr>
+                                  <td colspan="3"><b><%= "#{incoming_invoice.code} - #{incoming_invoice.tenderer.name}"%></b></td>
+				 </tr>
+                                <%
+                                       incoming_invoice.account_payable_incoming_invoice_positions.each do |incoming_invoice_position|
+				 %>
+                                 <% if incoming_invoice_position.material_raw_material  %>
+                                    <tr>
+                                      <td class="center"><%= incoming_invoice_position.material_raw_material.name%> </td>
+                                      <td class="center"><%= incoming_invoice_position.material_order_measure_unit.name%></td>
+                                      <td class="right"><%= incoming_invoice_position.quantity%></td>
+                                    </tr>
+                                    <% end %>
+				<% end %>
+			 <% end %>
+                      <% end %>
+		</tbody>
+	 </table>
+
+
+  </div>
+</div>

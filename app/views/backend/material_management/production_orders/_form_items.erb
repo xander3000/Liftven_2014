@@ -1,0 +1,43 @@
+<div class="content_form">
+
+  <% f.inputs Material::ProductionOrder.human_attribute_name(:material_production_orden_positions) do %>
+	 <div id="form_items">
+		<table frame="border" rules="cols" >
+		  <thead>
+			 <tr>
+				<th class="material">
+				  <%= Material::ProductionOrderPosition.human_attribute_name(:material_raw_material)%>
+				</th>
+				<th class="quantity" colspan="">
+				  <%= Material::ProductionOrderPosition.human_attribute_name(:quantity)%>
+				</th>
+				<th>
+
+				</th>
+			 </tr>
+			 <tr id="item_product_form">
+				<td class=" center">
+					<%= text_field_tag "material_name","",:placeholder => "Ingrese material" %>
+				  <%= hidden_field_tag "material_production_order_position[material_raw_material_id]","",:class => "" %>
+				</td>
+				<td class="center quantity">
+				  <%= text_field_tag "material_production_order_position[quantity]","",:class => "quantity"%>
+				</td>
+				<td class="center add_button">
+				  <%= link_to_remote image_tag("icons/add.png"), :url => add_position_backend_material_management_production_orders_url,:with => "$('#item_product_form input, #item_product_form select').serialize()",:html => {:id => "add_product_button",:class => "hidden"} %>
+				</td>
+			 </tr>
+		  </thead>
+		  <tbody id="items">
+			 <%= render :partial => "items" %>
+		  </tbody>
+		</table>
+	 </div>
+  <% end %>
+</div>
+<script type="text/javascript">
+
+	$(document).ready(function(){
+
+	});
+</script>

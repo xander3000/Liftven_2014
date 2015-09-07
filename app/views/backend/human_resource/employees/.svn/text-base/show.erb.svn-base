@@ -1,0 +1,53 @@
+<% content_for :aditional_options_menunav do %>
+  <%= render  "#{controller.controller_path}/aditional_options_menunav/show" %>
+<% end %>
+
+<div class="actionsBar right no-print">
+  <%= link_to(image_tag("icons/arrow_left.png"),backend_human_resource_employees_url,:class => "button",:title => "Regresar") %>
+</div>
+<hr/>
+<div>
+  <% semantic_form_remote_for @payroll_employee, :update => "#{controller.controller_name}_container",:url => "",:html => {:class => ""} do |f| %>
+  <div class="">
+
+    <div id="tabs">
+	<ul>
+                <li id="tab-1"><a href="#tabs-1">General</a></li>
+                <li id="tab-2"><a href="#tabs-2">Concepto nomina fijos</a></li>
+                <li id="tab-3"><a href="#tabs-3">Concepto nomina variables</a></li>
+	</ul>
+	<div id="tabs-1">
+		<%= render :partial => "form",:locals => {:f => f} %>
+	</div>
+	<div id="tabs-2">
+		<%= render :partial => "show_3" %>
+	</div>
+      	<div id="tabs-3">
+		<%= render :partial => "show_4" %>
+	</div>
+
+</div>
+
+
+	 
+  </div>
+
+  <%#= link_to_function "PROCESAR","generate()", :disable_with => "Por favor espere...",:id => "contable_document-button",:class => "button" %>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+        function generate()
+        {
+          result = confirm("¿Esta seguro de ejecutar esta acción?")
+          if (result)
+            $(".form_generate").submit();
+        }
+       
+      $(document).ready(function(){
+                $(" #tabs-1 input, #tabs-1 select").attr("disabled","disabled")
+                $( "#tabs" ).tabs();
+                $("button, input:submit,input:button,a.button").button();
+	});
+
+</script>

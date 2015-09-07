@@ -1,0 +1,5 @@
+if @success
+  page.redirect_to backend_cpanel_submodule_url(@submodule)
+else
+	page.show_errors([@submodule], "message_overlay", nil)
+end

@@ -1,0 +1,15 @@
+<% @goods_movement_positions ||= current_goods_movement_positions_objects %>
+<% @goods_movement_positions.each do |goods_movement_position| %>
+
+	 <tr class="item <%= cycle("odd","ever")%> ">
+		<td>
+		  <%= goods_movement_position.material_raw_material.name %>
+		</td>
+		<td class="center">
+		  <%= goods_movement_position.quantity %>
+		</td>
+		<td class="center">
+		  <%= goods_movement_position.material_raw_material.unrestricted_use_stock %>
+		</td>
+	 </tr>
+<% end %>

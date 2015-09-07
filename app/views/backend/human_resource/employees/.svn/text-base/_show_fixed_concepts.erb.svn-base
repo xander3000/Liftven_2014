@@ -1,0 +1,39 @@
+<div>
+  <table frame="border" rules="cols" >
+	 <thead>
+		<tr>
+		  <th>
+			 Codigo
+		  </th>
+		  <th>
+			 Concepto
+		  </th>
+		  <th>
+			 Frecuencia de pago
+		  </th>
+		  <th>
+			 Monto
+		  </th>
+		</tr>
+	 </thead>
+	 <tbody>
+		<% @payroll_employee.payroll_fixed_concepts.each do |fixed_concept| %>
+		<tr>
+		  <td>
+			 <%= fixed_concept.code %>
+		  </td>
+		  <td>
+			 <%= fixed_concept.name %>
+		  </td>
+		  <td>
+			 <%= fixed_concept.payroll_concept_personal_type.payroll_payment_frequency.name %>
+		  </td>
+		  <td>
+			 <%= number_to_currency(fixed_concept.amount.to_f,:delimiter => ".", :separator => ",", :unit => "Bs") %>
+		  </td>
+
+		</tr>
+		<% end %>
+	 </tbody>
+  </table>
+</div>

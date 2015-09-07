@@ -1,0 +1,163 @@
+<style type="text/css">
+  .payment_receipt{
+	 border: none;
+  }
+  .payment_receipt tr {
+	 padding: 5px;
+  }
+  .payment_receipt td {
+	 padding: 0;
+  }
+  table,p{
+	 font-family: courier;
+	 font-size: 0.8em
+  }
+</style>
+
+	 <div style="border-bottom: 1px dotted black;padding: 15px;height: 439.59px;overflow-y:hidden; max-height: 439.59px;">
+             <table class="payment_receipt" style="">
+		  <tbody style="">
+			 <tr style="">
+				<td style="width: 210px;">
+				  <%= wicked_pdf_image_tag("clients/#{PROJECT_NAME}/logos/logo3.png",:width => "200")  %>
+				</td>
+				<td colspan="2">
+				 <%= COMPANY_NAME.upcase %> <br/>
+				  <%= COMPANY_IDENTIFICATION_DOCUMENT.upcase %>
+				</td>
+				<td style="font-size: 1.7em;" class="right">
+				  RECIBO DE PAGO
+				</td>
+			 </tr>
+			 <tr>
+				<td colspan="4" class="right">
+				  QUINCENA <%= "#{@regular_payroll_check.init_date} al #{@regular_payroll_check.end_date}"  %>
+				</td>
+			 </tr>
+
+
+			 <tr style="font-size: 1.1em">
+				<td class="">
+				  <%= format_code(@employee.id,"05") %>
+				</td>
+				<td class="center">
+				  <%= @employee.fullname %>
+				</td>
+				<td class="center">
+				  <%= @employee.identification_document %>
+				</td>
+				<td>
+
+				</td>
+			 </tr>
+			 <tr>
+				<td colspan="2">
+				  <%= @employee.payroll_position.name.upcase %>
+				</td>
+				<td class="center">
+				  SUELDO/SALARIO (Bs)
+				</td>
+				<td class="center">
+				  <%= "PERSONAL #{@employee.payroll_employee_status_type.name.upcase}" %>
+				</td>
+			 </tr>
+			 <tr>
+				<td>
+				  <%= @employee.payroll_personal_type.name.upcase %>
+				</td>
+				<td></td>
+				<td class="center">
+                                  <% salary = Payroll::LastPayroll.base_amount_by_concept(@regular_payroll_check,employee,Payroll::Concept.basic_salary) %>
+				  <%= number_to_currency(salary, :delimiter => ".", :separator => ",", :unit => "") %>
+				</td>
+				<td class="center">FECHA DE INGRESO: <%= l @employee.income_date.to_date %></td>
+			 </tr>
+			 <tr>
+				<td colspan="4">
+				  <%= @employee.payroll_department.name.upcase %>
+				</td>
+			 </tr>
+			 <tr>
+				<td colspan="4">&nbsp;</td>
+			 </tr>
+		  </tbody>
+		</table>
+
+		<table class="payment_receipt" style="">
+								<thead>
+								  <tr>
+									 <th class="left" style="width: 65%">
+										CONCEPTO
+									 </th>
+									 <th style="width: 5%">
+										HORAS/DIAS
+									 </th>
+									 <th class="right" style="width: 15%">
+										ASIGNACIONES
+									 </th>
+									 <th class="right" style="width: 15%">
+										DEDUCCIONES
+									 </th>
+								  </tr>
+								</thead>
+								<tbody>
+								  <%  amount_allocated = 0%>
+								  <%  amount_deducted = 0%>
+								  <% @employee.payroll_by_regular_payroll_check(@regular_payroll_check).each do |last_payroll| %>
+									 <%
+										  amount_allocated +=last_payroll.amount_allocated
+										  amount_deducted +=last_payroll.amount_deducted
+									 %>
+
+								  <tr>
+									 <td class="left">
+										<%= last_payroll.payroll_concept_personal_type.payroll_concept.name %>
+                                                                               <% if !last_payroll.note.to_s.empty? %>
+                                                                                     <span style="font-size: 0.8em">(<%= last_payroll.note %>)</span>
+                                                                               <% end%>
+									 </td>
+									 <td class="center">
+										<%= last_payroll.unit.zero? ? "" :  last_payroll.unit %>
+									 </td>
+									 <td class="right">
+										<%= last_payroll.amount_allocated.zero? ? "" : number_to_currency(last_payroll.amount_allocated, :delimiter => ".", :separator => ",", :unit => "") %>
+									 </td>
+									 <td class="right">
+										<%= last_payroll.amount_allocated.zero? ?  number_to_currency(last_payroll.amount_deducted, :delimiter => ".", :separator => ",", :unit => "") : ""%>
+									 </td>
+								  </tr>
+								  <% end %>
+								</tbody>
+								<tfoot>
+								  <tr>
+									 <td class="right border-top" colspan="2">
+										<i>TOTALES</i>
+									 </td>
+									 <td class="right border-top">
+										<%= number_to_currency(amount_allocated, :delimiter => ".", :separator => ",", :unit => "") %>
+									 </td>
+									 <td class="right border-top">
+										<%= number_to_currency(amount_deducted, :delimiter => ".", :separator => ",", :unit => "") %>
+									 </td>
+								  </tr>
+								  <tr  style="font-size: 20px" class="">
+								  <td>
+									 _________________________<br/>
+									 Firma y Fecha
+								  </td>
+								  <td colspan="" class="right ">
+									 <i>NETO</i>
+								  </td>
+								  <td class=""></td>
+								  <td class="right">
+									 <b><%= number_to_currency(amount_allocated-amount_deducted, :delimiter => ".", :separator => ",", :unit => "") %></b>
+								  </td>
+								</tr>
+								</tfoot>
+							 </table>
+<br/>
+		  <br/>
+		  <p>1. LA ALTERACION DE LA INFORMACION CONTEMPLADA EN ESTE RECIBO, CONLLEVARA A LAS SANCIONES CORRESPONDIENTES.</p>
+		  <p>2. PARA TRAMITES ADMINISTRATIVOS EXTERNOS, ESTA PLANILLA DEBERA LLEVAR EL SELLO HUMEDO DE LA GERENCIA GENERAL DE RECURSOS HUMANOS.</p>
+
+	 </div>

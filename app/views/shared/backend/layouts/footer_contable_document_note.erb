@@ -1,0 +1,19 @@
+<style type="text/css">
+  body{
+	 font-family: "Times New Roman";
+	 font-style: italic;
+
+}
+</style>
+
+<%
+	 owner = Supplier.find_owner
+	 contact = owner.contact
+
+%>
+<div id="document_footer" class="center">
+  <b><%= contact.fullname.upcase %></b><br/>
+  <%= contact.address %><br/>
+  <%= "Telefonos: #{contact.phone} RIF #{owner.identification_document}" %>
+  
+</div>

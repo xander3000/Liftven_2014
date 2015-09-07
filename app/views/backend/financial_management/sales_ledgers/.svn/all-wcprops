@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/1580/trunk/Venom/app/views/backend/financial_management/sales_ledgers
+END
+sales_by_criterion.erb
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/1257/trunk/Venom/app/views/backend/financial_management/sales_ledgers/sales_by_criterion.erb
+END
+show.erb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/1580/trunk/Venom/app/views/backend/financial_management/sales_ledgers/show.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/1579/trunk/Venom/app/views/backend/financial_management/sales_ledgers/show.html.erb
+END
+index.erb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/financial_management/sales_ledgers/index.erb
+END
+process_sales_by_criterion.erb
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/1257/trunk/Venom/app/views/backend/financial_management/sales_ledgers/process_sales_by_criterion.erb
+END

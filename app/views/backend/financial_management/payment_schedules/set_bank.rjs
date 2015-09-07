@@ -1,0 +1,14 @@
+	page << "$('#account_payable_payment_schedule_cash_bank_bank_account_id').children().remove().end()"
+if @success
+		if @bank_accounts.size > 1
+			page << "$('#account_payable_payment_schedule_cash_bank_bank_account_id').append(jQuery('<option></option>').val(' ').html('-- Seleccione una cuenta --'));"
+		end
+		@bank_accounts.each do |bank_account|
+			page << "$('#account_payable_payment_schedule_cash_bank_bank_account_id').append(jQuery('<option></option>').val('#{bank_account.id}').html('#{bank_account.number_with_current_balance}'));"
+		end
+
+		if @bank_accounts.size == 1
+			page << "$('#account_payable_payment_schedule_cash_bank_bank_account_id').change();"
+		end
+	
+end

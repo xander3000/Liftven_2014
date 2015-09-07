@@ -1,0 +1,16 @@
+page << "$('#credit_note_invoice_id').children().remove().end()"
+page << "$('#credit_note_invoice_id').append(jQuery('<option></option>').val('').html(''));"
+if(@invoice_required and @invoices.empty?)
+  page.alert("Debe ingresar la información del cliente")
+  page << "$('#credit_note_credit_note_emision_type_id').val($('#credit_note_credit_note_emision_type_id option:first').val());"
+else
+
+  @invoices.each do |item|
+    page << "$('#credit_note_invoice_id').append(jQuery('<option></option>').val('#{item.id}').html('#{item.name}'));"
+  end
+  if @invoice_required
+    page << "$('#credit_note_invoice_input').show('slow')"
+  else
+    page << "$('#credit_note_invoice_input').hide('slow')"
+  end
+end

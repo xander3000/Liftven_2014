@@ -1,0 +1,8 @@
+if(current_client and current_client.contact.islr_retained)
+	page.show "islr_row"
+	page.replace_html "islr_rate", :text => "ISLR SOBRE IVA #{current_client.contact.retention_rate_islr}%"
+	page.replace_html "islr_2_rate", :text => "ISLR SOBRE BASE #{current_client.contact.retention_rate_islr_2}%"
+else
+	page.hide "islr_row"
+	page.hide "islr_2_row"
+end

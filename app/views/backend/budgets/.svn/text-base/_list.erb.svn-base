@@ -1,0 +1,24 @@
+<div class="item">
+  <div class="toolbar">
+	 <div class="c70l subc left pagination">
+		<ul>
+		  <li>
+			 <%= will_paginate @budgets[:paginate], :params => {:controller => "budgets",:action => "paginate"},:renderer => 'PaginationListLinkRenderer',:previous_label => "<",:next_label => ">",:page_links => false,:class => "link_pagination",:remote => true %>
+		  </li>
+		  <li>
+			 <span id="budgets_counting"><%= @budgets[:paginate].current_page %>/<%= @budgets[:paginate].total_pages %></span>
+		  </li>
+		</ul>
+	 </div>
+	 <div class="c30r subc right">
+		<h2>
+		  <span class="count">(<%= @budgets[:count] %>)</span>
+		  &nbsp;
+		  <span class="state">Presupuestos</span>
+		</h2>
+	 </div>
+  </div>
+  <div id="listing_budgets" class="panel_items">
+	 <%= render :partial => "items" %>
+  </div>
+</div>

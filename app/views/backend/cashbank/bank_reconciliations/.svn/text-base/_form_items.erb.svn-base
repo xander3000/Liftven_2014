@@ -1,0 +1,16 @@
+<div id="form_items">
+  <div id="form_items_l" class="c50l subc">
+	 <%= render :partial => "form_items_l" %>
+  </div>
+  
+  <div id="form_items_r" class="c50r subc">
+	 <%= render :partial => "form_items_r" %>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+	$(document).ready(function(){
+
+	});
+</script>

@@ -1,0 +1,46 @@
+<%= render :partial => "form_header",:locals => {:f => f} %>
+<%= render :partial => "form_items",:locals => {:f => f} %>
+
+
+
+<script type="text/javascript">
+	 function action_after_complete_for_supplier(item){
+		switch (item.code_response) {
+			 case ("ok"):
+				  $("#material_goods_movement_doc_id").val(item.id)
+				  $("#material_goods_movement_doc_id").blur();
+				  break;
+			 case ("no-ok"):
+				  alert('no-ok');
+				  break;
+			 default:
+				  alert('problemas buscando');
+		}
+	 }
+		$(document).ready(function(){
+
+
+		  $("#material_goods_movement_doc_id").blur( function () {
+			 if($(this).val() != ""){
+			  $(this).strPadLeft(6);
+			  $.ajax({
+						  type: "POST",
+						  url: "<%= confirm_doc_backend_material_management_goods_movements_url %>",
+						  data: {doc_id: $(this).val(),goods_movement_type_id : $("#material_goods_movement_material_goods_movement_type_id").val()}
+				});
+			 }
+		  });
+
+			 $("#material_goods_movement_supplier_name").autocomplete({
+			  source: "<%= autocomplete_doc_reason_type_by_supplier_backend_material_management_goods_movements_url %>",
+			  minLength: 3,
+			  type: "POST",
+			  select: function( event, ui ) {
+				 if(ui.item)
+					 action_after_complete_for_supplier(ui.item);
+			  }
+		  });
+
+
+	});
+</script>

@@ -1,0 +1,9 @@
+	 <% @call_manager_registers.each do |call_manager_register| %>
+	  <tr>
+		  <td class="center"><%= call_manager_register.id.to_code %> </td>
+		  <td class="center"><%= call_manager_register.phone %> </td>
+		  <td class="center"><%= call_manager_register.comment %> </td>
+		  <td class="center"><%= call_manager_register.next_call_date %> </td>
+		  <td class="center"><%= call_manager_register.next_call_time %> </td>
+	  </tr>
+	  <% end %>

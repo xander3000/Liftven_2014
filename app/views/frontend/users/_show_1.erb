@@ -1,0 +1,39 @@
+<% form_remote_for @user, :url => frontend_user_url(@user),:method => :put do |f| %>
+  <div class="account-part">
+    <div id="" class="description">
+      
+      <div class="details showing_1">
+        <p><%= @user.login %> </p>
+      </div>
+
+    </div>
+    <div class="clearing"></div>
+    <div class="separator form editing_1 hidden">
+      <%= render :partial => "form_1",:locals => {:f => f} %>
+    </div>
+    <ul class="form-handling">
+        <li>
+          <p class="editing_1 hidden">
+            <%= submit_tag "Guardar",:class => "button  gray " %>
+          </p>
+
+        </li>
+        <li >
+          <p class=" editing_1 hidden">
+            <%= link_to_function("Cancelar", "",:id => "button_cancel_1",:class => "button no-background",:ref => "showing")  %>
+          </p>
+        </li>
+        <li >
+          <p class="showing_1">
+            <%= link_to_function("Editar", "",:id => "button_edit_1",:class => "button  gray",:ref => "editing") %>
+          </p>
+        </li>
+      </ul>
+  </div>
+<% end %>
+
+
+
+
+
+

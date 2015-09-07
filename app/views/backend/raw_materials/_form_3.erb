@@ -1,0 +1,5 @@
+<% semantic_fields_for @value_square_meter_raw_material do |v| %>
+  <% v.inputs "Valor por metro cuadrado (M2)", :class => "border" do %>
+    <%= v.input :base_value,:input_html => {:size => 5,:class => "right"} %>
+  <% end %>
+<% end %>

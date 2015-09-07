@@ -1,0 +1,52 @@
+<div id="detail_incoming_invoice">
+  <div class="headerWrap">
+    <div class="headerWrapContent">
+		<h2>Modificación de tipo de personal</h2>
+    </div>
+  </div>
+  <div class="mainWrapContent">
+	   <% semantic_form_remote_for @historical_personal_type_change, :update => "#{controller.controller_name}_container",:url => backend_human_resource_employee_process_change_personal_type_url(@payroll_employee),:html => {:class => "form_generate"} do |f| %>
+			 <div>
+
+				  <% f.inputs do %>
+					 <%= f.input :payroll_employee,:wrapper_html => {},:input_html => {:disabled => true} %>
+					 <%= f.input :user,:wrapper_html => {},:input_html => {:disabled => true} %>
+					 <%= f.input :payroll_old_personal_type,:wrapper_html => {},:input_html => {:disabled => true,:class => "",:names => "payroll_historical_personal_type_change[payroll_old_personal_type_id]"} %>
+					 <%= f.input :payroll_new_personal_type,:wrapper_html => {},:input_html => {:class => "",:namse => "payroll_historical_personal_type_change[payroll_new_personal_type_id]"} %>
+                                         <%= f.input :date,:wrapper_html => {},:input_html => {:class => "date"} %>
+                                         <%= f.input :comment,:wrapper_html => {},:input_html => {} %>
+				  <% end %>
+			 </div>
+		<% end %>
+
+
+  </div>
+
+  <div class="footerWrap">
+    <div class="footerWrapContent right">
+      <%= button_to_function("Añadir", "$(\"#new_payroll_historical_personal_type_change\").submit()")  %>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<script type="text/javascript">
+
+
+
+    $(document).ready(function(){
+      $("button, input:submit,input:button,a.button ").button();
+     
+      $(".date").datepicker({
+                    changeMonth: true,
+                    dateFormat: 'yy-mm-dd',
+                    minDate: "-5",
+                    maxDate: "+35",
+                    yearRange: 'c-80:c+30',
+          beforeShowDay: noWeekendsOrHolidays
+        });
+      });
+</script>

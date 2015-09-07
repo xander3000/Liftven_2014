@@ -1,0 +1,149 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/1429/trunk/Venom/app/models/crm
+END
+lead.rb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/1326/trunk/Venom/app/models/crm/lead.rb
+END
+note.rb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/1122/trunk/Venom/app/models/crm/note.rb
+END
+project.rb
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/1277/trunk/Venom/app/models/crm/project.rb
+END
+lead_status_type.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/1113/trunk/Venom/app/models/crm/lead_status_type.rb
+END
+call.rb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/1115/trunk/Venom/app/models/crm/call.rb
+END
+meeting_invitee.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/1115/trunk/Venom/app/models/crm/meeting_invitee.rb
+END
+opportunity.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/1123/trunk/Venom/app/models/crm/opportunity.rb
+END
+sector_account_type.rb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/1115/trunk/Venom/app/models/crm/sector_account_type.rb
+END
+contract.rb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/1118/trunk/Venom/app/models/crm/contract.rb
+END
+opportunity_type.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/1113/trunk/Venom/app/models/crm/opportunity_type.rb
+END
+opportunity_status_type.rb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/1113/trunk/Venom/app/models/crm/opportunity_status_type.rb
+END
+contract_status.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/1113/trunk/Venom/app/models/crm/contract_status.rb
+END
+quote_position.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/1124/trunk/Venom/app/models/crm/quote_position.rb
+END
+quote_stage_type.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/1124/trunk/Venom/app/models/crm/quote_stage_type.rb
+END
+lead_source.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/1113/trunk/Venom/app/models/crm/lead_source.rb
+END
+email.rb
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/1110/trunk/Venom/app/models/crm/email.rb
+END
+meeting.rb
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/1120/trunk/Venom/app/models/crm/meeting.rb
+END
+meeting_type.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/1115/trunk/Venom/app/models/crm/meeting_type.rb
+END
+contact.rb
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/1119/trunk/Venom/app/models/crm/contact.rb
+END
+activity.rb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/1125/trunk/Venom/app/models/crm/activity.rb
+END
+account.rb
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/1429/trunk/Venom/app/models/crm/account.rb
+END
+account_type.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/1113/trunk/Venom/app/models/crm/account_type.rb
+END
+quote.rb
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/1398/trunk/Venom/app/models/crm/quote.rb
+END
+call_invitee.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/1113/trunk/Venom/app/models/crm/call_invitee.rb
+END

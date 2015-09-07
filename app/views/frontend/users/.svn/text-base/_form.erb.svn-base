@@ -1,0 +1,286 @@
+<!-- Smart Wizard -->
+<div id="wizard" class="swMain" >
+  <ul>
+    <li>
+      <a href="#step-1">
+        <label class="stepNumber">1</label>
+        <span class="stepDesc">
+          Paso 1<br />
+          <small>Información de la cuenta</small>
+        </span>
+      </a>
+    </li>
+    <li>
+      <a href="#step-2">
+        <label class="stepNumber">2</label>
+        <span class="stepDesc">
+        Paso 2<br />
+        <small>Información del perfil</small>
+        </span>
+      </a>
+    </li>
+    <li>
+      <a href="#step-3">
+        <label class="stepNumber">3</label>
+        <span class="stepDesc">
+        Paso 3<br />
+        <small>Información de contacto</small>
+        </span>
+      </a>
+    </li>
+    <li>
+      <a href="#step-4">
+        <label class="stepNumber">4</label>
+        <span class="stepDesc">
+        Paso 4<br />
+        <small>Confimación</small>
+        </span>
+      </a>
+    </li>
+  </ul>
+  <div id="step-1"><%= render :partial => "form_step_1",:locals => {:f => f} %></div>
+  <div id="step-2"><%= render :partial => "form_step_2",:locals => {:f => f} %></div>
+  <div id="step-3"><%= render :partial => "form_step_3",:locals => {:f => f} %></div>
+  <div id="step-4"><%= render :partial => "form_step_4",:locals => {:f => f} %></div>
+</div>
+
+
+<script type="text/javascript">
+ function onFinishCallback(){
+        alert('Finish Called');
+  }
+    function leaveAStepCallback(obj){
+      var step_num= obj.attr('rel');
+      return validateSteps(step_num);
+    }
+    function validateSteps(step){
+       $("#wizard .msgBox").hide();
+      var isStepValid = true;
+      // validate step 1
+      if(step == 1){
+        if(validateStep1() == false ){
+          isStepValid = false;
+          $('#wizard').smartWizard('showMessage','Por favor corrige los errores en el paso '+step+ ' y luego haz click en próximo.');
+          $('#wizard').smartWizard('setError',{stepnum:step,iserror:true});
+        }else{
+          $('#wizard').smartWizard('setError',{stepnum:step,iserror:false});
+        }
+      }
+
+      // validate step2
+      if(step == 2){
+        if(validateStep2() == false ){
+          isStepValid = false;
+          $('#wizard').smartWizard('showMessage','Por favor corrige los errores en el paso '+step+ ' y luego haz click en próximo.');
+          $('#wizard').smartWizard('setError',{stepnum:step,iserror:true});
+        }else{
+          $('#wizard').smartWizard('setError',{stepnum:step,iserror:false});
+        }
+      }
+
+
+      // validate step3
+      if(step == 3){
+
+        if(validateStep3() == false ){
+          isStepValid = false;
+          $('#wizard').smartWizard('showMessage','Por favor corrige los errores en el paso '+step+ ' y luego haz click en próximo.');
+          $('#wizard').smartWizard('setError',{stepnum:step,iserror:true});
+        }else{
+          $('#wizard').smartWizard('setError',{stepnum:step,iserror:false});
+        }
+      }
+
+      return isStepValid;
+    }
+
+    function validateAllSteps(){
+       var isStepValid = true;
+
+       if(validateStep1() == false){
+         isStepValid = false;
+         $('#wizard').smartWizard('setError',{stepnum:1,iserror:true});
+       }else{
+         $('#wizard').smartWizard('setError',{stepnum:1,iserror:false});
+       }
+
+       if(validateStep2() == false){
+         isStepValid = false;
+         $('#wizard').smartWizard('setError',{stepnum:3,iserror:true});
+       }else{
+         $('#wizard').smartWizard('setError',{stepnum:3,iserror:false});
+       }
+
+       if(validateStep3() == false){
+         isStepValid = false;
+         $('#wizard').smartWizard('setError',{stepnum:3,iserror:true});
+       }else{
+         $('#wizard').smartWizard('setError',{stepnum:3,iserror:false});
+       }
+
+       if(!isStepValid){
+          $('#wizard').smartWizard('showMessage','Por favor, revise los errores y continue');
+       }
+
+       return isStepValid;
+    }
+    
+    function validateStep1(){
+       var isValid = true;
+       // Validate Username
+       var un = $('#user_login').val();
+
+       if(un && un.length > 0){
+         if(!isValidEmailAddress(un)){
+           isValid = false;
+           $('#msg_username').html('El correo es invalido').show();
+         }else{
+          $('#msg_username').html('').hide();
+         }
+       }else{
+         isValid = false;
+         $('#msg_username').html('Por favor, ingrese su correo electrónico').show();
+       }
+
+       // validate password
+       var pw = $('#user_password').val();
+       if(!pw && pw.length <= 0){
+         isValid = false;
+         $('#msg_password').html('Por favor, ingrese una clave').show();
+       }else{
+         $('#msg_password').html('').hide();
+       }
+
+       // validate confirm password
+       var cpw = $('#user_password_confirmation').val();
+       if(!cpw && cpw.length <= 0){
+         isValid = false;
+         $('#msg_cpassword').html('Por favor, ingrese la confirmación de la clave').show();
+       }else{
+         $('#msg_cpassword').html('').hide();
+       }
+
+       // validate password match
+       if(pw && pw.length > 0 && cpw && cpw.length > 0){
+         if(pw != cpw){
+           isValid = false;
+           $('#msg_cpassword').html('La claves no coinciden').show();
+         }else{
+           $('#msg_cpassword').html('').hide();
+         }
+       }
+       return isValid;
+    }
+
+    function validateStep2(){
+      var isValid = true;
+      //validate fullname
+
+       var fullname = $('#contact_fullname').val();
+       if(!fullname && fullname.length <= 0){
+          isValid = false;
+          $('#msg_fullname').html('Por favor, ingrese  su nombre completo').show();
+       }else{
+          $('#msg_fullname').html('').hide();
+       }
+
+       var fullname = $('#contact_identification_document').val();
+       if(!fullname && fullname.length <= 0){
+          isValid = false;
+          $('#msg_identification_document').html('Por favor, ingrese su documento de identificación').show();
+       }else{
+         if(isNaN(parseInt(fullname)) || fullname.length < 7 || fullname.length > 8 ){
+            isValid = false;
+            $('#msg_identification_document').html('Documento de identificación inválido').show();
+          }
+          else
+            $('#msg_identification_document').html('').hide();
+       }
+
+      return isValid;
+    }
+
+
+    function validateStep3(){
+      var isValid = true;
+      //validate fullname
+/*
+       var phone = $('#contact_phone').val();
+       if(!phone && phone.length <= 0){
+          isValid = false;
+          $('#msg_phone').html('Por favor, ingrese  su número telefónico').show();
+       }else{
+         if(isNaN(parseInt(phone))){
+            isValid = false;
+            $('#msg_phone').html('Número telefónico inválido').show();
+          }
+          else
+          $('#msg_phone').html('').hide();
+       }*/
+
+      return isValid;
+    }
+
+  function showAStepCallback(obj){
+      var step_num= obj.attr('rel');
+      displayAnyDataStep(step_num);
+      return true;
+  }
+
+  function displayAnyDataStep(step){
+    if(step == 4){
+       copyFormConfimation();
+    }
+  }
+
+  function copyFormConfimation(){
+     
+     un = $('#user_login').val();
+     identification_document = $('#contact_identification_document').val();
+     fullname = $('#contact_fullname').val();
+     phone = $('#contact_phone').val();
+     cellphone = $('#contact_cellphone').val();
+     address = $('#contact_address').val();
+     confirmation = "confirmation_";
+     $('#'+confirmation+'user_login').html(un);
+     $('#'+confirmation+'contact_identification_document').html(identification_document);
+     $('#'+confirmation+'contact_fullname').html(fullname);
+     $('#'+confirmation+'contact_phone').html(phone);
+     $('#'+confirmation+'contact_cellphone').html(cellphone);
+     $('#'+confirmation+'contact_address').html(address);
+     
+
+  }
+
+
+
+
+
+    // Email Validation
+    function isValidEmailAddress(emailAddress) {
+      var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+      return pattern.test(emailAddress);
+    }
+
+    $(document).ready(function(){
+    	// Smart Wizard
+
+        $('#wizard').smartWizard({
+         
+          transitionEffect:'slideleft',
+          labelFinish: "Confirmar",
+          labelNext:'Próximo',
+          labelPrevious:'Anterior',
+          onLeaveStep:leaveAStepCallback,
+          onShowStep: showAStepCallback/*,
+          contentCache: false,
+          onLeaveStep:leaveAStepCallback,
+          onShowStep: showAStepCallback,
+          onFinish :onFinishCallback*/
+        });
+
+  });
+
+
+
+</script>

@@ -1,0 +1,8 @@
+if @purcharse_order
+	page << "$('#material_goods_receipt_supplier').val('#{@purcharse_order.supplier.name}')"
+	page.replace_html "items", :partial => "items"
+else
+	page.alert("Pedido no existe")
+	page << "$('#material_goods_receipt_supplier').val('')"
+	page.replace_html "items", :text => ""
+end

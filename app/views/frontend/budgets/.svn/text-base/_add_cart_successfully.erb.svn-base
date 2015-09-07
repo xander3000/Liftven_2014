@@ -1,0 +1,21 @@
+<p>
+  <strong class="name">
+    <span class="venom_2"><%= @product_by_budget.quantity %> <%= @product_by_budget.product.name %></span>
+    <br/>
+    <span class=""><%= number_to_currency(@product_by_budget.total_price, :delimiter => ".", :separator => ",", :unit => "Bs")  %></span>
+    <br/>
+    <% if @product_by_budget.quantity > 1  %>
+      <span style="" class="successfully">han sido agregados a tu carrito.</span>
+    <% else %>
+      <span style="" class="successfully">ha sido agregado a tu carrito. </span>
+    <% end %>
+    
+    
+  </strong>
+</p>
+
+  <p>
+    <input type="button" class="close ui-button ui-widget ui-state-default ui-corner-all"/>
+    <br/>
+    <%= link_to("Comprar ahora",cart_frontend_budgets_url,:class =>"checkout button") %>
+  </p>

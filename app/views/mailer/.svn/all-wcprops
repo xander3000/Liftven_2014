@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/1233/trunk/Venom/app/views/mailer
+END
+prueba.erb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/1233/trunk/Venom/app/views/mailer/prueba.erb
+END
+send_notification_email_design.erb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/295/trunk/Venom/app/views/mailer/send_notification_email_design.erb
+END
+send_payment_receipt.erb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/1233/trunk/Venom/app/views/mailer/send_payment_receipt.erb
+END

@@ -1,0 +1,30 @@
+<% content_for :venom_leadspace_head do %>
+  <%= render :partial => "leadspaces" %>
+<% end %>
+
+<%= render :partial => "news" %>
+<%= render :partial => "promotion" %>
+
+
+
+<script type="text/javascript">
+    $(function () {
+
+
+		  $("#marquee").marquee({
+			 //pauseOnHover: false
+		  });
+		  var buttons = { previous:$('#lofslidecontent45 .lof-next') ,  next:$('#lofslidecontent45 .lof-previous') };
+		  $obj = $('#lofslidecontent45').lofJSidernews( { interval : 4000,
+																						direction : 'opacitys',
+																						easing : 'swing',
+																						duration : 1200,
+																						maxItemDisplay : 4,
+																						auto: true,
+																						navPosition : 'horizontal', // horizontal
+																						navigatorHeight : 32,
+																						navigatorWidth : 80,
+																						mainWidth:1365,
+																						buttons : buttons} );
+    });
+</script>

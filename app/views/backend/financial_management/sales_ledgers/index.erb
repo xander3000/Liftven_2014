@@ -1,0 +1,53 @@
+<%= include_javascript("jquery.dataTables.min.js") %>
+<%= include_stylesheet("jquery.datatable.css") %>
+<div class="actionsBar right no-print">
+  <%= link_to(image_tag("icons/arrow_left.png"),backend_cpanel_home_index_url,:class => "button",:title => "Regresar") %>
+</div>
+<hr/>
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="invoices" width="100%">
+	<thead>
+		<tr>
+			<th style="width: 10px;">St</th>
+			<th>Periodo</th>
+			<th><%= Invoice.human_attribute_name("sub_total")%> </th>
+			<th><%= AccountPayable::IncomingInvoice.human_attribute_name("tax")%> </th>
+			<th><%= AccountPayable::IncomingInvoice.human_attribute_name("total")%> </th>
+		</tr>
+	</thead>
+	<tbody>
+	  <% @invoices.each do |period,invoice|  %>
+		 <tr class="external-overlay" rel=".overlay" >
+			 <td class="center" title="Vigente"><%= image_tag "icons/bullet_square_green.png" %></td>
+			 <td class="center"><%=  link_to(period,backend_financial_management_sales_ledger_url(period))%> </td>
+			 <td class="right"><%= number_to_currency(invoice[:sub_total], :delimiter => ".", :separator => ",", :unit => "")%></td>
+			 <td class="right"><%= number_to_currency(invoice[:tax], :delimiter => ".", :separator => ",", :unit => "")%></td>
+			 <td class="right"><%= number_to_currency(invoice[:total], :delimiter => ".", :separator => ",", :unit => "")%></td>
+		  </tr>
+		<% end %>
+	</tbody>
+</table>
+
+
+
+
+<script type="text/javascript">
+  var oTable;
+
+  $(document).ready(function() {
+		oTable =  $('#invoices').dataTable({
+            oLanguage: {
+                sUrl: "/javascripts/i18n/jquery.DataTables-es.txt"
+            }
+        });
+	 $("#invoices tbody").click(function (event) {
+		  $(oTable.fnSettings().aoData).each(function () {
+				$(this.nTr).removeClass('row_selected');
+		  });
+		  $(event.target.parentNode).addClass('row_selected');
+	 });
+
+  });
+
+
+
+</script>

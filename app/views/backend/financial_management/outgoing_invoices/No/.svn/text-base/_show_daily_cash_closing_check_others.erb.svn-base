@@ -1,0 +1,17 @@
+<p><b class="border-bottom">Cheques / Otros Documentos</b></p>
+<div class="right">
+	 <p>
+		  <i>Total: </i>
+		  <b><%= number_to_currency(@daily_cash_closing.total_amount_check, :delimiter => ".", :separator => ",", :unit => "") %></b>
+	 </p>
+	 
+		<i>Ventas por caja <b><%= @daily_cash_closing.cash_bank_cash.name %></b> : </i>
+		<b class=""><%= number_to_currency(@daily_cash_closing.total_amount_check_fiscal + @daily_cash_closing.total_amount_deposit_fiscal, :delimiter => ".", :separator => ",", :unit => "") %></b>
+	 <br/>
+		<i>Ventas por <b>Forma Libre</b>: </i>
+		<b class=""><%= number_to_currency(@daily_cash_closing.total_amount_check_free_form + @daily_cash_closing.total_amount_deposit_free_form, :delimiter => ".", :separator => ",", :unit => "") %></b>
+	 <br/>
+		<i><b>Anticipos por ordenes</b>: </i>
+		<b class=""><%= number_to_currency(@daily_cash_closing.total_order_amount_check_with_advance_payment + @daily_cash_closing.total_order_amount_deposit_with_advance_payment, :delimiter => ".", :separator => ",", :unit => "") %></b>
+</div>
+		

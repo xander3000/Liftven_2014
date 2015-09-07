@@ -1,0 +1,6 @@
+if @success
+  page.redirect_to frontend_user_url(@user)
+else
+ page.show_errors([@user,@contact], "message_overlay", nil)
+end
+

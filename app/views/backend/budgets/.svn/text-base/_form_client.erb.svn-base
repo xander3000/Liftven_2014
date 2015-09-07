@@ -1,0 +1,17 @@
+<div id="contact_form" class="content_form">
+  <% semantic_fields_for @contact do |c| %>
+    <% c.inputs "Datos del cliente" do %>
+      <%= hidden_field(:budget, :client_id,:class => "input_client")  %>
+		<%= c.input :fullname %>
+      <%= c.input :identification_document,:input_html => {:class => "identification_document"} %>
+      <%#= c.input :identification_document_type %>
+      <%= c.input :phone,:input_html => {:class => " input_client"} %>
+      <%= c.input :address,:as => :string,:input_html => {:class => " input_client"} %>
+      <%= c.input :email,:input_html => {:class => " input_client"} %>
+    <% end %>
+  <% end %>
+  <% f.inputs "Facturacion",:id => "discount_increase" do  %>
+	 <%= f.input :discount_percent,:input_html => {:size => 5,:class => "right"} %>
+	 <%= f.input :increase_percent,:input_html => {:size => 5,:class => "right"} %>
+  <% end %>
+</div>

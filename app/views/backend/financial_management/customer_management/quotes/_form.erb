@@ -1,0 +1,68 @@
+<div id="" class="content_form">
+    <% f.inputs "Datos generales" do %>
+		<%= f.input :name,:label => false,:input_html  => {:class => "top",:placeholder => "Asunto"}%>
+		<div class="subc c50l">
+		  <% f.inputs do  %>
+			 <%= f.input :crm_account,:input_html => {} %>
+			 <%= f.input :crm_quote_stage_type,:input_html => {} %>
+			 <%= f.input :valid_until_date,:input_html => {:class => "date"} %>
+		<% end %>
+		</div>
+		<div class="subc c50r">
+		  <% f.inputs do  %>
+			 <%= f.input :crm_opportunity,:input_html => {} %>
+			 <%= f.input :crm_contact,:input_html => {} %>
+		  <% end %>
+		</div>
+	 <% end %>
+
+<% f.inputs "Datos de ubicación" do %>
+		
+		<div class="subc c50l">
+		  <% f.inputs do  %>
+			 <%= f.input :billing_contact_name,:input_html => {} %>
+			 <%= f.input :billing_address,:input_html => {} %>
+			 <%= f.input :billing_street,:input_html => {:class => ""} %>
+			 <%= f.input :billing_city,:input_html => {} %>
+			 <%= f.input :billing_state,:input_html => {} %>
+			 <%= f.input :billing_postal_code,:input_html => {} %>
+			 <%= f.input :billing_country,:input_html => {} %>
+		<% end %>
+		</div>
+		<div class="subc c50r">
+		  <% f.inputs do  %>
+			 <%= f.input :shipping_contact_name,:input_html => {} %>
+			 <%= f.input :shipping_address,:input_html => {} %>
+			 <%= f.input :shipping_street,:input_html => {:class => ""} %>
+			 <%= f.input :shipping_city,:input_html => {} %>
+			 <%= f.input :shipping_state,:input_html => {} %>
+			 <%= f.input :shipping_postal_code,:input_html => {} %>
+			 <%= f.input :shipping_country,:input_html => {} %>
+		  <% end %>
+		</div>
+	 <% end %>
+
+  <% f.inputs "Detalles de producto / servicio" do %>
+  <div  id="quotes-items">
+	 <%= render :partial => "quotes_items" %>
+  </div>
+  <% end %>
+
+<% f.inputs "Información de la descripción y terminos" do %>
+	 <%= f.input :term_conditions,:input_html => {} %>
+	 <%= f.input :description,:input_html => {} %>
+	 <%= f.input :assigned_to,:input_html => {} %>
+  <% end %>
+
+</div>
+
+<script type="text/javascript">
+  			$(".date").datepicker({
+          changeMonth: true,
+          dateFormat: 'yy-mm-dd',
+          minDate: "-0",
+          maxDate: "+15",
+			 yearRange: 'c-80:c+30',
+          beforeShowDay: noWeekendsOrHolidays
+        });
+</script>

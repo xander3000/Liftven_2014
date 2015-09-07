@@ -1,0 +1,5 @@
+if @success
+	page.replace_html "#{controller.controller_name}_container", :partial => "show"
+else
+	 page.show_errors(@objets, "message_overlay", nil)
+end

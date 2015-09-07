@@ -1,0 +1,18 @@
+<%= include_stylesheet("jquery.fineuploader.min.css") %>
+<%= include_javascript("jquery.fineuploader.min.js") %>
+<div>
+  <% semantic_form_remote_for @bank_reconciliation, :update => "#{controller.controller_name}_container",:url => backend_cashbank_bank_reconciliations_url,:html => {:class => "form_generate",:multipart => true} do |f| %>
+        <%= render :partial => "form",:locals => {:f => f} %>
+  <%= link_to_function "PROCESAR","generate()", :disable_with => "Por favor espere...",:id => "contable_document-button",:class => "button" %>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+        function generate()
+        {
+          result = confirm("¿Esta seguro de ejecutar esta acción?")
+          if (result)
+            $(".form_generate").submit();
+        }
+
+</script>

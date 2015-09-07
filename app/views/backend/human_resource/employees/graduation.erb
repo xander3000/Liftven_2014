@@ -1,0 +1,49 @@
+<div id="detail_incoming_invoice">
+  <div class="headerWrap">
+    <div class="headerWrapContent">
+		<h2>Egresar empleado</h2>
+    </div>
+  </div>
+  <div class="mainWrapContent">
+	   <% semantic_form_remote_for @payroll_employee, :update => "#{controller.controller_name}_container",:url => backend_human_resource_employee_url(@payroll_employee),:html => {:id => "graduation_employee",:class => "form_generate",:method => :put} do |f| %>
+			 <div>
+				  <% f.inputs do %>
+					 <%= f.input :fullname,:wrapper_html => {},:input_html => {:disabled => true} %>
+					 <%= f.input :payroll_employee_status_type_id,:as => :string,:wrapper_html => {:class => "hidden"},:input_html => {} %>
+					 <%= f.input :discharge_date,:wrapper_html => {},:input_html => {:class => "date"} %>
+				  <% end %>
+
+			 </div>
+		<% end %>
+
+
+  </div>
+
+  <div class="footerWrap">
+    <div class="footerWrapContent right">
+      <%= button_to_function("Procesar", "$(\"#graduation_employee\").submit()")  %>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<script type="text/javascript">
+
+
+
+    $(document).ready(function(){
+      $("button, input:submit,input:button,a.button ").button();
+      amount_keypress();
+      $(".date").datepicker({
+                    changeMonth: true,
+                    dateFormat: 'yy-mm-dd',
+                    minDate: "-8",
+                    maxDate: "0",
+                    yearRange: 'c-80:c+30',
+          beforeShowDay: noWeekendsOrHolidays
+        });
+      });
+</script>

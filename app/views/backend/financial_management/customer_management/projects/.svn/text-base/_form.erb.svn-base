@@ -1,0 +1,42 @@
+<div id="" class="content_form">
+  
+    <% f.inputs "Datos generales" do %>
+		  <%= f.input :name,:label => false,:input_html  => {:class => "top",:placeholder => "Nombre del proyecto"}%>
+		  <%= f.input :crm_projects_executive,:input_html  => {}%>
+		  <%= f.input :init_date,:input_html  => {:class => "date"}%>
+		  <%= f.input :end_date,:input_html  => {:class => "date"}%>
+		  <%= f.input :note  %>
+	 <% end %>
+  <% f.inputs "Datos ubicación" do %>
+		<%= f.input :entity,:input_html  => {}%>
+		<%= f.input :city,:input_html  => {}%>
+		<%= f.input :address,:input_html  => {}%>
+  <% end %>
+  <% f.inputs "Negociación" do %>
+  <%= f.input :contribution_amount,:input_html  => {:class => "amount right",:size => 15}%>
+  <%= f.input :data_complete,:input_html  => {}%>
+  <%= f.input :quote_ready,:input_html  => {}%>
+  <%= f.input :quote_sent,:input_html  => {}%>
+  <%= f.input :chance,:input_html  => {}%>
+  <%= f.input :approved,:input_html  => {}%>
+  <%= f.input :lost,:input_html  => {}%>
+  <% end %>
+  
+
+
+
+</div>
+
+
+<script type="text/javascript">
+
+  		$(document).ready(function(){
+
+		  $(".date").datepicker({
+          changeMonth: true,
+			 changeYear: true,
+          dateFormat: 'yy-mm-dd'
+        }).attr('readonly',true);
+		  
+		});
+</script>

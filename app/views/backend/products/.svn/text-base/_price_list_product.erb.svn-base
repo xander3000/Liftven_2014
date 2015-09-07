@@ -1,0 +1,26 @@
+
+<% semantic_fields_for @product_price_definition_set_by_component do |p| %>
+  <% p.inputs "",:class => "" do  %>
+      <%= p.input :price_definition_set_by_component_type,:input_html => {:onchange => remote_function(:url => select_price_definition_set_by_component_type_backend_products_url,:with => "$(this).serialize()")} %>
+        <div id="price_list_product">
+          <div id="price_definition_set_by_component_type">
+          </div>
+        </div>
+  <% end %>
+<% end %>
+
+<br/>
+Agregados:
+  <div id="price_list_product_added">
+    <%= render :partial => "price_list_product_added" %>
+  </div>
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+      $("#price_list_product_lower_limit").before(" a partir de ");
+      $("#price_list_product_upper_limit").before("a ");
+      $("#price_list_product_price_list_id").before(" en la lista ");
+      $("#product_price_definition_set_by_component_amount_t").blur(function () { $("#product_price_definition_set_by_component_amount_tr").val($(this).val())})
+      });
+</script>

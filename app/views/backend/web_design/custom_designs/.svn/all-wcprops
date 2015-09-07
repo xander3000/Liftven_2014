@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/1339/trunk/Venom/app/views/backend/web_design/custom_designs
+END
+select_multimedia_file_by_type_design.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/web_design/custom_designs/select_multimedia_file_by_type_design.rjs
+END
+_form.erb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/web_design/custom_designs/_form.erb
+END
+delete_prev.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/web_design/custom_designs/delete_prev.rjs
+END
+_form_upload.erb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/1339/trunk/Venom/app/views/backend/web_design/custom_designs/_form_upload.erb
+END
+index.erb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/web_design/custom_designs/index.erb
+END
+set_category_design.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/web_design/custom_designs/set_category_design.rjs
+END
+add_custom_design_category_type.erb
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/web_design/custom_designs/add_custom_design_category_type.erb
+END
+new.erb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/1339/trunk/Venom/app/views/backend/web_design/custom_designs/new.erb
+END
+create.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/1205/trunk/Venom/app/views/backend/web_design/custom_designs/create.rjs
+END
+process_add_custom_design_category_type.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/web_design/custom_designs/process_add_custom_design_category_type.rjs
+END
+_form_prev.erb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/web_design/custom_designs/_form_prev.erb
+END

@@ -1,0 +1,28 @@
+/* 
+    Document   : jquery.droplist
+    Created on : 27/01/2013, 03:24:37 PM
+    Author     : gabriel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+
+  /* General dropdown styles */
+.dropDownContainer a.dropdown.no-selected {border: 1px solid red; }
+.dropDownContainer a.dropdown.selected {border: 1px solid green; }
+.dropDownContainer dd { position:absolute; }
+/* DT styles for sliding doors */
+/* UL styles */
+.dropDownContainer dd ul {  display:none;
+    list-style:none; position:absolute; z-index: 1;
+    left:0px; top:2px; width:auto; min-width:170px;
+    text-align: left;}
+.dropDownContainer span.value { display:none;}
+.dropDownContainer dd ul li a { cursor: pointer;padding:5px; display:block;text-decoration: none;}
+.dropDownContainer dd ul li a.selected{ background: #FAEE8D;}
+.dropDownContainer dd ul li a:hover{ background: #E6E6E6; color: #555555; font-weight: normal;}

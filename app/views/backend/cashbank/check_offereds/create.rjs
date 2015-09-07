@@ -1,0 +1,6 @@
+if @success
+	page << "$('a[rel]').each(function() {$(this).overlay().close();});"
+else
+	page.show_errors([@check_offered], "message_overlay", nil)
+end
+

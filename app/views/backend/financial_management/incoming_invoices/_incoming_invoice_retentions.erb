@@ -1,0 +1,55 @@
+<% if !@supplier_withholding_taxes.empty? %>
+  <hr/>
+  <fieldset class="inputs">
+	 <legend><b>Retenciones asociadas al proveedor/beneficiario:</b></legend><br/>
+	 <ol style="padding-left: 25px">
+		  <% @supplier_withholding_taxes.each do |supplier_withholding_tax|%>
+		  <li>
+			 <% accounting_withholding_taxe_type = supplier_withholding_tax.accounting_withholding_taxe_type %>
+			 <label>- <%= accounting_withholding_taxe_type.full_name %></label>
+			 <%= hidden_field_tag "account_payable_incoming_invoice_retention[percentage_#{supplier_withholding_tax.id}]",accounting_withholding_taxe_type.percentage,:size => 5 %>&nbsp;
+			 <%= text_field_tag "account_payable_incoming_invoice_retention[subject_retention_amount_#{supplier_withholding_tax.id}]",nil,:size => 15,:placeholder => AccountPayable::IncomingInvoiceRetention.human_attribute_name("subject_retention_amount"),:titles => AccountPayable::IncomingInvoiceRetention.human_attribute_name("subject_retention_amount"),:class => "right subject_retention_amount"  %>&nbsp;
+                         <%= hidden_field_tag "account_payable_incoming_invoice_retention[subtrahend_#{supplier_withholding_tax.id}]",supplier_withholding_tax.subtrahend,:size => 5 %>&nbsp;
+			 <% unless supplier_withholding_tax.subtrahend.zero? %>
+                           <%= "- #{supplier_withholding_tax.subtrahend.to_currency(false)} sustraendo" %>
+                         <% end %>
+                         <%= text_field_tag "account_payable_incoming_invoice_retention[retained_amount_#{supplier_withholding_tax.id}]",nil,:size => 15,:placeholder =>  AccountPayable::IncomingInvoiceRetention.human_attribute_name("retained_amount"),:title => AccountPayable::IncomingInvoiceRetention.human_attribute_name("retained_amount"),:class => "right retained_amount",:readonly => true %>&nbsp;
+		  </li>
+		  <% end %>
+		</ol>
+  </fieldset>
+  <hr/>
+<% end %>
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+	 $(".subject_retention_amount").blur( function () {
+		sub_total_amount = $("#account_payable_incoming_invoice_sub_total_amount").val()
+		if(sub_total_amount!= ""){
+		  sub_total_amount = parseFloat(sub_total_amount)
+
+			 subject_retention_amount = parseFloat($(this).val())
+			 if(isNaN(subject_retention_amount))
+				subject_retention_amount = 0;
+			 if(sub_total_amount >= subject_retention_amount){
+				item = $(this).attr("id");
+				id = item.split("_").pop()
+				percentage = parseFloat($("#account_payable_incoming_invoice_retention_percentage_"+id).val());
+				retained_amount = subject_retention_amount*percentage/100;
+                                subtrahend = parseFloat($("#account_payable_incoming_invoice_retention_subtrahend_"+id).val());
+				$("#account_payable_incoming_invoice_retention_retained_amount_"+id).val(retained_amount-subtrahend);
+				calculate_total_amount()
+				
+			 }else
+				alert_error("El monto sujeto a retención debe ser menor a la base imponible" + subject_retention_amount)
+
+			 
+		  }
+		  else{
+			 $(this).val("")
+			 alert_error("Debe agregar al menos un item en la sessión de posiciones")
+		  }
+	 });
+  });
+</script>

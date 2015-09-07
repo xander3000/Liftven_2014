@@ -1,0 +1,31 @@
+page << "$('#account_payable_payment_order_cash_bank_involvement_type_id').children().remove().end()"
+page << "$('#account_payable_payment_order_cash_bank_involvement_type_id').append(jQuery('<option></option>').val('').html(''));"
+page << "$('#account_payable_payment_order_tenderer_id,#account_payable_payment_order_tenderer_type').val('')"
+if @accounting_concept
+	page << "$('#account_payable_payment_order_tenderer_type').val('Supplier')"
+	page << "$('#account_payable_payment_order_tenderer_name_input label').html('Proveedor/Beneficiario')"
+
+		if @external_doc
+			page << "$('#account_payable_payment_order_tenderer_id').val('#{@external_doc.tenderer.id}')"
+			page << "$('#account_payable_payment_order_tenderer_name').val('#{@external_doc.tenderer.name}').attr('readonly',true)"
+			page << "$('#account_payable_payment_order_doc_type').val('#{@external_doc.class.to_s}')"
+			page << "$('#account_payable_payment_order_doc_id').val('').children().remove().end();"
+		  page << "$('#account_payable_payment_order_doc_id').append(jQuery('<option></option>').val(#{@external_doc.id}).html('#{@external_doc.fullname}')).change();"
+		else
+			page << "$('#account_payable_payment_order_doc_type').val('')"
+			page << "$('#account_payable_payment_order_tenderer_name').val('').attr('readonly',false)"
+		end
+  page << "$('#account_payable_payment_order_tenderer_type').blur()"
+
+	if @involvement_types.size > 1
+		selected = ""
+	else
+		selected = "selected"
+	end
+	@involvement_types.each do |item|
+    page << "$('#account_payable_payment_order_cash_bank_involvement_type_id').append(jQuery('<option #{selected}></option>').val('#{item.id}').html('#{item.name}'));"
+  end
+
+else
+
+end

@@ -1,0 +1,11 @@
+page.replace_html "#{controller.controller_name}_container", :partial => "show"
+price_definition_type = @product.price_definition_type
+if price_definition_type.is_defined_by_value_price_set?
+    page.replace_html "tabs-4",:partial => "show_4_1"
+    page.show "tab-4"
+  elsif   price_definition_type.is_defined_by_value_price_set_by_component_type?
+    page.replace_html "tabs-4",:partial => "show_4_2"
+    page.show "tab-4"
+  elsif price_definition_type.is_defined_by_value_raw_material?
+    page.show "product_by_price_definition_set_input"
+end

@@ -1,0 +1,23 @@
+<%= include_javascript "jquery.slidernav" %>
+<%= include_stylesheet "jquery.slidernav" %>
+
+<div id="contacts">
+  <div class="c30l subc border-right">
+    <div class="slider-tabs">
+      <%= link_to_remote "Todos",{:url => select_list_backend_contacts_url,:with =>"'contact_type_id=0'"},:class => "selected slider-tab-0" %>
+      <% @contact_types.each do |contact_type| %>
+        <%= link_to_remote(contact_type.name,{:url => select_list_backend_contacts_url,:with =>"'contact_type_id='+#{contact_type.id}"},:class => " slider-tab-#{contact_type.id}") %>
+      <% end %>
+    </div>
+    <div id="slider">
+      <%= render :partial => "index_slider" %>
+    </div>
+  </div>
+  <div class="c70l subc">
+    <div class="subcr">
+      <% form_layout do %>
+        <%= render :partial => "index_right_options" %>
+      <% end %>
+    </div>
+  </div>
+</div>

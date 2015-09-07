@@ -1,0 +1,27 @@
+/* 
+    Document   : states
+    Created on : 31/07/2011, 03:34:04 PM
+    Author     : gabriel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+table tr td.design
+{
+    color: #FFF;
+    background: #3399ff;
+}
+
+/*
+Azul = #3399ff
+
+Amarillo = #ffcc00
+
+Rojo = #cc0000
+
+Verde = # 99cc00
+*/

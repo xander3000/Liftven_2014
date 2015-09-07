@@ -1,0 +1,6 @@
+if @success
+	page.redirect_to backend_financial_management_payment_order_url(@payment_order)
+else
+	page.show_errors([@payment_order], "message_overlay", nil)
+end
+

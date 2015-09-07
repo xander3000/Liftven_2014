@@ -1,0 +1,3 @@
+# TODO Operate on the page object
+page.show "product_components"
+page.replace_html "product_components", :partial => "product_components"

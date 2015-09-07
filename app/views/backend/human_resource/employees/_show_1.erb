@@ -1,0 +1,25 @@
+
+<% payroll_staff = @employee.payroll_staff  %>
+    <div>
+      <b><%= payroll_staff.class.human_attribute_name('rif')%>: </b>
+      <span class="value"><%= payroll_staff.rif %></span>
+    </div>
+    <br/>
+    <div>
+      <b><%= payroll_staff.class.human_attribute_name('email')%>: </b>
+      <span class="value"><%= payroll_staff.email %></span>
+    </div>
+	 <br/>
+	 <div>
+      <b><%= payroll_staff.class.human_attribute_name('birthday')%>: </b>
+      <span class="value"><%= payroll_staff.birthday %></span>
+    </div>
+	 <br/>
+	 <div>
+     <b><%= payroll_staff.class.human_attribute_name('payroll_gender')%>: </b>
+      <span class="value"><%= payroll_staff.payroll_gender.name %>. <br/></span>
+    </div>
+
+
+	 
+								

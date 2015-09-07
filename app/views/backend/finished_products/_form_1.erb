@@ -1,0 +1,86 @@
+<% f.inputs do%>
+  <%=  f.input :finished_product_category_type,:input_html => {} %>
+  <%=  f.input :raw_material,:input_html => {:onchange => remote_function(:url => select_presentation_unit_types_backend_finished_products_url,:with => "$(this).serialize()")} %>
+  <%=  f.input :presentation_unit_type,:collection => @finished_product.presentation_unit_type ? @finished_product.presentation_unit_type : [],:input_html => {:onchange => remote_function(:url => select_presentation_unit_type_measures_backend_finished_products_url,:with => "$(this).serialize()")} %>
+  <%#=  f.input :presentation_unit_type_measurement,:collection => @finished_product.presentation_unit_type ? @finished_product.presentation_unit_type_measurement : [],:input_html => {} %>
+  <%=  f.input :fixed_size,:input_html => {} %>
+<% end %>
+
+<div id="finished_product_fixed_size_form">
+  <div id="finished_product_side_dimension">
+    <% f.inputs :class => "reset" do%>
+    <div class="c37l subc">
+        <%=  f.input :side_dimension_x,:input_html => {:size => 3,:onblur => "determinate_max_quantity()"} %>
+    </div>
+    <span>X</span>
+    <div class="c20l subc">
+      <%=  f.input :side_dimension_y,:label => false,:input_html => {:size => 3,:onblur => "determinate_max_quantity()"} %>
+
+    </div>
+    <% end %>
+  </div>
+    <% f.inputs :class => "reset" do%>
+      <%=  f.input :presentation_unit_type_quantity,:input_html => {:size => 3,:readonly => true} %>
+    <% end %>
+</div>
+
+
+
+<script type="text/javascript">
+  function calculate_max_quantity(side_fp_x,side_fp_y)
+  {
+    var border_x;
+    var border_y;
+    var max_x;
+    var max_y;
+
+    border_x = 1;
+    border_y = 1;
+
+    max_x = 0;
+    max_y = 0
+
+    while(side_fp_x * (max_x+1) <= side_rm_x )
+      max_x++;
+    while(side_fp_y * (max_y+1) <= side_rm_y )
+      max_y++;
+
+    return max_x*max_y;
+  }
+
+  function determinate_max_quantity()
+  {
+
+    side_fp_x =  parseFloat($("#finished_product_side_dimension_x").val()) || 0;
+    side_fp_y =  parseFloat($("#finished_product_side_dimension_y").val()) || 0;
+
+    
+
+    if(side_fp_x!=0 && side_fp_y!=0)
+    {
+      val_1 = calculate_max_quantity(side_fp_x, side_fp_y);
+      val_2 = calculate_max_quantity(side_fp_y,side_fp_x);
+      val = 0;
+      presentation_unit_type = $("#finished_product_presentation_unit_type_id option:selected").text();
+      if(val_1 > val_2)
+        $("#finished_product_presentation_unit_type_quantity").val(val_1);
+      else
+        $("#finished_product_presentation_unit_type_quantity").val(val_2);
+    }
+  }
+	$(document).ready(function(){
+          
+          if($("#finished_product_fixed_size").is(':checked'))
+            $("#finished_product_fixed_size_form").fadeIn();
+          else
+            $("#finished_product_fixed_size_form").fadeOut();
+          $("#finished_product_fixed_size").click(function () {
+            if($("#finished_product_fixed_size").is(':checked'))
+            $("#finished_product_fixed_size_form").fadeIn();
+          else
+            $("#finished_product_fixed_size_form").fadeOut('slow');
+          });
+
+	});
+</script>
+

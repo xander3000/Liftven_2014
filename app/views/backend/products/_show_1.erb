@@ -1,0 +1,70 @@
+<div class="top-actions">
+  <%= link_to_remote "Editar",  :url => edit_backend_product_url(@product),:method => :get %>
+  &nbsp;&nbsp;|&nbsp;
+  <%= link_to_function "Borrar", "window.change_actions('delete')" %>
+  &nbsp;&nbsp;|&nbsp;
+  <%= link_to_remote "Nuevo", :update => "form_container", :update => "#{controller.controller_name}_container", :url => new_backend_product_url %>
+</div>
+<div id="name_image_form">
+  <div class="c23l subc">
+    <div id="product_image_form">
+      <%= image_tag "buttons/upload_image.jpg" %>
+    </div>
+  </div>
+  <div class="c70r subc">
+      <h2><%= @product.name %></h2>
+  </div>
+</div>
+<br/>
+<b><%= Product.human_attribute_name('product_type')  %>:</b>&nbsp;
+<%= @product.product_type.full_name %>
+<br/>
+<br/>
+<b><%= Product.human_attribute_name('finished_product_category_type')  %>:</b>&nbsp;
+<%= @product.finished_product_category_type.full_name %>
+<br/>
+<br/>
+<b><%= Product.human_attribute_name('presentation_type')  %>:</b>&nbsp;
+<%= @product.presentation_type.name %>
+<br/>
+<br/>
+<b><%= Product.human_attribute_name('commercialization_type')  %>:</b>&nbsp;
+<%= @product.commercialization_type.name %>
+<br/>
+<br/>
+<b><%= Product.human_attribute_name('price_definition_type')  %>:</b>&nbsp;
+<%= @product.price_definition_type.name %>
+<br/>
+<br/>
+<% if @product.price_definition_type.is_defined_by_value_raw_material? %>
+  <b><%= Product.human_attribute_name('by_price_definition_set')  %>:</b>&nbsp;
+  <%= @product.by_price_definition_set ? "Sí" : "No" %>
+  <br/>
+  <br/>
+<% end %>
+<b><%= Product.human_attribute_name('min_quantity')  %>:</b>&nbsp;
+<%= @product.min_quantity %>
+<br/>
+<br/>
+<b><%= Product.human_attribute_name('reference_code')  %>:</b>&nbsp;
+<%= @product.reference_code %>
+<br/>
+<br/>
+<b><%= Product.human_attribute_name('barcode')  %>:</b>&nbsp;
+<%= @product.barcode %>
+<br/>
+<br/>
+<b><%= Product.human_attribute_name('tax_exempt')  %>:</b>&nbsp;
+<%= @product.tax_exempt ? "Sí" : "No" %>
+<br/>
+<br/>
+<b><%= Product.human_attribute_name('instalation_require')  %>:</b>&nbsp;
+<%= @product.instalation_require ? "Sí" : "No" %>
+<br/>
+<br/>
+<b><%= Product.human_attribute_name('is_visible')  %>:</b>&nbsp;
+<%= @product.is_visible ? "Sí" : "No" %>
+<br/>
+<br/>
+<b><%= Product.human_attribute_name('show_as_shortcut') %>:</b>&nbsp;
+<%= @product.show_as_shortcut ? "Sí" : "No" %>

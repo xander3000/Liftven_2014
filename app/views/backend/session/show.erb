@@ -1,0 +1,92 @@
+<% semantic_form_for @user, :update => "#{controller.controller_name}_container",:url => update_user_backend_session_url,:html => {:class => "form_generate",:method => :put,:multipart => true} do |f| %>
+  <div>
+	 <div class="subc c30l">
+		<% f.inputs do %>
+			 <div>
+				<div id="content_upload_file" class="<%= @user.has_avatar? ? "hidden" : ""%>" >
+				  <%= image_tag "icons/upload_file.png"%><br/>
+				  Selecciona una foto de tu equipo
+				</div>
+				<div id="content_file" class="<%= @user.has_avatar? ? "" : "hidden"%>" >
+					 <%= image_tag((@user.has_avatar? ? @user.avatar.url : ""),:id => "upload_preview",:alt =>"")%><br/><br/>
+					 <%= link_to_function("Cambiar imagen", "$('#user_avatar').click();",:class =>"button",:id => "change_upload_preview")%>
+				  </div>
+				<%= f.input :avatar,:label => false,:input_html =>{}  %>
+			 </div>
+		  
+		<% end %>
+	 </div>
+	 <div class="subc c70r">
+		<div class="content_form">
+		  <% semantic_fields_for @contact do |c| %>
+			 <% c.inputs "Información de contacto" do %>
+				<%= c.input :salulation,:label => false %>
+				<%= c.input :fullname,:wrapper_html => {:class => "limit"},:label => false,:input_html => {:class => "top no-border",:placeholder => "Nombre Completo"} %>
+				<%= c.input :identification_document,:label => false,:input_html => {:disabled => true,:size => 15,:class => "top no-border"} %>
+				
+			 <% end %>
+		  <hr/>
+			 <% f.inputs "Información de la cuenta" do %>
+				<%= f.input :login,:input_html => {:disabled => true,:size => 15,:class => "no-border",:readonly => true}%>
+				<%= f.input :created_at,:as => :string,:input_html => {:class => "no-border",:disabled => true,:size => 20}%>
+				<%= f.input :last_login_at,:as => :string,:input_html => {:class => "no-border",:disabled => true,:size => 20} %>
+			 <% end %>
+			 <hr/>
+	 		 <% f.inputs "Información de seguridad" do %>
+				<%= c.input :email,:input_html => {:class => "",:placeholder => "Correo electrónico"} %>
+				<%= f.input :password %>
+				<%= f.input :password_confirmation %>
+			 <% end %>
+			 <hr/>
+			 <% c.inputs "Información de complemento" do %>
+				<%= c.input :phone,:input_html => {:class => "phone",:placeholder => ""} %>
+				<%= c.input :cellphone,:input_html => {:class => "phone",:placeholder => ""} %>
+				<%= c.input :address %>
+			 <% end %>
+		  <% end %>
+		  
+		</div>
+
+	 </div>
+	 <%= link_to_function "ACTUALIZAR","generate()", :disable_with => "Por favor espere...",:id => "contable_document-button",:class => "button" %>
+  </div>
+<% end %>
+
+
+<script type="text/javascript">
+ function generate()
+        {
+          result = confirm("¿Esta seguro de ejecutar esta acción?")
+          if (result)
+            $(".form_generate").submit();
+        }
+function readURL(input) {
+
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+					 $("#content_upload_file").hide()
+                $('#upload_preview').attr('src', e.target.result).show();
+					 $("#content_file").show();
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+  $(document).ready(function(){
+	 
+	 $("#contact_fullname_input").prepend($("#contact_salulation_input").html());
+	 $("#contact_salulation_input").html("");
+	 $("#contact_salulation_id-button").remove();
+	 $( "select" ).selectmenu();
+	 $("#user_avatar").change(function(){
+        readURL(this);
+    });
+	 $("#content_upload_file").click(function () {
+		$("#user_avatar").click();
+	 });
+	 //$("button, input:submit,input:button,a.button ").button();
+  });
+</script>

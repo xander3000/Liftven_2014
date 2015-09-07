@@ -1,0 +1,8 @@
+if @success
+	page.replace_html "call_registers", :partial => "call_registers"
+	page << "$('a[rel]').each(function() {$(this).overlay().close();});"
+else
+	page.show_errors([@call_manager_register], "message_overlay", nil)
+end
+
+

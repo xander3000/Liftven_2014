@@ -1,0 +1,101 @@
+<style type="text/css">
+  fieldset {padding: 0.5em 0.19em;text-align: center}
+</style>
+
+<fieldset class="border">
+  <hr/>
+  <legend>Componentes Adicionales</legend>
+
+
+    <table>
+      <thead>
+        <tr>
+          
+          <th>
+				<%= AccessoryComponentType.human_attribute_name("name") %>
+			 </th>
+			 <th>
+				<%= AccessoryComponentType.human_attribute_name("amount") %>
+			 </th>
+			 <th>
+				<%= AccessoryComponentType.human_attribute_name("amount_per_square_meter") %>
+			 </th>
+			 <th>
+				<%= AccessoryComponentType.human_attribute_name("amount_per_square_lineal") %>
+			 </th>
+			 <th>
+				<%= AccessoryComponentType.human_attribute_name("amount_per_quarter_sheet") %>
+			 </th>
+			 <th>
+				<%= AccessoryComponentType.human_attribute_name("amount_per_quantity") %>
+			 </th>
+			 <th>
+				<%= AccessoryComponentType.human_attribute_name("amount_per_distance") %>
+			 </th>
+			 <th>
+				<%= AccessoryComponentType.human_attribute_name("raw_material") %>
+			 </th>
+			 <th>
+				Acción
+			 </th>
+        </tr>
+      </thead>
+      <tbody class="">
+		  <% @accessory_component_types.each do |accessory_component_type| %>
+			 <tr>
+				<td>
+					 <%= accessory_component_type.name %>
+				</td>
+				<td>
+					 <%= number_to_currency(accessory_component_type.amount, :delimiter => ".", :separator => ",", :unit => "Bs.") %>
+				</td>
+				<td>
+					 <%= accessory_component_type.amount_per_square_meter ? "Sí" : "No" %>
+				</td>
+				<td>
+					 <%= accessory_component_type.amount_per_square_lineal ? "Sí" : "No"%>
+				</td>
+				<td>
+					 <%= accessory_component_type.amount_per_quarter_sheet ? "Sí" : "No"%>
+				</td>
+				<td>
+					 <%= accessory_component_type.amount_per_quantity ? "Sí" : "No"%>
+				</td>
+				<td>
+					 <%= accessory_component_type.amount_per_distance ? "Sí" : "No"%>
+				</td>
+				<td>
+					 <%= accessory_component_type.raw_material ? accessory_component_type.raw_material.name : "" %>
+				</td>
+				<td>
+				  <%= link_to(image_tag("icons/page_edit.png"), edit_backend_cpanel_accessory_component_type_url(accessory_component_type),:class => "external-overlay button",:rel => ".overlay" ) %>
+				</td>
+			 </tr>
+		  <% end %>
+      </tbody>
+    </table>
+  <br/>
+</fieldset>
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+
+
+
+      $("a.external-overlay[rel]").overlay({
+            mask: {
+                    color: '#000',
+                    loadSpeed: 200,
+                    opacity: 0.9
+            },
+            onBeforeLoad: function() {
+                var wrap = this.getOverlay().find(".contentWrap");
+                wrap.load(this.getTrigger().attr("href"));
+            }
+          });
+
+
+      });
+</script>

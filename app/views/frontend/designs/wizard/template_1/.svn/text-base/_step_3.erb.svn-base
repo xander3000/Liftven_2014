@@ -1,0 +1,50 @@
+<h2 class="StepTitle">Paso 3: Coloca la información</h2>
+<form >
+  <div>
+    <div id="design_preview" class="subc c50l">
+      <%= image_tag "" %>
+    </div>
+    <div class="subc c50r">
+      <div class="subc c50l">
+        <p class="block">
+            <%= label_tag "", "Empresa" %>
+            <%= text_field_tag "label[company_name]","" %>
+        </p>
+      </div>
+      <div class="subc c50r">
+        <p class="block">
+            <%= label_tag "", "Nombre, Apellido" %>
+            <%= text_field_tag "label[company_name]","" %>
+        </p>
+      </div>
+      <p class="block">
+            <%= label_tag "", "Dirección Completa" %>
+            <%= text_area_tag "label[company_name]","",:size => "50x5" %>
+      </p>
+        <div class="subc c50l">
+        <p class="block">
+            <%= label_tag "", "Telefono" %>
+            <%= text_field_tag "label[company_name]","" %>
+        </p>
+      </div>
+      <div class="subc c50r">
+        <p class="block">
+            <%= label_tag "", "Corréo Electrónico" %>
+            <%= text_field_tag "label[company_name]","" %>
+        </p>
+      </div>
+          <div class="right">
+
+            <%= link_to_function(image_tag("icons/refresh.png"),"alert('Refrescar')",:title => "Actualizar cambios") %>
+    </div>
+    </div>
+
+  </div>
+</form>
+
+<script type="text/javascript">
+		$(document).ready(function() {
+	
+
+		});
+	</script>

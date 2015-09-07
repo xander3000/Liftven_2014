@@ -1,0 +1,10 @@
+<% f.inputs do%>
+  <%=  f.input :contact_name,:label => false,:input_html => {:placeholder => "Nombre completo del Contacto ",:class => "top"} %>
+  <%=  f.input :business_name,:input_html => {} %>
+  <%=  f.input :phone %>
+  <%=  f.input :email %>
+  <%= f.input :address %>
+  <%= f.input :time_check %>
+  <%= f.input :customer_client_requirement_type,:as => :check_boxes %>
+  <%= f.input :customer_client_elevator_type,:as => :check_boxes %>
+<% end %>

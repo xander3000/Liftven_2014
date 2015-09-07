@@ -1,0 +1,51 @@
+
+<div id="" class="content_form">
+    <% f.inputs "Datos Documento de causa / Pago" do %>
+		<div>
+		  <div class="c50l subc">
+                    <% f.inputs "" do %>
+								<% if show %>
+								  <%= f.input :doc_fullname,:wrapper_html => {},:as => :string,:input_html  => {:class => "reset"}%>
+								 <% else %>
+								  <%= f.input :doc_id,:wrapper_html => {},:as => @payment_order.new_record? ? :select : :string,:input_html  => {:onchange => remote_function(:url => set_reference_document_backend_financial_management_payment_orders_url,:with => "$(this).serialize()+'&reference_document_type='+$('#account_payable_payment_order_doc_type').val()"),:class => "reset" }%>
+								 <% end %>
+                         <%= f.input :doc_type,:wrapper_html => {:class => "hidden"},:as => :string,:input_html  => {:class => "reset"}%>
+								 <%= f.input :doc_type_demodulize,:wrapper_html => {:class => "hidden"},:as => :string,:input_html  => {:class => "reset"}%>
+                    <%  end %>
+
+
+		  </div>
+		  <div class="c50r subc hidden">
+                    <% f.inputs "" do %>
+								<%#= f.input :bank_movement_date,:input_html => {:class => "reset",:size => 8} %>
+                        <%#= f.input :cash_bank_bank_movement_operation_type,:collection => @bank_movement_operation_types,:input_html => {:onchange => remote_function(:url => set_bank_movement_operation_type_backend_financial_management_payment_orders_url,:with => "$(this).serialize()+'&bank_account_id='+$('#account_payable_payment_order_cash_bank_bank_account_id').val()"),:class => "reset"} %>
+                        <%#= f.input :cash_bank_checkbook,:collection =>  (@payment_order.new_record? or @payment_order.cash_bank_checkbook.nil?) ? [] : [@payment_order.cash_bank_checkbook],:input_html => {:onchange => remote_function(:url => set_check_number_backend_financial_management_payment_orders_url,:with => "$(this).serialize()"),:class => "reset"} %>
+                        <%#= f.input :control_number,:input_html => {:class => "reset",:size => 8} %>
+                    <% end %>
+		  </div>
+		</div>
+		
+		
+                
+		
+		
+                
+                
+    <% end %>
+  
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+
+	 		  $("#account_payable_payment_order_bank_movement_date").datepicker({
+          changeMonth: true,
+          dateFormat: 'yy-mm-dd',
+          minDate: "-35",
+          maxDate: "+0",
+			 yearRange: 'c-80:c+30'
+        });
+  });
+
+</script>
+

@@ -1,0 +1,74 @@
+
+<div id="login-box">
+<div>
+  <div>
+    <h2>Autentificaci&oacute;n</h2>
+  </div>
+  <% form_for @user_session, :url => backend_session_index_url, :method => :post do |f| %>
+  <div style="">
+    <table>
+         <tr>
+           <td>
+            <label>Usuario</label>
+           </td>
+           <td>
+              <%= f.text_field :login %>
+           </td>
+         </tr>
+
+         <tr>
+           <td>
+             <label>Clave</label>
+           </td>
+           <td>
+             <%= f.password_field :password %>
+           </td>
+         </tr>
+
+         <%= render :partial => "qaptcha"  if validate_qaptcha? %>
+
+         <tr>
+           <td colspan="2">
+             <% if @success == false %>
+              <div class="error">
+                
+             </div>
+             <% end %>
+           </td>
+         </tr>
+
+         <tr>
+           <td>
+
+           </td>
+           <td>
+             <%= submit_tag "Entrar",:class => "ui-button ui-widget ui-state-default ui-corner-all"%>
+           </td>
+         </tr>
+
+
+       </table>
+
+    <span style="clear: both"></span>
+    </div>
+  <% end %>
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+   $(document).ready(function(){
+      $('#QapTcha').QapTcha(
+              {
+                disabledSubmit:true,
+                autoRevert:true,
+                txtUnlock: "Desbloqueado",
+                txtLock:"Bloqueado",
+                PHPfile: "<%= qaptcha_backend_session_url %>"
+
+            });
+     
+   });
+</script>
+

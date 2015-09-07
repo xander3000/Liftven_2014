@@ -1,0 +1,41 @@
+<div id="details">
+    <div class="headerWrap">
+    <div class="headerWrapContent">
+		<h2><%= @employee.fullname %> (<%= @employee.identification_document %>)</h2>
+    </div>
+  </div>
+
+	
+
+
+	 <div class="mainWrapContent" id="tabs">
+		<ul>
+		  <li ><a href="#pane1">Ficha Personal</a></li>
+		  <li ><a href="#pane2">Ficha Laboral</a></li>
+		  <li ><a href="#pane3">Conceptos fijos</a></li>
+		  <li ><a href="#pane4">Conceptos variables</a></li>
+		</ul>
+		<div id="pane1">
+		  <%= render :partial => "show_1" %>
+		</div>
+		<div id="pane2">
+		  <%= render :partial => "show_2" %>
+		</div>
+		<div id="pane3">
+		  <%= render :partial => "show_3" %>
+		</div>
+		<div id="pane4">
+		  <%= render :partial => "show_4" %>
+		</div>
+		
+	 </div>
+
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+		  $("button, input:submit,input:button,a.button ").button();
+		  $("#tabs").tabs();
+
+      });
+</script>

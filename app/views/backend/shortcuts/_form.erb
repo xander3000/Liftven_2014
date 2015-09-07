@@ -1,0 +1,18 @@
+<%= render :partial => "form_items",:locals => {:f => f} %>
+
+
+<script type="text/javascript">
+
+
+
+
+  function increase_total_price(){
+
+    val = $("#product_quantity").val()*$("#product_unit_price").val();
+    $("#product_total_price").val(val);
+  }
+
+$(document).ready(function(){
+              
+});
+</script>

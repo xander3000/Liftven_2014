@@ -1,0 +1,4 @@
+if @success
+	page << "$('a.external-overlay-supplier[rel]').each(function() {$(this).overlay().close();});"
+	page.replace_html "supplier_withholding_taxes", :partial => "supplier_withholding_taxes"
+end

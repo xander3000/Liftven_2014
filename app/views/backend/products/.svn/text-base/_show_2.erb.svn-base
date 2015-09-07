@@ -1,0 +1,39 @@
+<div>
+       <div id="accordion">
+        <% @product.product_component_types.each do |product_component_type| %>
+          <h3><a href="#"><%= product_component_type.name%></a></h3>
+          <div>
+          <ul>
+            <% @product.element_for_products.map(&:element_type).uniq.each do |element_type|%>
+              <li class="ui-state-default ui-corner-all">
+                <%= link_to element_type.constantize::HUMANIZE_MODEL_NAME, backend_product_show_element_type_url(@product,product_component_type.id,element_type.to_s),:class => "external-overlay",:rel => ".overlay"  %>
+              </li>
+            <% end %>
+              <li style="text-align: left">
+                <% if product_component_type.is_multiple %>
+                  <label><%= @product.class.human_attribute_name(:dossier_type)%></label>: <%= @product.dossier_type.name %><br/>
+                  <label><%= @product.class.human_attribute_name(:min_quantity_page_component_type)%></label>: <%= @product.min_quantity_page_component_type %>
+                 <% end %>
+              </li>
+          </ul>
+          </div>
+        <% end %>
+      </div>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+            $( "#accordion" ).accordion();
+            $("a.external-overlay[rel]").overlay({
+                mask: {
+                        color: '#000',
+                        loadSpeed: 200,
+                        opacity: 0.9
+                },
+                onBeforeLoad: function() {
+                    var wrap = this.getOverlay().find(".contentWrap");
+                    wrap.load(this.getTrigger().attr("href"));
+                }
+              });
+	});
+</script>

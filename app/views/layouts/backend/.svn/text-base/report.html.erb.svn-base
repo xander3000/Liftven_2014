@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		 <%= wicked_pdf_stylesheet_link_tag "backend/listing" -%>
+		  <%= wicked_pdf_stylesheet_link_tag "subcolumns" -%>
+		  <%= wicked_pdf_stylesheet_link_tag "backend/report" -%>
+
+    <%#= wicked_pdf_javascript_include_tag "number_pages" %>
+  </head>
+  <body>
+    <div id="header">
+      <%= wicked_pdf_image_tag "clients/#{PROJECT_NAME}/logos/logo3.png" %>
+    </div>
+	 <br/>
+    <div id="content">
+      <%= yield %>
+    </div>
+  </body>
+</html>

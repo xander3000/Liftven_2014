@@ -1,0 +1,22 @@
+<div class="top-actions">
+  <%= link_to_remote "Editar", :update => "#{controller.controller_name}_container", :url => edit_backend_contact_url(@contact),:method => :get %>
+  &nbsp;&nbsp;|&nbsp;
+  <%= link_to "Borrar", backend_contact_url(@contact),:method => :delete,:confirm => "¿ Esta seguro que desea borrar este contacto?" %>
+  &nbsp;&nbsp;|&nbsp;
+  <%= link_to_remote "Nuevo", :update => "form_container", :update => "#{controller.controller_name}_container", :url => new_backend_contact_url %>
+</div>
+<div>
+  <p><%= render :partial => "show_1" %></p>
+  <p><%= render :partial => "show_2" %></p>
+  <div class="right">
+    <%= link_to image_tag("/images/icons/anchor.png"),"#",:class => "goTop button" %>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+               // $( "#tabs" ).tabs();
+
+	});
+</script>

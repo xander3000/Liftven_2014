@@ -1,0 +1,26 @@
+<% @incoming_invoice_taxes ||= current_incoming_invoice_taxes_objects %>
+
+<% @incoming_invoice_taxes.each do |incoming_invoice_tax| %>
+
+
+	
+		 <% if incoming_invoice_tax.tax.exempt %>
+		  <td>
+			 <%= "Monto exento" %>
+		  </td>
+		  <td>
+			 <%= text_field_tag "s",incoming_invoice_tax.total_amount,:size => 15,:class => "right subject_retention_amount"  %>&nbsp;
+		  </td>
+		  <% else %>
+			 <td>
+				<%= "I.V.A #{incoming_invoice_tax.tax.amount.to_f.to_currency(false)}% Sobre <b>#{incoming_invoice_tax.total_amount.to_f.to_currency(false)}</b>" %>
+			 </td>
+			 <td>
+						<%= text_field_tag "s",incoming_invoice_tax.total_amount,:size => 15,:class => "right subject_retention_amount"  %>&nbsp;
+			 </td>
+		  <% end %>
+
+	
+<% end %>
+
+

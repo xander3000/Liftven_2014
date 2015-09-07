@@ -1,0 +1,163 @@
+<h2 class="StepTitle">Paso 2: Selecciona el modelo</h2>
+<div id="gallery"  class="carousel module">
+    <ul>
+        <li>
+            <a href="/images/photos/image1.jpg" title="Utilize a flexibilidade dos seletores da jQuery e crie um grupo de imagens como desejar. $('#gallery').lightBox();">
+                <img src="/images/photos/thumb_image1.jpg" alt="" />
+            </a>
+            <%= radio_button_tag "Prie", "" %>
+        </li>
+        <li>
+            <a href="/images/photos/image2.jpg" title="Utilize a flexibilidade dos seletores da jQuery e crie um grupo de imagens como desejar. $('#gallery a').lightBox();">
+                <img src="/images/photos/thumb_image2.jpg" alt="" />
+            </a>
+            <%= radio_button_tag "Prie", "" %>
+        </li>
+        <li>
+            <a href="/images/photos/image3.jpg" title="Utilize a flexibilidade dos seletores da jQuery e crie um grupo de imagens como desejar. $('#gallery a').lightBox();">
+                <img src="/images/photos/thumb_image3.jpg" alt="" />
+            </a>
+           <%= radio_button_tag "Prie", "" %>
+        </li>
+        <li>
+            <a href="/images/photos/image4.jpg" title="Utilize a flexibilidade dos seletores da jQuery e crie um grupo de imagens como desejar. $('#gallery a').lightBox();">
+                <img src="/images/photos/thumb_image4.jpg" alt="" />
+            </a>
+          <%= radio_button_tag "Prie", "" %>
+        </li>
+        <li>
+            <a href="/images/photos/image5.jpg" title="Utilize a flexibilidade dos seletores da jQuery e crie um grupo de imagens como desejar. $('#gallery a').lightBox();">
+                <img src="/images/photos/thumb_image5.jpg" alt="" />
+            </a>
+          <%= radio_button_tag "Prie", "" %>
+        </li>
+        <li>
+            <a href="/images/photos/image1.jpg" title="Utilize a flexibilidade dos seletores da jQuery e crie um grupo de imagens como desejar. $('#gallery').lightBox();">
+                <img src="/images/photos/thumb_image1.jpg" alt="" />
+            </a>
+          <%= radio_button_tag "Prie", "" %>
+        </li>
+        <li>
+            <a href="/images/photos/image2.jpg" title="Utilize a flexibilidade dos seletores da jQuery e crie um grupo de imagens como desejar. $('#gallery a').lightBox();">
+                <img src="/images/photos/thumb_image2.jpg" alt="" />
+            </a>
+          <%= radio_button_tag "Prie", "" %>
+        </li>
+        <li>
+            <a href="/images/photos/image3.jpg" title="Utilize a flexibilidade dos seletores da jQuery e crie um grupo de imagens como desejar. $('#gallery a').lightBox();">
+                <img src="/images/photos/thumb_image3.jpg" alt="" />
+            </a>
+          <%= radio_button_tag "Prie", "" %>
+        </li>
+        <li>
+            <a href="/images/photos/image4.jpg" title="Utilize a flexibilidade dos seletores da jQuery e crie um grupo de imagens como desejar. $('#gallery a').lightBox();">
+                <img src="/images/photos/thumb_image4.jpg" alt="" />
+            </a>
+          <%= radio_button_tag "Prie", "" %>
+        </li>
+        <li>
+            <a href="/images/photos/image5.jpg" title="Utilize a flexibilidade dos seletores da jQuery e crie um grupo de imagens como desejar. $('#gallery a').lightBox();">
+                <img src="/images/photos/thumb_image5.jpg" alt="" />
+            </a>
+          <%= radio_button_tag "Prie", "" %>
+        </li>
+        <li>
+            <a href="/images/photos/image1.jpg" title="Utilize a flexibilidade dos seletores da jQuery e crie um grupo de imagens como desejar. $('#gallery').lightBox();">
+                <img src="/images/photos/thumb_image1.jpg" alt="" />
+            </a>
+          <%= radio_button_tag "Prie", "" %>
+        </li>
+        <li>
+            <a href="/images/photos/image1.jpg" title="Utilize a flexibilidade dos seletores da jQuery e crie um grupo de imagens como desejar. $('#gallery').lightBox();">
+                <img src="/images/photos/thumb_image1.jpg" alt="" />
+            </a>
+            <%= radio_button_tag "Prie", "" %>
+        </li>
+        <li>
+            <a href="/images/photos/image2.jpg" title="Utilize a flexibilidade dos seletores da jQuery e crie um grupo de imagens como desejar. $('#gallery a').lightBox();">
+                <img src="/images/photos/thumb_image2.jpg" alt="" />
+            </a>
+            <%= radio_button_tag "Prie", "" %>
+        </li>
+        <li>
+            <a href="/images/photos/image3.jpg" title="Utilize a flexibilidade dos seletores da jQuery e crie um grupo de imagens como desejar. $('#gallery a').lightBox();">
+                <img src="/images/photos/thumb_image3.jpg" alt="" />
+            </a>
+           <%= radio_button_tag "Prie", "" %>
+        </li>
+        <li>
+            <a href="/images/photos/image4.jpg" title="Utilize a flexibilidade dos seletores da jQuery e crie um grupo de imagens como desejar. $('#gallery a').lightBox();">
+                <img src="/images/photos/thumb_image4.jpg" alt="" />
+            </a>
+          <%= radio_button_tag "Prie", "" %>
+        </li>
+        <li>
+            <a href="/images/photos/image5.jpg" title="Utilize a flexibilidade dos seletores da jQuery e crie um grupo de imagens como desejar. $('#gallery a').lightBox();">
+                <img src="/images/photos/thumb_image5.jpg" alt="" />
+            </a>
+          <%= radio_button_tag "Prie", "" %>
+        </li>
+        <li>
+            <a href="/images/photos/image1.jpg" title="Utilize a flexibilidade dos seletores da jQuery e crie um grupo de imagens como desejar. $('#gallery').lightBox();">
+                <img src="/images/photos/thumb_image1.jpg" alt="" />
+            </a>
+          <%= radio_button_tag "Prie", "" %>
+        </li>
+        <li>
+            <a href="/images/photos/image2.jpg" title="Utilize a flexibilidade dos seletores da jQuery e crie um grupo de imagens como desejar. $('#gallery a').lightBox();">
+                <img src="/images/photos/thumb_image2.jpg" alt="" />
+            </a>
+          <%= radio_button_tag "Prie", "" %>
+        </li>
+        <li>
+            <a href="/images/photos/image3.jpg" title="Utilize a flexibilidade dos seletores da jQuery e crie um grupo de imagens como desejar. $('#gallery a').lightBox();">
+                <img src="/images/photos/thumb_image3.jpg" alt="" />
+            </a>
+          <%= radio_button_tag "Prie", "" %>
+        </li>
+        <li>
+            <a href="/images/photos/image4.jpg" title="Utilize a flexibilidade dos seletores da jQuery e crie um grupo de imagens como desejar. $('#gallery a').lightBox();">
+                <img src="/images/photos/thumb_image4.jpg" alt="" />
+            </a>
+          <%= radio_button_tag "Prie", "" %>
+        </li>
+        <li>
+            <a href="/images/photos/image5.jpg" title="Utilize a flexibilidade dos seletores da jQuery e crie um grupo de imagens como desejar. $('#gallery a').lightBox();">
+                <img src="/images/photos/thumb_image5.jpg" alt="" />
+            </a>
+          <%= radio_button_tag "Prie", "" %>
+        </li>
+        <li>
+            <a href="/images/photos/image1.jpg" title="Utilize a flexibilidade dos seletores da jQuery e crie um grupo de imagens como desejar. $('#gallery').lightBox();">
+                <img src="/images/photos/thumb_image1.jpg" alt="" />
+            </a>
+          <%= radio_button_tag "Prie", "" %>
+        </li>
+    </ul>
+</div>
+
+<style type="text/css">
+  #gallery ul li
+  {
+    /*display: inline-block;
+    padding: 10px;*/
+  }
+
+</style>
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $('#gallery input').click(function () {
+          $('#gallery li a img').removeClass("selected");
+          jQuery("a img",$(this).parent("li")).addClass("selected");
+        });
+        $('#gallery a').lightBox();
+        $('#gallery').carousel({
+          itemsPerPage: 10,
+          itemsPerTransition: 3,
+          easing: 'linear',
+          noOfRows: 2
+      });
+    });
+
+    </script> 

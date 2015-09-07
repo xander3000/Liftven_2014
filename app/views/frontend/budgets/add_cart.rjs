@@ -1,0 +1,12 @@
+if @success
+  page.show_notice(flash, "")
+  page.hide "prices"
+  page.hide "add_to_cart"
+  page << "$('#budget form').reset();"
+  page.replace_html "shoppping-cart-count", :text => shoppping_cart_count
+else
+  page.hide "prices"
+  page.hide "add_to_cart"
+  page.show_errors([@product_by_budget], "message_overlay", nil)
+end
+

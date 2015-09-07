@@ -1,0 +1,21 @@
+<% content_for :aditional_options_menunav do %>
+  <%= render  "#{controller.controller_path}/aditional_options_menunav/show" %>
+<% end %>
+<div class="actionsBar right no-print">
+  <%= link_to(image_tag("icons/arrow_left.png"),backend_financial_management_customer_management_leads_url,:class => "button",:title => "Regresar") %>
+</div>
+<hr/>
+<div>
+  <% semantic_form_remote_for @lead, :update => "#{controller.controller_name}_container",:url => backend_financial_management_customer_management_leads_url,:html => {:class => "form_generate"} do |f| %>
+  <div class="">
+	 <%= render :partial => "form",:locals => {:f => f} %>
+  </div>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+	 $(document).ready(function(){
+                $(".crm_lead input, .crm_lead select, .crm_lead textarea").attr("disabled","disabled");
+	});
+
+</script>

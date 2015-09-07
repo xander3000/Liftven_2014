@@ -1,0 +1,41 @@
+
+
+<table>
+
+	   <thead>
+	 <tr>
+		<th><%= IncomingInvoiceBilling.human_attribute_name("amount")%> </th>
+		<th><%= IncomingInvoiceBilling.human_attribute_name("payment_method_type")%> </th>
+		<th><%= IncomingInvoiceBilling.human_attribute_name("transaction_reference")%> </th>
+		<th><%= IncomingInvoiceBilling.human_attribute_name("transaction_date")%> </th>
+		<th><%= IncomingInvoiceBilling.human_attribute_name("cash_bank_pos_card_terminal")%> </th>
+		<th><%= IncomingInvoiceBilling.human_attribute_name("created_at")%> </th>
+
+	 </tr>
+  </thead>
+
+  <tbody>
+	 <% @invoice.incoming_invoice_billings.each do |incoming_invoice_billing| %>
+		<tr>
+		  <td>
+			 <%= number_to_currency(incoming_invoice_billing.amount, :delimiter => ".", :separator => ",", :unit => "")  %>
+		  </td>
+		  <td>
+			 <%= incoming_invoice_billing.payment_method_type.name if incoming_invoice_billing.payment_method_type%>
+		  </td>
+		  <td>
+			 <%= incoming_invoice_billing.transaction_reference %>
+		  </td>
+		  <td>
+			 <%= incoming_invoice_billing.transaction_date %>
+		  </td>
+		  <td>
+			 <%= incoming_invoice_billing.cash_bank_pos_card_terminal ? incoming_invoice_billing.cash_bank_pos_card_terminal.name : "N/A" %>
+		  </td>
+		  <td>
+			 <%= l(incoming_invoice_billing.created_at,:format => :default_date) %>
+		  </td>
+		</tr>
+	 <% end %>
+  </tbody>
+</table>

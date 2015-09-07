@@ -1,0 +1,33 @@
+<% caso = order.caso %>
+<div class="item <%= item_class %>" onclick="window.location.href='<%= backend_order_url(order) %>'">
+  <div class="c20l subc subcl center code">
+    <h2><%= format_code(order.id, "06") %></h2>
+  </div>
+  <div class="description c75r subc no-border">
+    <div>
+          <div class="attr_1 <%= caso.has_new_notifications? ? "new_notification" : "" %> ">
+            <div class="left">
+              <%= order.client.name %>.
+            </div>
+            <!--div class="c20r subc right date">
+              <%#= l order.created_at,:format => :default_date %>. <br/>
+            </div-->
+          </div>
+          <div class="attr_2">
+            <span>Asigando a: </span>
+            <%= caso.actual_trackers %> <br/>
+            <% if caso.has_budget? %>
+              <% budget = caso.budget %>
+              <span> Nº Presupuesto: </span><%= format_code(budget.id,"06") %>. <span> Monto: </span><%= number_to_currency(budget.total, :delimiter => ".", :separator => ",", :unit => "Bs.")%><br/>
+              <b class="color_green"><span > Fecha de entrega: </span><%= l budget.delivery_date,:format => :short %></b><br/>
+            <% end %>
+
+              <span> Ultima Modificación: </span><%= l order.updated_at,:format => :short %>.
+            
+          </div>
+          <div class="attr_3">
+            
+          </div>
+    </div>
+  </div>
+</div>

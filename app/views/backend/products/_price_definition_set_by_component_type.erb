@@ -1,0 +1,55 @@
+  <% semantic_fields_for @product_price_definition_set_by_component do |p| %>
+    <table>
+        <thead>
+          <tr>
+            <th>Componente</th>
+            <th><%= ProductPriceDefinitionSetByComponent.human_attribute_name(:amount_t)%> </th>
+            <th><%= ProductPriceDefinitionSetByComponent.human_attribute_name(:amount_tr)%> </th>
+            <th><%= ProductPriceDefinitionSetByComponent.human_attribute_name(:lower_limit)%> </th>
+            <th><%= ProductPriceDefinitionSetByComponent.human_attribute_name(:upper_limit)%> </th>
+            <th><%= ProductPriceDefinitionSetByComponent.human_attribute_name(:price_list)%> </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @component_types.each do |component_type| %>
+          <tr>
+            <td>
+              <%= component_type.name %>
+              <%= p.input :component_id,:as => :string,:label => false, :wrapper_html => { :style => "display:none;" },:input_html => {:value => component_type.id,:id => "",:name => "product_price_definition_set_by_component[component_type#{component_type.id}[component_id]]"} %>
+              <%= p.input :component_type,:as => :string,:label => false, :wrapper_html => { :style => "display:none;"},:input_html => {:value => component_type.class.to_s,:id => "",:name => "product_price_definition_set_by_component[component_type#{component_type.id}[component_type]]" } %>
+              <%= p.input :price_definition_set_by_component_type,:as => :string,:label => false, :wrapper_html => { :style => "display:none;"},:input_html => {:value => @price_definition_set_by_component_type.id,:id => "",:name => "product_price_definition_set_by_component[component_type#{component_type.id}[price_definition_set_by_component_type_id]]" } %>
+            </td>
+            <td>
+              <%= p.input :amount_t,:label => false,:input_html => {:autocomplete => false,:class => "amount_t right visible",:size => 10,:id => "",:name => "product_price_definition_set_by_component[component_type#{component_type.id}[amount_t]]"} %>
+            </td>
+            <td>
+              <%= p.input :amount_tr,:label => false,:input_html => {:autocomplete => false,:class => "amount_tr right visible",:size => 10,:id => "",:name => "product_price_definition_set_by_component[component_type#{component_type.id}[amount_tr]]"} %>
+            </td>
+            <td>
+              <%= p.input :lower_limit,:label => false,:input_html => {:autocomplete => false,:class => "lower_limit left visible",:size => 3,:id => "",:name => "product_price_definition_set_by_component[component_type#{component_type.id}[lower_limit]]"} %>
+            </td>
+            <td>
+              <%= p.input :upper_limit,:label => false,:input_html => {:autocomplete => false,:class => "upper_limit left visible",:size => 3,:id => "",:name => "product_price_definition_set_by_component[component_type#{component_type.id}[upper_limit]]"} %>
+            </td>
+            <td>
+              <%= p.input :price_list,:label => false,:input_html => {:class => "price_list left",:id => "",:name => "product_price_definition_set_by_component[component_type#{component_type.id}[price_list_id]]"} %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div class="right">
+        <%=  link_to_remote "Agregar elementos",:url => add_price_list_product_backend_products_url,:with => "$('#price_list_product input,#price_list_product select').serialize()",:html => {:id =>"add_price_list_product" ,:class => "button right"},:confirm => "¿Esta seguro que desea agragr este item?"%>
+      </div>
+
+<% end %>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+      $("button, input:submit,input:button,a.button ").button();
+      $("#product_price_definition_set_by_component_amount_t").blur(function () { $("#product_price_definition_set_by_component_amount_tr").val($(this).val())})
+      $("input.lower_limit").keyup(function () {$("input.lower_limit").val($(this).val());})
+      $("input.upper_limit").keyup(function () {$("input.upper_limit").val($(this).val());})
+      $("select.price_list").change(function () {$("select.price_list").val($(this).val());})
+    });
+</script>

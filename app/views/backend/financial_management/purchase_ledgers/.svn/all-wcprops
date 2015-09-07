@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/1583/trunk/Venom/app/views/backend/financial_management/purchase_ledgers
+END
+show.erb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/1575/trunk/Venom/app/views/backend/financial_management/purchase_ledgers/show.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/1583/trunk/Venom/app/views/backend/financial_management/purchase_ledgers/show.html.erb
+END
+index.erb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/financial_management/purchase_ledgers/index.erb
+END

@@ -1,0 +1,25 @@
+<div id="" class="content_form">
+  <%  semantic_fields_for @contact do |c| %>
+    <% c.inputs "Datos generales" do %>
+		<%= c.input :identification_document,:input_html  => {:size => 15,:class => "not-editabble identification_document",:title => "V-xxxxxxxxx o J-xxxxxxxxx, completar con ceros (0)"}%>
+		<%= c.input :fullname,:input_html => {:size => 100,:class => "not-editabble"} %>
+		<% semantic_fields_for @supplier do |s|  %>
+		  <%= s.input :supplier_type,:input_html => {} %>
+		<% end %>
+
+	 <% end %>
+  <% c.inputs "Datos ubicación" do %>
+		<%= c.input :phone,:input_html => {:size => 15,:class => "phone"} %>
+		<%= c.input :cellphone,:input_html => {:size => 15,:class => "phone"}%>
+		<%= c.input :email,:input_html => {:size => 35,:class => "email"}%>
+		<%= c.input :address,:input_html  => {:size => 15,:title => "V-xxxxxxxxx, completar con ceros (0)"}%>
+  <hr/> 
+  	 <% semantic_fields_for @supplier do |s|  %>
+		  <%= s.input :person_name_contact,:input_html => {:size => 35} %>
+		  <%= s.input :person_phone_contact,:input_html => {:size => 35,:class => "phone"} %>
+  <% end %>
+    <% end %>
+  <% end %>
+
+</div>
+

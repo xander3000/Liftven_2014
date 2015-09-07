@@ -1,0 +1,107 @@
+<% 
+    values_color = ValueQuarterSheetColorRawMaterial.only_values
+    values_black = ValueQuarterSheetBlackRawMaterial.only_values
+%>
+<style type="text/css">
+  tbody.value_quarter_sheet_raw_materials td {padding: 0.5em 0.19em;text-align: center}
+</style>
+<fieldset class="border">
+  <hr/>
+  <legend>Valor a color</legend>
+  <div class="panel_header">
+    <div>
+      <br/>
+      <b><%= @value_quarter_sheet_color_raw_material.class.human_attribute_name("base_value")%>:</b>&nbsp;
+      <%= number_to_currency(@value_quarter_sheet_color_raw_material.base_value, :delimiter => ".", :separator => ",", :unit => "Bs")  %>
+    </div>
+  </div>
+
+    <table>
+      <thead>
+        <tr>
+          <% values_color.each do |item| %>
+          <th colspan="2" style="border-right: 1px solid #D3D3D3">
+              <%= item %>
+            </th>
+        <% end %>
+        </tr>
+      </thead>
+      <tbody class="value_quarter_sheet_raw_materials">
+        <tr>
+          <% values_color.each do |item| %>
+          <td>
+            <span>T</span>
+                <%= number_to_currency(@value_quarter_sheet_color_raw_material["v_#{item}_t".to_sym], :delimiter => ".", :separator => ",", :unit => "")  %>
+
+            </td>
+            <td style="border-right: 1px solid #D3D3D3">
+              <span>T/R</span>
+              <%= number_to_currency(@value_quarter_sheet_color_raw_material["v_#{item}_tr".to_sym], :delimiter => ".", :separator => ",", :unit => "")  %>
+            </td>
+        <% end %>
+        </tr>
+      </tbody>
+    </table>
+  <br/>
+</fieldset>
+
+<fieldset  class="border">
+  <hr/>
+  <legend>Valor a negro</legend>
+  <div class="panel_header">
+    <div>
+      <br/>
+      <b><%= @value_quarter_sheet_black_raw_material.class.human_attribute_name("base_value")%>:</b>&nbsp;
+        <%= number_to_currency(@value_quarter_sheet_black_raw_material.base_value, :delimiter => ".", :separator => ",", :unit => "Bs")  %>
+    </div>
+  </div>
+
+    <table>
+      <thead>
+        <tr>
+          <% values_black.each do |item| %>
+          <th colspan="2" style="border-right: 1px solid #D3D3D3">
+              <%= item %>
+            </th>
+        <% end %>
+        </tr>
+      </thead>
+      <tbody class="value_quarter_sheet_raw_materials">
+        <tr>
+          <% values_color.each do |item| %>
+          <td>
+            <span>T</span>
+                <%= number_to_currency(@value_quarter_sheet_black_raw_material["v_#{item}_t".to_sym], :delimiter => ".", :separator => ",", :unit => "")  %>
+
+            </td>
+            <td style="border-right: 1px solid #D3D3D3">
+              <span>T/R</span>
+              <%= number_to_currency(@value_quarter_sheet_black_raw_material["v_#{item}_tr".to_sym], :delimiter => ".", :separator => ",", :unit => "")  %>
+            </td>
+        <% end %>
+        </tr>
+      </tbody>
+    </table>
+  <br/>
+</fieldset>
+
+<fieldset  class="border">
+  <hr/>
+  <legend>Valor a blanco</legend>
+  <div class="panel_header">
+    <div>
+      <br/>
+      <b><%= @value_quarter_sheet_white_raw_material.class.human_attribute_name("base_value")%>:</b>&nbsp;
+      <%= number_to_currency(@value_quarter_sheet_white_raw_material.base_value, :delimiter => ".", :separator => ",", :unit => "Bs")  %>
+    </div>
+  </div>
+
+  <br/>
+</fieldset>
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+
+	});
+</script>

@@ -1,0 +1,108 @@
+/* 
+    Document   : jquery.overlay
+    Created on : 11/09/2011, 09:09:02 PM
+    Author     : gabriel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+/*BEGIN: overlay*/
+  	.facebox {
+
+		display:none;
+		background: none repeat scroll 0 0 rgba(54, 52, 53, 0.2);
+		width:540px;
+		border:10px solid rgba(82, 82, 82, 0.698);
+		-moz-border-radius:8px;
+		-webkit-border-radius:8px;
+		left: 30%;
+	
+	}
+   .facebox {
+            color: #A6A7AA;
+  }
+
+
+	.facebox > div {
+		padding:40px;
+		background: none repeat scroll 0 0 #363435;
+		 font-family: "Droid Sans Mono";
+		 font-size: 12px;
+		 font-weight: normal;
+		 letter-spacing: -0.06px;
+		 line-height: 16px;
+	}
+
+	.facebox h2 {
+		margin:0;
+		color:#fff;
+		color: #F4F5F5;
+                font-size: 15px;
+                padding-bottom: 0px;
+	}
+
+        .facebox label{
+            color:#fff;
+        }
+
+        .facebox .button.secondary, .button.share {
+            background: none repeat scroll 0 0 #363436;
+            color: #FFFFFF;
+            padding: 8px 6px;
+        }
+
+        .facebox .button.secondary:hover, .facebox .button.share:hover {
+            background: none repeat scroll 0 0 #000;
+            color: #A6A8AB;
+        }
+
+
+
+        .facebox .contentWrap2{
+                max-height:340px;
+		overflow-y:auto;
+                text-align: left;
+        }
+
+        .facebox .contentWrap2 p{
+            text-align: justify;
+        }
+
+        .facebox .close{
+            background: url("/images/icons/modal-close.png")   scroll left top no-repeat ;
+            display: inline-block;
+            height: 13px;
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            width: 13px;
+            border: none;
+        }
+
+
+		  .facebox ul.inline{
+			  padding: 0;
+			  margin: 0;
+			}
+
+		  .facebox ul.inline li{
+			  display: inline-block;
+			  border: 1px solid #F8F8F8;
+			  margin: 5px 0 0 15px;
+
+        -moz-box-shadow:1px 1px 4px #666;
+        -webkit-box-shadow:1px 1px 4px #666;
+        box-shadow:1px 1px 4px #666;
+			}
+		  .facebox ul.inline li img{
+			  width: 90px;
+			  height: 90px;
+			  cursor: pointer;
+			}
+
+/*END: overlay*/

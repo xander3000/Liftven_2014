@@ -1,0 +1,61 @@
+<% semantic_form_remote_for @bank_account, :update => "#{controller.controller_name}_container",:url => backend_cashbank_bank_accounts_url,:html => {:class => "form_generate"} do |f| %>
+		<%= render :partial => "form",:locals => {:f => f} %>
+		<hr/>
+		<%= link_to_function "PROCESAR","generate()", :disable_with => "Por favor espere...",:id => "contable_document-button",:class => "button" %>
+<% end %>
+
+<script type="text/javascript">
+function generate()
+        {
+          result = confirm("¿Esta seguro de ejecutar esta acción?")
+          if (result)
+            $(".form_generate").submit();
+        }
+  function action_after_complete_for_accountant_account(item){
+    switch (item.code_response) {
+        case ("ok"):
+            $("#cash_bank_bank_account_accounting_accountant_account_id").val(item.id)
+            break;
+        case ("no-ok"):
+				$("#cash_bank_bank_account_accounting_accountant_account_name").val('')
+            $("#cash_bank_bank_account_accounting_accountant_account_id").val('')
+            break;
+        default:
+				$("#cash_bank_bank_account_accounting_accountant_account_name").val('')
+            $("#cash_bank_bank_account_accounting_accountant_account_id").val('')
+				break;
+    }
+  }
+
+
+  $(document).ready(function(){
+
+	  $("#cash_bank_bank_name").keyup( function () {
+				  $("#cash_bank_bank_fullname").val($(this).val())
+		});
+
+		$("#cash_bank_bank_account_accounting_accountant_account_name").autocomplete({
+			  source: "<%= autocomplete_by_accountant_account_backend_accountancy_accounting_concepts_url %>",
+			  minLength: 3,
+			  select: function( event, ui ) {
+				 if(ui.item)
+					 action_after_complete_for_accountant_account(ui.item);
+			  },
+			  open: function( event, ui ) {
+				 $("#cash_bank_bank_account_accounting_accountant_account_id").val('');
+			  }
+		  });
+
+		  $("#cash_bank_bank_account_open_date").datepicker({
+				changeMonth: true,
+				dateFormat: 'yy-mm-dd',
+				maxDate: "+0"
+        });
+		  
+		  $("#cash_bank_bank_account_number").masked("9999-9999-99-9999999999");
+
+
+
+	 $("button, input:submit,input:button,a.button ").button();
+});
+</script>

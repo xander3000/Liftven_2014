@@ -1,0 +1,20 @@
+/* 
+    Document   : jqx.custom
+    Created on : 14/02/2015, 07:05:58 PM
+    Author     : gabriel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+
+/*BEGIN: menu*/
+.jqx-menu-item a.disabled{
+	color: #ccc;
+}
+/*END: menu*/
+

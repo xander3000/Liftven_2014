@@ -1,0 +1,13 @@
+if @payment_order_document_type
+  page << "$('#account_payable_payment_order_doc_type').val('')"
+	page << "$('#account_payable_payment_order_tenderer_name,#account_payable_payment_order_tenderer_id').val('')"
+	if @payment_order_document_type.require_doc
+		page.show "form_payment_mode"
+    page << "$('#account_payable_payment_order_doc_type').val('#{@payment_order_document_type.model_relationship}')"
+		page << "$('#account_payable_payment_order_doc_type_demodulize').val('#{@payment_order_document_type.model_relationship.to_demodulize}')"
+	else
+		page.hide "form_payment_mode"
+	end
+else
+		page << "$('#account_payable_payment_order_tenderer_name').attr('readonly',true)"
+end

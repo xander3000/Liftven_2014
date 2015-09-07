@@ -1,0 +1,50 @@
+<%= include_stylesheet("jquery.colorpicker.css")%>
+<%= include_stylesheet("jquery.validationEngine.css") %>
+<%= include_stylesheet("googlefontpicker.css") %>
+<%= include_javascript("jquery.colorpicker.js") %>
+<%= include_javascript("jquery.validationEngine.js") %>
+<%= include_javascript("i18n/jquery.validationEngine-es.js") %>
+<%= include_javascript("jquery.url.js") %>
+<%= include_javascript("jquery.googlefontpicker.js") %>
+
+<div>
+    <div id="model_design_preview" class="subc c50l content_model_design_preview" style="border: none;">
+		
+
+			
+		<div id="draw_image">
+				<%= image_tag current_session_wizard_step["step_2"][:value]%>
+                                <% get_temporal_digital_card_fields.each do |digital_card_field|  %>
+		 
+				  <div style="position:absolute;left: <%= digital_card_field.position_left%>px; top: <%= digital_card_field.position_top%>px;">
+					 <p style="font-size: <%= digital_card_field.font_size%>;color:#<%= digital_card_field.font_color%>;font-family:<%= digital_card_field.font_family%>"><%= digital_card_field.input_text%></p>
+					 </div>
+				<% end %>
+		</div>
+          <%#= render :partial => "#{controller.controller_path}/templates/#{current_type_design}/#{current_model_design}/preview" %>
+		<%  %>
+    </div>
+    <div id="model_design_info" class="subc c50r">
+        <%#= render :partial => "#{controller.controller_path}/templates/#{current_type_design}/#{current_model_design}/fields" %>
+    </div>
+</div>
+
+  <script type="text/javascript">
+		
+
+      $(document).ready(function() {
+
+<% get_temporal_digital_card_fields.each do |digital_card_field|  %>
+		  fontFamily = '<%=  digital_card_field.font_family %>';
+		  fontFamily_1 = fontFamily.split(",")[0].trim().replace(" ","+");
+		  fontfamilyPath = "http://fonts.googleapis.com/css?family="+fontFamily_1;
+		  $('head').append("<link href='http://fonts.googleapis.com/css?family="+fontFamily_1+"' rel='stylesheet' type='text/css'>");
+
+
+	 <% end %>
+
+
+
+
+      });
+</script>

@@ -1,0 +1,24 @@
+	page << "$('#cash_bank_bank_movement_cash_bank_bank_account_id').children().remove().end()"
+	page << "$('#cash_bank_bank_movement_accounting_accountant_account_id').children().remove().end()"
+	page << "$('#cash_bank_bank_movement_cash_bank_checkbook_id').children().remove().end()"
+if @success
+		if @bank_accounts.size > 1
+			page << "$('#cash_bank_bank_movement_cash_bank_bank_account_id').append(jQuery('<option></option>').val(' ').html('-- Seleccione una cuenta --'));" 
+		end
+		@bank_accounts.each do |bank_account|
+			page << "$('#cash_bank_bank_movement_cash_bank_bank_account_id').append(jQuery('<option></option>').val('#{bank_account.id}').html('#{bank_account.number_with_current_balance}'));"
+		end
+
+		if @bank_accounts.size == 1
+			page << "$('#cash_bank_bank_movement_cash_bank_bank_account_id').change();"
+		end
+
+
+
+		#page << "$('#cash_bank_bank_movement_accounting_accountant_account_id').append(jQuery('<option></option>').val('#{@accountant_account.id}').html('#{@accountant_account.fullname}'));"
+		#page << "$('#cash_bank_bank_movement_vale').val('#{@voucher}')"
+else
+	if @accounting_accounting_concept
+		page.show_errors([@accounting_accounting_concept], "message_overlay", nil)
+	end
+end

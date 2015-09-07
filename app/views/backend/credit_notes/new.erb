@@ -1,0 +1,6 @@
+<div>
+  <% semantic_form_remote_for @credit_note, :update => "#{controller.controller_name}_container",:url => backend_credit_notes_url do |f| %>
+        <%= render :partial => "form",:locals => {:f => f} %>
+  <%= submit_tag "PROCESAR", :disable_with => "Por favor espere...",:id => "credit_note-button" %>
+  <% end %>
+</div>

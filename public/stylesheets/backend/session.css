@@ -1,0 +1,52 @@
+/* 
+    Document   : orders
+    Created on : 30/07/2011, 09:30:39 AM
+    Author     : gabriel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+
+@import "contable_document.css";
+
+
+form.formtastic fieldset > ol > li.boolean label{
+	padding-left: 14%;
+}
+
+
+form.formtastic fieldset > ol > li.limit{
+	max-width: 440px;
+}
+
+form.user.formtastic input[type="text"].no-border, form.user.formtastic input[type="password"].no-border, form.user.formtastic textarea.no-border{
+	border: none;
+	background: none;
+}
+#user_avatar{
+	cursor: pointer;
+	opacity:0;
+}
+
+#content_upload_file{
+	background-color: #F9F8F8;
+	border: 1px dashed #E3E3E3;
+	font-size: 20pt;
+	color: #AAAAAA !important;
+	margin-bottom: 12px;
+	padding: 12px 0 12px 9px;
+	text-align: center;
+	cursor: pointer;
+	width: 300px;
+	height: 180px;
+}
+
+#upload_preview{
+	width: 80%;
+	border: 10px solid #E3E3E3;
+	
+}

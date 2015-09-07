@@ -1,0 +1,62 @@
+<%= include_javascript("jquery.nivo.slider.pack.js") %>
+<%= include_javascript("jquery.carouFredSel-6.2.1-packed.js") %>
+<%= include_javascript("jquery.ba-throttle-debounce.min.js") %>
+<%= include_javascript("jquery.mousewheel.min") %>
+<%= include_javascript("jquery.touchSwipe.min") %>
+<%= include_javascript("jquery.transit.min") %>
+<%= include_stylesheet("jquery.nivo-slider.css") %>
+
+
+
+<div id="portfolio-content">
+		<div id="portfolio" class="nivoSlider ">
+				  <% @portfolio.multimedia_files.each do |item| %>
+                     <%= image_tag item.attach.url,:id => "#{item.id}",:rel => "#{item.id}" %>
+
+              <% end if @portfolio %>
+		</div>
+		<div id="portfolio-products" class="image_carousel hidden" >
+		  <div class="caroufredsel_wrapper">
+			 <div id="foo2">
+				<%= image_tag "portfolio/products/1.jpg" %>
+				<%= image_tag "portfolio/products/2.jpg" %>
+				<%= image_tag "portfolio/products/3.jpg" %>
+				<%= image_tag "portfolio/products/4.jpg" %>
+				<%= image_tag "portfolio/products/5.jpg" %>
+				<%= image_tag "portfolio/products/6.jpg" %>
+				<%= image_tag "portfolio/products/7.jpg" %>
+				<%= image_tag "portfolio/products/8.jpg" %>
+				<%= image_tag "portfolio/products/9.jpg" %>
+				<%= image_tag "portfolio/products/10.jpg" %>
+				<%= image_tag "portfolio/products/11.jpg" %>
+				<%= image_tag "portfolio/products/12.jpg" %>
+			 </div>
+			 <div class="clearfix"></div>
+			 <div id="prev2" class="prev"></div>
+			 <div id="next2" class="next" ></div>
+		  </div>
+		</div>
+
+</div>
+
+
+        <script type="text/javascript">
+$(document).ready(function() {
+  $('#portfolio').nivoSlider({
+	 effect: 'sliceDown',
+	 controlNav: false
+  });
+
+  $('#foo2').carouFredSel({
+	  auto: false,
+	  prev: '#prev2',
+	  next: '#next2',
+	  mousewheel: true,
+	  swipe: {
+		  onMouse: true,
+		  onTouch: true
+	  }
+  });
+
+ });
+        </script>

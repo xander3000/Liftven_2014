@@ -1,0 +1,39 @@
+<p>
+  <%= text_field_tag "label[company_names]","",:placeholder => "Su empresa" %>
+  </p>
+  <p>
+  <%= text_field_tag "label[company_message]","",:placeholder => "Mensaje de su empresa" %>
+  </p>
+  <p>
+  <%= text_field_tag "label[fullname]","",:placeholder => "Nombre y apellidos" %>
+  </p>
+  <p>
+  <%= text_field_tag "label[position]","",:placeholder => "Cargo" %>
+  </p>
+  <p>
+  <%= text_field_tag "label[address]","",:placeholder => "Direccion completa" %>
+  </p>
+
+  <fieldset>
+  <p>
+    <%= text_field_tag "label[telephone]","" %>
+  </p>
+  <p>
+    <%= label_tag "", "Número de teléfono"%>
+  </p>
+  </fieldset>
+
+  <fieldset>
+  <p>
+    <%= text_field_tag "label[fax]","" %>
+  </p>
+  <p>
+    <%= label_tag "label[company_name]", "Número de fax"%>
+  </p>
+  </fieldset>
+  <p>
+  <%= text_field_tag "label[email]","",:placeholder => "sucorreo@suempresa.com" %>
+  </p>
+  <p>
+  <%= text_field_tag "label[website]","",:placeholder => "www.suweb.com" %>
+  </p>

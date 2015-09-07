@@ -1,0 +1,122 @@
+/* 
+    Document   : users
+    Created on : 08/10/2011, 09:17:26 AM
+    Author     : gabriel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+html{
+    background-color: #F1F1F2;
+
+}
+
+body{
+    color: #6D6F70;
+}
+
+#content-container{
+    padding-top: 90px;
+}
+
+.short-info_nav ul{
+    padding-top: 0px;
+}
+
+
+.short-info_nav ul li a {
+    color: #6D6F70;
+}
+
+#user_account_leadspaces{
+    background: url("/images/slide/leadspace-user-account-bg.png") no-repeat scroll 85% 0 transparent;
+}
+#user_account_show{
+    margin-top: 10px;
+}
+#users_leadspaces{
+    background: url("/images/slide/leadspace-users-bg.png") no-repeat scroll 50% 0 transparent;
+    height: 300px;
+}
+
+#user_account_content #wizard fieldset{
+    margin: 5% 25%;
+}
+#user_account_content #wizard input{
+   width: 100%;
+}
+
+#user_account_content #wizard fieldset span.error{
+    color: red;
+    margin-bottom: 10px;
+}
+
+#user_account_content #wizard fieldset p{
+    margin-bottom: 15px;
+}
+
+#user_account_content #wizard #step-4 label{
+    width: inherit;
+}
+
+#user_account_content #wizard #step-4 fieldset{
+    margin: 5% 35%;
+}
+
+.login, .logout {
+    background: none repeat scroll 0 0 #FFFFFF;
+    padding: 20px 15px;
+    width: 160px;
+}
+.login h3,.login h4 , .logout h3, .logout h4{
+    font-size: 11px;
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+}
+
+#user_account_content .account-part{
+    margin-top: 10px;
+}
+
+#user_account_content .account-part h2{
+    float: left;
+    width: 190px;
+    margin: 0;
+}
+#user_account_content .account-part .details {
+    float: left;
+    margin: 1px 0 0;
+    width: 200px;
+    
+}
+
+#user_account_show .form-handling {
+   
+    font-size: 14px;
+    font-weight: normal;
+    list-style: none outside none;
+    margin: 2px 0 0;
+}
+
+#user_account_show .account-part .form-handling  li{
+    
+    display: inline-block;
+    margin-left: 5px;
+ 
+}
+
+#user_account_content .form.separator {
+    background-position: left top;
+    margin-bottom: 0;
+    margin-top: 13px;
+    padding-bottom: 0;
+    padding-top: 13px;
+}
+
+

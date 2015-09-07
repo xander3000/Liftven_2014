@@ -1,0 +1,42 @@
+<% total = 0 %>
+<div class="">
+   <%= link_to("<< Volver",backend_show_daily_cash_closing_url(@daily_cash_closing)) %><br/><br/>
+	 <div>
+		<table cellpadding="0" cellspacing="0" border="0" class="display" id="invoices" width="100%">
+			<thead>
+				<tr>
+					<th><%= Budget.human_attribute_name("id")%> </th>
+					<th><%= Budget.human_attribute_name("client")%> </th>
+					<th><%= Budget.human_attribute_name("created_at")%> </th>
+					<th><%= Budget.human_attribute_name("payment_method_type")%> </th>
+					<th><%= Budget.human_attribute_name("transaction_date")%> </th>
+					<th><%= Budget.human_attribute_name("transaction_number")%> </th>
+					<th><%= Budget.human_attribute_name("advance_payment")%> </th>
+				</tr>
+			</thead>
+			<tbody>
+			  <% @budgets.each do |budget|  %>
+				 <tr>
+					<td class="left"><%= link_to(format_code(budget.id,"05"), backend_budget_url(budget))%></td>
+					<td class="left"><%=  budget.client.name%> </td>
+					<td class="center"><%= l budget.created_at,:format => :default_date%></td>
+					<td class="left"><%=  budget.payment_method_type.name%> </td>
+					<td class="left"><%=  budget.transaction_date%> </td>
+					<td class="left"><%=  budget.transaction_number%> </td>
+					<td class="right"><%=  number_to_currency(budget.advance_payment, :delimiter => ".", :separator => ",", :unit => "")%></td>
+					<% total += budget.advance_payment%>
+				  </tr>
+				<% end %>
+				  <tr>
+					 <td colspan="6" class="right border-top">
+						<i>Total</i>
+					 </td>
+					 <td class="right border-top">
+						<%=  number_to_currency(total, :delimiter => ".", :separator => ",", :unit => "")%>
+					 </td>
+				  </tr>
+			</tbody>
+		  </table>
+	 </div>
+  </div>
+

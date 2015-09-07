@@ -1,0 +1,32 @@
+<%= include_stylesheet("backend/orders_design") %>
+<%= include_stylesheet("jquery.fileupload-ui") %>
+<%= include_javascript("jquery.tmpl.min") %>
+<%= include_javascript("jquery.iframe-transport") %>
+<%= include_javascript("jquery.fileupload") %>
+<%= include_javascript("jquery.fileupload-ui") %>
+
+<% form_layout do %>
+  <% semantic_form_remote_for @design, :url => backend_order_create_design_url(@order) do |f| %>
+      <div id="form_for_design">
+        <%= render :partial => "form_for_design",:locals => {:f => f} %>
+      </div>
+  <% end %>
+  <%= render :partial => "fileupload" %>
+  <br/>
+  <hr/>
+<div class="left">
+    <%= link_to "Cancelar",backend_order_url(@order) %>
+    |
+    <%= button_to_function "Enviar al cliente","submit_form_for_design()",:id => "submit_for_design"%>
+  </div>
+<% end %>
+
+  <script  type="text/javascript">
+
+    function submit_form_for_design(){
+      $('#submit_for_design').val("Procesando...");
+      $('#submit_for_design').attr("disabled", true);
+      $("#new_design").submit();
+    }
+  </script>
+

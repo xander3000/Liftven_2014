@@ -1,0 +1,89 @@
+<%= include_javascript("jquery.dataTables.min.js") %>
+<%= include_stylesheet("jquery.datatable.css") %>
+<div class="actionsBar right no-print">
+  <%= link_to(image_tag("icons/arrow_left.png"),backend_cpanel_home_index_url,:class => "button",:title => "Regresar") %>
+  |
+  <%= link_to(image_tag("icons/add.png"),new_backend_financial_management_payment_schedule_url,:class => "button") %>
+</div>
+<hr/>
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="concepts" width="100%">
+	<thead>
+		<tr>
+			 <th><%= AccountPayable::PaymentSchedule.human_attribute_name("cash_bank_bank")%> </th>
+			 <th><%= AccountPayable::PaymentSchedule.human_attribute_name("cash_bank_bank_account")%> </th>
+			 <th><%= AccountPayable::PaymentSchedule.human_attribute_name("account_payable_incoming_invoice")%> </th>
+			 <th><%= AccountPayable::PaymentSchedule.human_attribute_name("tenderer")%> </th>
+			 <th><%= AccountPayable::PaymentSchedule.human_attribute_name("account_payable_payment_frequency")%> </th>
+			 <th><%= AccountPayable::PaymentSchedule.human_attribute_name("share")%> </th>
+			 <th><%= AccountPayable::PaymentSchedule.human_attribute_name("total_amount")%> </th>
+
+		</tr>
+	</thead>
+	<tbody>
+	  <% @payment_schedules.each do |payment_schedule|  %>
+       
+		 <tr class="external-overlay" rel=".overlay" ref="">
+				<td class="left"><%= payment_schedule.cash_bank_bank.name%> </td>
+				<td class="left"><%= payment_schedule.cash_bank_bank_account.fullname%> </td>
+				<td class="left"><%= payment_schedule.account_payable_incoming_invoice.id.to_code%> </td>
+				<td class="center"><%= payment_schedule.tenderer.name%> </td>
+				<td class="center"><%= payment_schedule.account_payable_payment_frequency.name%> </td>
+				<td class="center"><%= payment_schedule.share%> </td>
+				<td class="center"><%= number_to_currency(payment_schedule.total_amount, :delimiter => ".", :separator => ",", :unit => "")%> </td>
+		  </tr>
+		<% end %>
+	</tbody>
+</table>
+
+
+
+
+<script type="text/javascript">
+  var oTable;
+
+
+
+
+
+
+  function fnGetSelected(oTableLocal) {
+    var aReturn = new Array();
+    var aTrs = oTableLocal.fnGetNodes();
+
+    for (var i = 0; i < aTrs.length; i++) {
+        if ($(aTrs[i]).hasClass('row_selected')) {
+            aReturn.push(aTrs[i]);
+        }
+    }
+    return aReturn;
+}
+  $(document).ready(function() {
+		oTable =  $('#concepts').dataTable({
+				scrollX: true,
+            oLanguage: {
+                sUrl: "/javascripts/i18n/jquery.DataTables-es.txt"
+            }
+				
+        });
+  $("#employees tbody").click(function (event) {
+		$(oTable.fnSettings().aoData).each(function () {
+			 $(this.nTr).removeClass('row_selected');
+		});
+		$(event.target.parentNode).addClass('row_selected');
+  });
+		$("tr.external-overlay[rel]").overlay({
+		  mask: {
+					 color: '#000',
+					 loadSpeed: 200,
+					 opacity: 0.9
+		  },
+		  onBeforeLoad: function() {
+				var wrap = this.getOverlay().find(".contentWrap");
+				wrap.load(this.getTrigger().attr("ref"));
+		  }
+		});
+  });
+
+
+
+</script>

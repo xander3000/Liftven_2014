@@ -1,0 +1,508 @@
+/* 
+    Document   : budgets
+    Created on : 12/10/2011, 10:17:09 AM
+    Author     : gabriel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+body {
+    color: #6D6F70;
+}
+
+#content-container {
+    padding-top: 90px;
+}
+
+.short-info_nav ul {
+    padding-top: 0;
+}
+
+#budget  fieldset p {
+    float: left;
+    margin-right: 20px;
+    width: 235px;
+}
+
+#budget select{
+   
+}
+
+#budget #select_category{
+    text-align: center;
+    color: #969695;
+    font-size: 25px;
+    margin: 15% 0;
+}
+
+
+#venom-leadspace-body{
+    background: url("/images/slide/leadspace-budgets-bg.png") no-repeat scroll 50% 0 transparent;
+}
+
+
+#budget #side_dimension p{
+   width: 135px;
+}
+
+#budget #side_dimension p.dimension{
+   width: 50px;
+   margin-right: 18px;
+}
+#budget #side_dimension p.dimension2{
+   width: 10px;
+   margin: 25px 5px 10px 10px;
+}
+
+#budget #side_dimension input{
+   width: auto;
+}
+
+#budget #product_by_budget_quantity{
+   /*width: auto;*/
+   
+}
+
+#budget .actions ul li{
+    display: inline-block;
+}
+
+#budget #add_to_cart,#budget #prices
+{
+    display: none;
+}
+
+
+#budget #calculator{
+    border: none;
+    background: url("/images/icons/calculator.png") no-repeat scroll left center transparent;
+    padding: 5px 0px 5px 20px;
+}
+
+
+#budget #add_to_cart{
+    border: none;
+    background: url("/images/icons/cart_put.png") no-repeat scroll left center transparent;
+    padding: 5px 0px 5px 20px;
+}
+#budget #add_to_cart:hover{
+    text-decoration: underline;
+}
+
+
+a.checkout{
+     background: url("/images/icons/cart_go.png") no-repeat scroll right center transparent;
+     padding: 5px 20px 5px 0px;
+     color: #FFFFFF;
+}
+
+#budgets_finished_product_category_type
+{
+    /*border: 1px solid #EDEDED;*/
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    -moz-box-shadow: 0px 1px 1px #999;
+    -webkit-box-shadow: 0px 1px 0px #999;
+    box-shadow: 0px 1px 0px #999;
+    width: 230px;
+    margin: 10px 10%;
+}
+
+#budgets_finished_product_category_type a.navigator{
+    -moz-box-shadow: 0 1px 0 #EDEDED;
+    -webkit-box-shadow: 0 1px 0 #EDEDED;
+    box-shadow: 0 1px 0 #EDEDED;
+    
+    margin: 0px 0 2px 0;
+    padding: 4px 0;
+    text-align: center;
+    text-decoration: none;
+    color: #999999;
+    display: block;
+    font-size: 11px;
+}
+#budgets_finished_product_category_type a.navigator.next{
+    -moz-box-shadow: 0 -1px 0 #EDEDED;
+    -webkit-box-shadow: 0 -1px 0 #EDEDED;
+    box-shadow: 0 -1px 0 #EDEDED;
+    margin: 2px 0 0 0;
+}
+
+#budgets_finished_product_category_type a.navigator:hover{
+    color:#084a5e;
+    background:#efefef;
+    background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#fff),color-stop(100%,#efefef));
+    background:-moz-linear-gradient(top,#fff 0%,#efefef 100%);
+    background-repeat:no-repeat;
+    text-shadow:0 1px 1px #fff
+}
+
+#budgets_finished_product_category_type a.navigator.disabled img{
+    
+}
+
+#budgets_finished_product_category_type .scrollable
+  {
+    position:relative;
+    overflow:hidden;
+    height: 205px;
+    width: 230px;
+    
+  }
+
+ #budgets_finished_product_category_type .scrollable .items
+  {
+    position:absolute;
+    height:20000em;
+    cursor: pointer;
+
+  }
+
+  #budgets_finished_product_category_type .scrollable .items .item img:hover
+  {
+    -moz-box-shadow: 0px 10px 10px #555;
+    -webkit-box-shadow: 0px 10px 10px #555;
+    box-shadow: 0px 10px 10px  #555;
+    }
+
+#cart{
+    margin-right: 30px;
+}
+
+#select_payment #order_credit_debit_card_number,#select_payment #order_credit_debit_card_name{
+    width: 200px;
+    text-align: center;
+}
+#select_payment #order_credit_debit_card_expiry_date
+{
+    width: 60px;
+    text-align: center;
+}
+
+#select_payment div.payment_option{
+    border-bottom: 1px solid #CEE1EB;
+    
+    overflow: auto;
+    padding: 15px 0;
+}
+#select_payment div.payment_option h2
+{
+
+    color: #333333;
+    font-size: 108%;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+#select_payment div.payment_option img{
+    cursor: pointer;
+    border: 1px solid #D9D9D9;
+    border-top: 1px solid silver;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow:1px 1px 4px #666;
+    -webkit-box-shadow:1px 1px 4px #666;
+    box-shadow:1px 1px 4px #666;
+    padding: 5px;
+    text-align: center;
+    width: 165px;
+}
+#select_payment div.payment_option fieldset legend{
+    font-size: 0.8em;
+    font-weight: bolder;
+}
+#select_payment div.payment_option p {
+    font-size: 75%;
+}
+
+#select_payment #credit_debit_card_info ul li,#select_payment #mercantil_transfer_deposit_bank ul li{
+    display: inline-block;
+    padding-right: 25px;
+    padding-bottom: 10px;
+}
+
+/*######################*/
+#products .product{
+    overflow: hidden;
+    border-bottom: 1px solid #000;
+}
+#products .product ul
+{
+    list-style: none outside none;
+}
+
+#products .product ul li {
+    float: left;
+    height: 75px;
+    width: 100px;
+    
+}
+
+#products .product ul li.product_item{
+    width: 350px;
+}
+
+#products .product ul li.product_price{
+    
+}
+#products .product ul li.product_price p{
+    font-weight: normal;
+}
+
+#products .product ul li.product_subtotal{
+    
+}
+
+#products .product ul li.product_subtotal p{
+    color: #231F20;
+}
+#products .product ul li.product_amount{
+  
+}
+
+#products .product ul li.product_amount input{
+    width: 65px;
+}
+
+#products .product ul li p.title {
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+#products .product p {
+    line-height: 16px;
+    margin: 0;
+}
+
+
+#products .product .item-spec {
+    color: #6D6F70;
+    font-family: "Droid Sans",Verdana,Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    font-weight: bolder;
+    line-height: 22px;
+    /*text-transform: uppercase;*/
+}
+
+#products #product_description{
+    margin-left: 1em;
+}
+
+#products #cart-about p{
+    font-size: 11px;
+    text-align: justify;
+}
+#products #product_actions p{
+    font-size: 11px;
+    text-align: right;
+}
+#products #product_actions a{
+     text-decoration: none;
+     background: transparent url("/images/icons/cart_remove.png") no-repeat center left;
+     padding: 2px 0 0 20px;
+     
+}
+
+#products #product_actions a:hover{
+    text-decoration: underline;
+}
+
+#products #product_description p{
+    font-size: 12px;
+}
+
+
+
+#products .product ul li.subtotal {
+    margin-right: 0;
+    width: 130px;
+}
+
+#products .product ul li.quantity {
+    width: 350px;
+}
+#products .product ul li.last-child, #products .product ul li:last-child {
+    height: 50px;
+}
+
+#products .product #quantity{
+    width: 70px;
+    display: inline-block;
+     padding: 0.25em;
+}
+#products div.total{
+      font-family: "Droid Sans Mono";
+      
+}
+
+#products div.total table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+#products div.total table tfoot {
+    color: #231F20;
+    font-size: 15px;
+    font-weight: normal;
+    text-transform: uppercase;
+    
+}
+
+#products div.total  table tfoot tr {
+    border-top: 1px solid black;
+    height: 30px;
+        border-top: 1px solid black;
+}
+
+#products div.total table tfoot tr * {
+    vertical-align: bottom;
+    
+}
+
+#products div.total  table th {
+    font-weight: normal;
+    text-transform: uppercase;
+    width: 180px;
+}
+
+#order-summary{
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    -moz-box-shadow: 5px 5px 10px #555;
+    -webkit-box-shadow: 5px 5px 10px #555;
+    box-shadow: 5px 5px 10px #555;
+    padding: 25px;
+}
+
+#order-summary ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#order-summary h3{
+    color: #5A5655;
+    margin-bottom: 5px;
+    font-size: 13px;
+}
+
+#order-summary #orders_amount p{
+    color: #EA8511;
+    font-size: 10px;
+    font-weight: bolder;
+}
+#order-summary #order_process a{
+    background-color: #5A5655;
+    border: 1px solid #5A5655;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    color: #FFFFFF;
+    font: bold 13px Verdana,Arial,Helvetica,sans-serif;
+    margin: 5px 3px 0;
+    outline-style: none;
+    padding: 2px 20px;
+    text-align: center;
+    text-decoration: none;
+    width: 150px;
+    font-size: 11px;
+}
+#order-summary #order_actions{
+    margin-top: 15px;
+}
+
+#order-summary #order_actions ul li{
+    display: inline-block;
+
+}
+#order-summary #order_actions ul li a{
+    text-decoration: none;
+    padding: 5px 0px 5px 20px;
+}
+
+#order-summary #order_actions ul #order_delete a{
+    background: transparent url("/images/icons/cart_delete.png") no-repeat center left;
+}
+
+#order-summary #order_actions ul #order_save a{
+    background: transparent url("/images/icons/disk_h.png") no-repeat center left;
+}
+
+#order-summary #order_actions ul li.separator{
+    
+}
+
+#order-summary #order_actions ul #order_print a{
+    background: transparent url("/images/icons/printer_h.png") no-repeat center left;
+}
+
+#order-summary #order_actions ul li p{
+    font-size: 11px;
+}
+
+.subgrand-total p, .paymet_method p{
+    font-size: 12px;
+    font-weight: normal;
+    color: #000000;
+}
+
+.grand-total p
+{
+    font-size: 14px;
+    font-weight: bolder;
+   
+    color: #000000;
+}
+
+a.button.submit
+{
+    background: none repeat scroll 0 0 #A67B5B;
+    border: medium none;
+    color: #E6E7E8;
+}
+
+
+#product_components input{
+    width: 60px;
+}
+
+#product_by_budget_quantity{
+   width: 45px;
+}
+ span.product_by_budget_quantity_button{
+    background: url("/images/buttons/scroll_nav_sprite.gif") no-repeat scroll 0 0 transparent;
+    cursor: pointer;
+    height: 11px;
+    margin: 0 0 0 0px;
+    text-align: center;
+    width: 11px;
+    display: inline-block;
+}
+
+
+#product_by_budget_quantity_increase{
+    background-position: 0 -400px;
+}
+
+ #product_by_budget_quantity_increase:hover{
+    background-position: 0 -350px;
+}
+
+#product_by_budget_quantity_decrease{
+    background-position: 0 -295px;
+}
+
+ #product_by_budget_quantity_decrease:hover{
+    background-position: 0 -245px;
+}
+

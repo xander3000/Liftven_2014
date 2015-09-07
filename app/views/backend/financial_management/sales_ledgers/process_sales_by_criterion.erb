@@ -1,0 +1,86 @@
+<%
+	 owner = Supplier.find_owner
+	 contact = owner.contact
+%>
+
+<div>
+  <div id="content_info_voucher">
+	 <div class="subc c55l">
+		<div class="">
+		  <h2><%= contact.fullname.upcase %></h2>
+		  <b><%= owner.identification_document %></b><br/>
+		</div>
+	 </div>
+	 <div class="subc c40r left">
+		<div class="">
+		  <h2>DETALLE DE VENTAS</h2>
+		  <b class="center">Desde <%= l @date_from.to_date %> hasta <%= l @date_to.to_date  %></b>
+		</div>
+	 </div>
+	 <br/>
+	 <hr/>
+
+
+	 <table class="no-border">
+		<thead>
+	  <tr>
+			<th><%= Product.human_attribute_name("finished_product_category_type")%> </th>
+			<th><%= Product.human_attribute_name("name")%> </th>
+			<th>Nº de productos facturados</th>
+			<th>Monto total facturado</th>
+		</tr>
+		</thead>
+		<tbody class="">
+			 <%
+				@sales.each do |sale|
+				 category =  sale.first
+				 sales =  sale.last
+				 total_product = 0
+				 total_category = 0
+			 %>
+				<tr>
+					<td><b><%= "#{category.name}"%></b></td>
+					<td colspan="3"></td>
+				</tr>
+				<%  if sales.empty? %>
+				<tr>
+				  <td colspan="4" class="center">
+					 No hay productos asociados
+				  </td>
+				</tr>
+				  <%  else sales.each do |sale| %>
+					 <%
+						  total_product  += sale.count.to_i
+						  total_category += sale.sum.to_f
+						%>
+					 <tr>
+						<td></td>
+						<td >
+							 <%=  sale.product_name%>
+						</td>
+						<td class="center">
+						  <%=  sale.count%>
+						</td>
+						<td class="right">
+						  <%=  sale.sum.to_f.to_currency%>
+						</td>
+					 </tr>
+				  <% end %>
+					 <tr class="border-top">
+						<td></td>
+						<td></td>
+						<td class="center">
+						  <b><%= total_product %></b>
+						</td>
+						<td  class="right">
+						  <b><%= total_category.to_currency %></b>
+						</td>
+					 </tr>
+				<% end %>
+			 <% end %>
+		</tbody>
+	 </table>
+
+
+  </div>
+</div>

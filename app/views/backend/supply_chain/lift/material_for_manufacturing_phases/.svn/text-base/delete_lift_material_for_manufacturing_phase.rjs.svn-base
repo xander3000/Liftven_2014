@@ -1,0 +1,2 @@
+	page.replace_html "lift_material_for_manufacturing_phases", :partial => "lift_material_for_manufacturing_phases"
+

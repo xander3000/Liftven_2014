@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/1039/trunk/Venom/app/views/backend/financial_management/customer_management/call_manager_registers
+END
+_call_registers.erb
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/!svn/ver/1039/trunk/Venom/app/views/backend/financial_management/customer_management/call_manager_registers/_call_registers.erb
+END
+new.erb
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/!svn/ver/1039/trunk/Venom/app/views/backend/financial_management/customer_management/call_manager_registers/new.erb
+END
+create.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/!svn/ver/1039/trunk/Venom/app/views/backend/financial_management/customer_management/call_manager_registers/create.rjs
+END

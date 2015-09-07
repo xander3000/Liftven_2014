@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/1241/trunk/Venom/app/models/config_panel
+END
+module.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/1241/trunk/Venom/app/models/config_panel/module.rb
+END
+submodule.rb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/1204/trunk/Venom/app/models/config_panel/submodule.rb
+END
+module_category.rb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/751/trunk/Venom/app/models/config_panel/module_category.rb
+END

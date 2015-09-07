@@ -1,0 +1,109 @@
+<% has_a_component_type_with_dimension = @product.has_a_component_type_with_dimension? %>
+<% @product.product_component_types.each do |product_component_type|  %>
+<div>
+    <%= product_component_type.name %><br/>
+    <% @element_types.each do |element_type|  %>
+      <span class="dropDownContainer">
+        <% elements = @product.elements_by_product_components_type(element_type.to_s, product_component_type)  %>
+
+        <% if !elements.empty?  %>
+          <%= link_to_function(image_tag("/images/icons/#{element_type::HUMANIZE_ICON}"),nil,:style => "",:class => "button dropdown no-selected",:id => "#{element_type.to_s}_icon_#{product_component_type.id}") %>
+            <dd>
+              <%= hidden_field_tag "product_component_id[#{product_component_type.id}]element_type[#{element_type.to_s}]",nil,:class => "select_price"  %>
+              <ul id="<%= "elements_#{product_component_type.id}_#{element_type.to_s}" %>" class=" ui-widget-content ui-corner-bottom">
+                <% elements.each do |item|  %>
+                  <% element = item %>
+                  <% rev = "product_component_id[#{product_component_type.id}]element_type[#{element_type.to_s}]" %>
+                  <% if element.class.to_s.eql?(PageSizeType.to_s) %>
+                    <li><a rev="<%= rev %>" href="#" rel="<%= item.id %>" accesskey="<%= backend_invoices_custom_paper_size_url(product_component_type.id) %>"><%= element.name %></a></li>
+                  <% elsif element.class.to_s.eql?(PaperType.to_s) %>
+                    <li><a rev="<%= rev %>" rel="<%= item.id %>" class="no-hide"  accesskey="<%= backend_invoices_custom_paper_type_url(product_component_type.id) %>"><%= element.name %></a></li>
+                  <% elsif element.class.to_s.eql?(ColorModeType.to_s) %>
+                    <li><a rev="<%= rev %>" rel="<%= item.id %>" class="no-hide"  accesskey="<%= backend_invoices_custom_color_mode_type_url(product_component_type.id) %>"><%= element.name %></a></li>
+                  <% else %>
+                    <li><a rev="<%= rev %>" href="#" rel="<%= item.id %>"><%= element.name %></a></li>
+                  <% end %>
+                <% end %>
+              </ul>
+          </dd>
+        <% end %>
+      </span>
+    <% end %>
+    <span>
+      <%= text_field_tag('product[quantity_page_sheet]',nil, :title => "#{ProductByInvoice.human_attribute_name('quantity_page_sheet')}",:placeholder => "#{ProductByInvoice.human_attribute_name('quantity_page_sheet')}", :class => "quantity_page_sheet select_price" ) if product_component_type.is_multiple? %>
+    </span>
+    <% accessories = @product.accessories %>
+    <span class="dropDownContainer">
+        <% if !accessories.empty?  %>
+          <%= link_to_function(image_tag("/images/icons/bricks.png"),nil,:style => "",:class => "button dropdown no-selected",:title => "Accesorios") %>
+            <dd>
+              <ul id="" class=" ui-widget-content ui-corner-bottom">
+                <% accessories.each do |item|  %>
+                  <% element = item %>
+                  <% rev = "accessories_ids[]" %>
+                  <li>
+                    <span>
+                        <%= check_box_tag("accessories_ids[]", element.id,nil,:id => "accessories_ids_#{element.id}",:class => "select_price") %>
+                        <%= label_tag("accessories_ids_#{element.id}",element.name) %>
+                      </span>
+                  </li>
+                <% end %>
+
+              </ul>
+          </dd>
+        <% end %>
+    </span>
+
+    </div>
+<% end %>
+<script type="text/javascript">
+
+	$(document).ready(function(){
+         
+            <% if @product.product_component_types.empty? and not has_a_component_type_with_dimension %>
+                $("input.dimension").val(0);
+                $("#dimensions_inputs").hide();
+              <% else %>
+                $("input.dimension[type='text']").val('');
+                $("#dimensions_inputs").show();
+            <% end %>
+
+              $("#item_product_form .select_price").blur(function() {
+                var complete = true
+                $('#item_product_form input.select_price').each(function (index, domEle) {
+                  complete = complete && $(this).val() != "";
+                });
+                if(complete){
+                  $('.like_input').html('<%= image_tag "global/loader.gif" %>');
+                  $.getJSON("<%= select_prices_backend_products_url %>", $('#item_product_form input.select_price').serialize(), function(json){
+                      switch (json.code_response) {
+                        case ("ok"):
+                          $("#product_unit_price").val(json.unit_price);
+                          $("#product_total_price").val(json.total_price);
+
+                          $("#product_unit_price_currency").html(formatCurrency(json.unit_price));
+                          $("#product_total_price_currency").html(formatCurrency(json.total_price));
+
+                          $("#add_product_button").show();
+                          break;
+                        case ("no-ok"):
+                          alert("Precio no posible de determinar");
+								  $("#product_unit_price_currency").html("");
+                          $("#product_total_price_currency").html("");
+                          break;
+                        default:
+                          alert('problemas buscando');
+                      }
+                  });
+                }
+              });
+
+          td_discount = 2
+          colspan = $("#form_items > table > thead > tr td").length;
+          $(".totalizers").attr('colspan', colspan-td_discount);
+
+          $(".dropdown").droplist();
+          $('a[title]').tooltip();
+          $("button, input:submit,input:button,a.button ").button();
+	});
+</script>

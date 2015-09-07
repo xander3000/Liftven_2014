@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/986/trunk/Venom/app/views/backend/cpanel/permissions
+END
+index.erb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/986/trunk/Venom/app/views/backend/cpanel/permissions/index.erb
+END
+new.erb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/986/trunk/Venom/app/views/backend/cpanel/permissions/new.erb
+END
+_form.erb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/986/trunk/Venom/app/views/backend/cpanel/permissions/_form.erb
+END

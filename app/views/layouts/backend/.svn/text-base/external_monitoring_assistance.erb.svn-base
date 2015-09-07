@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf8"/>
+<title><%= SITE_NAME %></title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+<%= stylesheet_link_tag "backend/application"%>
+<%= stylesheet_link_tag "jquery-ui/smoothness/jquery-ui-1.11.2"%>
+<%= stylesheet_link_tag "jquery-ui_hacks/smoothness/jquery-ui-1.8.14.custom"%>
+<%= stylesheet_link_tag "backend/human_resource/external_monitoring_assistances.css"  %>
+<%= stylesheet_link_tag "jquery.overlay"  %>
+<%= stylesheet_link_tag "jquery.notifyBar" %>
+
+
+<!--yield head_stylesheet-->
+  <%= yield :head_stylesheet %>
+<!--yield head_stylesheet-->
+
+<!--[if lte IE 7]>
+<![endif]-->
+
+  <%= javascript_include_tag "jquery-1.11.2.min" %>
+  <%= javascript_include_tag "jquery-migrate-1.2.1.min.js" %>
+  <%= javascript_include_tag "jrails" %>
+  <%= javascript_include_tag "jquery-ui-1.11.2.min" %>
+  <%= javascript_include_tag "jquery.tools.min" %>
+  <%= javascript_include_tag "backend/application" %>
+  <%= javascript_include_tag "jquery.maskedinput-1.3.min" %>
+  <%= javascript_include_tag "jquery.notifyBar" %>
+  <%= javascript_include_tag "jquery.countdown" %>
+   
+
+
+<!--yield head_javascript-->
+  <%= yield :head_javascript %>
+<!--yield head_javascript-->
+
+</head>
+<body>
+
+      <!-- begin: #loading -->
+      <div style=" " id="loading">
+            <%= image_tag "global/loading.gif" %>
+      </div>
+      <!-- begin: #header -->
+
+      <!-- end: #header -->
+
+      <!-- begin: #main -->
+      <div id="main">
+        <div id="logo">
+          <%= image_tag "clients/#{PROJECT_NAME}/logos/logo2.png" %>
+        </div>
+		  
+        <div id="main-container">
+            <center>
+              <%= yield  %>
+            </center>
+        </div>
+      </div>
+      <!-- end: #main -->
+    <script type="text/javascript">
+       $(document).ready(function() {
+          <% if flash[:notice] %>
+            $.notifyBar({
+              html: "<%= flash[:notice] %>",
+              delay: 3000,
+              animationSpeed: "normal",
+              cls: "success"
+            });
+          <% end %>
+          <% if flash[:error] %>
+              $.notifyBar({
+                html: "<%= flash[:error] %>",
+                delay: 3000,
+                animationSpeed: "normal",
+                cls: "error"
+              });
+
+          <% end %>
+      });
+      </script>
+
+  <!-- begin: #footer -->
+  <div id="footer">
+  </div>
+  <!-- end: #footer -->
+        <!-- begin: #overlay -->
+      <div class="overlay">
+        <a class="close button ">X</a>
+        <div class="contentWrap"></div>
+      </div>
+</body>
+</html>

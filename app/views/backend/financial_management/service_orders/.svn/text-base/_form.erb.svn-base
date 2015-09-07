@@ -1,0 +1,57 @@
+<%= render :partial => "form_header",:locals => {:f => f} %>
+<%= render :partial => "form_items",:locals => {:f => f} %>
+
+
+
+<script type="text/javascript">
+  function action_after_complete_for_contacts(item){
+    switch (item.code_response) {
+        case ("ok"):
+            $("#accounting_service_order_supplier_id").val(item.supplier_id).change();
+				
+            break;
+        case ("no-ok"):
+            alert('no-ok');
+            break;
+        default:
+            alert('problemas buscando');
+    }
+  }
+
+
+  
+		$(document).ready(function(){
+                    $("#accounting_service_order_posting_date,#accounting_service_order_position_delivery_date").datepicker({
+                    changeMonth: true,
+                    dateFormat: 'yy-mm-dd',
+                    minDate: "-0",
+                    maxDate: "+35",
+                    yearRange: 'c-80:c+30',
+          beforeShowDay: noWeekendsOrHolidays
+        });
+
+		  $("#accounting_service_order_supplier_name").autocomplete({
+			  source: "<%= autocomplete_by_supplier_name_backend_contacts_url %>",
+			  minLength: 3,
+			  select: function( event, ui ) {
+				 if(ui.item)
+					 action_after_complete_for_contacts(ui.item);
+			  }
+		  });
+
+		$("#sub_total_currency,#accounting_service_order_position_quantity").blur(function(){
+
+		  $("#accounting_service_order_position_sub_total").val($("#sub_total_currency").val());
+		  sub_total = $("#accounting_service_order_position_sub_total").val();
+		  quantity = $("#accounting_service_order_position_quantity").val();
+
+		  $("#accounting_service_order_position_total").val(parseFloat(sub_total)*parseInt(quantity));
+
+			$("#total_currency").html($("#accounting_service_order_position_total").val());
+
+
+
+		});
+		  
+	});
+</script>

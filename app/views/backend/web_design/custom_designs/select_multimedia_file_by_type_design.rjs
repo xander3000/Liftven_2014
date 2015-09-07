@@ -1,0 +1,2 @@
+page.show "form_prev"
+page.replace_html "form_prev", :partial => "form_prev"

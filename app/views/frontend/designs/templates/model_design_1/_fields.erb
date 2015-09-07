@@ -1,0 +1,33 @@
+  <form action="" method="">
+      <div class="subc c50l">
+        <p class="block">
+            <%= label_tag "", "Empresa" %>
+            <%= text_field_tag "label[company_name]","" %>
+        </p>
+      </div>
+      <div class="subc c50r">
+        <p class="block">
+            <%= label_tag "", "Nombre, Apellido" %>
+            <%= text_field_tag "label[fullname]","" %>
+        </p>
+      </div>
+      <p class="block">
+            <%= label_tag "", "Dirección Completa" %>
+            <%= text_area_tag "label[address]","",:size => "50x5" %>
+      </p>
+        <div class="subc c50l">
+        <p class="block">
+            <%= label_tag "", "Telefono" %>
+            <%= text_field_tag "label[telephone]","" %>
+        </p>
+      </div>
+      <div class="subc c50r">
+        <p class="block">
+            <%= label_tag "", "Corréo Electrónico" %>
+            <%= text_field_tag "label[email]","" %>
+        </p>
+      </div>
+      <div class="right">
+              <%= link_to_remote(image_tag("icons/refresh.png"),:url => preview_frontend_designs_url,:with => "$('#model_design_info form').serialize()",:html => {:title => "Actualizar cambios"})  %>
+      </div>
+      </form>

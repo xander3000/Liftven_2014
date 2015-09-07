@@ -1,0 +1,40 @@
+<% f.inputs do%>
+  <div id="name_image_form">
+    <div class="c23l subc">
+      <div id="product_image_form">
+        <%= image_tag "buttons/upload_image.jpg" %>
+      </div>
+    </div>
+    <div class="c70r subc">
+        <%=  f.input :name,:label => false,:input_html => {:placeholder => "Ingrese Nombre Producto",:class => "top"} %>
+    </div>
+  </div>
+<% end %>
+
+<% f.inputs "Información General"do%>
+  <%=  f.input :product_type,:input_html => {:onchange => remote_function(:url => select_product_component_types_backend_products_url,:with => "$(this).serialize()")} %>
+  <%=  f.input :components,:collection => [],:as => :check_boxes,:input_html => {},:wrapper_html => {:style => "display:none;"} %>
+  <%=  f.input :finished_product_category_type,:input_html => {} %>
+  <%=  f.input :presentation_type,:input_html => {} %>
+  <%=  f.input :commercialization_type,:input_html => {} %>
+  <%=  f.input :price_definition_type,:input_html => {:onchange => remote_function(:url => backend_product_select_price_definition_url(@product.id.to_i),:with => "$(this).serialize()")} %>
+  <%=  f.input :by_price_definition_set,:wrapper_html => {:class => "hidden",:title => "Indica si los precios son fijos o por valor de 1/4 pliego"} %>
+
+  <%=  f.input :min_quantity,:input_html => {:class => "right",:size => 5}%>
+  <%=  f.input :reference_code,:input_html => {:class => ""} %>
+  <%=  f.input :barcode,:input_html => {:class => ""} %>
+<% end %>
+<% f.inputs "Informacion Complemenetaria" do %>
+  <%=  f.input :tax_exempt %>
+  <%=  f.input :instalation_require %>
+  <%=  f.input :is_visible %>
+  <%= f.input :show_as_shortcut %>
+<% end %>
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+         // 
+          $("#product_presentation_unit_type_quantity").after(" x 1/4 pliego")
+	});
+</script>

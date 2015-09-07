@@ -1,0 +1,38 @@
+<table id="table-header" class="table-header">
+  <thead>
+    <tr>
+      <th class="supplier">Proveedor</th>
+      <th class="reference_number">Número de referencia</th>
+      <th class="reason_inventory">Razón</th>
+      <th class="quantity">Cantidad / Remanente</th>
+      <th class="unit_cost">Costo Unitario</th>
+      <th class="date">Agregado por</th>
+      <th class="date">Fecha de registro</th>
+      <th class="date">Fecha de expiración</th>
+      <th class="remove"></th>
+    </tr>
+  </thead>
+</table>
+<% @raw_material.inventories.each do |inventory| %>
+  <table id="table-body" class="table-body">
+      <tbody>
+          <tr>
+            <td class="supplier item center first"><%= inventory.supplier.name %> </td>
+            <td class="reference_number item center "><%= inventory.reference_number %> </td>
+            <td class="reason_inventory item center"><%= inventory.reason_inventory.name %></td>
+            <td class="quantity item center "><%= inventory.quantity %> / <%= inventory.remainder %> (<%#= inventory.category.packing_material.name  %>) </td>
+            <td class="unit_cost item center "><%= number_to_currency(inventory.unit_cost, :delimiter => ".", :separator => ",", :unit => "Bs") %></td>
+            <td class="user item center"><%= inventory.user.name %></td>
+            <td class="date item center"><%= l inventory.date %></td>
+            <td class="date item center"><%= l inventory.expiration_date if inventory.expiration_date %></td>
+            <td class="item center remove"><%= link_to_remote(image_tag("icons/delete.png"), :url => backend_raw_material_remove_inventory_url(@raw_material,inventory),:confirm => "¿Está seguro que desea eliminar este registro?",:html => {:title => "Eliminar"}) %></td>
+          </tr>
+        </tbody>
+  </table>
+
+<% end%>
+
+
+
+
+

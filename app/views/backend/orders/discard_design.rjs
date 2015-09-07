@@ -1,0 +1,5 @@
+if @success
+  page.redirect_to backend_order_url(@order)
+else
+  page.replace_html "form_for_decision", :partial => "form_for_decision"
+end

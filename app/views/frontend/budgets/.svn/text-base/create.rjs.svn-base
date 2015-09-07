@@ -1,0 +1,8 @@
+if @success
+  page.show_notice(flash, "")
+  page.replace_html "cart", :partial => "cart"
+  page.replace_html "order-summary", :partial => "order_summary"
+else
+  page.show_errors([@budget,@order], "message_overlay", nil)
+end
+

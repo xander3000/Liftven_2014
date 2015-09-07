@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<RelacionRetencionesISLR RifAgente="J403331782" Periodo="20154">
+  <DetalleRetencion>
+    <RifRetenido>V188092108</RifRetenido>
+    <NumeroFactura>42015</NumeroFactura>
+    <NumeroControl>42015</NumeroControl>
+    <FechaOperacion>29/04/2015</FechaOperacion>
+    <CodigoConcepto>001</CodigoConcepto>
+    <MontoOperacion>0</MontoOperacion>
+    <PorcentajeRetencion>0.0</PorcentajeRetencion>
+  </DetalleRetencion>
+  <DetalleRetencion>
+    <RifRetenido>V177043547</RifRetenido>
+    <NumeroFactura>42015</NumeroFactura>
+    <NumeroControl>42015</NumeroControl>
+    <FechaOperacion>29/04/2015</FechaOperacion>
+    <CodigoConcepto>001</CodigoConcepto>
+    <MontoOperacion>30000</MontoOperacion>
+    <PorcentajeRetencion>4.97</PorcentajeRetencion>
+  </DetalleRetencion>
+</RelacionRetencionesISLR>

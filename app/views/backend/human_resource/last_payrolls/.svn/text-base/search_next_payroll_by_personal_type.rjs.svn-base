@@ -1,0 +1,7 @@
+if @success
+	page.replace_html("form_massive_process", :partial => "form_massive_process")
+else
+	page.show_message_errors(@errors, "message_overlay", nil)
+	page << "$('#form_massive_process input').val('')"
+end
+

@@ -1,0 +1,182 @@
+<div id="container"></div>
+
+
+<script type="text/javascript">
+  $(function () {
+       var chart;
+    $(document).ready(function() {
+        <%=
+          last_months = Time.now.months_since_to_now(6).inspect
+          categories = ProductByInvoice.all.map(&:product).map(&:name).uniq.inspect
+        %>
+
+        var colors = Highcharts.getOptions().colors,
+        categories = <%= categories  %>,
+            name = 'Productos',
+            data = [{
+                    y:  15.15,
+                    color: colors[0],
+                    drilldown: {
+                        name: '<%= categories.split("\"")[1] %>',
+                        categories: <%= last_months%>,
+                        data: [10.85, 17.35, 3.06, 12.81,13.4,15.2,14.9],
+                        color: colors[0]
+                    }
+                }, {
+                    y: 46.14,
+                    color: colors[1],
+                    drilldown: {
+                        name: '<%= categories.split("\"")[3] %>',
+                        categories: <%= last_months%>,
+                        data: [35.45, 50.83, 36.58, 45.12, 25.43,10.9],
+                        color: colors[1]
+                    }
+                }, {
+                    y: 11.94,
+                    color: colors[2],
+                    drilldown: {
+                        name: '<%= categories.split("\"")[5] %>',
+                        categories: <%= last_months%>,
+                        data: [12.12, 10.19, 10.12, 10.36, 10.32, 19.91],
+                        color: colors[2]
+                    }
+                }, {
+                    y:  6.14,
+                    color: colors[3],
+                    drilldown: {
+                        name: '<%= categories.split("\"")[7] %>',
+                        categories: <%= last_months%>,
+                        data: [14.55, 11.42, 10.23, 20.21, 10.20, 20.24],
+                        color: colors[3]
+                    }
+                }, {
+                    y:  16.14,
+                    color: colors[4],
+                    drilldown: {
+                        name: '<%= categories.split("\"")[9] %>',
+                        categories: <%= last_months%>,
+                        data: [ 5.12, 0.37, 10.65,0.22,2.15,4.36],
+                        color: colors[4]
+                    }
+                }, {
+                    y:  3.14,
+                    color: colors[5],
+                    drilldown: {
+                        name: '<%= categories.split("\"")[11] %>',
+                        categories: <%= last_months%>,
+                        data: [ 5.12, 0.37, 10.65,0.22,2.15,4.36],
+                        color: colors[5]
+                    }
+                }, {
+                    y:  3.4,
+                    color: colors[6],
+                    drilldown: {
+                        name: '<%= categories.split("\"")[13] %>',
+                        categories: <%= last_months%>,
+                        data: [ 5.12, 0.37, 10.65,0.22,2.15,4.36],
+                        color: colors[6]
+                    }
+                }, {
+                    y:  15.14,
+                    color: colors[7],
+                    drilldown: {
+                        name: '<%= categories.split("\"")[15] %>',
+                        categories: <%= last_months%>,
+                        data: [ 5.12, 0.37, 10.65,0.22,2.15,4.36],
+                        color: colors[7]
+                    }
+                }, {
+                    y:  6.14,
+                    color: colors[8],
+                    drilldown: {
+                        name: '<%= categories.split("\"")[17] %>',
+                        categories: <%= last_months%>,
+                        data: [ 5.12, 0.37, 10.65,0.22,2.15,4.36],
+                        color: colors[8]
+                    }
+                }];
+
+        function setChart(name, categories, data, color) {
+			chart.xAxis[0].setCategories(categories, false);
+			chart.series[0].remove(false);
+			chart.addSeries({
+				name: name,
+				data: data,
+				color: color || 'white'
+			}, false);
+			chart.redraw();
+        }
+
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'container',
+                type: 'column'
+            },
+
+            title: {
+                text: 'Facturación vs Productos'
+            },
+            xAxis: {
+                categories: categories
+            },
+            yAxis: {
+                title: {
+                    text: '% de facturación'
+                }
+            },
+            plotOptions: {
+                column: {
+                    cursor: 'pointer',
+                    point: {
+                        events: {
+                            click: function() {
+                                var drilldown = this.drilldown;
+                                if (drilldown) { // drill down
+                                    setChart(drilldown.name, drilldown.categories, drilldown.data, drilldown.color);
+                                } else { // restore
+                                    setChart(name, categories, data);
+                                }
+                            }
+                        }
+                    },
+                    dataLabels: {
+                        enabled: true,
+                        color: colors[0],
+                        style: {
+                            fontWeight: 'bold'
+                        },
+                        formatter: function() {
+                            return this.y +'%';
+                        }
+                    }
+                }
+            },
+
+            series: [{
+                name: name,
+                data: data,
+                color: 'white'
+            }],
+            exporting: {
+                          buttons:
+                          {
+                             popUpBtn: {
+                               symbol: 'url(<%= image_path("icons/page_excel.png")%>)',
+                                x: -62,
+                                symbolFill: '#B5C9DF',
+                                hoverSymbolFill: '#779ABF',
+                                _titleKey: 'Exportar a Excel',
+                                onclick: function() {
+                                    window.location="<%= export_report_4_backend_reports_url %>";
+                                }
+                              }
+                          }
+
+                }
+        });
+    });
+
+});
+</script>
+
+

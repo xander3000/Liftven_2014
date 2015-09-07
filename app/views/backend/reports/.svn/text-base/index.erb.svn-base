@@ -1,0 +1,120 @@
+<%= include_javascript("highcharts") %>
+<%= include_javascript("highstock") %>
+<%= include_javascript("highchart-es") %>
+<%= include_javascript("highchart.exporting") %>
+
+
+<div id="accordion">
+    <h3>Facturación</h3>
+    <div class="section">
+      <div class="block-container-items">
+          <div class="block-item">
+            <div class="block-item-text">
+              <%= link_to_remote "Resumen de facturación<br/> por mes",:update => "report_container",:url => report_1_backend_reports_url %>
+            </div>
+          </div>
+          <div class="block-item">
+            <div class="block-item-text">
+              <%= link_to_remote "Facturación vs Clientes",:update => "report_container",:url => report_2_backend_reports_url %>
+            </div>
+          </div>
+          <div class="block-item">
+            <div class="block-item-text">
+              <%= link_to_remote "Facturación último<br/>semestre",:update => "report_container",:url => report_3_backend_reports_url %>
+            </div>
+          </div>
+          <div class="block-item">
+            <div class="block-item-text">
+              <%= link_to_remote "Facturación vs Productos",:update => "report_container",:url => report_4_backend_reports_url %>
+            </div>
+          </div>
+        </div>
+    </div>
+    <h3>Cuentas por Cobrar</h3>
+    <div class="section">
+      <div class="block-container-items">
+          <div class="block-item">
+            <div class="block-item-text">
+              <%= link_to_remote "Resumen de facturación<br/> por mes",:update => "report_container",:url => report_1_backend_reports_url %>
+            </div>
+          </div>
+        </div>
+    </div>
+    <h3>Cuentas por Pagar</h3>
+    <div class="section">
+        <div class="block-container-items">
+          <div class="block-item">
+            <div class="block-item-text">
+                <%= link_to_remote "Resumen de facturación<br/>provedores por mes",:update => "report_container",:url => report_6_backend_reports_url %>
+            </div>
+          </div>
+          <div class="block-item">
+            <div class="block-item-text">
+              <%= link_to_remote "Comportamiento semestral",:update => "report_container",:url => report_7_backend_reports_url %>
+            </div>
+          </div>
+          <!--div class="block-item">
+            <div class="block-item-text">
+              <%#= link_to_remote "Resumen de provedores",:update => "report_container",:url => report_8_backend_reports_url %>
+            </div>
+          </div-->
+          <div class="block-item">
+            <div class="block-item-text">
+              <%= link_to_remote "Comportamiento Proveedor",:update => "report_container",:url => report_9_backend_reports_url %>
+            </div>
+          </div>
+          <div class="block-item">
+            <div class="block-item-text">
+              <%= link_to_remote "Proveedor vs Facturación",:update => "report_container",:url => report_10_backend_reports_url %>
+            </div>
+          </div>
+        </div>
+
+    </div>
+
+    <h3>Inventarios</h3>
+    <div class="section">
+      <div class="block-container-items">
+          <div class="block-item">
+            <div class="block-item-text">
+              <%= link_to_remote "Inventario vs Facturación",:update => "report_container",:url =>  report_11_backend_reports_url %>
+            </div>
+          </div>
+          <div class="block-item">
+            <div class="block-item-text">
+              <%= link_to_remote "Por Materia Prima",:update => "report_container",:url =>  report_12_backend_reports_url %>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+
+<div id="separator">
+  <div class="subc c33l border">
+   
+  </div>
+  <div class="subc c30l information">
+     <span class="">Selecciona un reporte para su generación</span>
+  </div>
+  <div class="subc c33r border">
+   
+  </div>
+</div>
+
+<div id="report_container">
+
+</div>
+
+<script type="text/javascript">
+    $(function() {
+      var icons = {
+            header: "ui-icon-circle-arrow-e",
+            activeHeader: "ui-icon-circle-arrow-s"
+        };
+        $( "#accordion" ).accordion({
+            heightStyle: "content",
+            icons: icons,
+            heightStyle: "fill"
+        });
+    });
+    </script>

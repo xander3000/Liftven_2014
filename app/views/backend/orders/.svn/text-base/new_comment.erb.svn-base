@@ -1,0 +1,26 @@
+<div id="new_comment_form">
+  <div class="headerWrap">
+    <div class="headerWrapContent">
+          <h2>Agregar nuevo comentario</h2>
+    </div>
+  </div>
+  <div class="mainWrapContent">
+     <% form_layout do %>
+        <% semantic_form_remote_for @comment, :url => backend_order_add_comment_url(@order) do |f| %>
+          <% f.inputs do  %>
+            <%= f.input :note %>
+          <% end %>
+        <% end %>
+      <% end %>
+  </div>
+  <div class="footerWrap">
+    <div class="footerWrapContent right">
+      <%= button_to_function("Guardar", "$(\"#new_comment\").submit()")  %>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function(){ // Script del Navegador
+    $("button, input:submit,input:button,a.button ").button();
+  });
+</script>

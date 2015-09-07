@@ -1,0 +1,19 @@
+<div class="item" onclick="window.location.href='<%= backend_budget_url(budget) %>'">
+  <div class="c20l subc subcl center">
+    <h2><%= format_code(budget.id, "06") %></h2>
+  </div>
+  <div class="c75r subc ">
+    <div>
+          <div class="attr_1"><%= budget.client.name %>.</div>
+          <div class="attr_2">
+            <%= l budget.created_at,:format => :short %>. <span> Monto: </span><%= number_to_currency(budget.total, :delimiter => ".", :separator => ",", :unit => "Bs") %><br/>
+            <span> Ultima Modificación: </span><%= l budget.updated_at,:format => :short %>.
+          </div>
+          <div class="attr_3">
+            <p>
+              <%#= truncate(budget.caso.subject,:length => 130)%>
+            </p>
+          </div>
+    </div>
+  </div>
+</div>

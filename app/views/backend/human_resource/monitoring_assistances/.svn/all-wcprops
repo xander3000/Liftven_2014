@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/1186/trunk/Venom/app/views/backend/human_resource/monitoring_assistances
+END
+new.erb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/1186/trunk/Venom/app/views/backend/human_resource/monitoring_assistances/new.erb
+END
+create.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/human_resource/monitoring_assistances/create.rjs
+END
+new_external.erb
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/human_resource/monitoring_assistances/new_external.erb
+END
+new_external_form.erb
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/human_resource/monitoring_assistances/new_external_form.erb
+END
+_index_content.erb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/980/trunk/Venom/app/views/backend/human_resource/monitoring_assistances/_index_content.erb
+END
+show.erb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/1186/trunk/Venom/app/views/backend/human_resource/monitoring_assistances/show.erb
+END
+_form.erb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/human_resource/monitoring_assistances/_form.erb
+END
+select_date.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/980/trunk/Venom/app/views/backend/human_resource/monitoring_assistances/select_date.rjs
+END
+_tab_1.erb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/980/trunk/Venom/app/views/backend/human_resource/monitoring_assistances/_tab_1.erb
+END
+_tab_2.erb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/980/trunk/Venom/app/views/backend/human_resource/monitoring_assistances/_tab_2.erb
+END
+process_external.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/human_resource/monitoring_assistances/process_external.rjs
+END
+index.erb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/979/trunk/Venom/app/views/backend/human_resource/monitoring_assistances/index.erb
+END

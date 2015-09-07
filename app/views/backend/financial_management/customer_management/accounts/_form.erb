@@ -1,0 +1,50 @@
+<div id="" class="content_form">
+    <% f.inputs "Datos generales" do %>
+		<%= f.input :name,:label => false,:input_html  => {:class => "top",:placeholder => "Nombre de la cuenta"}%>
+		<div class="subc c50l">
+		  <% f.inputs do  %>
+			 <%= f.input :website,:input_html => {:size => "16"} %>
+			 <%= f.input :crm_account_type,:input_html => {} %>
+			 <%= f.input :assigned_to,:input_html => {} %>
+			 <%= f.input :office_phone,:input_html => {:class => "phone"} %>
+			 <%= f.input :employees,:input_html => {:class => "amount",:size =>5} %>
+			 <%#= f.input :ticker_symbol,:input_html => {} %>
+			 <%#= f.input :rating,:input_html => {} %>
+		<% end %>
+		</div>
+		<div class="subc c50r">
+		  <% f.inputs do  %>
+			 <li>&nbsp;</li>
+			 <%= f.input :crm_sector_account_type,:input_html => {} %>
+			 <%#= f.input :member_of,:input_html => {} %>
+			 <%= f.input :other_phone,:input_html => {:class => "phone"} %>
+			 <%= f.input :annual_revenue,:input_html => {:class => "amount"} %>
+			 <%#= f.input :ownership,:input_html => {} %>
+		  <% end %>
+		</div>
+	 <% end %>
+  <% f.inputs "Datos ubicación" do %>
+	 <div class="subc c50l">
+		<% f.inputs do  %>
+		  <%= f.input :billing_address,:input_html => {} %>
+		  <%= f.input :principal_email,:input_html => {} %>
+		  <%= f.input :fax,:input_html => {} %>
+
+		<% end %>
+	 </div>
+	 <div class="subc c50r">
+		<% f.inputs do  %>
+		  <%= f.input :shipping_address,:input_html => {} %>
+		  <%= f.input :alternative_email,:input_html => {} %>
+		  <%= f.input :postal_code,:input_html => {} %>
+		  
+		  
+		  
+		<% end %>
+	 </div>
+  <% end %>
+  <% f.inputs :class => "" do %>
+	 <%= f.input :description,:input_html => {} %>
+  <% end %>
+  
+</div>

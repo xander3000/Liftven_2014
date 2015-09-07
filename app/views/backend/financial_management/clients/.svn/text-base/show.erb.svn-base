@@ -1,0 +1,56 @@
+<%= javascript_include_tag "jquery.lookupSeniat" %>
+
+
+<div class="actionsBar right no-print">
+  
+  <%= link_to(image_tag("icons/arrow_left.png"),backend_financial_management_clients_url,:class => "button",:title => "Regresar") %>
+  |
+  <%= link_to(image_tag("icons/pencil.png"),edit_backend_financial_management_client_url,:class => "button",:title => "Editar") %>
+
+</div>
+<hr/>
+<div>
+  <% semantic_form_remote_for @client, :update => "#{controller.controller_name}_container",:url => "",:html => {:class => "form_generate"} do |f| %>
+  <div class="">
+      <div id="tabs">
+            <ul>
+                    <li id="tab-1"><a href="#tabs-1">General</a></li>
+						  <li id="tab-2"><a href="#tabs-2">Presupuestos</a></li>
+						  <li id="tab-3"><a href="#tabs-3">Anticipos</a></li>
+                    <li id="tab-4"><a href="#tabs-4">Facturación</a></li>
+                    <li id="tab-5"><a href="#tabs-5">Cuentas por cobrar</a></li>
+                    <li id="tab-6"><a href="#tabs-6">Notas de crédito</a></li>
+                    <li id="tab-7"><a href="#tabs-7">Proyectos</a></li>
+            </ul>
+            <div id="tabs-1">
+                    <%= render :partial => "form",:locals => {:f => f} %>
+            </div>
+				<div id="tabs-2">
+                    <%= render :partial => "show_budgets" %>
+            </div>
+				<div id="tabs-3">
+                    <%= render :partial => "show_advances" %>
+            </div>
+            <div id="tabs-4">
+                    <%= render :partial => "show_invoices" %>
+            </div>
+            <div id="tabs-5">
+                    <%= render :partial => "show_receivable_accounts" %>
+            </div>
+            <div id="tabs-6">
+                    <%= render :partial => "show_credit_notes" %>
+            </div>
+            <div id="tabs-7">
+                    <%= render :partial => "show_projects" %>
+            </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+       	$(document).ready(function(){
+                $(".client input, .client select, .client textarea").attr("disabled","disabled");
+                $( "#tabs" ).tabs();
+	});
+</script>

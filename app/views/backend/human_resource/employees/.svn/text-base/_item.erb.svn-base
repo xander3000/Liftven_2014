@@ -1,0 +1,31 @@
+
+<div class="item <%= item_class %>" onclick="window.location.href='<%= backend_human_resource_employee_url(employee) %>'">
+  <div class="c30l subc subcl center code">
+    <h2><%= employee.contact.identification_document %></h2>
+  </div>
+  <div class="description c70r subc no-border">
+    <div>
+          <div class="attr_1">
+            <div class="c50l subc left">
+              <%= employee.name %>.
+            </div>
+            <div class="c50r subc right date">
+              
+            </div>
+          </div>
+          <div class="attr_2">
+            <span>Cargo actual: </span>
+            <%= employee.position.name %> <br/>
+				<span>Fecha de ingreso: </span>
+            <%= employee.entry_date %>. <br/>
+				<span>Sueldo Básico: </span>
+            <%= number_to_currency employee.salary.to_f, :delimiter => ".", :separator => ",", :unit => "Bs" %>. <br/>
+          </div>
+          <div class="attr_3">
+            <p>
+              
+            </p>
+          </div>
+    </div>
+  </div>
+</div>

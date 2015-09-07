@@ -1,0 +1,55 @@
+		  <% semantic_fields_for @pos_card_terminal_movement do |ccm| %>
+		  <% @pos_card_terminal_positions.each do |pos_card_terminal_position| %>
+			 <tr class="item <%= cycle("odd","odd")%> ">
+				<td class="center">
+				  <%= pos_card_terminal_position.cash_bank_pos_card_terminal.name %>
+				</td>
+				<td class="center">
+				  <%=  pos_card_terminal_position.lot_number %>
+				</td>
+				<td class="right">
+				  <%=  pos_card_terminal_position.credit_total %>
+				</td>
+				<td class="right">
+				  <%=  pos_card_terminal_position.debit_total %>
+				</td>
+				<td class="right" colspan="2">
+				 
+				  <%= number_to_currency(pos_card_terminal_position.total_amount, :delimiter => ".", :separator => ",", :unit => "") %>
+				</td>
+			 </tr>
+			 <% end %>
+		     <tr id="" class="right border-top">
+				<td id="" class="totalizers" colspan="4">
+				  TOTAL
+				</td>
+				<td class="">
+				  
+					 <%= ccm.input :total_amount_credit_debit,:as => :hidden %>
+				  
+				  <%= number_to_currency(@pos_card_terminal_movement.total_amount_credit_debit, :delimiter => ".", :separator => ",", :unit => "") %>
+				</td>
+			 </tr>
+		     <tr id="" class="right ">
+				<td id="" class="totalizers" colspan="4">
+				  DIFERENCIA
+				</td>
+				<td class="">
+				  <%= ccm.input :diference_amount_credit_debit,:as => :hidden %>
+				  <%  diference_amount_credit_debit =  @pos_card_terminal_movement.diference_amount_credit_debit >= 0 %>
+				  <b class="<%= diference_amount_credit_debit ? "green" : "red" %>">
+					 <%= diference_amount_credit_debit ? "+" : "" %>
+					 <%= number_to_currency(@pos_card_terminal_movement.diference_amount_credit_debit, :delimiter => ".", :separator => ",", :unit => "") %>
+				  </b>
+				  
+				</td>
+			 </tr>
+		     <tr id="" class="right">
+				<td id="" class="totalizers" colspan="4">
+				  OBSERVACION
+				</td>
+				<td class="">
+
+				</td>
+			 </tr>
+		<% end %>

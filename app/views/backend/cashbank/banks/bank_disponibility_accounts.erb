@@ -1,0 +1,93 @@
+<%
+	 owner = Supplier.find_owner
+	 contact = owner.contact
+%>
+
+<div>
+  <div id="content_info_voucher">
+	 <div class="subc c55l">
+		<div class="">
+		  <h2><%= contact.fullname.upcase %></h2>
+		  <b><%= owner.identification_document %></b><br/>
+		</div>
+	 </div>
+	 <div class="subc c40r left">
+		<div class="">
+		  <h2>DETALLE DE DISPONIBILIDAD BANCARIA</h2>
+		  <b>Hasta la fecha <%= l Time.now  %></b>
+		</div>
+	 </div>
+	 <br/>
+	 <hr/>
+
+
+	 <table class="no-border">
+		<thead>
+	  <tr>
+			<th><%= CashBank::BankAccount.human_attribute_name("name")%> </th>
+			<th><%= CashBank::BankAccount.human_attribute_name("bank_account_type")%> </th>
+			<th><%= CashBank::BankAccount.human_attribute_name("number")%> </th>
+			<th><%= CashBank::BankAccount.human_attribute_name("current_balance")%> </th>
+			<th><%= CashBank::BankAccount.human_attribute_name("deferred_balance")%> </th>
+		</tr>
+		</thead>
+		<tbody class="">
+				<%
+					total_g = 0.0
+					deferred_balance_g = 0.0
+					
+					@cash_banks.each do |cash_bank|
+					 total = 0
+					 deferred_balance = 0
+
+				%>
+				<tr>
+				  <td colspan="7"><b><%= "#{cash_bank.name}"%></b></td>
+				 </tr>
+				 <%
+					 cash_bank.cash_bank_bank_accounts.each do |bank_account|
+						 total += bank_account.current_balance
+						 total_g += bank_account.current_balance
+						 deferred_balance += bank_account.deferred_balance
+						 deferred_balance_g += bank_account.deferred_balance
+				 %>
+				<tr>
+				  <td class="center"><%= bank_account.name%> </td>
+				  <td class="center"><%= bank_account.bank_account_type.name%> </td>
+				  <td class="center"><%= bank_account.number %> </td>
+				  <td class="center"><%= bank_account.current_balance.to_currency %> </td>
+				  <td class="center"><%= bank_account.deferred_balance.to_currency  %></td>
+				</tr>
+				<% end %>
+
+				<tr>
+				  <td colspan="3" class="right">
+					 Total disponible:
+				  </td>
+				  <td class="center border-top" style="border-top: 1px solid #D2D2D2;">
+						<%= total.to_f.to_currency %>
+				  </td>
+
+				  <td class="center border-top" style="border-top: 1px solid #D2D2D2;">
+					 <%= deferred_balance.to_f.to_currency %>
+				  </td>
+				</tr>
+			 <% end %>
+
+				<tr>
+				  <td colspan="3" class="border-top right" style="border-top: 1px solid #D2D2D2;">
+					 Total disponible:
+				  </td>
+				  <td class="center border-top" style="border-top: 1px solid #D2D2D2;">
+						<%= total_g.to_currency %>
+				  </td>
+				  <td class="center border-top" style="border-top: 1px solid #D2D2D2;">
+					 <%= deferred_balance_g.to_currency %>
+				  </td>
+				</tr>
+		</tbody>
+	 </table>
+
+
+  </div>
+</div>

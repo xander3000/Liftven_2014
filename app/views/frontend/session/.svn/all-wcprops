@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/337/trunk/Venom/app/views/frontend/session
+END
+new.erb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/337/trunk/Venom/app/views/frontend/session/new.erb
+END
+create.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/285/trunk/Venom/app/views/frontend/session/create.rjs
+END

@@ -1,0 +1,12 @@
+<p>
+  Se ha creado una orden con le número
+  <strong class="name">
+    <%= format_code @budget.caso.id, "05" %>
+  </strong>.
+  <br/>
+  Gracias por su compra.
+</p>
+
+  <p>
+    <input type="button" class="close ui-button ui-widget ui-state-default ui-corner-all"/>
+  </p>

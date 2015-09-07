@@ -1,0 +1,22 @@
+<% content_for :aditional_options_menunav do %>
+  <%= render  "#{controller.controller_path}/aditional_options_menunav/show" %>
+<% end %>
+
+<div class="actionsBar right no-print">
+  <%= link_to(image_tag("icons/arrow_left.png"),backend_material_management_raw_materials_url,:class => "button",:title => "Regresar") %>
+</div>
+<hr/>
+<div>
+  <% semantic_form_remote_for @raw_material, :update => "#{controller.controller_name}_container",:url => "",:html => {:class => "form_generate"} do |f| %>
+  <div class="">
+	 <%= render :partial => "form",:locals => {:f => f} %>
+  </div>
+    
+  <% end %>
+</div>
+<script type="text/javascript">
+	$(document).ready(function(){
+                $(".material_raw_material input, .material_raw_material select").attr("disabled","disabled")
+                //$("#tab-6,#tabs-6").show()
+	});
+</script>

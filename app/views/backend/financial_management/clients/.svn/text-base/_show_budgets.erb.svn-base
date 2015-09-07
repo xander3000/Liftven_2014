@@ -1,0 +1,45 @@
+<%= include_javascript("jquery.dataTables.min.js") %>
+<%= include_stylesheet("jquery.datatable.css") %>
+<div class="actionsBar right no-print">
+  <%#= link_to(image_tag("icons/add.png"),new_backend_financial_management_client_customer_management_project_url(@client),:class => "button") %>
+</div>
+<hr/>
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="budgets" width="100%">
+	<thead>
+		<tr>
+			 <th><%= Budget.human_attribute_name("id")%> </th>
+			 <th><%= Budget.human_attribute_name("created_at")%> </th>
+			 <th><%= Budget.human_attribute_name("sub_total")%> </th>
+			 <th><%= Budget.human_attribute_name("tax")%> </th>
+			 <th><%= Budget.human_attribute_name("total")%> </th>
+			 <th><%= Budget.human_attribute_name("balance")%> </th>
+		</tr>
+	</thead>
+	<tbody>
+	 <% @budgets.each do |budget| %>
+	  <tr>
+		 <td class="center"><%= budget.id.to_code %> </td>
+		  <td class="center"><%= l budget.created_at.to_date %> </td>
+		  <td class="right"><%= number_to_currency(budget.sub_total, :delimiter => ".", :separator => ",", :unit => "")%></td>
+		  <td class="right"><%= number_to_currency(budget.tax, :delimiter => ".", :separator => ",", :unit => "")%></td>
+		  <td class="right"><%= number_to_currency(budget.total, :delimiter => ".", :separator => ",", :unit => "")%></td>
+		  <td class="right"><%= number_to_currency(budget.balance, :delimiter => ".", :separator => ",", :unit => "")%></td>
+	  </tr>
+	  <% end %>
+	</tbody>
+</table>
+
+<br/>
+
+
+<script type="text/javascript">
+  var oTable;
+
+  $(document).ready(function() {
+		oTable =  $('#budgets').dataTable({
+            oLanguage: {
+                sUrl: "/javascripts/i18n/jquery.DataTables-es.txt"
+            }
+        });
+  });
+</script>

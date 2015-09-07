@@ -1,0 +1,12 @@
+<% @production_order_positions ||= current_production_order_positions %>
+<% @production_order_positions.each do |production_order_position| %>
+
+	 <tr class="item  ">
+		<td>
+		  <%= production_order_position.material_raw_material.name %>
+		</td>
+                <td colspan="2">
+		  <%= production_order_position.quantity.to_currency(false) %> <%= production_order_position.material_raw_material.material_issue_measure_unit.name  %>
+		</td>
+	 </tr>
+<% end %>

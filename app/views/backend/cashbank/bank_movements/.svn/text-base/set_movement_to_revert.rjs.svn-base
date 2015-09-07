@@ -1,0 +1,3 @@
+if @bank_movement
+	page.replace_html "set_movement_to_revert", :partial => "set_movement_to_revert"
+end

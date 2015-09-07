@@ -1,0 +1,132 @@
+<ul>
+	 <li><a href="#Home"><%= link_to(image_tag("clients/#{PROJECT_NAME}/logos/isotipo2.png"),backend_cpanel_home_index_url())%> </a></li>
+	 <li>
+			 <a href="#">Procesos<span class="arrow"></span></a>
+
+					<ul style='width: 250px;'>
+						<li>Materiales
+						  <ul>
+							 <li>
+								<%= link_to "Listado",backend_material_management_raw_materials_url%>
+							 </li>
+							 <li>
+								<%= link_to "Nuevo",new_backend_material_management_raw_material_url%>
+							 </li>
+						  </ul>
+						</li>
+						  <li>Ordenes Mov. mercancia
+						  <ul>
+							 <li>
+								<%= link_to "Listado",backend_material_management_production_orders_url%>
+							 </li>
+							 <li>
+								<%= link_to "Nuevo",new_backend_material_management_production_order_url%>
+							 </li>
+						  </ul>
+						</li>
+						  <li>Movimientos de mercancia
+						  <ul>
+							 <li>
+								<%= link_to "Listado",backend_material_management_goods_movements_url%>
+							 </li>
+							 <li>
+								<%= link_to "Nuevo",new_backend_material_management_goods_movement_url%>
+							 </li>
+						  </ul>
+						</li>
+						<li type='separator'></li>
+						<li>Pedidos de compra
+							 <ul>
+								  <li>
+									 <%= link_to "Listado",backend_material_management_purchase_requisitions_url%>
+								  </li>
+								  <li>
+									 <%= link_to "Nuevo",new_backend_material_management_purchase_requisition_url%>
+								  </li>
+							 </ul>
+						</li>
+						<li>Cotización de pedidos
+							 <ul>
+								  <li>
+									 <%= link_to "Listado",backend_material_management_quotation_requisitions_url%>
+								  </li>
+								  <li>
+									 <%= link_to "Nuevo",new_backend_material_management_quotation_requisition_url%>
+								  </li>
+							 </ul>
+						</li>
+						<li type='separator'></li>
+						
+						<li>Ordenes de compra
+							 <ul>
+								  <li>
+									 <%= link_to "Listado",backend_material_management_purchase_orders_url%>
+								  </li>
+								  <li>
+									 <%= link_to "Nuevo",new_backend_material_management_purchase_order_url%>
+								  </li>
+							 </ul>
+						</li>
+				  </ul>
+
+		</li>
+		<%= yield :aditional_options_menunav  %>
+		<li>
+			 <a href="#">Configuración<span class="arrow"></span></a>
+			 <ul style='width: 250px;'>
+				<!--li>Materiales
+				  <ul-->
+					 <li>Unidades medida
+							 <ul>
+								  <li>
+									 <%= link_to "Listado",backend_material_management_measure_units_url%>
+								  </li>
+								  <li>
+									 <%= link_to "Nuevo",new_backend_material_management_measure_unit_url,:class => "external-overlay", :rel=>".overlay"%>
+								  </li>
+							 </ul>
+					 </li>
+					 <li>Categoría/Grupo
+							 <ul>
+								  <li>
+									 <%= link_to "Listado",backend_material_management_raw_material_categories_url%>
+								  </li>
+								  <li>
+									 <%= link_to "Nuevo",new_backend_material_management_raw_material_category_url,:class => "external-overlay", :rel=>".overlay"%>
+								  </li>
+							 </ul>
+					 </li>
+					<li>Estructura de precios
+							 <ul style='width: 310px;'>
+								  <li>
+									 <%= link_to "Componentes por materia prima (Color)",backend_cpanel_raw_material_price_definition_set_color_by_components_url%>
+								  </li>
+								  <li>
+									 <%= link_to "Componentes por materia prima (Monocromatico)",backend_cpanel_raw_material_price_definition_set_black_by_components_url%>
+								  </li>
+								  <li>
+									 <%= link_to "Accesorios",backend_cpanel_accessory_component_types_url%>
+								  </li>
+								  <li>
+									 <%= link_to "Acabados",backend_cpanel_finish_product_type_prices_url%>
+								  </li>
+							 </ul>
+					 </li>
+				  <!--/ul>
+				</li-->
+			 </ul>
+		</li>
+		<li>
+			 <a href="#">Reportes<span class="arrow"></span></a>
+			 <ul>
+				 
+			 </ul>
+		</li>
+		<li>
+			 <a href="#">Ayuda<span class="arrow"></span></a>
+			 <ul>
+				 
+			 </ul>
+		</li>
+
+</ul>

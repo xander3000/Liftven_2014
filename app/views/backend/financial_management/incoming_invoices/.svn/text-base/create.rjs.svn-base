@@ -1,0 +1,6 @@
+if  @success
+	page.redirect_to backend_financial_management_incoming_invoice_url(@incoming_invoice)
+else
+  page.show_errors([@incoming_invoice], "message_overlay", nil)
+end
+

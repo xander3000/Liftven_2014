@@ -1,0 +1,6 @@
+if @success
+	page.redirect_to(backend_show_daily_cash_closing_url(@daily_cash_closing))
+else
+page.show_errors([@daily_cash_closing,@cash_count_movement,@pos_card_terminal_movement], "message_overlay", nil)
+end
+

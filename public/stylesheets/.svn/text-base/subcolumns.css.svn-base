@@ -1,0 +1,55 @@
+/* 
+    Document   : columns
+    Created on : 08/10/2011, 09:33:09 AM
+    Author     : gabriel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+/*
+    BEGIN: subcolumns
+*/
+
+  .c10l, .c10r { width:10%; }
+  .c15l, .c15r { width:15%; }
+  .c16l, .c16r { width:16%; }
+  .c17l, .c17r { width:17%; }
+  .c18l, .c18r { width:18%; }
+  .c20l, .c20r { width:20%; }
+  .c23l, .c23r { width:23%; }
+  .c25l, .c25r { width:25%; }
+  .c26l, .c26r { width:26%; }
+  .c27l, .c27r { width:27%; }
+  .c28l, .c28r { width:28%; }
+  .c30l, .c30r { width:30%; }
+  .c33l, .c33r { width:33.333%; }
+  .c37l, .c37r { width:37%; }
+  .c38l, .c38r { width:38.2%; }
+  .c40l, .c40r { width:40%; }
+  .c45l, .c45r { width:45%; }
+  .c50l { width:49%; }
+  .c50r { width:49.8%; }
+  .c55l, .c55r { width:55%; }
+  .c60l, .c60r { width:60%; }
+  .c62l, .c62r { width:61.8%; }
+  .c66l, .c66r { width:66.666%; }
+  .c70l, .c70r { width:68%; }
+  .c74l, .c74r { width:74%; }
+  .c75l, .c75r { width:75%; }
+  .c80l, .c80r { width:80%; }
+  .c100l, .c100r { width:100%; }
+
+  .subc  { display: inline-block; vertical-align: top; }
+  .subcl { border-left: 1px solid #D2D2D2; }
+  .subcr { padding-left: 15px; width: 55em; }
+
+
+/*
+    END: subcolumns
+*/
+

@@ -1,0 +1,17 @@
+<% @goods_receipt_positions ||= current_goods_receipt_positions_objects %>
+<% @goods_receipt_positions.each do |goods_receipt_position| %>
+
+	 <tr class="item <%= cycle("odd","ever")%> ">
+		<td>
+		  <%= goods_receipt_position.raw_material.name %>
+		</td>
+		<td>
+		  <%= goods_receipt_position.quantity %>
+		</td>
+
+		<td>
+		  <%= goods_receipt_position.delivery_date %>
+		</td>
+		
+	 </tr>
+<% end %>

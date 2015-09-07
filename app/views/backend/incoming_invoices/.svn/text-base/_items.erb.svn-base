@@ -1,0 +1,21 @@
+<% @incoming_invoice_positions ||= current_incoming_invoice_positions_objects %>
+<% @incoming_invoice_positions.each do |incoming_invoice_position| %>
+
+	 <tr class="item <%= cycle("odd","ever")%> ">
+		<td>
+		  <%= incoming_invoice_position.description %>
+		</td>
+		<td>
+		  <%= incoming_invoice_position.packing_material.name if incoming_invoice_position.packing_material %>
+		</td>
+		<td>
+		  <%= incoming_invoice_position.quantity %>
+		</td>
+		<td>
+		  <%= number_to_currency(incoming_invoice_position.sub_total, :delimiter => ".", :separator => ",", :unit => "Bs") %>
+		</td>
+		<td>
+		  <%= number_to_currency(incoming_invoice_position.total, :delimiter => ".", :separator => ",", :unit => "Bs") %>
+		</td>
+	 </tr>
+<% end %>

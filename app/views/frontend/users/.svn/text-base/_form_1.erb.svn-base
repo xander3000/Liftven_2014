@@ -1,0 +1,17 @@
+<fieldset>
+  
+  <p>
+    <%= f.label :login, "Correo Electrónico" %>
+    <%= f.text_field :login %>
+  </p>
+  <div id="password-credentials">
+    <p>
+      <%= f.label :password, @user.class.human_attribute_name('password') %>
+      <%= f.password_field :password %>
+    </p>
+    <p class="last-child">
+      <%= f.label :password_confirmation, @user.class.human_attribute_name('password_confirmation') %>
+      <%= f.password_field :password_confirmation %>
+    </p>
+  </div>
+</fieldset>

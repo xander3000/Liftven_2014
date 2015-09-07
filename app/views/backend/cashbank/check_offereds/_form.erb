@@ -1,0 +1,12 @@
+
+<div id="" class="">
+	 <br/>
+    <% f.inputs "" do %>
+		<%= f.input :cash_bank_bank,:as => :select,:collection => CashBank::Bank.all,:input_html => {:onchange => remote_function(:url => search_bank_account_by_bank_backend_cashbank_check_offereds_url,:with => "$(this).serialize()")}%>
+		<%= f.input :cash_bank_bank_account,:collection => [],:input_html => {:style => "width:185px",:onchange => remote_function(:url => search_checkbook_by_bank_account_backend_cashbank_check_offereds_url,:with => "$(this).serialize()")}%>
+		<%= f.input :cash_bank_checkbook,:collection => [] %>
+		<%= f.input :number,:input_html => {:size => 20}%>
+		<%= f.input :cash_bank_check_status_type,:input_html => {:disabled => true}%>
+		<%= f.input :date,:input_html => {:size => 10}%>
+    <% end %>
+</div>

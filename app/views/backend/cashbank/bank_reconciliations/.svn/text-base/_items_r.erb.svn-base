@@ -1,0 +1,26 @@
+<% @bank_statements.each do |bank_statement| %>
+
+	 <tr class="item">
+		<td class="center">
+		  <%= bank_statement["date"] %>
+		</td>
+		<td class="center">
+		  <%= bank_statement["reference"] %>
+		</td>
+		<td class="center">
+		  <%= bank_statement["description"] %>
+		</td>
+		<td class="right">
+		  <%= bank_statement["debit_currency"] %>
+		</td>
+		<td class="right">
+		  <%= bank_statement["credit_currency"] %>
+		</td>
+		<td class="right">
+		  <%= bank_statement["balance"] %>
+		</td>
+		<td class="center">
+		  <%= bank_statement["type"] %>
+		</td>
+	 </tr>
+<% end if @bank_statements%>

@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf8"/>
+<title><%= SITE_NAME %></title>
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+
+  <%= stylesheet_link_tag "formtastic"%>
+  <%= stylesheet_link_tag "formtastic_changes"%>
+  <%= stylesheet_link_tag "frontend/application"%>
+  <%= stylesheet_link_tag "frontend/clients/#{PROJECT_NAME}/custom_application" %>
+
+  <%= stylesheet_link_tag "jquery-ui/smoothness/jquery-ui-1.9.1.custom"%>
+  <%= stylesheet_link_tag "jquery-ui_hacks/smoothness/jquery-ui-1.8.14.custom"%>
+
+  <%= stylesheet_link_tag "frontend/#{controller.controller_name}"  %>
+  <%= stylesheet_link_tag "jquery.overlay_2"  %>
+  <%#= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Dancing+Script"  %>
+
+  <%#= stylesheet_link_tag "jquery.notifyBar" %>
+  <!--yield head_stylesheet-->
+    <%= yield :head_stylesheet %>
+  <!--yield head_stylesheet-->
+
+  <!--[if lte IE 7]>
+  <![endif]-->
+  <%#= javascript_include_tag "cufon/cufon-yui.js" %>
+  <%#= javascript_include_tag "cufon/fonts/IM_FELL_Double_Pica_italic_400.font.js" %>
+  <%= javascript_include_tag "jquery-1.8.3.min" %>
+  <%= javascript_include_tag "jquery-ui-1.10.2.custom.min" %>
+  <%= javascript_include_tag "jrails" %>
+  <%= javascript_include_tag "jquery.tools.min" %>
+  <%= javascript_include_tag "jquery.ui.datepicker-es" %>
+  <%= javascript_include_tag "jquery.easing" %>
+  <%= javascript_include_tag "jquery.dimensions" %>
+  <%= javascript_include_tag "jquery.lofJSidernews" %>
+  <%= javascript_include_tag "yoxview-init" %>
+  <%= javascript_include_tag "frontend/application" %>
+
+  <%#= javascript_include_tag "jquery.jshashtable-2.1.min" %>
+  <%#= javascript_include_tag "jquery.numberformatter.min" %>
+  <%#= javascript_include_tag "jquery.highlightFade.min" %>
+  <%#= javascript_include_tag "jquery.notifyBar" %>
+  <!--yield head_javascript-->
+    <%= yield :head_javascript %>
+  <!--yield head_javascript-->
+</head>
+
+
+<body>
+      <!-- begin: #loading -->
+      <div style=" " id="loading">
+            <%= image_tag "global/loading2.gif" %>
+      </div>
+      <!-- end: #loading -->
+  <center>
+    <div id="venom-top"class="">
+      <div id="venom-masthead" role="banner" class="">
+        <div id="venom-mast-options">
+          <ul role="toolbar">
+            <li id="venom-sso" class="item">
+              <span>
+                <% if logged_in? %>
+                  <%= render :partial => "shared/layouts/widget_session_sign_out" %>
+                <% else %>
+                  <%= render :partial => "shared/layouts/widget_session_sign_in" %>
+                <% end %>
+              </span>
+            </li>
+            <li class="vetical_separator"/>
+            <li class="item">
+              
+              <div>
+               
+                <span id="shoppping-cart"></span>
+                <span id="shoppping-cart-count" class="title"><%= link_to shoppping_cart_count,cart_frontend_budgets_url %> </span>
+                
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div id="venom-universal-nav">
+            <ul id="venom-unav-links">
+                <li id="venom-home" style="position: relative; display: block; width: 85px;">
+                  <a href="/" style="opacity: 1; position: absolute; left: 0px; top: 0px; display: block; z-index: 10;"></a>
+                </li>
+            </ul>
+            <ul id="main-venom-menu-links" class="venom-menu-links">
+              <li>
+                <%= link_to "¿Quienes Somos?",frontend_about_us_url %>
+              </li>
+              <li>
+                <%= link_to "Servicios",frontend_services_url%>
+              </li>
+              <li>
+                <%= link_to "Contáctenos",frontend_contact_us_url %>
+              </li>
+              <li>
+                     <%= link_to "Portafolio",frontend_portfolio_url %>
+              </li>
+              <li>
+                <%= link_to "Empleo",frontend_jobs_url,:class => "external",:rel => "#modal-external"%>
+              </li>
+            </ul>
+            <div id="venom-search-module" role="search" aria-label="Buscador Net-Print">
+                <form action="">
+                    
+						<input id="search" type="text" name="q" placeholder="Buscar"></input>
+                    <input type="submit" value=""></input>
+                </form>
+            </div>
+        </div>
+
+      </div>
+      <div class="clearing"></div>
+      <div id="venom-social-tools">
+        <%= render :partial => "shared/frontend/venom_social_tools" %>
+      </div>
+      <div class="clearing"></div>
+      <div id="venom-s-cntr" role="main">
+        <center>
+        <div id="venom-leadspace-head"  class="custom_screen">
+          <div id="left_head">&nbsp;</div>
+          <div id="right_head">&nbsp;</div>
+          <%= yield :venom_leadspace_head  %>
+        </div>
+      </center>
+        <div id="venom-pcon">
+          <div id="venom-navigation">
+            <%= yield :venom_navigation  %>
+          </div>
+          <div id="venom-content">
+            <%= yield %>
+          </div>
+        </div>
+
+      </div>
+      <div id="venom-footer-module">
+        <div class="venom-columns">
+          <div class="c20l subc">
+            <h3>Conectate con nosotros</h3>
+            <ul>
+              <li>
+                <%= link_to "Crear tu perfil",new_frontend_user_url %>
+              </li>
+              <li>
+                <%= link_to "Trabaja con nosotros",frontend_jobs_url,:class => "external",:rel => "#modal-external"%>
+              </li>
+              </ul>
+          </div>
+          <div class="c20l subc">
+            <h3>Compras y Ventas</h3>
+            <ul>
+              <li>
+                <%= link_to "Presupuestos en línea", new_frontend_budget_url %>
+              </li>
+              <li>
+                <%= link_to "Diseños personalizados",new_frontend_design_url %>
+              </li>
+              <li>
+                <%= link_to "Lista de precios","#",:class => "price_list" %>
+              </li>
+
+            </ul>
+          </div>
+          <div class="c20l subc">
+            <h3>Sobre Net-Print</h3>
+            <ul>
+              <li>
+                <%= link_to "¿Quienes Somos?",frontend_about_us_url %>
+              </li>
+              <li>
+                <%= link_to "Servicios",frontend_services_url%>
+              </li>
+              <li>
+                <%= link_to "Contáctenos",frontend_contact_us_url %>
+              </li>
+            </ul>
+          </div>
+          <div class="c20l subc">
+            <h3>Enlaces de interés</h3>
+            <ul>
+              <li>
+                <%= link_to "Descarga de archivos","" %>
+              </li>
+              <li>
+                <%= link_to_function("Mapa del sitio","alert('en desarrollo')") %>
+              </li>
+            </ul>
+          </div>
+
+      </div>
+      <div id="venom-footer">
+        <div id="venom-footer-links">
+			 <div id="logo-footer">
+				<%= image_tag "clients/LiftVen/logos/logo8.png"  %>
+			 </div>
+
+				<div id="social-group" class="">
+				  <ul>
+					 <li class="facebook" onclick="window.open('https://www.facebook.com/netprint.impresos', '_blank');">
+                                                <%= link_to "","#"%>
+                                          </li>
+						
+                                          <li  class="twiter" onclick="window.open('https://twitter.com/Netprint1/', '_blank');">
+                                            <%= link_to "","#" %>
+                                          </li>
+
+					 </ul>
+				</div>
+			 <div class="clearing"/>
+        </div>
+      </div>
+    </div>
+  </div>
+  </center>
+  <center>
+    <div  class="facebox" id="modal-external">
+      <div class="contentWrap"></div>
+    </div>
+  </center>
+
+  <div id="message_overlay"></div>
+
+  
+    <script  type="text/javascript">
+      $(document).ready( function(){
+
+
+				  $(".price_list").yoxview({
+					 images: [
+		            { media: { src: "/images/general/services/list_1.jpg", title: "Plotter" }},
+		            { media: { src: "/images/general/services/list_2.jpg", title: "Rotulado" }},
+		            { media: { src: "/images/general/services/list_3.jpg", title: "Encuadernación y Digitalización" }},
+		            { media: { src: "/images/general/services/list_4.jpg", title: "Copias e Impresión" }}
+					 ],
+					lang: 'es',
+					autoPlay: true
+			  });
+
+
+        $("#venom-social-tools").hover(  function () {
+          $(this).addClass("venom-active");
+        },
+        function () {
+          $(this).removeClass("venom-active");
+        }
+        )
+
+      });
+    </script>
+
+
+</body>
+</html>

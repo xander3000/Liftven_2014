@@ -1,0 +1,60 @@
+<div>
+  <div id="content_info_voucher">
+	 <div class="subc c55l">
+		<div class="">
+		  <h2><%= COMPANY_NAME.upcase %></h2>
+		  <b><%= COMPANY_IDENTIFICATION_DOCUMENT.upcase %></b><br/>
+		</div>
+	 </div>
+	 <div class="subc c40r left">
+		<div class="">
+		  <h2>INVENTARIO</h2>
+		  <b>Hasta la fecha <%= l Time.now  %></b>
+		</div>
+	 </div>
+	 <br/>
+	 <hr/>
+	 <b>Inventario: Almacen Principal</b>
+
+	 <table class="no-border">
+		<thead>
+		  <tr>
+			 <th class="left">Codigo</th>
+			 <th class="left">Nombre</th>
+			 <th class="left">Unidad</th>
+			 <th class="center">Cantidad libre</th>
+			 <th class="center">Costo Unit</th>
+			 <th class="center">Costo</th>
+		  </tr>
+		</thead>
+		<tbody class="">
+				<%
+					 item = 0
+					 total = 0
+					 @raw_materials.each do |material_raw_material|
+					 item += 1
+					 total += (material_raw_material.moving_price*material_raw_material.unrestricted_use_stock)
+				%>
+				<tr>
+				  <td><%= material_raw_material.id.to_code  %></td>
+				  <td><%= material_raw_material.name  %></td>
+				  <td class="center"><%= material_raw_material.material_base_measure_unit.name  %></td>
+				  <td class="center"><%= material_raw_material.unrestricted_use_stock %></td>
+				  <td class="right"><%= material_raw_material.moving_price.to_currency(false)  %></td>
+				  <td class="center"><%= (material_raw_material.moving_price*material_raw_material.unrestricted_use_stock).to_currency(false) %></td>
+				</tr>
+			 <% end %>
+				<tr>
+				  <td colspan="5" class="right">
+					 <b>COSTO TOTAL EN INVENTARIO:</b>
+				  </td>
+				  <td class="right highlight">
+						<%= total.to_currency %>
+				  </td>
+				</tr>
+		</tbody>
+	 </table>
+
+
+  </div>
+</div>

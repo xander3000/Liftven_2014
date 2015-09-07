@@ -1,0 +1,7 @@
+page.replace_html "incoming_invoice_retentions", :partial => "incoming_invoice_retentions"
+if @supplier_withholding_taxes.empty?
+	page << "$('#account_payable_incoming_invoice_retained_amount_input').hide()"
+else
+	page << "$('#account_payable_incoming_invoice_retained_amount_input').show()"
+end
+page << "$('#account_payable_incoming_invoice_sub_total_amount,#account_payable_incoming_invoice_total_amount').val('')"

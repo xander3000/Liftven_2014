@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/1595/trunk/Venom/app/views/backend/credit_notes
+END
+new.erb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/1186/trunk/Venom/app/views/backend/credit_notes/new.erb
+END
+create.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/credit_notes/create.rjs
+END
+search_invoices.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/credit_notes/search_invoices.rjs
+END
+_product_by_credit_notes.erb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/credit_notes/_product_by_credit_notes.erb
+END
+load_product_by_invoice.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/credit_notes/load_product_by_invoice.rjs
+END
+add_product.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/credit_notes/add_product.rjs
+END
+show.erb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/credit_notes/show.erb
+END
+_form_client.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/credit_notes/_form_client.erb
+END
+_form.erb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/credit_notes/_form.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/credit_notes/show.html.erb
+END
+remove_product.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/credit_notes/remove_product.rjs
+END
+_form_items.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/1595/trunk/Venom/app/views/backend/credit_notes/_form_items.erb
+END
+index.erb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/credit_notes/index.erb
+END

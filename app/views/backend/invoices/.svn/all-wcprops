@@ -1,0 +1,323 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/1319/trunk/Venom/app/views/backend/invoices
+END
+new.erb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/1186/trunk/Venom/app/views/backend/invoices/new.erb
+END
+create.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/1085/trunk/Venom/app/views/backend/invoices/create.rjs
+END
+_invoices_body.erb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/invoices/_invoices_body.erb
+END
+_show_daily_cash_closing_check_others.erb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/invoices/_show_daily_cash_closing_check_others.erb
+END
+_form_client.erb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/1085/trunk/Venom/app/views/backend/invoices/_form_client.erb
+END
+detail.erb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/invoices/detail.erb
+END
+show_voucher_withholding_islr.erb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/1157/trunk/Venom/app/views/backend/invoices/show_voucher_withholding_islr.erb
+END
+_form_daily_cash_closing_pos_card_terminal.erb
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/invoices/_form_daily_cash_closing_pos_card_terminal.erb
+END
+_incoming_invoice_billings_by_invoice.erb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/invoices/_incoming_invoice_billings_by_invoice.erb
+END
+index.erb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/invoices/index.erb
+END
+_detail_daily_cash_closing_with_advance_payment.erb
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/invoices/_detail_daily_cash_closing_with_advance_payment.erb
+END
+_product_by_invoices_show.erb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/invoices/_product_by_invoices_show.erb
+END
+add_payment.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/invoices/add_payment.rjs
+END
+add_incoming_invoice_billing.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/invoices/add_incoming_invoice_billing.rjs
+END
+daily_cash_closing.erb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/invoices/daily_cash_closing.erb
+END
+print.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/invoices/print.rjs
+END
+remove_product_from_invoice.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/invoices/remove_product_from_invoice.rjs
+END
+_product_components.erb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/1250/trunk/Venom/app/views/backend/invoices/_product_components.erb
+END
+detail_daily_cash_closing.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/invoices/detail_daily_cash_closing.rjs
+END
+create_daily_cash_closing.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/invoices/create_daily_cash_closing.rjs
+END
+new_daily_cash_closing.erb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/1186/trunk/Venom/app/views/backend/invoices/new_daily_cash_closing.erb
+END
+custom_paper_type.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/invoices/custom_paper_type.rjs
+END
+_show_daily_cash_closing_resume.erb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/invoices/_show_daily_cash_closing_resume.erb
+END
+get_additional_payment_method_information.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/invoices/get_additional_payment_method_information.rjs
+END
+_detail_daily_cash_closing.erb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/invoices/_detail_daily_cash_closing.erb
+END
+remove_product_from_budget.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/invoices/remove_product_from_budget.rjs
+END
+_form_daily_cash_closing.erb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/invoices/_form_daily_cash_closing.erb
+END
+register_print.erb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/invoices/register_print.erb
+END
+_detail_incoming_invoice_billing.erb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/invoices/_detail_incoming_invoice_billing.erb
+END
+get_additional_incoming_invoice_billing_information.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/invoices/get_additional_incoming_invoice_billing_information.rjs
+END
+_form_incoming_invoice_billing.erb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/invoices/_form_incoming_invoice_billing.erb
+END
+_form.erb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/1296/trunk/Venom/app/views/backend/invoices/_form.erb
+END
+_form_items.erb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/1319/trunk/Venom/app/views/backend/invoices/_form_items.erb
+END
+custom_color_mode_type.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/invoices/custom_color_mode_type.rjs
+END
+find_product_components_by_product.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/invoices/find_product_components_by_product.rjs
+END
+_form_daily_cash_closing_cash_count.erb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/1014/trunk/Venom/app/views/backend/invoices/_form_daily_cash_closing_cash_count.erb
+END
+add_pos_card_terminal_position.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/invoices/add_pos_card_terminal_position.rjs
+END
+_product_by_invoices.erb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/1090/trunk/Venom/app/views/backend/invoices/_product_by_invoices.erb
+END
+_form_daily_cash_closing_header.erb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/invoices/_form_daily_cash_closing_header.erb
+END
+add_cash_count_position.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/invoices/add_cash_count_position.rjs
+END
+_detail_header.erb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/invoices/_detail_header.erb
+END
+change_state.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/invoices/change_state.rjs
+END
+_pos_card_terminal_positions_added.erb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/invoices/_pos_card_terminal_positions_added.erb
+END
+_cash_count_positions_added.erb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/invoices/_cash_count_positions_added.erb
+END
+show_daily_cash_closing.erb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/invoices/show_daily_cash_closing.erb
+END
+add_product.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/invoices/add_product.rjs
+END
+show.erb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/1085/trunk/Venom/app/views/backend/invoices/show.erb
+END
+set_current_client.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/invoices/set_current_client.rjs
+END
+_detail_payments.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/invoices/_detail_payments.erb
+END
+custom_paper_size.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/invoices/custom_paper_size.rjs
+END
+_show_daily_cash_closing_pos_card_terminal.erb
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/invoices/_show_daily_cash_closing_pos_card_terminal.erb
+END
+_show_daily_cash_closing_cash_count.erb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/invoices/_show_daily_cash_closing_cash_count.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/1186/trunk/Venom/app/views/backend/invoices/show.html.erb
+END

@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/1046/trunk/Venom/test/functional/backend/cashbank
+END
+banks_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/593/trunk/Venom/test/functional/backend/cashbank/banks_controller_test.rb
+END
+bank_reconciliations_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/626/trunk/Venom/test/functional/backend/cashbank/bank_reconciliations_controller_test.rb
+END
+cashes_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/602/trunk/Venom/test/functional/backend/cashbank/cashes_controller_test.rb
+END
+bank_movements_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/572/trunk/Venom/test/functional/backend/cashbank/bank_movements_controller_test.rb
+END
+bank_accounts_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/594/trunk/Venom/test/functional/backend/cashbank/bank_accounts_controller_test.rb
+END
+check_offereds_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/595/trunk/Venom/test/functional/backend/cashbank/check_offereds_controller_test.rb
+END
+checkbooks_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/595/trunk/Venom/test/functional/backend/cashbank/checkbooks_controller_test.rb
+END
+cash_journals_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/1046/trunk/Venom/test/functional/backend/cashbank/cash_journals_controller_test.rb
+END

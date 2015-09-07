@@ -1,0 +1,11 @@
+<div id="" class="content_form">
+  <%  semantic_fields_for @supplier do |s| %>
+	 
+		  <% s.inputs "Materiales/insumos por fase" do %>
+			  <div  id="lift_material_for_manufacturing_phases">
+				<%= render :partial => "lift_material_for_manufacturing_phases" %>
+			 </div>
+		  <% end %>
+  <% end %>
+
+</div>

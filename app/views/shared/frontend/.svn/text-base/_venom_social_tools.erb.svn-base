@@ -1,0 +1,14 @@
+  <ul class="venom-active">
+    <li>
+      <%= link_to_function("","print()",:class => "venom-share-print")  %>
+    </li>
+    <li>
+      <%= link_to_function("","alert('en desarrollo')",:class => "venom-share-email")  %>
+    </li>
+    <li>
+      <a title="Nuestro Facebook" class="venom-share-facebook"></a>
+    </li>
+    <li>
+      <a title="Nuestro Twitter" class="venom-share-twitter"></a>
+    </li>
+  </ul>

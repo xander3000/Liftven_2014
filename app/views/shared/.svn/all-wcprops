@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/1582/trunk/Venom/app/views/shared
+END
+_modal_errors.erb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/465/trunk/Venom/app/views/shared/_modal_errors.erb
+END
+_modal_notice.erb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/465/trunk/Venom/app/views/shared/_modal_notice.erb
+END

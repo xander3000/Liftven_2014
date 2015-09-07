@@ -1,0 +1,45 @@
+<%= include_stylesheet("jquery.overlay_2.css") %>
+<div class="facebox" id="modal-errors">
+
+	<div>
+		<h2>Por favor corregir lo siguiente antes de continuar:</h2>
+
+		<p>
+                  <% if messages.size == 1  %>
+                        Hay problema con el siguiente campo:
+                  <% else %>
+			Hay problemas con los siguientes campos:
+                  <% end %>
+                        
+                        <ul>
+                          <% messages.each do |error| %>
+                          <li>
+                            <%= error  %>
+                          </li>
+                          <% end %>
+                        </ul>
+		</p>
+
+		
+		<!-- yes/no buttons -->
+		<p>
+                  <input type="button" class="close ui-button ui-widget ui-state-default ui-corner-all"/>
+		</p>
+	</div>
+
+</div>
+
+
+<script type="text/javascript">
+   $(document).ready(function(){
+     $("#modal-errors").overlay({
+	mask: {
+		color: '#fff',
+		loadSpeed: 200,
+		opacity: 0.5
+	},
+	closeOnClick: false,
+	load: true
+    });
+ });
+</script>

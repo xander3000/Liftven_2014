@@ -1,0 +1,49 @@
+
+<div class="right control">
+		<%= @title.upcase %>  Nº <span><%= format_code(@budget.id, "06") %></span>
+</div>
+  <div id="details">
+    <b>NOMBRE O RAZÓN SOCIAL: </b> <%= @budget.client.name %><br/>
+    <b>C.I. / RIF: </b><%= @budget.client.identification_document %><br/>
+    <b>DOMICILIO FISCAL: </b><%= @budget.client.address %><br/>
+    <b>FECHA: </b><%= l  @budget.created_at %><br/>
+    <b>TLFS: </b><%= @budget.client.phone %><br/>
+    <b>CORREO ELECTRÓNICO: </b><%= @budget.client.email %><br/>
+   
+    <div id="form_items">
+      <table border="0">
+        <thead>
+          <tr class="border-top">
+            <th class="code center">
+              Producto
+            </th>
+            <th class="amount center">
+              Cant.
+            </th>
+            <th class="description">
+              Componentes
+            </th>
+            <th class="dimensions center">
+              Dimensiones
+            </th>
+            <th class="note">
+              Observaciones
+            </th>
+            <th class="unit_price right">
+              Precio Unitario
+            </th>
+            <th  class="total_price right">
+              Total (Bs.)
+            </th>
+          </tr>
+        </thead>
+        <tbody id="product_by_budgets_items">
+          <%= render :partial => "product_by_budgets" %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<div class="right control">
+		<%= @title.upcase %>  Nº <span><%= format_code(@budget.id, "06") %></span>
+</div>
+ <b>VALIDO POR <%= AppConfig.expiry_budget%> DÍAS HÁBILES CONTADOS A PARTIR DE SU FECHA DE EMISIÓN. </b>

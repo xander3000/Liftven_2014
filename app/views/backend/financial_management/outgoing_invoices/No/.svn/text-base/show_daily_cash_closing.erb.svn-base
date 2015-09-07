@@ -1,0 +1,86 @@
+<div class="actionsBar right no-print">
+  <%= link_to(image_tag("icons/printer.png"),backend_show_daily_cash_closing_url(@daily_cash_closing,"pdf"),:class => "button") %>
+</div>
+<div class="">
+  <div class=" center">
+	 <p>
+		<b>CUADRE Y ARQUEO DE CAJA DIARIO Nº <%= format_code(@daily_cash_closing.id, "05") %> (<%= @daily_cash_closing.date  %>) </b> <br/>
+		<%= l @daily_cash_closing.created_at,:format => :long%>
+	 </p>
+  </div>
+  <div>
+	 <table>
+		<tr>
+		  
+		  <th>
+			 <%= CashBank::DailyCashClosing.human_attribute_name("total_amount_cash")%>
+		  </th>
+		  <th>
+			 <%= CashBank::DailyCashClosing.human_attribute_name("total_amount_credit")%>
+		  </th>
+		  <th>
+			 <%= CashBank::DailyCashClosing.human_attribute_name("total_amount_debit")%>
+		  </th>
+		  <th>
+			 <%= CashBank::DailyCashClosing.human_attribute_name("total_amount_check")%>
+		  </th>
+		  <th>
+			 <%= CashBank::DailyCashClosing.human_attribute_name("total_amount_deposit")%>
+		  </th>
+		  <th>
+			 <%= CashBank::DailyCashClosing.human_attribute_name("total_order_amount_with_advance_payment")%>
+		  </th>
+		  <th>
+				<h3><%= CashBank::DailyCashClosing.human_attribute_name("total_amount_sales")%></h3>
+		  </th>
+		</tr>
+		<tbody>
+		  <tr>
+			 
+			 <td class="center border-right">
+				<%= link_to_remote(number_to_currency(@daily_cash_closing.total_amount_cash, :delimiter => ".", :separator => ",", :unit => ""),:url=> backend_detail_daily_cash_closing_url(@daily_cash_closing,PaymentMethodType::EFECTIVO)) %>
+			 </td>
+			 <td class="center border-right">
+				<%=  link_to_remote(number_to_currency(@daily_cash_closing.total_amount_credit, :delimiter => ".", :separator => ",", :unit => ""),:url=> backend_detail_daily_cash_closing_url(@daily_cash_closing,PaymentMethodType::TARJETA_CREDITO)) %>
+			 </td>
+			 <td class="center border-right">
+				<%=  link_to_remote(number_to_currency(@daily_cash_closing.total_amount_debit, :delimiter => ".", :separator => ",", :unit => ""),:url=> backend_detail_daily_cash_closing_url(@daily_cash_closing,PaymentMethodType::TARJETA_DEBITO)) %>
+			 </td>
+			 <td class="center border-right">
+				<%=  link_to_remote(number_to_currency(@daily_cash_closing.total_amount_check, :delimiter => ".", :separator => ",", :unit => ""),:url=> backend_detail_daily_cash_closing_url(@daily_cash_closing,PaymentMethodType::CHEQUE)) %>
+			 </td>
+			 <td class="center border-right">
+				<%=  link_to_remote(number_to_currency(@daily_cash_closing.total_amount_deposit, :delimiter => ".", :separator => ",", :unit => ""),:url=> backend_detail_daily_cash_closing_url(@daily_cash_closing,PaymentMethodType::CHEQUE)) %>
+			 </td>
+			 <td class="center border-right">
+				<%=  link_to_remote(number_to_currency(@daily_cash_closing.total_order_amount_with_advance_payment, :delimiter => ".", :separator => ",", :unit => ""),:url=> backend_detail_daily_cash_closing_url(@daily_cash_closing,"ADVANCE_PAYMENT")) %>
+			 </td>
+			 <td class="center">
+				<h3 class="green"><%= number_to_currency(@daily_cash_closing.total_amount_sales, :delimiter => ".", :separator => ",", :unit => "") %></h3>
+			 </td>
+		  </tr>
+		</tbody>
+	 </table>
+	 <hr/>
+	 <div id="detail_daily_cash_closing">
+		<div class="c45l subc" >
+		  <%= render :partial => "show_daily_cash_closing_cash_count" %>
+		</div>
+		<div class="c45r subc">
+		  <%= render :partial => "show_daily_cash_closing_pos_card_terminal" %>
+		</div>
+		<hr/>
+		<div class="c45l subc" style="">
+		  <%= render :partial => "show_daily_cash_closing_check_others" %>
+		</div>
+		<div class="c45r subc">
+		  <%= render :partial => "show_daily_cash_closing_resume" %>
+		</div>
+	 </div>
+
+		<hr/>
+  </div>
+</div>
+<div class="actionsBar right no-print">
+  <%= link_to(image_tag("icons/printer.png"),backend_show_daily_cash_closing_url(@daily_cash_closing,"pdf"),:class => "button") %>
+</div>

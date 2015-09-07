@@ -1,0 +1,312 @@
+<style type="text/css">
+  table{
+	 font-size: 0.8em;
+}
+
+</style>
+
+<%
+  total = 0
+
+  amount_exempt = 0
+  total_amount_general = 0
+  total_amount_additional = 0
+  total_amount_reduced = 0
+  tax_amount_general = 0
+  tax_amount_additional = 0
+  tax_amount_reduced = 0
+  taxes_by_invoices = {}
+%>
+
+<div class="">
+  <div>
+
+	 <hr/>
+	 <div id="detail_daily_cash_closing">
+            <div>
+		<table cellpadding="0" cellspacing="0" border="0" class="display" id="purchase_ledgers" width="100%">
+			<thead>
+				<tr>
+					<th style="width: 20px">Oper Nro</th>
+					<th style="width: 40px">Fecha de la factura</th>
+					<th style="width: 50px">R.I.F.</th>
+					<th style="width: 200px">Nombre o Razon Social</th>
+					<th style="width: 15px">Tipo de proveedor</th>
+					<th style="width: 40px">Nro. Factura</th>
+					<th style="width: 40px">Nro. Control</th>
+					 <th style="width: 40px">Nro. N/Cred</th>
+					 <th style="width: 40px">Nro. N/Deb</th>
+					 <th style="width: 40px">Tipo Transacci&oacute;n</th>
+					 <th style="width: 40px">Nro. Factura Afectada</th>
+					 <th style="width: 50px">Total compras incluyendo I.V.A.</th>
+					 
+				  <% @taxes.each do |tax| %>
+						<% unless tax.exempt %>
+						  <th style="width: 50px">Base imponible alic. <%= "(#{tax.amount.to_currency(false)}%)" %></th>
+						  <th style="width: 50px">Impuesto IVA <%= "(#{tax.amount.to_currency(false)}%)" %></th>
+						<% end %>
+				  <% end %>
+				  <% if @with_exempts %>
+						  <th style="width: 50px">Exentas y/o Sin Derecho a Crédito Fiscal</th>
+				  <% end %>
+					 <th style="width: 50px">IVA Retenido</th>
+				</tr>
+			</thead>
+			<tbody>
+                          <% cont = 0 %>  
+			  <% @incoming_invoices.each do |incoming_invoice|  %>
+                            <% cont += 1 %>  
+				 <tr>
+					<td class="left"><%=  format_code(cont,"05")%></td>
+					<td class="center"><%=  l incoming_invoice.invoice_date.to_date%> </td>
+					<td class="center"><%= incoming_invoice.tenderer.contact.rif %></td>
+					<td class="left"><%=   incoming_invoice.tenderer.name%> </td>
+                                        <td class="left"><%= incoming_invoice.tenderer.contact.is_natural? ? "PN" : "PJ"%></td>
+					<td class="left"><%=   incoming_invoice.reference%>  </td>
+					<td class="left"><%=   incoming_invoice.control_number%>  </td>
+					 <td class="left"></td>
+					 <td class="left"></td>
+					 <td class="center">01-REG</td>
+					 <td class="left"></td>
+					 <td class="right"><%= number_to_currency(incoming_invoice.total_amount, :delimiter => ".", :separator => ",", :unit => "")%>  </td>
+					 
+				  <% @taxes.each do |tax| %>
+						<% unless tax.exempt %>
+							 <%
+								tax_amount_taxes_by_tax = incoming_invoice.tax_amount_taxes_by_tax(tax)
+								taxable_taxes_by_tax = incoming_invoice.taxable_taxes_by_tax(tax)
+								tax_amount_general += tax_amount_taxes_by_tax if tax.general
+								tax_amount_additional += tax_amount_taxes_by_tax if tax.additional
+								tax_amount_reduced += tax_amount_taxes_by_tax if tax.reduced
+								unless taxes_by_invoices.has_key?(tax.id)
+								  taxes_by_invoices[tax.id] = {:taxable => 0,:tax_amount => 0}
+								end
+								taxes_by_invoices[tax.id][:taxable]  += taxable_taxes_by_tax
+								taxes_by_invoices[tax.id][:tax_amount] += tax_amount_taxes_by_tax
+							 %>
+							 <td class="right"><%= number_to_currency(taxable_taxes_by_tax, :delimiter => ".", :separator => ",", :unit => "")%>  </td>
+							 <td class="right"><%= number_to_currency(tax_amount_taxes_by_tax, :delimiter => ".", :separator => ",", :unit => "")%>  </td>
+						<% end %>
+				  <% end %>
+				  <% if @with_exempts %>
+							 <td class="right"><%= number_to_currency(incoming_invoice.amount_exempt, :delimiter => ".", :separator => ",", :unit => "")%></td>
+				  <% end %>
+				 <td class="right"><%= number_to_currency(0, :delimiter => ".", :separator => ",", :unit => "")%></td>
+
+					<%
+
+						total += incoming_invoice.total_amount
+
+
+						amount_exempt += incoming_invoice.amount_exempt
+						total_amount_general += incoming_invoice.amount_general.to_f
+						total_amount_additional += incoming_invoice.amount_additional.to_f
+						total_amount_reduced += incoming_invoice.amount_reduced.to_f
+				  %>
+
+				  </tr>
+				<% end %>
+                              <% if @incoming_invoices.empty? %>
+                                  <tr>
+                                    <td colspan="17" class="center">
+                                      <b>Sin movimientos en el mes</b>
+                                    </td>
+                                  </tr>
+
+                                <% end %>
+					<tr class="">
+                                            <td class="right border-top" colspan="12"><%=   number_to_currency(total, :delimiter => ".", :separator => ",", :unit => "")%>  </td>
+
+                                            <% @taxes.each do |tax| %>
+                                                   <% unless tax.exempt %>
+                                                          <td class="right border-top"><%=   number_to_currency(taxes_by_invoices[tax.id][:taxable], :delimiter => ".", :separator => ",", :unit => "")%>  </td>
+                                                          <td class="right border-top"><%=   number_to_currency(taxes_by_invoices[tax.id][:tax_amount], :delimiter => ".", :separator => ",", :unit => "")%>  </td>
+                                                   <% end %>
+                                            <% end %>
+                                            <% if @with_exempts %>
+                                                   <td class="right border-top no-border-bottom"><%=   number_to_currency(amount_exempt, :delimiter => ".", :separator => ",", :unit => "")%></td>
+                                            <% end %>
+                                            <td class="right border-top no-border-bottom"><%=   number_to_currency(0, :delimiter => ".", :separator => ",", :unit => "")%></td>
+				  </tr>
+			</tbody>
+		  </table>
+	 </div>
+
+<br/>
+<br/>
+		<div>
+		  <div class="c37l subc">
+			 <%= wicked_pdf_image_tag "logos/General/logo_seniat.png"%>
+		  </div>
+		  <div class="c62r subc">
+			 <table id="fiscal_sumary">
+				<tbody>
+				  <tr class="first">
+					 <td>
+
+					 </td>
+					 <td class="right">
+						Base imponible
+					 </td>
+					 <td class="right">
+						Debito fiscal
+					 </td>
+					 <td class="right">
+						Retencciones IVA
+					 </td>
+					 <td class="right">
+						Anticipos IVA
+					 </td>
+				  </tr>
+				  <tr>
+					 <td>
+						Total de Compras Exentas y/o Sin Derecho a Crédito Fiscal:
+					 </td>
+					 <td class="right">
+						<%=   number_to_currency(amount_exempt, :delimiter => ".", :separator => ",", :unit => "")%>
+					 </td>
+					 <td class="right">
+						<%=   number_to_currency(0, :delimiter => ".", :separator => ",", :unit => "")%>
+					 </td>
+					 <td class="right">
+						<%=   number_to_currency(0, :delimiter => ".", :separator => ",", :unit => "")%>
+					 </td>
+					 <td class="right">
+						<%=   number_to_currency(0, :delimiter => ".", :separator => ",", :unit => "")%>
+					 </td>
+				  </tr>
+				  <tr>
+					 <td>
+						Total de Compras Importación Afectas solo Alicuota General:
+					 </td>
+					 <td class="right">
+						<%=   number_to_currency(0, :delimiter => ".", :separator => ",", :unit => "")%>
+					 </td>
+					 <td class="right">
+						<%=   number_to_currency(0, :delimiter => ".", :separator => ",", :unit => "")%>
+					 </td>
+					 <td class="right">
+						<%=   number_to_currency(0, :delimiter => ".", :separator => ",", :unit => "")%>
+					 </td>
+					 <td class="right">
+						<%=   number_to_currency(0, :delimiter => ".", :separator => ",", :unit => "")%>
+					 </td>
+				  </tr>
+				  <tr>
+					 <td>
+						Total de Compras Importación Afectas en Alicuota General + Adicional:
+					 </td>
+					 <td class="right">
+						<%=   number_to_currency(0, :delimiter => ".", :separator => ",", :unit => "")%>
+					 </td>
+					 <td class="right">
+						<%=   number_to_currency(0, :delimiter => ".", :separator => ",", :unit => "")%>
+					 </td>
+					 <td class="right">
+						<%=   number_to_currency(0, :delimiter => ".", :separator => ",", :unit => "")%>
+					 </td>
+					 <td class="right">
+						<%=   number_to_currency(0, :delimiter => ".", :separator => ",", :unit => "")%>
+					 </td>
+				  </tr>
+				  <tr>
+					 <td>
+						Total de Compras Importación Afectas solo Alicuota Reducida:
+					 </td>
+					 <td class="right">
+						<%=   number_to_currency(0, :delimiter => ".", :separator => ",", :unit => "")%>
+					 </td>
+					 <td class="right">
+						<%=   number_to_currency(0, :delimiter => ".", :separator => ",", :unit => "")%>
+					 </td>
+					 <td class="right">
+						<%=   number_to_currency(0, :delimiter => ".", :separator => ",", :unit => "")%>
+					 </td>
+					 <td class="right">
+						<%=   number_to_currency(0, :delimiter => ".", :separator => ",", :unit => "")%>
+					 </td>
+				  </tr>
+				  <tr>
+					 <td>
+						Total de Compras Internas Afectas solo Alicuota General:
+					 </td>
+					 <td class="right">
+						<%=   number_to_currency(total_amount_general, :delimiter => ".", :separator => ",", :unit => "")%>
+					 </td>
+					 <td class="right">
+						<%=   number_to_currency(tax_amount_general, :delimiter => ".", :separator => ",", :unit => "")%>
+					 </td>
+					 <td class="right">
+						<%=   number_to_currency(0, :delimiter => ".", :separator => ",", :unit => "")%>
+					 </td>
+					 <td class="right">
+						<%=   number_to_currency(0, :delimiter => ".", :separator => ",", :unit => "")%>
+					 </td>
+				  </tr>
+				  <tr>
+					 <td>
+						Total de Compras Internas Afectas en Alicuota General + Adicional:
+					 </td>
+					 <td class="right">
+						<%=   number_to_currency(total_amount_additional, :delimiter => ".", :separator => ",", :unit => "")%>
+					 </td>
+					 <td class="right">
+						<%=   number_to_currency(tax_amount_additional, :delimiter => ".", :separator => ",", :unit => "")%>
+					 </td>
+					 <td class="right">
+						<%=   number_to_currency(0, :delimiter => ".", :separator => ",", :unit => "")%>
+					 </td>
+					 <td class="right">
+						<%=   number_to_currency(0, :delimiter => ".", :separator => ",", :unit => "")%>
+					 </td>
+				  </tr>
+				  <tr>
+					 <td>
+						Total de Compras Internas Afectas solo Alicuota Reducida:
+					 </td>
+					 <td class="right">
+						<%=   number_to_currency(total_amount_reduced, :delimiter => ".", :separator => ",", :unit => "")%>
+					 </td>
+					 <td class="right">
+						<%=   number_to_currency(tax_amount_reduced, :delimiter => ".", :separator => ",", :unit => "")%>
+					 </td>
+					 <td class="right">
+						<%=   number_to_currency(0, :delimiter => ".", :separator => ",", :unit => "")%>
+					 </td>
+					 <td class="right">
+						<%=   number_to_currency(0, :delimiter => ".", :separator => ",", :unit => "")%>
+					 </td>
+				  </tr>
+				</tbody>
+                                <tfoot>
+                                  <tr class="border-top">
+                                    <td>
+
+                                    </td>
+					 <td class="right">
+                                           <b><%=   number_to_currency(amount_exempt+total_amount_general+total_amount_reduced+total_amount_additional, :delimiter => ".", :separator => ",", :unit => "")%></b>
+					 </td>
+					 <td class="right">
+                                           <b><%=   number_to_currency(tax_amount_general+tax_amount_reduced+tax_amount_additional, :delimiter => ".", :separator => ",", :unit => "")%></b>
+					 </td>
+					 <td class="right">
+                                           <b><%=   number_to_currency(0, :delimiter => ".", :separator => ",", :unit => "")%></b>
+					 </td>
+					 <td class="right">
+						<b><%=   number_to_currency(0, :delimiter => ".", :separator => ",", :unit => "")%></b>
+					 </td>
+                                  </tr>
+                                </tfoot>
+			 </table>
+		  </div>
+		</div>
+
+
+
+
+
+	 </div>
+
+          <hr/>
+  </div>
+</div>

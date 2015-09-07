@@ -1,0 +1,19 @@
+<% content_for :aditional_options_menunav do %>
+  <%= render  "#{controller.controller_path}/aditional_options_menunav/show" %>
+<% end %>
+<div class="actionsBar right no-print">
+  <%= link_to(image_tag("icons/arrow_left.png"),backend_cashbank_banks_url,:class => "button",:title => "Regresar") %>
+</div>
+<hr/>
+
+  <% semantic_form_remote_for @bank, :update => "#{controller.controller_name}_container",:url => backend_cashbank_banks_url,:html => {:class => "form_generate"} do |f| %>
+        <%= render :partial => "form",:locals => {:f => f} %>
+  <% end %>
+
+<script type="text/javascript">
+	 $(document).ready(function(){
+                $(".cash_bank_bank input, .cash_bank_bank select, .cash_bank_bank textarea").attr("disabled","disabled");
+
+	});
+
+</script>

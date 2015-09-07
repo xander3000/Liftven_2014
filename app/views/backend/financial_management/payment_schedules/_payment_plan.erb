@@ -1,0 +1,44 @@
+<% total = 0 %>
+<table rules="cols" frame="border">
+    <thead>
+      <tr>
+        <th class="code">
+          Nº Cuota
+        </th>
+        <th class="date">
+          Fecha vencimiento
+        </th>
+        <th class="amount">
+          Monto
+        </th>
+      </tr>
+    </thead>
+    <tbody id="">
+		<% @payment_schedule_positions.each do |payment_schedule_position|  %>
+		<tr>
+		  <td class="center">
+			 <%= payment_schedule_position.number %>
+		  </td>
+		  <td class="center">
+			 <%= payment_schedule_position.expiration_date %>
+		  </td>
+		  <td class="right">
+			 <% total += payment_schedule_position.amount  %>
+			 <%= number_to_currency(payment_schedule_position.amount, :delimiter => ".", :separator => ",", :unit => "") %>
+		  </td>
+		</tr>
+		<% end %>
+    </tbody>
+	 <tfoot>
+		<tr>
+		  <td colspan="2" class="right border-top">
+			 <i>Total</i>
+		  </td>
+		  <td class="right border-top">
+			 <%= number_to_currency(total, :delimiter => ".", :separator => ",", :unit => "") %>
+		  </td>
+		</tr>
+	 </tfoot>
+
+
+  </table>

@@ -1,0 +1,32 @@
+<% if current_cart.empty? %>
+    <div class="block info">
+      <h2>Tu carrito está vacio</h2>
+      <p>
+      <%= link_to "Continuar comprando",new_frontend_budget_url,:class => "button" %>
+      </p>
+    </div>
+<% else %>
+
+<div id="products">
+  <form action="">
+      <% current_cart.each do |product_by_budget| %>
+        <%= render :partial => "cart_product",:locals => {:product_by_budget => product_by_budget} %>
+      <% end %>
+
+
+    <div id="cart-about" class="block info">
+     <p>
+        La lista de precios y disponibilidad de los items de <b>net-print.com.ve</b> están sujetos a cambio. El carrito de compras es un sitio temporal para almacenar sus items y cada uno refleja el precio maás reciente. <%= link_to_function("Aprender más", "alert('en desarrollo')") %>
+      </p>
+    </div>
+  </form>
+</div>
+<script type="text/javascript">
+  $(document).ready(function(){
+    //$("button, input:submit,input:button,a.button ").button();
+  });
+</script>
+
+
+<% end %>
+

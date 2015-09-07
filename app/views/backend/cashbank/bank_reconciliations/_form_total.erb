@@ -1,0 +1,47 @@
+
+<div id="" class="content_form">
+  <% semantic_fields_for @bank_reconciliation do |f| %>
+     <% f.inputs "Detalle de la conciliación" do %>
+		<div class="c50l subc">
+		  <% f.inputs "",:class => "no_border" do %>
+			 <%= f.input :balance_according_bank_currency,:input_html  => {:class => "reset right",:readonly => true}%>
+			 <%= f.input :transaction_not_registered_at_bank_currency,:input_html  => {:class => "reset right",:readonly => true}%>
+			 <%= f.input :automatic_reconciled_transaction_at_bank_currency,:input_html  => {:class => "reset right",:readonly => true}%>
+			 <%= f.input :error_at_bank_currency,:input_html  => {:class => "reset right",:readonly => true}%>
+			 <%= f.input :balance_movement_reconciliation_currency,:input_html  => {:class => "reset right",:readonly => true}%>
+		  <% end %>
+		</div>
+		<div class="c50r subc">
+		  <% f.inputs "",:class => "no_border" do %>
+			 <%= f.input :balance_according_book_currency,:input_html  => {:class => "reset right",:readonly => true}%>
+			 <%= f.input :transaction_not_registered_at_book_currency,:input_html  => {:class => "reset right",:readonly => true}%>
+			 <%= f.input :automatic_reconciled_transaction_at_book_currency,:input_html  => {:class => "reset right",:readonly => true}%>
+			 <%= f.input :error_at_book_currency,:input_html  => {:class => "reset right",:readonly => true}%>
+			 <%= f.input :diference_currency,:input_html  => {:class => "reset right",:readonly => true}%>
+		  <% end %>
+		</div>
+	 <% end %>
+   <% f.inputs "",:class => "no_border" do %>
+			 <%= f.input :balance_according_bank,:as => :hidden,:input_html  => {:class => "reset right",:readonly => true}%>
+			 <%= f.input :transaction_not_registered_at_bank,:as => :hidden,:input_html  => {:class => "reset right",:readonly => true}%>
+			 <%= f.input :automatic_reconciled_transaction_at_bank,:as => :hidden,:input_html  => {:class => "reset right",:readonly => true}%>
+			 <%= f.input :error_at_bank,:as => :hidden,:input_html  => {:class => "reset right",:readonly => true}%>
+			 <%= f.input :balance_movement_reconciliation,:as => :hidden,:input_html  => {:class => "reset right",:readonly => true}%>
+			 <%= f.input :balance_according_book,:as => :hidden,:input_html  => {:class => "reset right",:readonly => true}%>
+			 <%= f.input :transaction_not_registered_at_book,:as => :hidden,:input_html  => {:class => "reset right",:readonly => true}%>
+			 <%= f.input :automatic_reconciled_transaction_at_book,:as => :hidden,:input_html  => {:class => "reset right",:readonly => true}%>
+			 <%= f.input :error_at_book,:as => :hidden,:input_html  => {:class => "reset right",:readonly => true}%>
+			 <%= f.input :diference,:as => :hidden,:input_html  => {:class => "reset right",:readonly => true}%>
+  <% end %>
+<% end %>
+
+
+		
+
+
+</div>
+
+<script type="text/javascript">
+
+</script>
+

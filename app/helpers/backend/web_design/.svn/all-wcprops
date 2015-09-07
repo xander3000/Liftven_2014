@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/881/trunk/Venom/app/helpers/backend/web_design
+END
+portfolios_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/881/trunk/Venom/app/helpers/backend/web_design/portfolios_helper.rb
+END
+custom_designs_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/784/trunk/Venom/app/helpers/backend/web_design/custom_designs_helper.rb
+END
+home_page_slides_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/784/trunk/Venom/app/helpers/backend/web_design/home_page_slides_helper.rb
+END

@@ -1,0 +1,91 @@
+<style type="text/css">
+  #details{
+	 background: none;
+	 border: none;
+}
+
+
+
+</style>
+
+<div id="invoice_show">
+  <div id="details">
+    <b>NOMBRE O RAZÓN SOCIAL: </b> <%= @invoice.client.name %><br/>
+    <b>C.I. / RIF: </b><%= @invoice.client.identification_document %><br/>
+    <b>DOMICILIO FISCAL: </b><%= @invoice.client.address %><br/>
+    <b>FECHA: </b><%= l @invoice.created_at %><br/>
+    <b>TLFS: </b><%= @invoice.client.phone %><br/>
+    <b>CORREO ELECTRÓNICO: </b><%= @invoice.client.email %><br/><br/>
+	 <b>Nº REFERENCIA: </b><%= @invoice.id.to_code %><br/><br/><br/>
+    <div id="form_items">
+      <table border="0">
+        <thead>
+          <tr class="border-top">
+            <th class="code center">
+              Código
+            </th>
+            <th class="amount center">
+              Cantidad
+            </th>
+            <th class="description">
+              Descripción
+            </th>
+            <th class="unit_price right">
+              Precio Unitario
+            </th>
+            <th class="total_price right">
+              Total
+            </th>
+          </tr>
+        </thead>
+        <tbody id="product_by_invoices_items">
+          <%= render :partial => "product_by_invoices_show" %>
+			 <% if @invoice.has_incoming_invoice_billings?  and false%>
+				<tr class="right  border-top">
+				  <td class="totalizers" colspan="7">
+					 <b>FORMA DE PAGO</b>
+				  </td>
+				</tr>
+				<% @incoming_invoice_billings.each do |incoming_invoice_billing| %>
+				 <tr class="right">
+				  <td class="totalizers" colspan="6">
+					 <%= incoming_invoice_billing.payment_method_type.name if incoming_invoice_billing.payment_method_type%>
+				  </td>
+				  <td class="no-border-right">
+					 <%= number_to_currency(incoming_invoice_billing.amount, :delimiter => ".", :separator => ",", :unit => "")  %>
+				  </td>
+				</tr>
+				<% end %>
+			 <% end %>
+        </tbody>
+		  
+      </table>
+    </div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+  <div style="">
+
+
+		<div style="text-align: left;margin: 0 25% ">
+		  Efectivo: ___ Cheque: ___ Deposito/Transferencia: ___<br/><br/>
+		  Nro: __________________<br/><br/>
+		  Banco: ________________<br/><br/>
+		  Fecha: ________________<br/><br/>
+		</div>
+		<div style="text-align: center;margin-top: 10px;font-size: 1.4em">
+			 <b>FAVOR EMITIR CHEQUE A NOMBRE DE: VENOM IMPRESOS DIGITALES C.A.</b><br/>
+			 <small>Todo cheque devuelto generará un gasto admnistrativo de Bs: 110,00</small><br/>
+			 <small>Factura pagadera a su presentación. El retraso generará intereses de mora</small>
+		</div>
+
+	 </div>
+
+  </div>
+
+</div>
+<br/>
+<br/>
+

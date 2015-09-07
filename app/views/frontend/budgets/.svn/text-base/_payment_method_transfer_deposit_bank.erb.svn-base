@@ -1,0 +1,27 @@
+    <div class="subc c25l">
+      <%= image_tag "buttons/mercantil_transfer_deposit_bank.png" %>
+    </div>
+    <div class="subc c70r">
+      <h2>Transferencias o depósitos</h2>
+      <p class="note">Transferencias o depósitos a la cuenta xxxx-xxxx-xx-xxxxxxxx del Banco Mercantil.</p>
+      <fieldset id="mercantil_transfer_deposit_bank" class="hidden form">
+        <legend>Ingrese los datos de la transferencia o deposito:</legend>
+        <%= f.radio_button :payment_method_type_id,"2",{:class => "hidden"} %>
+        <ul>
+          <li>
+            <p>
+
+              <%= f.label :transaction_number, f.object.class.human_attribute_name('transaction_number')  %>
+              <%= f.text_field :transaction_number %>
+            </p>
+          </li>
+          <li>
+            <p>
+              <%= f.label :transaction_date, f.object.class.human_attribute_name('transaction_date')  %>
+              <%= f.text_field :transaction_date %>
+            </p>
+          </li>
+
+        </ul>
+      </fieldset>
+    </div>

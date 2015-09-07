@@ -1,0 +1,5 @@
+if @success
+  page.redirect_to(backend_budget_edit_quantity_url(@budget))
+else
+  page.alert("No es posible procesar su solicitud")
+end

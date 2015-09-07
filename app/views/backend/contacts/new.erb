@@ -1,0 +1,13 @@
+
+<% semantic_form_remote_for @contact, :url => backend_contacts_url do |f| %>
+        <div class="top-actions">
+            <%= link_to "Cancelar", backend_contacts_url %>&nbsp;&nbsp;|
+            <%= submit_tag "Guardar",:class => "button" %>
+        </div>
+      <%= render :partial => "form",:locals => {:f => f} %>
+<% end %>
+<script type="text/javascript">
+  $(document).ready(function(){
+    
+  });
+</script>

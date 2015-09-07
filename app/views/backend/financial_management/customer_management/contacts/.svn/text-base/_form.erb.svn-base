@@ -1,0 +1,51 @@
+<div id="" class="content_form">
+    <% f.inputs "Datos generales" do %>
+		 <div class="subc c20l">
+			<% f.inputs do  %>
+				<%= f.input :salulation,:input_html  => {}%>
+			<% end %>
+		  </div>
+		  <div class="subc c30l">
+			 <% f.inputs do  %>
+				<%= f.input :first_name,:label => true,:input_html  => {:class => "",:placeholder => "",:size => 20}%>
+			 <% end %>
+		  </div>
+		  <div class="subc c30r">
+			 <% f.inputs do  %>
+				  <%= f.input :last_name,:label => true,:input_html  => {:class => "",:placeholder => "",:size => 20}%>
+			 <% end %>
+		  </div>
+		<br/>
+		<hr/>
+		<div class="subc c50l">
+		  <% f.inputs do  %>
+			 <%= f.input :title,:input_html => {} %>
+			 <%= f.input :department,:input_html => {} %>
+			 <%= f.input :crm_account,:input_html => {:class => ""} %>
+			 <%= f.input :principal_email,:input_html => {:class => ""} %>
+			 <hr/>
+			 <%= f.input :primary_address,:input_html => {} %>
+			 
+		<% end %>
+		</div>
+		<div class="subc c50r">
+		  <% f.inputs do  %>
+			 <%= f.input :cellphone,:input_html => {:class => "phone"} %>
+			 <%= f.input :office_phone,:input_html => {:class => "phone"} %>
+			 <%= f.input :fax,:input_html => {:class => "phone"} %>
+			 <%= f.input :alternative_email,:input_html => {:class => ""} %>
+			 <hr/>
+			 <%= f.input :do_not_call,:input_html => {} %>
+			 
+		  <% end %>
+		</div>
+	 <% end %>
+
+  <% f.inputs :class => "" do %>
+	 <%= f.input :description,:input_html => {} %>
+	 <%= f.input :report_to,:input_html => {} %>
+	 <%= f.input :crm_lead_source,:input_html => {} %>
+	 <%= f.input :assigned_to,:input_html => {} %>
+  <% end %>
+  
+</div>

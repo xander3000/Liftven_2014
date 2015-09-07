@@ -1,0 +1,65 @@
+<div id="container"></div>
+
+
+<script type="text/javascript">
+  $(function () {
+    var chart;
+    $(document).ready(function() {
+       <%=
+          last_months = Time.now.months_since_to_now(6).inspect
+          
+        %>
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'container',
+                type: 'column'
+            },
+            title: {
+                text: 'Inventario vs Facturación'
+            },
+            xAxis: {
+                categories: <%= last_months%>
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Total comprado al mes (%)'
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                backgroundColor: '#FFFFFF',
+                align: 'left',
+                verticalAlign: 'top',
+                x: 100,
+                y: 70,
+                floating: true,
+                shadow: true
+            },
+            tooltip: {
+                formatter: function() {
+                    return ''+
+                        this.series.name +': '+ this.y +' ('+ Math.round(this.percentage) +'%)';
+                }
+            },
+            plotOptions: {
+                column: {
+                     stacking: 'percent'
+                }
+            },
+                series: [{
+                name: 'Total Facturado',
+                data: [255.9, 96.5, 106.4, 199.2, 144.0, 276.0, 169.6]
+
+            }, {
+                name: 'Comprado en inventario',
+                data: [44.6, 14.8, 8.5, 3.4, 2.0, 2.0, 10.0]
+
+            }]
+        });
+    });
+
+});
+</script>
+
+

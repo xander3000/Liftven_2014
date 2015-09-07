@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/1274/trunk/Venom/app/helpers/backend/accountancy
+END
+accounting_concepts_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/593/trunk/Venom/app/helpers/backend/accountancy/accounting_concepts_helper.rb
+END
+accountant_accounts_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/592/trunk/Venom/app/helpers/backend/accountancy/accountant_accounts_helper.rb
+END
+basic_config_accounting_concepts_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/1274/trunk/Venom/app/helpers/backend/accountancy/basic_config_accounting_concepts_helper.rb
+END

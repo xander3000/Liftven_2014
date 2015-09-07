@@ -1,0 +1,83 @@
+<div id="container"></div>
+
+
+<script type="text/javascript">
+  $(function () {
+    var chart;
+    $(document).ready(function() {
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'container',
+                type: 'bar'
+            },
+            title: {
+                text: 'Resumen de facturación provedores por mes'
+            },
+            xAxis: {
+              categories: <%= Supplier.all.map(&:name).uniq.inspect %>,
+                title: {
+                    text: null
+                }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Population (millions)',
+                    align: 'high'
+                },
+                labels: {
+                    overflow: 'justify'
+                }
+            },
+            tooltip: {
+                formatter: function() {
+                    return ''+
+                        this.series.name +': '+ this.y +' millions';
+                }
+            },
+            plotOptions: {
+                bar: {
+                    dataLabels: {
+                        enabled: true
+                    }
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'top',
+                x: -100,
+                y: 100,
+                floating: true,
+                borderWidth: 1,
+                backgroundColor: '#FFFFFF',
+                shadow: true
+            },
+            credits: {
+                enabled: false
+            },
+            series: [{
+                name: 'Agosto',
+                data: [1535.5,15.5, 635.00]
+            }, {
+                name: 'Septiembre',
+                data: [133, 156, 947]
+            }, {
+                name: 'Octubre',
+                data: [973, 914, 54]
+            }, {
+                name: 'Noviembre',
+                data: [203, 2, 408]
+            }, {
+                name: 'Diciembre',
+                data: [0, 0, 0]
+            }]
+        });
+    });
+
+
+
+});
+</script>
+
+

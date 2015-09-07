@@ -1,0 +1,87 @@
+<%
+  sub_total = 0
+  total = 0
+  tax =  AppConfig.tax
+  
+%>
+
+<% @product_by_credit_notes.each do |item| %>
+  <%
+    sub_total += item.total_price
+  %>
+  <tr class="item odd">
+      <td class="code center">
+        <%= item.product.reference_code %>
+      </td>
+      <td class="quantity center">
+        <%= item.quantity %>
+      </td>
+      <td class="description">
+        <%= item.product.name %>
+      </td>
+      <td class="dimensions center">
+        <%= item.side_dimension_x %>
+        X
+        <%= item.side_dimension_y %>
+      </td>
+      <td class="unit_price right">
+       <%= number_to_currency(item.unit_price, :delimiter => ".", :separator => ",", :unit => "Bs") %>
+      </td>
+      <td  class="total_price right">
+        <%= item.total_price %>
+      </td>
+      <td class="actions center">
+		  <%= link_to_remote image_tag("icons/delete.png"),:url => remove_product_backend_credit_notes_url,:with => "'id_temporal='+#{item.id_temporal}",:confirm => "¿Esta seguro de remover este elemento de lista <<#{item.id_temporal}-#{item.product.name}>>?"  if(@credit_note.nil? or   @credit_note.new_record? or @credit_note.nil?)%>
+		</td>
+     
+    </tr>
+<% end if @product_by_credit_notes %>
+   <tr id="footer_total" class="right border-top">
+	<td id="sub-total" colspan="5">
+      SUB-TOTAL
+    </td>
+    <td class="no-border-right">
+      <%= number_to_currency(sub_total, :delimiter => ".", :separator => ",", :unit => "") %>
+      <%= hidden_field_tag "sub_total_f",sub_total %>
+    </td>
+
+  </tr>
+  <tr class="right">
+    <td colspan="5">
+      GASTOS ADMINISTRATIVOS
+    </td>
+    <td class="no-border-right right">
+		<%  if(@credit_note.nil? or  @credit_note.new_record? or @credit_note.nil?) %>
+		  <%= text_field(:credit_note,:administrative_expenses,:class => "right",:style => "width:25px") %>%
+		<% else %>
+		  <%= number_to_currency(@credit_note.administrative_expenses, :delimiter => ".", :separator => ",", :unit => "%") %>
+		<% end %>
+    </td>
+
+  </tr>
+  <tr class="right">
+    <td colspan="5">
+      TOTAL
+    </td>
+    <td id="total" class="no-border-right right">
+      <% total = sub_total  %>
+      <span> <%= number_to_currency(total, :delimiter => ".", :separator => ",", :unit => "Bs") %></span>
+      <%= hidden_field_tag "total_f",total %>
+      <%= hidden_field_tag "total_ft",total %>
+    </td>
+
+  </tr>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $("#credit_note_administrative_expenses").blur(function () {
+        administrative_expenses = $("#total_f").val()*$(this).val()/100;
+        total = parseFloat($("#total_f").val())-administrative_expenses;
+        
+        $("#total_f").val(total);
+        $("#total_ft").val(total);
+        $("#total_ft").formatCurrency({symbol: ' Bs ', region: 'es-ES'});
+        $("#total span").html($("#total_ft").val());
+     });
+    });
+  </script>

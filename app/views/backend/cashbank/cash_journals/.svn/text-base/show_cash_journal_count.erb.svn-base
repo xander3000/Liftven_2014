@@ -1,0 +1,102 @@
+<div class="actionsBar right no-print">
+  <%= link_to(image_tag("icons/printer.png"),backend_cashbank_cash_journal_show_cash_journal_count_url(@cash_journal,@cash_journal_count,"pdf"),:class => "button") %>
+</div>
+<div class="">
+  <div class=" center">
+	 <p>
+		<b>CUADRE Y ARQUEO DE CAJA MENOR Nº <%= format_code(@cash_journal_count.id, "05") %> (<%= @cash_journal_count.date  %>) </b> <br/>
+		<%= l @cash_journal_count.created_at,:format => :long%>
+	 </p>
+  </div>
+  <hr/>
+  <div>
+    <table frame="border" rules="cols" >
+      <thead>
+        <tr>
+          <th class="material">
+            <%= CashBank::CashJournalPosition.human_attribute_name(:id)%>
+          </th>
+          <th class="material">
+            <%= CashBank::CashJournalPosition.human_attribute_name(:cash_bank_cash_journal_position_category_type)%>
+          </th>
+          <th class="material">
+            <%= CashBank::CashJournalPosition.human_attribute_name(:cash_bank_cash_journal_position_concept_type)%>
+          </th>
+          <th class="quantity">
+            <%= CashBank::CashJournalPosition.human_attribute_name(:total)%>
+          </th>
+			 <th colspan="" class="">
+            <%= CashBank::CashJournalPosition.human_attribute_name(:invoice_tenderer)%>
+          </th>
+          <th colspan="" class="">
+            <%= CashBank::CashJournalPosition.human_attribute_name(:invoice_date)%>
+          </th>
+          <th class="unit_price">
+            <%= CashBank::CashJournalPosition.human_attribute_name(:is_fiscal)%>
+          </th>
+          <th colspan="2" class="">
+            <%= CashBank::CashJournalPosition.human_attribute_name(:invoice_reference)%>
+          </th>
+
+        </tr>
+      </thead>
+      <tbody id="items">
+          <% @cash_journal_count.cash_bank_cash_count_positions.each do |position| %>
+
+          <tr>
+            <td>
+                  <%= position.id.to_code %>
+            </td>
+            <td>
+                   <%= position.cash_bank_cash_journal_position_category_type.name %>
+            </td>
+            <td>
+                   <%= position.cash_bank_cash_journal_position_concept_type.name %>
+            </td>
+            <td>
+                   <%= position.total %>
+            </td>
+            <td>
+                   <%= position.invoice_tenderer.name %>
+            </td>
+            <td>
+                   <%= position.invoice_date  %>
+            </td>
+            <td>
+                   <%= position.is_fiscal ? "Sì" : "No" %>
+            </td>
+           
+
+            <td>
+                   <%= position.invoice_reference  %>
+            </td>
+
+          </tr>
+          <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div>
+
+	 <div id="detail_daily_cash_closing">
+		<div class="c45l subc" >
+		  <%= render :partial => "show_cash_journal_positions_resume" %>
+		</div>
+		<div class="c45r subc">
+		  <%= render :partial => "show_cash_journal_count_positions" %>
+		</div>
+		<hr/>
+		<div class="c45l subc" style="">
+		  <%#= render :partial => "show_daily_cash_closing_check_others" %>
+		</div>
+		<div class="c45r subc">
+		  <%= render :partial => "show_cash_journal_count_resume" %>
+		</div>
+	 </div>
+
+		<hr/>
+  </div>
+</div>
+<div class="actionsBar right no-print">
+  <%= link_to(image_tag("icons/printer.png"),backend_cashbank_cash_journal_show_cash_journal_count_url(@cash_journal,@cash_journal_count,"pdf"),:class => "button") %>
+</div>

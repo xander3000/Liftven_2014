@@ -1,0 +1,27 @@
+<h2 class="StepTitle">Paso 4: Confirma el diseño</h2>
+   <div>
+    <div id="model_design_preview_f" class="subc c50l content_model_design_preview">
+          <%= render :partial => "#{controller.controller_path}/templates/template_1/preview" %>
+    </div>
+  </div>
+
+
+<script type="text/javascript">
+      $(document).ready(function() {
+        inputs_designs = "#model_design_info :text,#model_design_info textarea";
+        <%
+           if !current_session_wizard_step.empty? and !current_session_wizard_step["step_3"].nil?
+           labels_design = current_session_wizard_step["step_3"][:value]
+         %>
+          url = $.url('<%= "#{preview_frontend_designs_url}?#{labels_design}" %>');
+
+          $(inputs_designs).each(function (index, domEle) {
+            value = decodeURIComponent(url.param($(this).attr("name")));
+            value = value.replace(/\+/gi, " ");
+            item_preview = $(this).attr("id").replace('label_', "");
+            $("."+item_preview).html(value);
+          });
+        <% end %>
+
+      });
+</script>

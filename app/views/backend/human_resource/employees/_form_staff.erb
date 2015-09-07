@@ -1,0 +1,39 @@
+
+<div id="" class="content_form">
+  <%  semantic_fields_for @payroll_staff do |s| %>
+    <% s.inputs "Datos del personal" do %>
+                <%= s.input :contact_fullname,:as => :hidden %>
+                <%= s.input :identification_document,:input_html  => {:size => 15,:class => "cedula",:title => "V-xxxxxxxxx, completar con ceros (0)"}%>
+		<%= s.input :first_name,:input_html => {:size => 35} %>
+		<%= s.input :second_name,:input_html => {:size => 35} %>
+		<%= s.input :last_name,:input_html => {:size => 35}%>
+		<%= s.input :second_last_name,:input_html => {:size => 35}%>
+		
+		<hr/>
+		<%= s.input :rif,:input_html  => {:readonly => true,:size => 15,:title => "V-xxxxxxxxx, completar con ceros (0)"}%>
+		<hr/>
+		<%= s.input :cellphone,:input_html => {:size => 25,:class => "phone"} %>
+		<%= s.input :telephone,:input_html => {:size => 25,:class => "phone"} %>
+		<%= s.input :email,:input_html => {:size => 25} %>
+		<%= s.input :birthday,:input_html => {:size => 15} %>
+		<%= s.input :payroll_gender,:input_html => {} %>
+    <% end %>
+  <% end %>
+
+</div>
+
+<script type="text/javascript">
+  			$("#payroll_staff_birthday").datepicker({
+          changeMonth: true,
+			 changeYear:true,
+          dateFormat: 'yy-mm-dd',
+			 yearRange: '-65:-18'
+        }).attr("readonly",true);
+
+		   $(document).ready(function(){ // Script del Navegador
+			 		   
+
+
+			});
+
+</script>

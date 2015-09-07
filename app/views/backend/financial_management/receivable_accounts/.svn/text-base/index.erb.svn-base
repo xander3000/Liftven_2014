@@ -1,0 +1,122 @@
+<div>
+  <div id="content_info_voucher">
+	 <div class="subc c55l">
+		<div class="">
+		  <h2><%= COMPANY_NAME.upcase %></h2>
+		  <b><%= COMPANY_IDENTIFICATION_DOCUMENT.upcase %></b><br/>
+		</div>
+	 </div>
+	 <div class="subc c40r left">
+		<div class="">
+		  <h2>DETALLE DE CUENTAS POR COBRAR</h2>
+		  <b>Hasta la fecha <%= l Time.now  %></b>
+		</div>
+	 </div>
+	 <br/>
+	 <hr/>
+
+
+	 <table class="no-border">
+		<thead>
+		  <tr>
+			 <th class="left">Referencia</th>
+			 <th class="left">Cuenta</th>
+			 <th class="left">Saldo</th>
+			 <th class="center">Detalle de la cuenta</th>
+			 <th class="center">F. documento</th>
+			 <th class="center">F. expiración</th>
+			 <th class="center">Plazo a la fecha</th>
+		  </tr>
+		</thead>
+		<tbody class="">
+				<%
+					total_g = 0.0
+					total_current_g = 0.0
+					total_expired_g = 0.0
+					@receivable_accounts.each do |receivable_account_client|
+					total = 0.0
+					total_current = 0.0
+					total_expired = 0.0
+
+				%>
+				<tr>
+				  <td colspan="7"><b><%= "#{receivable_account_client.client.identification_document} - #{receivable_account_client.client.name}"%></b></td>
+				 </tr>
+				 <%
+					 receivable_account_client.client.accounting_paid_receivable_accounts.each do |receivable_account|
+					total += receivable_account.balance
+					total_g += receivable_account.balance
+					expiration = receivable_account.expiration_days
+					 if expiration > 0
+					 	  total_current += receivable_account.balance
+						  total_current_g += receivable_account.balance
+					 else
+						total_expired += receivable_account.balance
+						total_expired_g += receivable_account.balance
+					 end
+
+				 %>
+
+
+				<tr>
+				  <td class="center"><%= receivable_account.code%> </td>
+				  <td class="center"><%= receivable_account.doc.code%> </td>
+				  <td class="right <%= expiration > 0 ? '' : 'red' %>"><%= receivable_account.balance.to_currency  %></td>
+				  <td class="center"><%= receivable_account.note %></td>
+				  <td class="center"><%= l receivable_account.date_doc.to_date %> </td>
+				  <td class="center"><%= l receivable_account.date_doc_expiration.to_date %> </td>
+				  <td class="center"><%= receivable_account.expiration_days(true)  %></td>
+				  <%
+
+				  %>
+				</tr>
+				<% end %>
+
+				<tr>
+				  <td colspan="2" class="center">
+					 Total por pagar:
+				  </td>
+				  <td class="center border-top" style="border-top: 1px solid #D2D2D2;">
+						<%= total.to_currency %>
+				  </td>
+				  <td class="center ">
+					 Con plazo:
+				  </td>
+				  <td class="center border-top" style="border-top: 1px solid #D2D2D2;">
+					 <%= total_current.to_currency %>
+				  </td>
+				  <td class="center">
+					 Vencida:
+				  </td>
+				  <td class="center border-top" style="border-top: 1px solid #D2D2D2;">
+					 <%= total_expired.to_currency %>
+				  </td>
+				</tr>
+			 <% end %>
+
+				<tr class="border-top">
+				  <td colspan="2" class="center">
+					 <b>por pagar:</b>
+				  </td>
+				  <td class="center border-top" style="border-top: 1px solid #D2D2D2;">
+					 <b><%= total_g.to_currency %></b>
+				  </td>
+				  <td class="center ">
+					 <b>Con plazo:</b>
+				  </td>
+				  <td class="center border-top" style="border-top: 1px solid #D2D2D2;">
+					 <b><%= total_current_g.to_currency %></b>
+				  </td>
+				  <td class="center">
+					 <b>Vencida:</b>
+				  </td>
+				  <td class="center border-top" style="border-top: 1px solid #D2D2D2;">
+					 <b><%= total_expired_g.to_currency %></b>
+				  </td>
+				</tr>
+		</tbody>
+	 </table>
+
+
+  </div>
+</div>

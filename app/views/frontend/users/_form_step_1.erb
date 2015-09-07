@@ -1,0 +1,22 @@
+<h2 class="StepTitle">Información de la cuenta</h2>
+
+<fieldset>
+  
+  <p>
+    <%= f.label :login, "Correo Electrónico" %>
+    <%= f.text_field :login %>
+    <span id="msg_username" class="error"></span>
+  </p>
+  <div id="password-credentials">
+    <p>
+      <%= f.label :password, @user.class.human_attribute_name('password') %>
+      <%= f.password_field :password %>
+      <span id="msg_password" class="error"></span>
+    </p>
+    <p class="last-child">
+      <%= f.label :password_confirmation, @user.class.human_attribute_name('password_confirmation') %>
+      <%= f.password_field :password_confirmation %>
+      <span id="msg_cpassword" class="error"></span>
+    </p>
+  </div>
+</fieldset>

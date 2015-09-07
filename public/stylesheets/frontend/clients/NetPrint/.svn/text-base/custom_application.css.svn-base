@@ -1,0 +1,4 @@
+#venom-universal-nav li#venom-home a{
+	background: url("/images/clients/NetPrint/logos/logo7.png") no-repeat scroll 0 0 transparent;
+}
+

@@ -1,0 +1,9 @@
+
+<div class="right">
+  <p>
+		
+		<i>Elaborado por: &nbsp;</i>
+		<b><%= @cash_journal_count.responsible.name %> </b><br/>
+  </p>
+</div>
+		

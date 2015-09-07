@@ -1,0 +1,15 @@
+page.hide "item_product_form"
+page.replace_html "items", :text => ""
+page << "$('#form_retention .like_input').html('')"
+page << "$('#form_retention input.reset').val('0')"
+page.hide "cash_bank_bank_movement_reference_document_id_input"
+if @involvement_type
+		if @involvement_type.require_commitment?
+			page.show "item_product_form"
+			page << "$('#cash_bank_bank_movement_position_description').val($('#cash_bank_bank_movement_description').val())"
+		else
+			page << "$('#cash_bank_bank_movement_reference_document_id').val('')"
+			page.show "cash_bank_bank_movement_reference_document_id_input"
+		end
+end
+

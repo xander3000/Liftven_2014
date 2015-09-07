@@ -1,0 +1,11 @@
+page << "$('#form_retention .like_input').html('')"
+page << "$('#form_retention input.reset').val('0')"
+
+if @success
+	page << "$('#cash_bank_bank_movement_amount,#subtotal_price_amount').val('#{@total_price}')"
+	page << "$('#total_price_currency,.amount_subject_retention, #subtotal_price_currency').html('#{@total_price.to_currency(false)}')"
+	page << "$('#item_product_form input, #item_product_form select').val('')"
+	page.replace_html "items", :partial => "items"
+else
+		page.show_errors([@bank_movement_position], "message_overlay", nil)
+end

@@ -1,0 +1,37 @@
+
+<div class="form_items_body">
+  <table frame="border" rules="cols" >
+	 <caption>
+		<b>Extracto Bancario</b>
+	 </caption>
+	     <thead>
+      <tr>
+        <th class="">
+          <%= CashBank::BankReconciliationBankStatement.human_attribute_name(:date)%>
+        </th>
+        <th class="">
+          <%= CashBank::BankReconciliationBankStatement.human_attribute_name(:reference)%>
+        </th>
+		  <th class="">
+          <%= CashBank::BankReconciliationBankStatement.human_attribute_name(:description)%>
+        </th>
+		  <th class="unit_price">
+          <%= CashBank::BankReconciliationBankStatement.human_attribute_name(:debit_amount)%>
+        </th>
+        <th class="unit_price">
+          <%= CashBank::BankReconciliationBankStatement.human_attribute_name(:credit_amount)%>
+        </th>
+		  <th class="unit_price">
+          <%= CashBank::BankReconciliationBankStatement.human_attribute_name(:balance)%>
+        </th>
+		  <th class="">
+          <%= CashBank::BankReconciliationBankStatement.human_attribute_name(:movement_operation)%>
+        </th>
+      </tr>
+    </thead>
+	  <tbody id="items_r">
+      <%= render :partial => "items_r" %>
+    </tbody>
+  </table>
+</div>
+

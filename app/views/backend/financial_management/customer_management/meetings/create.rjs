@@ -1,0 +1,6 @@
+if @success
+	page.redirect_to  backend_financial_management_customer_management_meeting_url(@meeting)
+else
+	page.show_errors([@meeting], "message_overlay", nil)
+end
+

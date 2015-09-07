@@ -1,0 +1,44 @@
+<%= include_javascript("jquery.dataTables.min.js") %>
+<%= include_stylesheet("jquery.datatable.css") %>
+<div class="actionsBar right no-print">
+  <%= link_to(image_tag("icons/arrow_left.png"),backend_cpanel_home_index_url,:class => "button",:title => "Regresar") %>
+  |
+  <%= link_to(image_tag("icons/add.png"),new_backend_cpanel_role_url,:class => "button") %>
+</div>
+<hr/>
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="roles" width="100%">
+	<thead>
+		<tr>
+                  <th><%= Security::Role.human_attribute_name("id")%> </th>
+                   <th><%= Security::Role.human_attribute_name("name")%> </th>
+                   <th><%= Security::Role.human_attribute_name("tag_name")%> </th>
+                   <th><%= Security::Role.human_attribute_name("note")%> </th>
+		</tr>
+	</thead>
+	<tbody>
+	  <% @roles.each do |role|  %>
+
+		 <tr onclick="window.location.href='<%= backend_cpanel_role_url(role) %>'">
+				<td class="left"><%= role.id.to_code %> </td>
+				<td class="left"><%= role.name %> </td>
+				<td class="left"><%= role.tag_name %></td>
+				<td class="left"><%= role.note %></td>
+		  </tr>
+		<% end %>
+	</tbody>
+</table>
+
+
+
+<script type="text/javascript">
+  var oTable;
+
+  $(document).ready(function() {
+		oTable =  $('#roles').dataTable({
+            oLanguage: {
+                sUrl: "/javascripts/i18n/jquery.DataTables-es.txt"
+            }
+        });
+  });
+
+</script>

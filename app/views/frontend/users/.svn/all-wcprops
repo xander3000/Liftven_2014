@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/511/trunk/Venom/app/views/frontend/users
+END
+_show_1.erb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/343/trunk/Venom/app/views/frontend/users/_show_1.erb
+END
+_show_2.erb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/343/trunk/Venom/app/views/frontend/users/_show_2.erb
+END
+_form.erb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/511/trunk/Venom/app/views/frontend/users/_form.erb
+END
+index.erb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/337/trunk/Venom/app/views/frontend/users/index.erb
+END
+_form_step_1.erb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/337/trunk/Venom/app/views/frontend/users/_form_step_1.erb
+END
+_user_account_leadspaces.erb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/343/trunk/Venom/app/views/frontend/users/_user_account_leadspaces.erb
+END
+_form_step_2.erb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/337/trunk/Venom/app/views/frontend/users/_form_step_2.erb
+END
+_form_step_3.erb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/337/trunk/Venom/app/views/frontend/users/_form_step_3.erb
+END
+_form_step_4.erb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/337/trunk/Venom/app/views/frontend/users/_form_step_4.erb
+END
+show.erb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/343/trunk/Venom/app/views/frontend/users/show.erb
+END
+_form_1.erb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/337/trunk/Venom/app/views/frontend/users/_form_1.erb
+END
+_form_2.erb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/337/trunk/Venom/app/views/frontend/users/_form_2.erb
+END
+_users_leadspaces.erb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/337/trunk/Venom/app/views/frontend/users/_users_leadspaces.erb
+END
+create.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/337/trunk/Venom/app/views/frontend/users/create.rjs
+END
+new.erb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/337/trunk/Venom/app/views/frontend/users/new.erb
+END

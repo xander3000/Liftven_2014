@@ -1,0 +1,66 @@
+<%= include_javascript("jquery-ui-timepicker-addon.js") %>
+
+<div id="" class="content_form">
+	 <% f.inputs "Datos de cabecera",:id => "" do  %>
+		<%= f.input :employee_name,:label => false,:input_html => {:size => 30,:placeholder => "Nombre del empleado",:class => "top"} %>
+		<%= f.input :payroll_employee,:wrapper_html => {:class => "hidden"},:input_html => {} %>
+		<%= f.input :date,:input_html => {} %>
+		<%= f.input :time_check_in,:input_html => {} %>
+		<%= f.input :time_check_out,:input_html => {} %>
+		<hr/>
+		<%= f.input :absent_with_pass,:input_html => {} %>
+		<%= f.input :retardation_with_pass,:input_html => {} %>
+		<hr/>
+		<%= f.input :extra_time,:input_html => {:size => 6,:class => "right"} %>
+		
+		<hr/>
+	 <% end %>
+  </div>
+
+
+<script type="text/javascript">
+
+
+
+
+  function action_after_complete_for_employees(item){
+
+    switch (item.code_response) {
+        case ("ok"):
+			 
+            $("#payroll_monitoring_assistance_payroll_employee_id").val(item.id);
+            break;
+        case ("no-ok"):
+            alert('no-ok');
+            break;
+        default:
+            alert('problemas buscando');
+    }
+  }
+
+		$(document).ready(function(){
+
+
+
+		  $("#payroll_monitoring_assistance_employee_name").autocomplete({
+			  source: "<%= autocomplete_by_name_backend_human_resource_employees_url %>",
+			  minLength: 3,
+			  select: function( event, ui ) {
+				 if(ui.item)
+					 action_after_complete_for_employees(ui.item);
+			  }
+		  });
+
+          $("#payroll_monitoring_assistance_date").datepicker({
+            changeMonth: true,
+            dateFormat: 'yy-mm-dd',
+            minDate: "-15",
+            beforeShowDay: noWeekendsOrHolidays
+          });
+       $("#payroll_monitoring_assistance_time_check_in,#payroll_monitoring_assistance_time_check_out").timepicker({
+			 timeFormat: "hh:mm:ss"
+        });
+
+       
+	});
+</script>

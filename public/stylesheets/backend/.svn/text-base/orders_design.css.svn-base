@@ -1,0 +1,37 @@
+/* 
+    Document   : orders_design
+    Created on : 30/07/2011, 09:30:39 AM
+    Author     : gabriel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+
+#orders_container
+{
+    width: 95%;
+}
+
+#orders_container form fieldset.inputs label{
+    float: none;
+}
+
+#orders_container form textarea{
+    max-width: none;
+    width: 99%;
+    height: 170px;
+}
+
+#fileupload div.fileupload-buttonbar-detail{
+    padding: 0.8em 0.4em;
+}
+
+#fileupload div.fileupload-content table {
+    border: none;
+    width: auto;
+}
+

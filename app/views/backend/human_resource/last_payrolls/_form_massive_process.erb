@@ -1,0 +1,22 @@
+<% semantic_fields_for @payroll_regular_payroll_check do |f| %>
+  <% f.inputs "Datos de la nomina",:id => "" do  %>
+	 <%= f.input :payroll_personal_type,:input_html => {:onchange => remote_function(:url => search_next_payroll_by_personal_type_backend_human_resource_last_payrolls_url,:with => "$(this).serialize()")} %>
+	 <%= f.input :init_date,:input_html => {:size => 10,:readonly => true} %>
+	 <%= f.input :end_date,:input_html => {:size => 10,:readonly => true} %>
+	 <%= f.input :fortnight,:input_html => {:size => 1,:readonly => true} %>
+	 <%= f.input :process_date,:input_html => {:size => 10,:readonly => true} %>
+  <% end %>
+<% end %>
+<script type="text/javascript">
+    $(document).ready(function() {
+
+				<% if flash[:warning] %>
+              $.notifyBar({
+                html: "<%= flash[:warning] %>",
+                delay: 3000,
+                animationSpeed: "normal",
+                cls: "warning"
+              });
+            <% end %>
+	 });
+</script>

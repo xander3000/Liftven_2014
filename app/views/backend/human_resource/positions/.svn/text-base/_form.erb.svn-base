@@ -1,0 +1,9 @@
+<div id="" class="content_form">
+  
+    <% f.inputs "Datos generales" do %>
+		  <%= f.input :name,:input_html => {:class => "top",:placeholder => "Ingrese el nombre corto del cargo"} %>
+        <%= f.input :full_name,:input_html => {:placeholder => "Ingrese el un descriptivo mas detallado del cargo"} %>
+        <%= f.input :payroll_position_type,:input_html => {} %>
+  <% end %>
+
+</div>

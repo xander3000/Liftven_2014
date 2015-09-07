@@ -1,0 +1,14 @@
+page << "$('#packing_material_name, #presentation_unit_type_name, #content_conversions, #packing_material_name').remove();"
+if @packing_material
+  #page << "$('#tab-2').show('slow')"
+  #page << "$('#tab-2 a').highlightFade('#FAEE8D')"
+  #page << "$('#inventory_quantity').after('<b id=\"presentation_unit_type_name\"> X #{@packing_material.quantity} #{@packing_material.presentation_unit_type.name}</b>');"
+#  page << "$('#inventory_quantity').attr('title','Expresado en #{@packing_material.name}');"
+#  page << "$('#inventory_quantity').after('<b id=\"packing_material_name\"> #{@packing_material.name}</b>');"
+  #@render_string_conversions = "<br/><label>dsdsd</label>"
+  @render_string_conversions = escape_javascript render :partial => "shared/backend/layouts/conversions", :layout => false,:locals => {:packing_material => @packing_material}
+  page << "$('#raw_material_packing_material_input').append('#{@render_string_conversions}')"
+#else
+#  page << "$('#tab-2').hide();"
+end
+

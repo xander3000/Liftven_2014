@@ -1,0 +1,23 @@
+<% content_for :aditional_options_menunav do %>
+  <%= render  "#{controller.controller_path}/aditional_options_menunav/show" %>
+<% end %>
+
+<div class="actionsBar right no-print">
+  <%= link_to(image_tag("icons/arrow_left.png"),backend_material_management_purchase_requisition_url(@purchase_requisition),:class => "button",:title => "Regresar") %>
+</div>
+<div>
+  <% semantic_form_remote_for @purchase_requisition, :update => "#{controller.controller_name}_container",:url => backend_material_management_purchase_requisition_approve_process_url(@purchase_requisition),:html => {:class => "form_generate",:method => :post} do |f| %>
+        <%= render :partial => "approve_form",:locals => {:f => f} %>
+  <%= link_to_function "APROBAR","generate()", :disable_with => "Por favor espere...",:id => "contable_document-button",:class => "button" %>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+        function generate()
+        {
+          result = confirm("¿Esta seguro de ejecutar esta acción?")
+          if (result)
+            $(".form_generate").submit();
+        }
+
+</script>

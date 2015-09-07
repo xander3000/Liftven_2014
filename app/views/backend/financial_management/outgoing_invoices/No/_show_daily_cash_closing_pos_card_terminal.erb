@@ -1,0 +1,51 @@
+<p><b class="border-bottom">Puntos de Ventas</b></p>
+  <div>
+		<table>
+				<thead>
+				  <tr>
+					 <th>Terminal</th>
+					 <th>Total TDC</th>
+					 <th>Total TDD</th>
+					 <th>Nº Lote</th>
+				  </tr>
+				</thead>
+				<tbody>
+				<% @consolidate_pos_card_terminal_positions.each do |consolidate_pos_card_terminal_position,item|  %>
+				  <tr class="border-bottom">
+					 <td class="center">
+						<%= item[:name] %>
+					 </td>
+					 <td class="center">
+						<%= number_to_currency(item[:values]["credit_total"] ? item[:values]["credit_total"] : "-", :delimiter => ".", :separator => ",", :unit => "") %>
+					 </td>
+					 <td class="center">
+						<%= number_to_currency(item[:values]["debit_total"] ? item[:values]["debit_total"] : "-", :delimiter => ".", :separator => ",", :unit => "") %>
+					 </td>
+						<td class="center">
+						  <%= item[:values]["lot_number"] ? item[:values]["lot_number"] : "-" %>
+					 </td>
+				  </tr>
+				<% end %>
+				</tbody>
+		</table>
+
+	 <div class="right ">
+			 <p>
+				  <i>Total: </i>
+				  <b><%= number_to_currency(@cash_bank_pos_card_terminal_movement.total_amount_credit_debit, :delimiter => ".", :separator => ",", :unit => "") %></b>
+				  <br/>
+				<i>Diferencia: </i>
+				<b class="<%= @cash_bank_pos_card_terminal_movement.diference_amount_credit_debit >= 0 ? "green" : "red" %>"><%= number_to_currency(@cash_bank_pos_card_terminal_movement.diference_amount_credit_debit, :delimiter => ".", :separator => ",", :unit => "") %></b>
+			  </p>
+
+				<i>Ventas por caja <%= @daily_cash_closing.cash_bank_cash.name %> : </i>
+				<b class=""><%= number_to_currency(@daily_cash_closing.total_amount_debit_fiscal + @daily_cash_closing.total_amount_credit_fiscal, :delimiter => ".", :separator => ",", :unit => "") %></b>
+			 <br/>
+				<i>Ventas por Forma Libre: </i>
+				<b class=""><%= number_to_currency(@daily_cash_closing.total_amount_debit_free_form + @daily_cash_closing.total_amount_credit_free_form, :delimiter => ".", :separator => ",", :unit => "") %></b>
+			 <br/>
+				<i>Anticipos por ordenes: </i>
+				<b class=""><%= number_to_currency(@daily_cash_closing.total_order_amount_debit_with_advance_payment + @daily_cash_closing.total_order_amount_credit_with_advance_payment, :delimiter => ".", :separator => ",", :unit => "") %></b>
+
+	 </div>
+</div>

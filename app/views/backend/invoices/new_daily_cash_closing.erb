@@ -1,0 +1,16 @@
+<div>
+  <% semantic_form_remote_for @daily_cash_closing, :update => "#{controller.controller_name}_container",:url => create_daily_cash_closing_backend_invoices_url,:html => {:class => "form_invoice_generate"} do |f| %>
+        <%= render :partial => "form_daily_cash_closing",:locals => {:f => f} %>
+  <%= link_to_function "CERRAR CAJA","invoiceGenerate()", :disable_with => "Por favor espere...",:id => "contable_document-button",:class => "button" %>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+        function invoiceGenerate()
+        {
+          result = confirm("¿Esta seguro de ejecutar esta acción?")
+          if (result)
+            $(".form_invoice_generate").submit();
+        }
+
+</script>

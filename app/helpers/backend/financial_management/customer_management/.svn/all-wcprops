@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/1120/trunk/Venom/app/helpers/backend/financial_management/customer_management
+END
+activities_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/1115/trunk/Venom/app/helpers/backend/financial_management/customer_management/activities_helper.rb
+END
+opportunities_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/1115/trunk/Venom/app/helpers/backend/financial_management/customer_management/opportunities_helper.rb
+END
+notes_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/1115/trunk/Venom/app/helpers/backend/financial_management/customer_management/notes_helper.rb
+END
+leads_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/1115/trunk/Venom/app/helpers/backend/financial_management/customer_management/leads_helper.rb
+END
+projects_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/1037/trunk/Venom/app/helpers/backend/financial_management/customer_management/projects_helper.rb
+END
+emails_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/1115/trunk/Venom/app/helpers/backend/financial_management/customer_management/emails_helper.rb
+END
+meetings_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/1115/trunk/Venom/app/helpers/backend/financial_management/customer_management/meetings_helper.rb
+END
+call_manager_registers_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/!svn/ver/1039/trunk/Venom/app/helpers/backend/financial_management/customer_management/call_manager_registers_helper.rb
+END
+calls_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/1115/trunk/Venom/app/helpers/backend/financial_management/customer_management/calls_helper.rb
+END
+contacts_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/1115/trunk/Venom/app/helpers/backend/financial_management/customer_management/contacts_helper.rb
+END
+accounts_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/1115/trunk/Venom/app/helpers/backend/financial_management/customer_management/accounts_helper.rb
+END
+contracts_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/1115/trunk/Venom/app/helpers/backend/financial_management/customer_management/contracts_helper.rb
+END
+quotes_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/1115/trunk/Venom/app/helpers/backend/financial_management/customer_management/quotes_helper.rb
+END
+lifts_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/1038/trunk/Venom/app/helpers/backend/financial_management/customer_management/lifts_helper.rb
+END

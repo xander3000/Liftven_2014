@@ -1,0 +1,91 @@
+<%
+    values_color = ValueQuarterSheetColorRawMaterial.only_values
+    values_black = ValueQuarterSheetBlackRawMaterial.only_values
+
+%>
+<style type="text/css">
+  tbody.value_quarter_sheet_raw_materials td {padding: 0.5em 0.19em;text-align: center}
+</style>
+<div>
+  <hr/>
+  <% semantic_fields_for @value_quarter_sheet_color_raw_material do |v| %>
+    <% v.inputs "Valor a color", :class => "border" do %>
+      <%= v.input :base_value,:input_html => {:size => 5,:class => "right"} %>
+      <table>
+            <thead>
+              <tr>
+                <% values_color.each do |item| %>
+                  <th colspan="2" style="border-right: 1px solid #D3D3D3">
+                    <%= item %>
+                  </th>
+                <% end %>
+              </tr>
+            </thead>
+            <tbody class="value_quarter_sheet_raw_materials">
+              <tr>
+                <% values_color.each do |item| %>
+                  <td>
+                    <span>T</span>
+                    <%= v.input "v_#{item}_t".to_sym,:label => false,:input_html => {:size => 2}  %>
+                  </td>
+                  <td style="border-right: 1px solid #D3D3D3">
+                    <span>T/R</span>
+                    <%= v.input "v_#{item}_tr".to_sym,:label => false,:input_html => {:size => 2}  %>
+                  </td>
+                <% end %>
+              </tr>
+            </tbody>
+        </table>
+        <br/>
+    <% end %>
+  <% end %>
+</div>
+<div>
+  <hr/>
+  <% semantic_fields_for @value_quarter_sheet_black_raw_material do |v| %>
+    <% v.inputs "Valor a negro", :class => "border" do %>
+      <%= v.input :base_value,:input_html => {:size => 5,:class => "right"} %>
+      <table>
+            <thead>
+              <tr>
+                <% values_black.each do |item| %>
+                  <th colspan="2" style="border-right: 1px solid #D3D3D3">
+                    <%= item %>
+                  </th>
+                <% end %>
+              </tr>
+            </thead>
+            <tbody class="value_quarter_sheet_raw_materials">
+              <tr>
+                <% values_black.each do |item| %>
+                  <td>
+                    <span>T</span>
+                    <%= v.input "v_#{item}_t".to_sym,:label => false,:input_html => {:size => 2}  %>
+                  </td>
+                  <td style="border-right: 1px solid #D3D3D3">
+                    <span>T/R</span>
+                    <%= v.input "v_#{item}_tr".to_sym,:label => false,:input_html => {:size => 2}  %>
+                  </td>
+                <% end %>
+              </tr>
+            </tbody>
+        </table>
+        <br/>
+    <% end %>
+  <% end %>
+</div>
+<div>
+  <hr/>
+  <% semantic_fields_for @value_quarter_sheet_white_raw_material do |v| %>
+    <% v.inputs "Valor a blanco", :class => "border" do %>
+      <%= v.input :base_value,:input_html => {:size => 5,:class => "right"} %>
+        <br/>
+    <% end %>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+
+	});
+</script>

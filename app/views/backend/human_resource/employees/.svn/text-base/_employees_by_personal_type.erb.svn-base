@@ -1,0 +1,3 @@
+<%  @employees.each do |employee_by_personal_type|%>
+      <%= render :partial => "item_by_personal_type",:locals => {:employee_by_personal_type => employee_by_personal_type}%>
+<% end %>

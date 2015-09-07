@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/1592/trunk/Venom/app/controllers/backend/human_resource
+END
+departments_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/1131/trunk/Venom/app/controllers/backend/human_resource/departments_controller.rb
+END
+positions_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/1130/trunk/Venom/app/controllers/backend/human_resource/positions_controller.rb
+END
+last_payrolls_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/1592/trunk/Venom/app/controllers/backend/human_resource/last_payrolls_controller.rb
+END
+base_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/831/trunk/Venom/app/controllers/backend/human_resource/base_controller.rb
+END
+concepts_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/824/trunk/Venom/app/controllers/backend/human_resource/concepts_controller.rb
+END
+employees_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/1556/trunk/Venom/app/controllers/backend/human_resource/employees_controller.rb
+END
+concept_personal_types_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/1424/trunk/Venom/app/controllers/backend/human_resource/concept_personal_types_controller.rb
+END
+monitoring_assistances_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/1164/trunk/Venom/app/controllers/backend/human_resource/monitoring_assistances_controller.rb
+END

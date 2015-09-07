@@ -1,0 +1,28 @@
+<%= render :partial => "form_header",:locals => {:f => f} %>
+<%= render :partial => "form_items",:locals => {:f => f} %>
+<br/>
+
+
+
+<script type="text/javascript">
+
+  function action_after_complete_for_raw_materials(item){
+    switch (item.code_response) {
+        case ("ok"):
+            $("#crm_projects_lift_material_for_manufacturing_phase_material_raw_material_id").val(item.id);
+				
+            break;
+        case ("no-ok"):
+            alert('no-ok');
+            break;
+        default:
+            alert('problemas buscando');
+    }
+  }
+
+
+	$(document).ready(function(){
+
+		  $("button, input:submit,input:button,a.button ").button();
+	});
+</script>

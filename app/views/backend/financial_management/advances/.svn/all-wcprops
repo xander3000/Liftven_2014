@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/1186/trunk/Venom/app/views/backend/financial_management/advances
+END
+new.erb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/1186/trunk/Venom/app/views/backend/financial_management/advances/new.erb
+END
+create.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/1090/trunk/Venom/app/views/backend/financial_management/advances/create.rjs
+END
+_form_header.erb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/1090/trunk/Venom/app/views/backend/financial_management/advances/_form_header.erb
+END
+set_balance_from_doc.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/1090/trunk/Venom/app/views/backend/financial_management/advances/set_balance_from_doc.rjs
+END
+_form.erb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/1173/trunk/Venom/app/views/backend/financial_management/advances/_form.erb
+END

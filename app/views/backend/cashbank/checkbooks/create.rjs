@@ -1,0 +1,6 @@
+if @success
+	page.redirect_to(backend_cashbank_checkbooks_url)
+else
+	page.show_errors([@checkbook], "message_overlay", nil)
+end
+

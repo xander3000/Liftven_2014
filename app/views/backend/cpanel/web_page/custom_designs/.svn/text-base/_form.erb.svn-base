@@ -1,0 +1,23 @@
+<div id="form_items" class="content_form">
+  <% f.inputs "Datos de cabecera" do %>
+	 <%= f.input :type_design,:as => :select,:collection => [[ "Tarjetas de presentación",1], ["Invitacion/Felicitacion",2],["Calendario",3]],:input_html => {:onchange => remote_function(:url => select_multimedia_file_by_type_design_backend_cpanel_web_page_custom_designs_url,:with => "$(this).serialize()")}  %>
+  <% end %>
+
+<% f.inputs "Cargadas actualmente" do %>
+  <table id="" frame="border" rules="cols" >
+		<thead>
+		  <tr>
+			 <th><%= MultimediaFile.human_attribute_name("name")%> </th>
+			 <th colspan="2"><%= MultimediaFile.human_attribute_name("attach")%> </th>
+		  </tr>
+
+		</thead>
+		<tbody id="form_prev">
+		  <%= render :partial => "form_prev" %>
+		</tbody>
+	 </table>
+
+  <% end %>
+
+
+</div>

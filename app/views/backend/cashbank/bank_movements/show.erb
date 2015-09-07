@@ -1,0 +1,208 @@
+<div style="border: 1px solid #D2D2D2">
+	<div style="border: 1px solid white;width: 680.31px;height: 302.36px;margin: 0px 45px;position: relative;background: transparent url(/images/backgrounds/check_bank.jpeg) no-repeat">
+	  <% if @bank_movement.cash_bank_bank_movement_operation_type.require_check? and !@printed%>
+		<div id="format_check_amount" style="width: 166px;left: <%= @bank.format_check_amount_px%>px;top: <%= @bank.format_check_amount_py %>px; position: absolute" ><%= "**#{@bank_movement.amount.to_currency(false).ljust(20,"*")}"%> </div>
+		<div id="format_check_supplier" style="width: 545px;left: <%= @bank.format_check_supplier_px%>px;top: <%= @bank.format_check_supplier_py%>px; position: absolute" ><%= @bank_movement.beneficiary.name.upcase  %> </div>
+		<div id="format_check_amount_letter_1" style="width: 545px;left: <%= @bank.format_check_amount_letter_1_px%>px;top: <%= @bank.format_check_amount_letter_1_py %>px; position: absolute" ><%= "**#{@bank_movement.amount.to_word.upcase.ljust(30,"**")}"  %></div>
+		<div id="format_check_amount_letter_2" style="width: 585px;left: <%= @bank.format_check_amount_letter_2_px%>px;top: <%= @bank.format_check_amount_letter_2_py %>px; position: absolute" ><%= "".ljust(38,"*")  %> </div>
+		<div id="format_check_city_date" style="width: 150px;left: <%= @bank.format_check_city_date_px%>px;top: <%= @bank.format_check_city_date_py %>px; position: absolute" ><%= l(@bank_movement.created_at,:format => :short_date_locate).upcase%></div>
+		<div id="format_check_year" style="width: 25px;left: <%= @bank.format_check_year_px%>px;top: <%= @bank.format_check_year_py %>px; position: absolute" ><%= l(@bank_movement.created_at,:format => :only_year).upcase%></div>
+		<div id="format_check_not_endorsable" style="width: 140px;left: <%= @bank.format_check_not_endorsable_px %>px;top: <%= @bank.format_check_not_endorsable_py %>px;font-size: 15px; position: absolute" >NO ENDOSABLE</div>
+		<% elsif @bank_movement.cash_bank_bank_movement_operation_type.require_check? and @printed  %>
+		  <div class="center" style="padding: 25%;font-size: 2em">CHEQUE Nº <%= @bank_movement.vale %> YA FUE IMPRESO</div>
+	  <% end %>
+	 </div>
+	 <hr/>
+ 
+  <div id="content_info_voucher">
+	 <div class="subc c50l">
+		<div class="border header">
+		  <h2><%= @bank_movement.beneficiary.name %> </h2>
+		  <b><%#= @bank_movement.beneficiary%></b><br/>
+		  <b><%= @bank_movement.beneficiary.identification_document %></b>
+		</div>
+	 </div>
+	 <div class="subc c50r left">
+		<div class="border">
+		  <h2>COMPROBANTE DE <%= @bank_movement.cash_bank_bank_movement_operation_type.is_debit ? "EGRESO" : "INGRESO"%> </h2>
+		  <br/>
+		  <h2>Nº <b class="red">CM-<%= @bank_movement.id.to_code  %> </b></h2>
+		</div>
+	</div>
+	 <br/>
+	 <div class="border description">
+		<div class="subc c20l">
+		  <%= CashBank::BankMovement.human_attribute_name("date").upcase%> <br/><br/>
+		  <b><%= l  @bank_movement.date.to_date%> </b>
+		</div>
+		<div class="subc c75r">
+		  <%= CashBank::BankMovement.human_attribute_name("description").upcase%><br/><br/>
+		  <b><%= @bank_movement.description%> </b>
+		</div>
+	 </div>
+	 <table cellspacing="0" class="border">
+	  <thead>
+		  <tr>
+			 <th style="width: 10%;" class="border-top-left">
+				CUENTA
+			 </th>
+			 <th style="width: 70%">
+				DETALLE
+			 </th>
+			 <th style="width: 10%">
+				DÉBITO
+			 </th>
+			 <th style="width: 10%" class="border-top-right">
+				CRÉDITO
+			 </th>
+		  </tr>
+  </thead>
+  <tbody>
+	 <%
+		debits = 0.0
+		credits = 0.0
+  %>
+
+		<tr>
+		  <td >
+			 <%= @bank_movement.accounting_accounting_concept.accounting_accountant_account.code %>
+		  </td>
+		  <td>
+			 <%= @bank_movement.accounting_accounting_concept.name %>
+		  </td>
+		  <td class="right">
+			 <% if @bank_movement.cash_bank_bank_movement_operation_type.is_debit %>
+				<%= @bank_movement.amount.to_currency(false)  %>
+				<% debits += @bank_movement.amount %>
+			 <% end %>
+		  </td>
+		  <td class="right">
+			 <% if !@bank_movement.cash_bank_bank_movement_operation_type.is_debit %>
+				<%= @bank_movement.amount.to_currency(false)  %>
+				<% credits += @bank_movement.amount %>
+			 <% end %>
+		  </td>
+		</tr>
+		<tr>
+		  <td>
+			 <%= @bank_movement.cash_bank_bank_account.accounting_accountant_account.code %>
+		  </td>
+		  <td>
+			 <%= @bank_movement.cash_bank_bank_account.accounting_accountant_account.name %>
+		  </td>
+		  <td class="right">
+			 <% if !@bank_movement.cash_bank_bank_movement_operation_type.is_debit %>
+				<%= @bank_movement.amount.to_currency(false)  %>
+				<% debits += @bank_movement.amount %>
+			 <% end %>
+		  </td>
+		  <td class="right">
+			 <% if @bank_movement.cash_bank_bank_movement_operation_type.is_debit %>
+				<%= @bank_movement.amount.to_currency(false)  %>
+				<% credits += @bank_movement.amount %>
+			 <% end %>
+		  </td>
+		</tr>
+		<tr class="">
+		  <td  colspan="2" class="right border-bottom-left">
+			 TOTALES
+		  </td>
+		  <td class="right">
+			 <%= debits.to_currency() %>
+		  </td>
+		  <td class="right border-bottom-right">
+			 <%= credits.to_currency() %>
+		  </td>
+		</tr>
+  	 </tbody>
+  </table>
+	 <table>
+		<thead>
+		  <tr>
+			 <th>
+				<%= CashBank::BankMovement.human_attribute_name("cash_bank_bank_movement_operation_type").upcase%>
+			 </th>
+			 <th>
+				<%= CashBank::BankMovement.human_attribute_name("vale").upcase%>
+			 </th>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr>
+			 <td>
+				<%= @bank_movement.cash_bank_bank_movement_operation_type.name %>
+			 </td>
+			 <td>
+				Nº <%= @bank_movement.vale %>
+			 </td>
+		  </tr>
+		  <tr>
+			 <td colspan="2">
+				SON: <%= @bank_movement.amount.to_word.upcase %>
+			 </td>
+		  </tr>
+		</tbody>
+	 </table>
+
+<br/>
+  <div class="footer">
+	 <div class="subc c50l">
+		<table>
+		  <thead>
+		  <tr>
+			 <th>
+				Preparado
+			 </th>
+			 <th>
+				Aprobado
+			 </th>
+			 <th>
+				Contabilizado
+			 </th>
+			 <th>
+				Revisado
+			 </th>
+		  </tr>
+		  </thead>
+		  <tbody>
+			 <tr>
+				<td><br/><br/><br/></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			 </tr>
+		  </tbody>
+		</table>
+	 </div>
+	 <div class="subc c50r">
+		<div class="border">
+		  <b>RECIBIDO:</b>
+		  <br/>
+		  <br/>
+		  <br/>
+		  <hr/>
+		  CI:
+		</div>
+	 </div>
+  </div>
+</div>
+
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+		$("button, input:submit,input:button,a.button ").button();
+		$("form.format_check input").blur( function () {
+		  id = $(this).attr("id")
+		  rel = $(this).attr("id").replace("cash_bank_bank_","").replace("_px","").replace("_py","")
+		  position = id[id.length -1]
+
+		  if(position == "x")
+			 $("#"+rel).css("left",$(this).val()+"px")
+		  else
+			 $("#"+rel).css("top",$(this).val()+"px")
+
+
+
+	 });
+	 })
+</script>

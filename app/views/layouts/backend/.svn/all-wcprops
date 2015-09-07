@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/1359/trunk/Venom/app/views/layouts/backend
+END
+new_decision_design.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/704/trunk/Venom/app/views/layouts/backend/new_decision_design.html.erb
+END
+external_monitoring_assistance.erb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/1164/trunk/Venom/app/views/layouts/backend/external_monitoring_assistance.erb
+END
+application.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/1355/trunk/Venom/app/views/layouts/backend/application.html.erb
+END
+session.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/1356/trunk/Venom/app/views/layouts/backend/session.html.erb
+END
+contable_document.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/683/trunk/Venom/app/views/layouts/backend/contable_document.html.erb
+END
+application_cpanel.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/1359/trunk/Venom/app/views/layouts/backend/application_cpanel.html.erb
+END
+_menunav.erb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/1167/trunk/Venom/app/views/layouts/backend/_menunav.erb
+END
+report.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/704/trunk/Venom/app/views/layouts/backend/report.html.erb
+END

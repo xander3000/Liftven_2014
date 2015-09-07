@@ -1,0 +1,53 @@
+<%= include_stylesheet("jquery.fileupload-ui") %>
+<%= include_stylesheet("backend/orders_design") %>
+
+<%= link_to "volver",backend_order_url(@order) %>
+<% form_layout do %>
+  <% semantic_form_for @design, :url => ""  do |f| %>
+        <%= render :partial => "form_for_design",:locals => {:f => f} %>
+  <% end %>
+<div id="fileupload" class="ui-widget">
+  <p>
+    Para decidir sobre algunos de los diseños, presionar sobre el icono <span><%= image_tag("icons/accept.png")%></span> al lado de cada propuesta.
+  </p>
+  <div class="fileupload-buttonbar fileupload-buttonbar-detail ui-widget-header ui-corner-top ">
+    <label>Propuestas</label>
+  </div>
+  <div class="fileupload-content ui-widget-content ui-corner-bottom">
+          <table class="files">
+            <tbody>
+              <%  @design.multimedia_files.each do |multimedia_file|%>
+                <tr class="template-download" style="">
+                  <td class="preview">
+                    <a target="_blank" href="<%= multimedia_file.attach.url%>">
+                      <%= image_tag(multimedia_file.attach.url(:thumb)) %>
+                    </a>
+                  </td>
+                  <td class="name">
+                    <a target="_blank" href="<%= multimedia_file.attach.url%>">
+                      <%= multimedia_file.attach_file_name %>
+                    </a>
+                  </td>
+                  <td class="download">
+                    <%= link_to image_tag("icons/accept.png"),"",:class => "button" %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+
+  </div>
+  <div class="right">
+      <%= link_to image_tag("/images/icons/anchor.png"),"#",:class => "goTop button" %>
+  </div>
+</div>
+<% end %>
+<%= link_to "volver",backend_order_url(@order) %>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        
+    });
+</script>

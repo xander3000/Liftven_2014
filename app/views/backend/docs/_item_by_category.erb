@@ -1,0 +1,10 @@
+
+
+	 <div onclick="window.location.href='<%= eval("backend_#{docs_by_category[:category].downcase.pluralize}_url") %>'" class="block-item">
+		<div class="block-item-text state">
+		  <%= eval(docs_by_category[:category]).human_attribute_name("base")%><br/>
+		</div>
+	 </div>
+
+
+

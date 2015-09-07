@@ -1,0 +1,11 @@
+if @success
+	page << "$('#custom_design_category_design').children().remove().end()";
+	page << "$('#custom_design_category_design').append(jQuery('<option></option>').val(' ').html(' '));"
+	@custom_design_type.custom_design_category_types.each do |custom_design_category_type|
+			page << "$('#custom_design_category_design').append(jQuery('<option></option>').val('category_design_#{custom_design_category_type.id}').html('#{custom_design_category_type.name}'));"
+	end
+
+	page << "$('a[rel]').each(function() {$(this).overlay().close();});"
+else
+	page.show_errors([@custom_design_category_type], "message_overlay", nil)
+end

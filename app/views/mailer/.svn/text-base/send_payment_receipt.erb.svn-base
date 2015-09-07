@@ -1,0 +1,15 @@
+<p><%= Time.now.hour > 12 ? "Buenas Tardes " : "Buenos Días "%><%= @employee.name%> ,</p>
+<p>Adjunto se remite el recibo de pago correspondiente a la <%= @regular_payroll_check.fortnight%>º quincena de <%= I18n.t("date.month_names")[@regular_payroll_check.month]%> <%= @regular_payroll_check.year%>.</p>
+<p>Saludos cordiales,</p>
+<br/>
+<br/>
+--------------------------------------------------<br/>
+<%= @contact.fullname.upcase %><br/>
+RIF: <%= @owner.identification_document %><br/>
+<%= @contact.website %><br/>
+<%= @contact.address %><br/>
+<%= "Telefonos: #{@contact.phone}" %>
+<br/>
+<br/>
+<br/>
+<i style="font-size:9px;color:#aaaaaa">Este mensaje ha sido enviado automáticamente por favor <span style="background:none repeat scroll 0 0 #FFFFCC;color: #222222;">no responder</span> a este envío </i>

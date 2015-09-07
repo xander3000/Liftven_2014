@@ -1,0 +1,47 @@
+<div id="">
+  <div class="headerWrap">
+    <div class="headerWrapContent">
+          <h2>Registra tu entrada</h2>
+    </div>
+  </div>
+  <div class="mainWrapContent center">
+     <% form_layout do %>
+			 <%= hidden_field_tag :employee_id,@employee.id,:id => :employee_id %>
+			 <%= password_field_tag :access_code,nil,:id=> :access_code,:class => "top",:placeholder => "Ingresa tu clave de acceso",:size => 20,:autocomplete => false  %>
+      <% end %>
+	 <hr/>
+		<% if @payroll_monitoring_assistance_today %>
+		  <% if @payroll_monitoring_assistance_today.time_lunch_in.nil? and @payroll_monitoring_assistance_today.time_check_out.nil?  %>
+			 <%= link_to_function(image_tag("icons/food_in.png")+" A comer!","register_access(2)",:class => "button",:title => "Entrada almuerzo") %>
+			 <%= link_to_function(image_tag("icons/door_out.png")+" A descansar","register_access(4)",:class => "button",:title => "Salida laboral")  %>
+		  <% else %>
+				  <% if @payroll_monitoring_assistance_today.time_lunch_out.nil? and @payroll_monitoring_assistance_today.time_check_out.nil? %>
+					 <%= link_to_function(image_tag("icons/food_out.png")+" De vuelta al trabajo","register_access(3)",:class => "button",:title => "Salida almuerzo")  %>
+				  <% else %>
+					 <%= link_to_function(image_tag("icons/door_out.png")+" A descansar","register_access(4)",:class => "button",:title => "Salida laboral")  if @payroll_monitoring_assistance_today.time_check_out.nil?%>
+				  <% end %>
+		  <% end %>
+	 <% else %>
+		<%= link_to_function(image_tag("icons/door_in.png")+" A trabajar","register_access(1)",:class => "button",:title => "Entrada laboral")  %>
+	 <% end %>
+  </div>
+  
+</div>
+<script type="text/javascript">
+
+  function register_access(type_access_code) {
+		  
+			 $.ajax({
+				  type: "POST",
+				  url: "<%=process_external_backend_human_resource_monitoring_assistances_url%>",
+				  data: {employee_id: $("#employee_id").val(),access_code:$('#access_code').val(),type_access_code:type_access_code}
+				});
+  };
+
+  $(document).ready(function(){ // Script del Navegador
+
+    $("button, input:submit,input:button,a.button ").button();
+	 $('#access_code').focus();
+
+  });
+</script>

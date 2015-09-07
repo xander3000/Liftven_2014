@@ -1,0 +1,55 @@
+<div id="new-element-dialog-form" title="Reversar movimiento">
+  <% semantic_form_remote_for @bank_movement, :update => "#{controller.controller_name}_container",:url => revert_backend_cashbank_bank_movements_url,:html => {:class => "form_generate",:id => "new_revert_cash_bank_bank_movement"} do |f| %>
+      <div class="content_form">
+			 <% f.inputs "" do %>
+				<%= f.input :id,:input_html => {:size => 15} %>
+			<% end %>
+		  <div id="set_movement_to_revert">
+
+		  </div>
+		</div>
+
+  <% end %>
+</div>
+
+
+<script type="text/javascript">
+
+
+
+  $(document).ready(function(){
+		  //$("#cash_bank_bank_movement_id").formatNumber({format:"####", locale:"es"});
+		  $("#cash_bank_bank_movement_id").blur( function () {
+			 if($(this).val() != ""){
+				$(this).strPadLeft(6);
+				$.ajax({
+					 type: "POST",
+					 url: "<%= set_movement_to_revert_backend_cashbank_bank_movements_url %>",
+					 data: {bank_movement_id: $(this).val()}
+				  });
+				}
+			 });
+		  
+		
+	  $( "#new-element-dialog-form" ).dialog({
+		  autoOpen: true,
+		  height: 500,
+		  width: 450,
+		  modal: true,
+		  buttons: {
+			 "Reversar movimiento": function() {
+				var bValid = true;
+				if ( bValid ) {
+				  $("#new_revert_cash_bank_bank_movement").submit();
+				}
+			 },
+			 "Cancelar": function() {
+				$( this ).dialog( "destroy" );
+			 }
+		  },
+		  close: function() {
+			 $( this ).dialog( "destroy" );
+		  }
+	 });
+});
+</script>

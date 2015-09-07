@@ -1,0 +1,17 @@
+<% content_for :aditional_options_menunav do %>
+  <%= render  "#{controller.controller_path}/aditional_options_menunav/show" %>
+<% end %>
+
+<div>
+  <% semantic_form_remote_for @cash_journal, :update => "#{controller.controller_name}_container",:url => "",:html => {:class => "form_generate"} do |f| %>
+    <%= render :partial => "form",:locals => {:f => f} %>
+    <hr/>
+    <%= render :partial => "form_items",:locals => {:f => f} %>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+       $(document).ready(function(){
+            $("#contact_form input,#contact_form textarea,#contact_form select").attr("disabled","disabled")
+	});
+</script>

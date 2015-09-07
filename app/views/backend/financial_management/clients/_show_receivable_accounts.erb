@@ -1,0 +1,53 @@
+<%= include_javascript("jquery.dataTables.min.js") %>
+<%= include_stylesheet("jquery.datatable.css") %>
+<div class="actionsBar right no-print">
+  
+</div>
+<hr/>
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="receivable_accounts" width="100%">
+	<thead>
+		<tr>
+			<th style="width: 10px;">St</th>
+			<th><%= Accounting::ReceivableAccount.human_attribute_name("doc")%> </th>
+			<th><%= Accounting::ReceivableAccount.human_attribute_name("client")%> </th>
+			<th><%= Accounting::ReceivableAccount.human_attribute_name("date_doc")%> </th>
+			<th><%= Accounting::ReceivableAccount.human_attribute_name("date_doc_expiration")%> </th>
+			<th><%= Accounting::ReceivableAccount.human_attribute_name("payment_method_type")%> </th>
+			<th><%= Accounting::ReceivableAccount.human_attribute_name("sub_total")%> </th>
+			<th><%= Accounting::ReceivableAccount.human_attribute_name("tax")%> </th>
+			<th><%= Accounting::ReceivableAccount.human_attribute_name("total")%> </th>
+			 <th><%= Accounting::ReceivableAccount.human_attribute_name("balance")%> </th>
+		</tr>
+	</thead>
+	<tbody>
+	 <% @receivable_accounts.each do |receivable_account| %>
+	  <tr>
+		  <td class="center" title="Vigente"><%= image_tag "icons/semaphore/#{receivable_account.semaphore_time_to_expiration}.png" %></td>
+		  <td class="center"><%= receivable_account.doc.full_name %> </td>
+		  <td class="center"><%= receivable_account.client.name %> </td>
+		  <td class="center"><%= l receivable_account.date_doc.to_date %> </td>
+		  <td class="center"><%= l receivable_account.date_doc_expiration.to_date %> </td>
+		  <td class="center"><%= receivable_account.payment_method_type ? receivable_account.payment_method_type.name : "N/A" %> </td>
+		  <td class="right"><%= number_to_currency(receivable_account.sub_total, :delimiter => ".", :separator => ",", :unit => "")%></td>
+		  <td class="right"><%= number_to_currency(receivable_account.tax, :delimiter => ".", :separator => ",", :unit => "")%></td>
+		  <td class="right"><%= number_to_currency(receivable_account.total, :delimiter => ".", :separator => ",", :unit => "")%></td>
+		  <td class="right highlight"><%= number_to_currency(receivable_account.balance, :delimiter => ".", :separator => ",", :unit => "")%></td>
+	  </tr>
+	  <% end %>
+	</tbody>
+</table>
+
+
+
+
+<script type="text/javascript">
+  var oTable;
+
+  $(document).ready(function() {
+		oTable =  $('#receivable_accounts').dataTable({
+            oLanguage: {
+                sUrl: "/javascripts/i18n/jquery.DataTables-es.txt"
+            }
+        });
+  });
+</script>

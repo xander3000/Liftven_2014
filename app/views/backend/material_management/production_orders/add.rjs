@@ -1,0 +1,9 @@
+if @success
+	page.replace_html "items", :partial => "items"
+	page << "$('#item_product_form input, #item_product_form select').val('')"
+	page << "$('#total_currency').html('')"
+else
+	page.show_errors([@purchase_order_position], "message_overlay", nil)
+end
+
+

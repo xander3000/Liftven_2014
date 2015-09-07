@@ -1,0 +1,44 @@
+<div id="accordion-resizer">
+<div id="accordion">
+  <% @raw_material_categories.each do |raw_material_category| %>
+    <% raw_material_category_raw_materials = raw_material_category.raw_materials %>
+    <h3><%= "#{raw_material_category.name} (#{raw_material_category_raw_materials.size})" %></h3>
+    <div class="section">
+      
+
+      <div class="block-container-items">
+        <% raw_material_category_raw_materials.each do |raw_material| %>
+          <div onclick="<%= remote_function(:url => backend_raw_material_url(raw_material),:method => "get") %>" rel="<%= "raw_material_#{raw_material.id}" %>" title="<%= raw_material.name %> " class="block-item">
+            <div class="block-item-text">
+              <%= raw_material.name %><br/>
+            </div>
+          </div>
+        <% end %>
+        </div>
+    </div>
+    <% end %>
+
+  </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+      var icons = {
+            header: "ui-icon-circle-arrow-e",
+            activeHeader: "ui-icon-circle-arrow-s"
+        };
+        $( "#accordion" ).accordion({
+            //heightStyle: "content",
+            //active: false,
+            icons: icons,
+            heightStyle: "fill",
+            collapsible: true,
+            animatedType: "bounceslide"
+            
+        });
+        /*$("div[rel]").click(function () {
+          item = $(this).attr("rel");
+          //jQuery("#raw_material_14").click();
+        });*/
+    });
+    </script>

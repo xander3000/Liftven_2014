@@ -1,0 +1,132 @@
+<% content_for :venom_leadspace_head do %>
+<div id="services_leadspaces">
+    <%= render :partial => "services_leadspaces" %>
+</div>
+<% end %>
+
+<div id="services_main_content" class="block info">
+  <ul>
+    <li class="service">
+      <div class="t-mod">
+        <b>Impresión Digital</b>
+        <%= link_to_function("Ver más", "false",:class => "service_lean_more",:ref => "impresion_digital") %>
+      </div>
+      <div class="service-body">
+        <%= image_tag "general/services/service_1.jpg" %>
+      </div>
+      <div class="venom-expand-overlay impresion_digital">
+         <b>Impresión Digital</b>
+         <ul>
+           <li>Volantes</li>
+           <li>Catalogos</li>
+           <li>Revistas</li>
+           <li>Folletos</li>
+           <li>Calendarios</li>
+           <li>Habladores</li>
+           <li>Dipticos</li>
+           <li>Tr&iacute;pticos</li>
+           <li>Tarjetas</li>
+           <li>Invitaciones</li>
+           <li>Afiches</li>
+           <li>Carpetas</li>
+           <li>Libretas</li>
+           <li>Manuales</li>
+           <li>Libros</li>
+           <li>Calcomanías</li>
+         </ul>
+      </div>
+    </li>
+    <li class="service">
+      <div class="t-mod">
+        <b>Impresión Litográfica</b>
+        <%= link_to_function("Ver más", "alert(1)",:class => "service_lean_more",:ref => "impresion_litografica") %>
+      </div>
+      <div class="service-body">
+        <%= image_tag "general/services/service_1.jpg" %>
+      </div>
+      <div class="venom-expand-overlay impresion_litografica">
+         <b>Impresión Litográfica</b>
+         <ul>
+           <li>Volantes</li>
+           <li>Catalogos</li>
+           <li>Revistas</li>
+           <li>Folletos</li>
+           <li>Calendarios</li>
+           <li>Habladores</li>
+           <li>Dipticos</li>
+           <li>Tr&iacute;pticos</li>
+           <li>Tarjetas</li>
+           <li>Invitaciones</li>
+           <li>Afiches</li>
+           <li>Carpetas</li>
+           <li>Libretas</li>
+           <li>Manuales</li>
+           <li>Libros</li>
+           <li>Calcomanías</li>
+         </ul>
+      </div>
+    </li>
+    <li class="service">
+      <div class="t-mod">
+        <b>Gigantografía</b>
+        <%= link_to_function("Ver más", "alert(1)",:class => "service_lean_more",:ref => "gigantografia") %>
+      </div>
+      <div class="service-body">
+        <%= image_tag "general/services/service_1.jpg" %>
+      </div>
+      <div class="venom-expand-overlay gigantografia">
+         <b>Gigantografía</b>
+         <ul>
+           <li>Pendones</li>
+           <li>Pancartas</li>
+           <li>Impresión para estructuras publicitarias (Vallas)</li>
+           <li>Impresión en Vinil microperforado</li>
+           <li>Impresión en Vinil autoadhesivo</li>
+         </ul>
+      </div>
+    </li>
+    <li class="service">
+      <div class="t-mod">
+        <b>Servicios de Impresión Varios</b>
+        <%= link_to_function("Ver más", "alert(1)",:class => "service_lean_more",:ref => "servicios_varios") %>
+      </div>
+      <div class="service-body">
+        <%= image_tag "general/services/service_1.jpg" %>
+      </div>
+      <div class="venom-expand-overlay servicios_varios">
+         <b>Servicios de Impresión Varios</b>
+         <ul>
+           <li>Copias B/N</li>
+           <li>Copias a color</li>
+           <li>Impresión B/N</li>
+           <li>Impresión a color</li>
+           <li>Encuadernación</li>
+           <li>Plastificado</li>
+           <li>Fondo negro</li>
+           <li>Carnets</li>
+           <li>Digitalización de planos</li>
+           <li>Vectorización de planos</li>
+           <li>Copias de planos</li>
+           <li>Ploteo de planos B/N</li>
+           <li>Ploteo de planos a color</li>
+           <li>Portapendones</li>
+         </ul>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<script type="text/javascript">
+   $(document).ready(function(){
+     $(".service_lean_more").mouseover(function() {
+       $(".venom-expand-overlay").fadeOut("slow");
+       item = $(this).attr("ref");
+       $(".venom-expand-overlay."+item).fadeIn("slow");
+    });
+
+  $(".venom-expand-overlay").mouseleave(function() {
+      $(this).fadeOut("slow");
+    });
+
+   });
+</script>

@@ -1,0 +1,54 @@
+<%= include_javascript("jquery-ui-1.8.14.min") %>
+<%= include_stylesheet "jquery-ui/smoothness/jquery-ui-1.8.14.custom"%>
+<%= include_stylesheet "jquery-ui_hacks/smoothness/jquery-ui-1.8.14.custom"%>
+
+<% content_for :venom_leadspace_head do %>
+<div id="user_account_leadspaces">
+    <%= render :partial => "user_account_leadspaces" %>
+</div>
+<% end %>
+
+<div id="user_account_show">
+  <div id="accordion">
+    <h3><a href="#">Datos personales</a></h3>
+    <div><%= render :partial => "show_1" %></div>
+    <h3><a href="#">información de la cuenta</a></h3>
+    <div><%= render :partial => "show_2" %></div>
+    <!--h3><a href="#">Resumen de ordenes</a></h3>
+    <div>Second content</div-->
+  </div>
+</div>
+
+
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $( "#accordion" ).accordion({autoHeight: false});
+
+    
+    $("#button_edit_1").click(function () {
+      $(".showing_1").hide();
+      $(".editing_1").show('');
+    });
+
+    $("#button_cancel_1").click(function () {
+      $(".showing_1").show('');
+      $(".editing_1").hide();
+    });
+
+    $("#button_edit_2").click(function () {
+      $(".showing_2").hide();
+      $(".editing_2").show('');
+    });
+    $("#button_cancel_2").click(function () {
+      $(".showing_2").show('');
+      $(".editing_2").hide();
+    });
+
+  });
+
+
+</script>
+
+

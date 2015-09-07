@@ -1,0 +1,10 @@
+<li>
+  <a href="#">Mov. Banco <%= @bank_movement.code %><span class="arrow"></span></a>
+  <ul>
+      <li><%= link_to "Nuevo",new_backend_cashbank_bank_movement_url%></li>
+      <li class="disabled"><%= link_to "Detalle",backend_cashbank_bank_movement_url(@bank_movement)%></li>
+      <li><%= link_to "Editar",edit_backend_cashbank_bank_movement_url(@bank_movement)%> </li>
+		
+  </ul>
+
+</li>

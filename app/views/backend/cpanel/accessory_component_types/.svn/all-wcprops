@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cpanel/accessory_component_types
+END
+edit.erb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cpanel/accessory_component_types/edit.erb
+END
+index.erb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cpanel/accessory_component_types/index.erb
+END
+update.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cpanel/accessory_component_types/update.rjs
+END

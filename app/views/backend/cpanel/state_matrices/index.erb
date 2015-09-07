@@ -1,0 +1,66 @@
+<% form_remote_tag :url => add_state_matrices_backend_cpanel_state_matrices_url  do |f|%>
+
+  <div id="state_matrices">
+    <table class="no-border">
+        <tbody>
+          <tr>
+            <td colspan="4" class="no-padding">
+              <table class="no-marging ">
+                <tbody>
+                  <tr>
+                    <td align="center" class="heading" colspan="4">
+                      Estado Destino
+                      <%= image_tag "icons/arrow_right.gif" %>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+          <tr class="">
+            <td colspan="4" class="no-padding">
+              <table class="no-marging no-border-top">
+                <tbody>
+                  <tr>
+                    <td class="heading"  wisdth="16%">
+                      <div>
+                        Estado Origen
+                        <%= image_tag "icons/arrow_down.gif" %>
+                      </div>
+                    </td>
+                    <% @states.each do |state_to| %>
+                      <td nowrap="nowrap" class="heading-item center"  wsidth="16%">
+                        <span><%= state_to.name %></span>
+                      </td>
+                    <% end %>
+                </tr>
+              <% @states.each do |state_from| %>
+                <tr class="<%= cycle("even","odd") %> item">
+                  <td nowrap="nowrap" class="heading-item center">
+                    <%= state_from.name %>
+                  </td>
+                   <% @states.each do |state| %>
+                      <td class="item center"   wsidth="16%">
+                        <div class="input">
+                          <%
+                            states = state_from.destination_states
+                          %>
+                          <%#= select "","",states.compact, { :include_blank => true},:style => "" if state != state_from%>
+                          <%= check_box_tag "state[#{state_from.id}][]",state.id,states.include?(state)  if state != state_from%>
+                       </div>
+                      </td>
+                    <% end %>
+                </tr>
+                <% end %>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+<div class="right">
+    <%= submit_tag "Guardar" %>
+</div>
+  
+<% end %>

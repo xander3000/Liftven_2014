@@ -1,0 +1,107 @@
+<style type="text/css">
+  body{
+	 font-family: "Times New Roman";
+	 font-style: italic;
+	 color: #000;
+}
+p{
+  line-height: 25px;
+  font-size: 1.5em;
+}
+h1{
+  color: #000;
+  font-size: 2em;
+}
+#body_proof{
+  margin: 50px 60px;
+  text-align: justify;
+}
+</style>
+
+<% 
+  staff = @payroll_employee.payroll_staff
+  owner = Supplier.find_owner
+  contact = owner.contact
+%>
+<div id="body_proof">
+  <div class="center">
+	 <h1>CONSTANCIA DE TRABAJO</h1>
+  </div>
+  <div>
+	 <p>
+		Quien suscribe,GERENTE GENERAL de <%= contact.fullname.upcase %>
+		hace constar por medio de la presente que <%= staff.is_male? ? "el ciudadano" : "la ciudadana"%> <%= staff.complete_fullname.upcase%>  ,
+		titular de la cédula de identidad No. <%= staff.identification_document%>, presta sus servicios en esta Empresa
+		desde el <%= l @payroll_employee.income_date.to_date %>, desempeñando actualmente el cargo de <%= @payroll_employee.payroll_position.name.upcase%>,
+		adscrito(a) al departamento de <%= @payroll_employee.payroll_department.name.upcase %>, devengando una remuneración mensual, la cual se especifica
+		a continuación:
+	 </p>
+	 <div style="margin: 20px 25%">
+	  <table style="" class="border center">
+		<thead>
+		  <tr>
+			 <th>
+				CONCEPTO
+			 </th>
+			 <th>
+				REMUNERACIÓN MENSUAL
+			 </th>
+		  </tr>
+		</thead>
+		<tbody>
+		  <% total = 0 %>
+		  <% @payroll_employee.payroll_fixed_concepts.each do |fixed_concept| %>
+                    <% if fixed_concept.payroll_concept_personal_type.payroll_concept.is_allocation %>
+				<%
+					 amount = fixed_concept.amount/fixed_concept.payroll_payment_frequency.factor
+					 total += amount
+                                %>
+				<tr  class="border-bottom">
+				  <td class="border-right">
+						<%=  fixed_concept.payroll_concept_personal_type.name %>
+				  </td>
+				  <td>
+
+					 <%=  amount.to_currency %>
+				  </td>
+				</tr>
+		  <% end %>
+                                <% end %>
+		  <tr>
+			 <td  class="border-right ">
+				<b>
+				  TOTAL REMUNERACIÓN
+				</b>
+			 </td>
+			 <td>
+				<b>
+				  <%= total.to_currency %>
+				</b>
+			 </td>
+		  </tr>
+		</tbody>
+	 </table>
+	 </div>
+	 <p>
+		Adicionalmente se cancela por concepto del beneficio de bono de alimentación por tres mil bolivares exactos (3.000 Bs) por días mes calendario laborado.<br/>
+	 </p>
+	 <p>
+		Constancia que se expide a solicitud de la parte interesada en <%= l Time.now,:format => :long_date_locate  %>.
+	 </p>
+	 <br/>
+	 <p class="center">
+		Atentamente,
+	 </p>
+	 <br/><br/>
+	 <p class="center border-top" style="margin: 5px 25%">
+		LIC. GABRIEL PLAZA<br/>
+		GERENTE GENERAL
+
+	 </p>
+	 <p>
+		<b>Válida por un (1) més</b><br/>
+		<%= wicked_pdf_image_tag generate_qrcode "#{staff.identification_document} #{Time.now.to_date.to_s}" %>
+	 </p>
+  </div>
+</div>
+

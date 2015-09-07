@@ -1,0 +1,98 @@
+<div id="new_comment_form">
+  <div class="headerWrap">
+    <div class="headerWrapContent">
+          <h2>Generar Orden de Compra</h2>
+    </div>
+  </div>
+  <div id="inventory-form" class="mainWrapContent">
+     <% form_layout do %>
+        <% semantic_form_remote_for @inventory, :url => backend_raw_material_add_inventory_url(@raw_material) do |f| %>
+          <% f.inputs 'Fiscal' do  %>
+            <div>
+              <div>
+                <div class="c50l subc">
+                  <%= f.input :supplier,:input_html => {:class => "",:style => "width: 160px"} %>
+                </div>
+                <div class="c50r subc">
+                  <%= f.input  :reference_number,:input_html => {:class => "",:size => 25} %>
+                </div>
+               </div>
+              <br/>
+              <div>
+                <div class="c50l subc">
+                  <%#= f.input  :location_inventory %>
+                </div>
+                <div class="c50r subc">
+                  <%= f.input  :reason_inventory %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+          <% f.inputs 'Compra' do  %>
+            <div>
+              <div>
+                <div class="c50l subc">
+                  <%= f.input :quantity,:input_html => {:class => "right",:size => 3} %>
+                </div>
+                <div class="c50r subc">
+                  <%= f.input :date,:as => :string,:input_html => {:class => "date",:readonly => true,:size => 10} %>
+                </div>
+               </div>
+              <br/>
+              <div>
+                <div class="c50l subc">
+                  <%= f.input  :unit_cost,:input_html => {:class => "right",:size => 15} %>
+                </div>
+                <div class="c50r subc">
+                  <%= f.input :expiration_date,:as => :string,:input_html => {:class => "date_f",:readonly => true,:size => 10} %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% f.inputs '' do  %>
+            <div>
+                <div class="c50l subc">
+                  <%= f.input :remainder,:input_html => {:class => "right",:size => 5} %>
+                </div>
+                <div class="c50r subc">
+                </div>
+              </div>
+          
+        <% end %>
+    
+
+        <% end %>
+      <% end %>
+  </div>
+  <div class="footerWrap">
+    <div class="footerWrapContent right">
+      <%= button_to_function("Guardar", "$(\"#new_inventory\").submit()")  %>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function(){ // Script del Navegador
+    $("button, input:submit,input:button,a.button ").button();
+    $("#inventory-form label").after("<br/>");
+    $(".date").datepicker({
+      changeMonth: true,
+      dateFormat: 'yy-mm-dd',
+      maxDate: "-0",
+      minDate: "-3M"
+    });
+    $(".date_f").datepicker({
+      changeMonth: true,
+      dateFormat: 'yy-mm-dd',
+      maxDate: "+3M",
+      minDate: "-3M"
+    });
+  });
+</script>
+
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+          
+	});
+</script>

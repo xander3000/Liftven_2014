@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/299/trunk/Venom/test/unit/helpers/frontend
+END
+designs_helper_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/277/trunk/Venom/test/unit/helpers/frontend/designs_helper_test.rb
+END
+budgets_helper_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/273/trunk/Venom/test/unit/helpers/frontend/budgets_helper_test.rb
+END
+orders_helper_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/273/trunk/Venom/test/unit/helpers/frontend/orders_helper_test.rb
+END
+contacts_helper_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/273/trunk/Venom/test/unit/helpers/frontend/contacts_helper_test.rb
+END
+users_helper_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/273/trunk/Venom/test/unit/helpers/frontend/users_helper_test.rb
+END
+aboutus_helper_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/273/trunk/Venom/test/unit/helpers/frontend/aboutus_helper_test.rb
+END
+session_helper_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/285/trunk/Venom/test/unit/helpers/frontend/session_helper_test.rb
+END
+products_helper_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/282/trunk/Venom/test/unit/helpers/frontend/products_helper_test.rb
+END
+static_contents_helper_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/299/trunk/Venom/test/unit/helpers/frontend/static_contents_helper_test.rb
+END
+home_helper_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/273/trunk/Venom/test/unit/helpers/frontend/home_helper_test.rb
+END

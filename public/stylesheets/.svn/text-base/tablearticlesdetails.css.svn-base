@@ -1,0 +1,52 @@
+/* 
+    Document   : tablearticlesdetails
+    Created on : 31/07/2011, 05:51:11 PM
+    Author     : gabriel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+table.table-articles-details
+{
+    width: 100%;
+    
+}
+
+.table-articles-details thead th
+{
+    background-color: #F1F1F1;
+    text-align: left;
+}
+
+.table-articles-details thead th.item
+{
+    width: 10%;
+}
+.table-articles-details thead th.quantity
+{
+    width: 10%;
+}
+.table-articles-details thead th.product
+{
+    width: 80%;
+}
+.table-articles-details tbody td
+{
+    border-bottom: 1px solid #F1F1F1;
+}
+
+.table-articles-details tbody td ul
+{
+   list-style: square outside none;
+    margin: 4px 0 5px 2em;
+}
+
+.table-articles-details thead th , .table-articles-details tbody td
+{
+    padding: 5px;
+}
+/*border: 1px solid #ABABAB;*/

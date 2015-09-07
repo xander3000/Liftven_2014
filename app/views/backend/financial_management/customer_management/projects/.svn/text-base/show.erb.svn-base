@@ -1,0 +1,37 @@
+<%= include_javascript("jquery.dataTables.min.js") %>
+<%= include_stylesheet("jquery.datatable.css") %>
+
+<div class="actionsBar right no-print">
+  <%= link_to(image_tag("icons/arrow_left.png"),backend_financial_management_client_url(@client),:class => "button",:title => "Regresar") %>
+</div>
+<hr/>
+<div>
+  <% semantic_form_remote_for @project, :update => "#{controller.controller_name}_container",:url => "",:html => {:class => "form_generate"} do |f| %>
+  <div class="">
+      <div id="tabs">
+            <ul>
+					 <li id="tab-1"><a href="#tabs-1">General</a></li>
+					 <li id="tab-2"><a href="#tabs-2">Registro de llamadas</a></li>
+					 <li id="tab-3"><a href="#tabs-3">Ascensores</a></li>
+            </ul>
+            <div id="tabs-1">
+                    <%= render :partial => "form",:locals => {:f => f} %>
+            </div>
+            <div id="tabs-2">
+                    <%= render :partial => "show_2" %>
+            </div>
+				<div id="tabs-3">
+                    <%= render :partial => "show_3" %>
+            </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+		 $(document).ready(function(){
+			 $(".crm_project input, .crm_project select, .crm_project textarea").attr("disabled","disabled");
+			 $( "#tabs" ).tabs();
+		  });
+
+</script>

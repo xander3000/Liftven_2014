@@ -1,0 +1,154 @@
+<div class="panel_header">
+      <div>
+        <h2 class="uppercase"><%= @contact.fullname %></h2>
+      </div>
+    <div>
+      <br/>
+      <b>Doc. Identificación:</b>&nbsp;
+      <%= @contact.identification_document %>
+    </div>
+    <div>
+      <br/>
+      <b>Teléfono(s):</b>&nbsp;
+      <%= @contact.phone %>
+    </div>
+    <div>
+      <br/>
+      <b>Celular(es):</b>&nbsp;
+      <%= @contact.cellphone %>
+    </div>
+    <div>
+      <br/>
+      <b>Correo Electrónico:</b>&nbsp;
+      <%= mail_to @contact.email, @contact.email %>
+    </div>
+    <div>
+      <br/>
+      <b>Web:</b>&nbsp;
+      <%= @contact.website %>
+    </div>
+    <div>
+      <br/>
+      <b>Dirección:</b>&nbsp;
+      <%= @contact.address %>
+    </div>
+    <div>
+      <br/>
+      <b>¿Retiene ISLR?:</b>&nbsp;
+      <%= @contact.islr_retained ? "Sí (#{number_to_currency(@contact.retention_rate_islr, :delimiter => ".", :separator => ",", :unit => "%")}, #{number_to_currency(@contact.retention_rate_islr_2, :delimiter => ".", :separator => ",", :unit => "%")})" : "No" %>
+    </div>
+    <div>
+      <br/>
+      <b>¿Activo:</b>&nbsp;
+      <%= @contact.active ? "Sí" : "No" %>
+    </div>
+    <div>
+      <br/>
+      <b>Tipo Contacto:</b>&nbsp;&nbsp;
+      <% @contact.categories.each do |c| %>
+        <%= c.contact_type.name.capitalize %>.&nbsp;
+      <% end %>
+    </div>
+  
+  <br/>
+  <br/>
+  <div id="more_info">
+	 <% if @contact.has_user? %>
+	 <% user = @contact.user %>
+	 <div>
+        <h1>Usuario</h1>
+        <ul>
+          <li>
+            <b><%= user.class.human_attribute_name(:login)%> :</b>&nbsp;
+            <%= user.login %>
+          </li>
+			 <li>
+            <b><%= user.class.human_attribute_name(:user_groups)%> :</b>&nbsp;
+            <%= user.user_groups.map(&:full_name).join(",")%>
+          </li>
+          <li>
+            <b><%= user.class.human_attribute_name(:last_login_at)%> :</b>&nbsp;
+            <%= l  user.last_login_at if user.last_login_at%>
+          </li>
+          <li>
+            <b><%= user.class.human_attribute_name(:last_login_ip)%> :</b>&nbsp;
+            <%= user.last_login_ip%>
+          </li>
+			 <li>
+            <b><%= user.class.human_attribute_name(:active)%> :</b>&nbsp;
+            <%= user.active ? "Sí" :"No"%>
+          </li>
+        </ul>
+      </div>
+	 <% end %>
+    <% if @contact.is_client? %>
+      <% client = @contact.client %>
+      <div>
+        <h1>Cliente</h1>
+        <ul>
+          <li>
+            <b><%= client.class.human_attribute_name(:client_type)%> :</b>&nbsp;
+            <%= client.client_type.name if client.client_type%>
+          </li>
+          <li>
+            <b><%= client.class.human_attribute_name(:price_list)%> :</b>&nbsp;
+            <%= client.price_list.name if client.price_list%>
+          </li>
+          <li>
+            <b><%= client.class.human_attribute_name(:client_discount_type)%> :</b>&nbsp;
+            <%= client.client_discount_type.name if client.client_discount_type%>
+          </li>
+          <li>
+            <b><%= client.class.human_attribute_name(:client_reputation_type)%> :</b>&nbsp;
+            <%= client.client_reputation_type.name if client.client_reputation_type%>
+          </li>
+        </ul>
+      </div>
+    <% end %>
+    <% if @contact.is_supplier? %>
+      <% supplier = @contact.supplier %>
+      <div>
+        <h1>Proveedor</h1>
+        <ul>
+          <li>
+            <b><%= supplier.class.human_attribute_name(:person_name_contact)%> :</b>&nbsp;
+            <%= supplier.person_name_contact %>
+          </li>
+          <li>
+            <b><%= supplier.class.human_attribute_name(:person_phone_contact)%> :</b>&nbsp;
+            <%= supplier.person_phone_contact %>
+          </li>
+        </ul>
+      </div>
+    <% end %>
+    <% if @contact.is_employee? %>
+      <% employee = @contact.employee %>
+      <div>
+        <h1>Empleado</h1>
+        <ul>
+          <li>
+            <b><%= employee.class.human_attribute_name(:in_case_of_emergency_notify)%> :</b>&nbsp;
+            <%= employee.in_case_of_emergency_notify %>
+          </li>
+          <li>
+            <b><%= employee.class.human_attribute_name(:emergency_phone)%> :</b>&nbsp;
+            <%= employee.emergency_phone %>
+          </li>
+          <li>
+            <b><%= employee.class.human_attribute_name(:join_date)%> :</b>&nbsp;
+            <%= employee.join_date %>
+          </li>
+          <li>
+            <b><%= employee.class.human_attribute_name(:position)%> :</b>&nbsp;
+            <%= employee.position.name  if employee.position %>
+          </li>
+          <li>
+            <b><%= employee.class.human_attribute_name(:salary)%> :</b>&nbsp;
+            <%= employee.salary %>
+          </li>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+</div>
+

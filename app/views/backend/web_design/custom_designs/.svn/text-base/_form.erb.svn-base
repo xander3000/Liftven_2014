@@ -1,0 +1,42 @@
+<div id="form_items" class="content_form">
+  <% f.inputs "Datos de cabecera" do %>
+	 <%= f.input :type_design,:as => :select,:collection => CustomDesignType.all,:input_html => {:onchange => remote_function(:url => set_category_design_backend_web_design_custom_designs_url,:with => "$(this).serialize()"),:class => "custom_design_select"}  %>
+	 <%= f.input :category_design,:as => :select,:collection => [],:wrapper_html => {:class => "hidden"},:input_html => {:onchange => remote_function(:url => select_multimedia_file_by_type_design_backend_web_design_custom_designs_url,:with => "$('.custom_design_select').serialize()"),:class => "custom_design_select"}  %>
+  <% end %>
+
+<% f.inputs "Cargadas actualmente" do %>
+  <table id="" frame="border" rules="cols" >
+		<thead>
+		  <tr>
+			 <th><%= MultimediaFile.human_attribute_name("name")%> </th>
+			 <th colspan="2"><%= MultimediaFile.human_attribute_name("attach")%> </th>
+		  </tr>
+
+		</thead>
+		<tbody id="form_prev">
+		  <%= render :partial => "form_prev" %>
+		</tbody>
+	 </table>
+
+  <% end %>
+
+
+</div>
+
+
+<script type="text/javascript">
+   $(document).ready(function() {
+	 $("#custom_design_category_design_input").append('<%= link_to(image_tag("icons/add.png"),add_custom_design_category_type_backend_web_design_custom_designs_url,:class => " external-overlay",:rel => ".overlay") %>')
+	           $("a.external-overlay[rel]").overlay({
+                mask: {
+                        color: '#000',
+                        loadSpeed: 200,
+                        opacity: 0.9
+                },
+                onBeforeLoad: function() {
+                    var wrap = this.getOverlay().find(".contentWrap");
+                    wrap.load(this.getTrigger().attr("href")+"?custom_design_type_design_id="+$("#custom_design_type_design").val());
+                }
+              });
+	});
+</script>

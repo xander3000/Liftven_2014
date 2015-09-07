@@ -1,0 +1,61 @@
+<% if @contact.is_client? %>
+  <div id="client_orders">
+      <div class="panel_header">
+        <h3>Ordenes facturadas</h3>
+      </div>
+      <div class="panel_items">
+       <% @contact.invoiced_orders.each do |order| %>
+        <div class="item " onclick="window.location.href='<%= backend_order_url(order) %>'">
+            <div class="left c10l subc subcl ">
+               <b><%= format_code(order.id, "06") %></b>
+            </div>
+          
+            <div class="c80r subc ">
+              <div>
+                <div class="attr_2">
+                  <%= l order.created_at,:format => :short %>. <span> Monto: </span>19.903,85<br/>
+                <span> Ultima Modificación: </span><%= l order.updated_at,:format => :short %>.
+                </div>
+                <div class="attr_3">
+                  <p>
+                    <%= truncate(order.caso.subject,:length => 130)%>
+                  </p>
+                </div>
+              </div>
+            </div>
+        </div>
+       <% end %>
+      </div>
+    </div>
+<% end %>
+
+<% if @contact.is_employee? %>
+  <div id="client_orders">
+      <div class="panel_header">
+        <h3>Ordenes asociadas</h3>
+      </div>
+      <div class="panel_items">
+       <% @contact.tracking_orders.each do |order| %>
+        <div class="item " onclick="window.location.href='<%= backend_order_url(order) %>'">
+            <div class="left c10l subc subcl ">
+               <b><%= format_code(order.id, "06") %></b>
+            </div>
+
+            <div class="c80r subc ">
+              <div>
+                <div class="attr_2">
+                  <%= l order.created_at,:format => :short %>. <span> Monto: </span>19.903,85<br/>
+                <span> Ultima Modificación: </span><%= l order.updated_at,:format => :short %>.
+                </div>
+                <div class="attr_3">
+                  <p>
+                    <%= truncate(order.caso.subject,:length => 130)%>
+                  </p>
+                </div>
+              </div>
+            </div>
+        </div>
+       <% end %>
+      </div>
+    </div>
+<% end %>

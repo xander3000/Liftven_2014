@@ -1,0 +1,15 @@
+<center>
+  <b>Libro mayor de Banco</b>
+</center>
+<p>Nº <%= format_code(@bank_reconciliation.id,"06") %></p>
+<p><%= CashBank::BankReconciliation.human_attribute_name("period")%> : <%= @bank_reconciliation.period%> </p>
+<p><%= CashBank::BankReconciliation.human_attribute_name("cash_bank_bank")%> : <%= @bank_reconciliation.cash_bank_bank.fullname%> </p>
+<p><%= CashBank::BankReconciliation.human_attribute_name("cash_bank_bank_account")%> : <%= @bank_reconciliation.cash_bank_bank_account.fullname%> </p>
+<p><%= CashBank::BankReconciliation.human_attribute_name("accounting_accountant_account")%> : <%= @bank_reconciliation.accounting_accountant_account.name%> </p>
+<p>Total de movimientos : <%= @bank_movements.size%> </p>
+<p><%= CashBank::BankReconciliation.human_attribute_name("balance_movement_reconciliation_currency")%>: <%= @bank_reconciliation.balance_movement_reconciliation_currency %></p>
+<hr/>
+<%= render :partial => "form_items_l" %>
+<hr/>
+<p>Total de movimientos : <%= @bank_movements.size%> </p>
+<p><%= CashBank::BankReconciliation.human_attribute_name("balance_movement_reconciliation_currency")%>: <%= @bank_reconciliation.balance_movement_reconciliation_currency %></p>

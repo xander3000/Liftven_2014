@@ -1,0 +1,26 @@
+/* 
+    Document   : 2-columns
+    Created on : 30/07/2011, 09:32:30 AM
+    Author     : gabriel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+#main div.content-block div.block-left
+{
+    width: 20%;
+    display: block;
+}
+#main div.content-block div.block-center
+{
+    width: 78%;
+}
+#main div.content-block div.block-right
+{
+    width: 0px;
+    display: block;
+}

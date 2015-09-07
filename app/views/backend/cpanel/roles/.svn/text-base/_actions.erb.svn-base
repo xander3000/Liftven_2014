@@ -1,0 +1,7 @@
+
+<% @action_methods.each do |action_method| %>
+	 <% unless @default_actions.include?(action_method) %>
+		<%= check_box("action_methods_name", action_method, {:style => ""}, true, false) %>
+		<label for="action_methods_name_<%= action_method%>" style=""><%= action_method %> </label><br/>
+	 <% end %>
+<% end %>

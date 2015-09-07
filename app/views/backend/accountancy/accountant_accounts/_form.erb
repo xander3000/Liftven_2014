@@ -1,0 +1,33 @@
+<div id="" class="content_form">
+    <% f.inputs "" do %>
+		<%= f.input :parent_account_id,:as => :hidden%>
+		<%= f.input :code,:input_html => {:placeholder => "#{Accounting::AccountantAccount.human_attribute_name("code")}",:class => "top",:size => 10}%>
+		<%= f.input :name,:input_html => {:size => 25,:class => "uppercase"} %>
+		<%= f.input :fullname,:input_html => {:size => 25,:readonly => true} %>
+		<%= f.input :parent_account_code,:input_html => {:size => 25,:readonly => true} %>
+		<%= f.input :currency_type %>
+		<%= f.input :open_date %>
+    <% end %>
+</div>
+
+<script type="text/javascript">
+  function setFullname(){
+	 fullname =  $("#accounting_accountant_account_code").val() + " - " + $("#accounting_accountant_account_name").val();
+	 $("#accounting_accountant_account_fullname").val(fullname);
+  }
+	$(document).ready(function(){
+          $("#accounting_accountant_account_code").masked('<%= Accounting::AccountantAccount.masked%>');
+			 $("#accounting_accountant_account_name").keyup( function () { 
+				  setFullname();
+			 });
+			 $("#accounting_accountant_account_code, #accounting_accountant_account_name").blur(function () {
+				  setFullname();
+			 });
+			 $("#accounting_accountant_account_open_date").datepicker({
+				changeMonth: true,
+				dateFormat: 'yy-mm-dd',
+				maxDate: "-35",
+				yearRange: 'c-80:c+30'
+        });
+	});
+</script>

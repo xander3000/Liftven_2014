@@ -1,0 +1,112 @@
+<%= include_javascript("jquery.elegantAccordion.js") %>
+<%= include_stylesheet("jquery.elegantAccordion.css") %>
+<%= include_javascript("jquery.mousewheel.min.js") %>
+<%= include_javascript("jquery.smoothdivscroll-1.2-min.js") %>
+<%= include_stylesheet("jquery.mousewheel.css") %>
+
+
+<div id="portfolio_main_content">
+  <ul class="accordion" id="accordion">
+      <li class="bg1 opacityUp">
+          <div class="heading">Impresión Digital</div>
+          <div class="bgDescription"></div>
+          <div class="description impresion_digital">
+              <h2>Impresión Digital</h2>
+            <ul>
+              <li><%= link_to "Volantes",frontend_portfolio_url,:class => "external",:rel => "#modal-external"%></li>
+             <li>Catalogos</li>
+             <li>Revistas</li>
+             <li>Folletos</li>
+             <li>Calendarios</li>
+             <li>Habladores</li>
+             <li>Dipticos</li>
+             <li>Tr&iacute;pticos</li>
+             <li>Tarjetas</li>
+             <li>Invitaciones</li>
+             <li>Afiches</li>
+             <li>Carpetas</li>
+             <li>Libretas</li>
+             <li>Manuales</li>
+             <li>Libros</li>
+             <li>Calcomanías</li>
+          </ul>
+
+          </div>
+      </li>
+      <li class="bg2 opacityUp">
+          <div class="heading">Impresión Litográfica</div>
+          <div class="bgDescription"></div>
+          <div class="description impresion_litografica">
+              <h2>Impresión Litográfica</h2>
+            <ul>
+             <li>Volantes</li>
+             <li>Catalogos</li>
+             <li>Revistas</li>
+             <li>Folletos</li>
+             <li>Calendarios</li>
+             <li>Habladores</li>
+             <li>Dipticos</li>
+             <li>Tr&iacute;pticos</li>
+             <li>Tarjetas</li>
+             <li>Invitaciones</li>
+             <li>Afiches</li>
+             <li>Carpetas</li>
+             <li>Libretas</li>
+             <li>Manuales</li>
+             <li>Libros</li>
+             <li>Calcomanías</li>
+          </ul>
+
+          </div>
+
+      </li>
+      <li class="bg3 opacityUp">
+          <div class="heading">Gigantografía</div>
+          <div class="bgDescription"></div>
+          <div class="description gigantografia">
+            <h2>Gigantografía</h2>
+             <ul>
+               <li>Pendones</li>
+               <li>Pancartas</li>
+               <li>Vallas publicitarias</li>
+               <li>Impresión en Vinil microperforado</li>
+               <li>Impresión en Vinil autoadhesivo</li>
+             </ul>
+
+          </div>
+
+      </li>
+      <li class="bg4 bleft opacityUp">
+          <div class="heading">Servicios de Impresión Varios</div>
+          <div class="bgDescription"></div>
+          <div class="description servicios_varios">
+              <h2>Servicios de Impresión Varios</h2>
+             <ul>
+               <li>Copias B/N</li>
+               <li>Copias a color</li>
+               <li>Impresión B/N</li>
+               <li>Impresión a color</li>
+               <li>Encuadernación</li>
+               <li>Plastificado</li>
+               <li>Fondo negro</li>
+               <li>Carnets</li>
+               <li>Digitalización de planos</li>
+               <li>Vectorización de planos</li>
+               <li>Copias de planos</li>
+               <li>Ploteo de planos B/N</li>
+               <li>Ploteo de planos a color</li>
+               <li>Portapendones</li>
+             </ul>
+
+          </div>
+
+      </li>
+  </ul>
+</div>
+
+        <script type="text/javascript">
+             $(document).ready(function(){
+              $("#venom-pcon").addClass("logoBackground");
+		$('#accordion > li').elegantAccordion();
+            });
+        </script>

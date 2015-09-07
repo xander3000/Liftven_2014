@@ -1,0 +1,91 @@
+development:
+  project:
+    name: LiftVen
+  site: 
+    name: LiftVen | Desarrollo
+  platform:
+    version: 7
+  ldap:
+    host: dirsrv.bcv.org.ve
+    port: 389
+    base: ou=Usuarios,o=BCV,dc=bcv,dc=org,dc=ve
+    ssl: true
+  email:
+    server: mail.liftven.com
+    port: 587
+    domain: localhost
+    authentication: login
+    username: mailbot@liftven.com
+    password: l1ftv3n
+    contact_recipient: mailbot@liftven.com
+    contact_reply_to: mailbot@liftven.com
+  company:
+    name: Corporación Tecnológica Liftven C.A.
+    identification_document: J-40333178-2
+    phone: 0212-8149012
+    email: contacto@liftven.com
+    url: http://www.liftven.com
+  printer:
+    #host: 192.168.0.39
+    #port: 8086
+    host: 127.0.0.1
+    port: 8096
+test:
+  project:
+    name: LiftVen
+  site:
+    name: LiftVen | Calidad
+  platform:
+    version: 7
+  ldap:
+    host: dirsrv.bcv.org.ve
+    port: 389
+    base: ou=Usuarios,o=BCV,dc=bcv,dc=org,dc=ve
+    ssl: true
+  email:
+    server: mail.bcv.org.ve
+    port: 25
+    domain: localhost
+    authentication:
+    username:
+    password:
+    contact_recipient: aciudadana@net-print.com.ve
+    contact_reply_to: noreply@net-print.com.ve
+  company:
+    name: LiftVen Corporación Tecnológica
+    identification_document: J-40333178-2
+    url: http://www.liftven.com
+  printer:
+    host: 192.168.1.110
+    port: 8086
+production:
+  project:
+    name: NetPrint
+  site:
+    name: NetPrint
+  platform:
+    version: 7
+  ldap:
+    host: dirsrv.bcv.org.ve
+    port: 389
+    base: ou=Usuarios,o=BCV,dc=bcv,dc=org,dc=ve
+    ssl: true
+  email:
+    server: mail.itechven.com
+    port: 25
+    domain: localhost
+    authentication: login
+    username: mailbot@itechven.com
+    password: mailbot
+    contact_recipient: contacto@net-print.com.ve
+    contact_reply_to: noreply@net-print.com.ve
+  company:
+    name: Corporación Tecnológica Liftven C.A.
+    identification_document: J-40333178-2
+    phone: 0212-8149012
+    email: contacto@liftven.com
+    url: http://www.liftven.com
+  printer:
+    host: 127.0.0.1
+    port: 8096
+

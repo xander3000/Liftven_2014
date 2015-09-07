@@ -1,0 +1,14 @@
+<%= link_to_function(image_tag("icons/printer.png"),"$('#print_to_menu').toggle()",:class => "button") %>
+<ul id="print_to_menu" style="">
+  <li><span class="ui-icon ui-icon-print"></span><%= link_to("PDF",eval(url.gsub('FORMAT',"pdf")))%> </li>
+  <li><span class="ui-icon ui-icon-print"></span><%= link_to("CSV",eval(url.gsub('FORMAT',"csv")))%></li>
+</ul>
+
+
+
+
+<script type="text/javascript">
+$(function() {
+    $( "#print_to_menu" ).menu();
+});
+</script>

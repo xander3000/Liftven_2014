@@ -1,0 +1,10 @@
+
+<div id="" class="content_form">
+	 <br/>
+    <% f.inputs "" do %>
+		<%= f.input :accounting_accounting_concept_operation_type%>
+		<%= f.input :accounting_accountant_account_id,:as => :string,:wrapper_html => {:class => "hidden"}%>
+		<%= f.input :accounting_accountant_account_name,:as => :string,:input_html => {:size => 10}%>
+		<%= f.input :name,:input_html => {:size => 25,:class => "uppercase"} %>
+    <% end %>
+</div>

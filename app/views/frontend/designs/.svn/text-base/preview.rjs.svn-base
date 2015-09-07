@@ -1,0 +1,8 @@
+@labels.keys.each do |key|
+  if(!@labels[key].empty?)
+    page << "$('.#{key}').html('#{@labels[key]}')"
+  end
+end
+
+
+

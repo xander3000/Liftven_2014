@@ -1,0 +1,18 @@
+<h2 class="StepTitle">Información del perfil</h2>
+
+<% fields_for @contact do |c| %>
+
+  <fieldset>
+    <p>
+      <%= c.label :fullname, @contact.class.human_attribute_name('fullname') %>
+      <%= c.text_field :fullname %>
+       <span id="msg_fullname" class="error"></span>
+    </p>
+      <p  class="last-child">
+        <%= c.label :identification_document, @contact.class.human_attribute_name('identification_document') %>
+        <%= c.text_field :identification_document %>
+        <span id="msg_identification_document" class="error"></span>
+      </p>
+
+  </fieldset>
+<% end %>

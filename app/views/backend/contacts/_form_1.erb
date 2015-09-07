@@ -1,0 +1,29 @@
+<%#= @contact.contact_types.delete("")  %>
+
+<% f.inputs do%>
+  <%=  f.input :fullname,:label => false,:input_html => {:placeholder => "Nombre completo del Contacto ",:class => "top"} %>
+  <%#=  f.input :identification_document_type %>
+  <%=  f.input :identification_document,:input_html => {:class => "identification_document",:title => "J-xxxxxxxxx o V-xxxxxxxxx"} %>
+  <%=  f.input :phone,:input_html => {:class => "phoness" } %>
+  <%=  f.input :email %>
+  <%=  f.input :website %>
+  <%= f.input :address %>
+  <%= f.input :islr_retained %>
+  <%= f.input :retention_rate_islr,:wrapper_html => {:class => " hidden"},:input_html => {:size => 5,:class => "right"} %>
+  <%= f.input :retention_rate_islr_2,:wrapper_html => {:class => " hidden"},:input_html => {:size => 5,:class => "right"} %>
+  <%= f.input :active,:input_html => {} %>
+  <%= f.input :contact_types,:as => :check_boxes,:collection => @contact_types,:input_html => {} %>
+<% end %>
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+          $("#contact_identification_document").blur( function () { $(this).val($(this).val().toUpperCase()); } );
+			 $("#contact_islr_retained").click(function () {
+				  if($(this).is(":checked"))
+					 $("#contact_retention_rate_islr_input,#contact_retention_rate_islr_2_input").show('slow');
+				  else
+					 $("#contact_retention_rate_islr_input,#contact_retention_rate_islr_2_input").hide('slow');
+			 });
+	});
+</script>

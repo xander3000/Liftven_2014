@@ -1,0 +1,14 @@
+<% semantic_form_remote_for @raw_material, :url => backend_raw_material_url(@raw_material),:method => :put do |f| %>
+        <div class="top-actions">
+          <%= link_to "Cancelar", backend_raw_materials_url %>&nbsp;&nbsp;|
+          <%= submit_tag "Actualizar",:class => "button" %>
+        </div>
+      <%= render :partial => "form",:locals => {:f => f} %>
+<% end %>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+          
+          $("#raw_material_raw_material_category_id").change();
+	});
+</script>

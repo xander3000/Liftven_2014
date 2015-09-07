@@ -1,0 +1,128 @@
+<%= include_javascript("jquery.formatCurrency-1.4.0.js") %>
+<%= render :partial => "form_client",:locals => {:f => f} %>
+
+<div id="credit_note_form" class="content_form">
+    <% f.inputs "Datos generales" do %>
+      <%= f.input :credit_note_emision_type,:input_html => {:onchange => remote_function(:url => search_invoices_backend_financial_management_credit_notes_url,:with => "$(this).serialize()")} %>
+      <%= f.input :invoice,:wrapper_html => {:class => "hidden"},:input_html => {:onchange => remote_function(:url => load_product_by_invoice_backend_financial_management_credit_notes_url,:with => "$(this).serialize()")} %>
+      <%#= c.input :identification_document_type %>
+    <% end %>
+</div>
+
+<%= render :partial => "form_items",:locals => {:f => f} %>
+
+
+<script type="text/javascript">
+
+  function product_after_complete(item){
+    switch (item.code_response) {
+        case ("ok"):
+
+            $("#product_product_id").val(item.id);
+            $("#product_description").val(item.name);
+            if(!item.fixed_size)
+              $(".dimensions input,.dimensions select").removeAttr("readonly");
+            $("#product_side_dimension_x").val(item.side_dimension_x);
+            $("#product_side_dimension_y").val(item.side_dimension_y);
+            $("#product_code").val(item.reference_code);
+            /*$("#product_unit_price").val(item.unit_price);
+            $("#product_quantity").val('<%#= Invoice::MIN_AMOUNT %>');*/
+            $("#product_quantity").removeAttr("readonly");
+            //$("#product_quantity").removeAttr("disabled");
+            increase_total_price();
+            break;
+        case ("no-ok"):
+            alert('no-ok');
+            break;
+        default:
+            alert('problemas buscando');
+    }
+
+  }
+    function client_after_complete(item){
+    switch (item.code_response) {
+        case ("ok"):
+            $("#credit_note_client_id").val(item.client_id)
+            $("#contact_fullname").val(item.fullname);
+            $("#contact_identification_document").val(item.identification_document);
+            $("#contact_phone").val(item.phone);
+            $("#contact_address").val(item.address);
+            $.ajax({
+                  type: "POST",
+                  url: "<%= set_current_client_backend_financial_management_credit_notes_url %>",
+                  data: "client_id="+$("#credit_note_client_id").val()
+          });
+            break;
+        case ("no-ok"):
+            alert('no-ok');
+            break;
+        default:
+            alert('problemas buscando');
+    }
+  }
+
+  function increase_total_price(){
+
+    val = $("#product_quantity").val()*$("#product_unit_price").val();
+    $("#product_total_price").val(val);
+  }
+
+$(document).ready(function(){
+
+
+              $("#product_code").autocomplete({
+                 source: "<%= autocomplete_by_code_backend_products_url %>",
+                 minLength: 3,
+                 select: function( event, ui ) {
+                   if(ui.item)
+                     product_after_complete(ui.item);
+                 }
+              });
+              $("#product_description").autocomplete({
+                 source: "<%= autocomplete_by_description_backend_products_url %>",
+                 minLength: 3,
+                 select: function( event, ui ) {
+                   if(ui.item)
+                    product_after_complete(ui.item);
+                 }
+              });
+              $("#contact_fullname").autocomplete({
+                 source: "<%= autocomplete_by_client_name_backend_contacts_url %>",
+                 minLength: 3,
+                 select: function( event, ui ) {
+                   if(ui.item)
+                    client_after_complete(ui.item);
+                 }
+              });
+              $("#contact_identification_document").autocomplete({
+                 source: "<%= autocomplete_by_client_identification_backend_contacts_url %>",
+                 minLength: 3,
+                 select: function( event, ui ) {
+                   if(ui.item)
+                    client_after_complete(ui.item);
+                 }
+              });
+
+              $("#item_product_form .select_price").blur(function() {
+                $.getJSON("<%= select_prices_backend_products_url %>", $('#item_product_form input.select_price').serialize(), function(json){
+                    switch (json.code_response) {
+                      case ("ok"):
+                        $("#product_unit_price").val(json.unit_price);
+                        $("#product_total_price").val(json.total_price);
+                        $("#add_product_button").show();
+                        break;
+                      case ("no-ok"):
+                        //alert('no-ok');
+                        break;
+                      default:
+                        alert('problemas buscando');
+                    }
+
+                });
+              });
+
+
+
+
+	});
+</script>

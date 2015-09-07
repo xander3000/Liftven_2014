@@ -1,0 +1,17 @@
+<p><b class="border-bottom">Resumen</b></p>
+<div class="right">
+  <p>
+		<i>Total en ventas por caja <b><%= @daily_cash_closing.cash_bank_cash.name %></b> : </i>
+		<b class=""><%= number_to_currency(@daily_cash_closing.total_amount_fiscal, :delimiter => ".", :separator => ",", :unit => "") %></b>
+	 <br/>
+		<i>Total en ventas por <b>Forma Libre</b>: </i>
+		<b class=""><%= number_to_currency(@daily_cash_closing.total_amount_free_form, :delimiter => ".", :separator => ",", :unit => "") %></b>
+	 <br/>
+		<i>Total en <b>anticipos por ordenes</b>: </i>
+		<b class=""><%= number_to_currency(@daily_cash_closing.total_order_amount_with_advance_payment, :delimiter => ".", :separator => ",", :unit => "") %></b>
+		<br/><br/>
+		<i>Elaborado por: &nbsp;</i>
+		<b><%= @daily_cash_closing.responsible.name %> </b><br/>
+  </p>
+</div>
+		

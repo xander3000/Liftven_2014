@@ -1,0 +1,50 @@
+<div>
+  <div class="content-info short-info c40l subc">
+    <div class="short-info_nav">
+      <ul>
+        <li>
+          <a href="" class="active">Información</a>
+        </li>
+        <li>
+          <a href="">Historico de pedidos</a>
+        </li>
+      </ul>
+    </div>
+    <div class="login logout block info">
+      <% form_remote_for @user_session, :url => frontend_session_index_url, :method => :post do |f| %>
+        <div id="password-credentials">
+          <h3>Iniciar</h3>
+          <p class="separator">Para cualquier problema con su cuenta, por favor <a href="">contáctenos</a></p>
+          <label for="login_email">Correo</label>
+          <%= f.text_field :login %>
+          <label for="login_password">Clave</label>
+          <%= f.password_field :password %>
+          <p><a class="modal" href="/user/password/new">¿Olvido su clave?</a></p>
+          <p>
+            <%= submit_tag "ingresar",:class => "gray" %>
+          </p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="c55r subc block info">
+
+    <div id="user_account_content">
+      <% form_remote_for @user, :url => frontend_users_url,:method => :post do |f| %>
+      
+        <h2 class="separator">Crear una cuenta</h2>
+        <div class="account-part">
+          <p>
+              Configure una cuenta para revisar el estado del pedido,
+              el historial de pedidos y disfrutar de comprar más rápidamente la
+              próxima vez que compre con nosotros.
+          </p>
+          <%= render :partial => "form_1",:locals => {:f => f} %>
+        </div>
+        <p>
+          <%= submit_tag "Crear",:class => "secondary" %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+</div>

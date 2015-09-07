@@ -1,0 +1,88 @@
+<div class="actionsBar right">
+  <%#= link_to(image_tag("icons/pencil.png"),backend_budget_edit_quantity_url(@goods_receipt),:class =>"button",:title =>"Editar presupuesto") %>
+   <%= link_to_function(image_tag("icons/printer.png"),"window.print()",:class => "button",:title =>"Imprimir orden") %>
+
+</div>
+<br/>
+<div id="contable_document_show">
+  <div id="" class="right control">
+    <%= @title.upcase %>   Nº <span><%= format_code(@goods_receipt.id, "06") %></span>
+  </div>
+
+  <div id="letterhead">
+    <div id="logo"  class="c50l subc">
+    <%= image_tag "clients/#{PROJECT_NAME}/logos/logo2.png" %>
+  </div>
+    <div class="c50r subc">
+      <ul>
+        <li>VOLANTES</li> <li>CATALOGOS</li> <li>REVISTAS</li> <li>FOLLETOS</li> <li>CALENDARIOS</li> <li>HABLADORES</li>
+        <li>DIPTICOS</li> <li>TRIPTICOS</li> <li>TARJETAS DE PRESENTACION</li> <li>TARJETAS EN PAPELES ESPECIALES</li>
+        <li>IMPRESION EN LITHOAUTOADHESIVO</li> <li>AFICHES</li> <li>CARPETAS</li> <li>LIBRETAS</li>
+        <li>MANUALES</li> <li>PENDONES</li> <li>PANCARTAS</li> <li>VALLAS</li> <li>BACKINGS</li> <li>CAJAS DE LUZ</li>
+        <li>VINIL MICROPERFORADO</li> <li>VINIL AUTOADHESIVO</li> <li>VINIL IMANTADO</li> <li>ROTULACION DE VEHICULOS</li>
+        <li>CLEAR</li> <li>BACKLIGHT</li> <li>FROSTER</li> <li>CALCOMANIAS</li>
+      </ul>
+    </div>
+  </div>
+  <div id="details">
+    <b>NOMBRE O RAZÓN SOCIAL PROVEEDOR: </b> <%= @goods_receipt.supplier.name %><br/>
+    <b>C.I. / RIF: </b><%= @goods_receipt.supplier.identification_document %><br/>
+    <b>FECHA: </b><%= l  @goods_receipt.created_at %><br/>
+    <hr/>
+    <div id="form_items">
+      <table border="0">
+        <thead>
+			 <tr>
+				<th class="material">
+				  <%= Material::GoodsReceiptPosition.human_attribute_name(:raw_material)%>
+				</th>
+				<th class="quantity">
+				  <%= Material::GoodsReceiptPosition.human_attribute_name(:quantity)%>
+				</th>
+
+				<th class="delivery_date">
+				  <%= Material::GoodsReceiptPosition.human_attribute_name(:delivery_date)%>
+				</th>
+			 </tr>
+        </thead>
+        <tbody id="product_by_budgets_items">
+          <%= render :partial => "items" %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div>
+    <div class="c80l subc center">
+      VENOM Impresos Digitales C. A.<br/>
+      Av. Francisco de Miranda, Multicentro Empresarial del Este,
+      Torre Miranda, Local PB-2, Chacao.<br/>
+      venomdescargas@gmail.com<br/>
+    </div>
+    <div class="c10r subc">
+        RIF. J-29680598-9<br/>
+        TELF. FAX: 0212-740.2088<br/>
+        0212-740.2089<br/><br/>
+        www.venomimpresos.com<br/>
+    </div>
+  </div>
+  <div class="right control">
+    <%= @title.upcase %> Nº <span><%= format_code(@goods_receipt.id, "06") %></span>
+  </div>
+  <br/>
+</div>
+<br/>
+
+
+
+<script type="text/javascript">
+
+
+  $(document).ready(function(){
+
+
+
+
+  });
+</script>
+
+     

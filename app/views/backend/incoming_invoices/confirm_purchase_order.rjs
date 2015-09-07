@@ -1,0 +1,9 @@
+if @purcharse_order
+	page << "$('#incoming_invoice_supplier_id').val('#{@purcharse_order.supplier.id}')"
+	page << "$('#incoming_invoice_supplier').val('#{@purcharse_order.supplier.name}')"
+	page.replace_html "items", :partial => "items"
+else
+	page.alert("Pedido no existe")
+	page << "$('#incoming_invoice_supplier').val('')"
+	page.replace_html "items", :text => ""
+end

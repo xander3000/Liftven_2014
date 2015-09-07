@@ -1,0 +1,79 @@
+<%= include_stylesheet("jquery.fileupload-ui") %>
+<%= include_stylesheet("backend/orders_design") %>
+
+<%= link_to "volver",backend_order_url(@order) %>
+<hr/>
+<br/>
+<%= button_to_function("Aceptar propuesta","accpet_design()") %>
+&nbsp;
+<%= button_to_function("Rechazar propuesta","discard_design()") %>
+<br/>
+<br/>
+<% form_layout do %>
+  <% semantic_form_remote_for @notification, :url => backend_order_discard_design_url(@order),:html => {:class => "hidden"} do |f| %>
+      <div id="form_for_decision">
+        <%= render :partial => "form_for_decision",:locals => {:f => f} %>
+      </div>
+      <hr/>
+      <div class="left">
+          <%= link_to "Cancelar",backend_order_url(@order) %>
+          |
+          <%= submit_tag "Aceptar"%>
+        </div>
+  <% end %>
+<div id="fileupload" class="ui-widget hidden">
+  <p>
+    Para decidir sobre algunos de los diseños, presionar sobre el icono <span><%= image_tag("icons/accept.png")%></span> al lado de cada propuesta.
+  </p>
+  <div class="fileupload-buttonbar fileupload-buttonbar-detail ui-widget-header ui-corner-top ">
+    <label>Propuestas</label>
+  </div>
+  <div class="fileupload-content ui-widget-content ui-corner-bottom">
+          <table class="files">
+            <tbody>
+              <%  @design.multimedia_files.each do |multimedia_file|%>
+                <tr class="template-download" style="">
+                  <td class="preview">
+                    <a target="_blank" href="<%= multimedia_file.attach.url%>">
+                      <%= image_tag(multimedia_file.attach.url(:thumb)) %>
+                    </a>
+                  </td>
+                  <td class="name">
+                    <a target="_blank" href="<%= multimedia_file.attach.url%>">
+                      <%= multimedia_file.attach_file_name %>
+                    </a>
+                  </td>
+                  <td class="download">
+                    <%= link_to_remote image_tag("icons/accept.png"),:url => backend_order_accept_design_url(@order,@design,multimedia_file),:confirm => "¿Esta seguro de aceptar esta propuesta de diseño?", :html => {:class => "button"} %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+
+  </div>
+  <div class="right">
+      <%= link_to image_tag("/images/icons/anchor.png"),"#",:class => "goTop button" %>
+  </div>
+</div>
+
+<% end %>
+
+
+
+
+<script type="text/javascript">
+    function accpet_design(){
+      $("#new_notification").hide();
+      $("#fileupload").show();
+    }
+
+    function discard_design(){
+      $("#new_notification").show();
+      $("#fileupload").hide();
+    }
+
+    $(document).ready(function() {
+        
+    });
+</script>

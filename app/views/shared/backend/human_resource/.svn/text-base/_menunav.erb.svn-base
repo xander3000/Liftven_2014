@@ -1,0 +1,74 @@
+<ul>
+	 <li><a href="#Home"><%= link_to(image_tag("clients/#{PROJECT_NAME}/logos/isotipo2.png"),backend_cpanel_home_index_url())%> </a></li>
+	 <li>
+            <a href="#">Procesos<span class="arrow"></span></a>
+            <ul style='width: 250px;'>
+              <li>Administración
+                <ul style='width: 220px;'>
+                  <li>Empleados
+                    <ul style='width: 220px;'>
+                      <li>
+                        <%= link_to "Listado",backend_human_resource_employees_url%>
+                      </li>
+                      <li>
+                        <%= link_to "Nuevo",new_backend_human_resource_employee_url%>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>Nomina
+                    <ul style='width: 220px;'>
+                      <li><%= link_to "Generar nomina ordinaria",new_massive_process_backend_human_resource_last_payrolls_url%></li>
+                    </ul>
+                  </li>
+
+                </ul>
+              </li>
+            </ul>
+		</li>
+		<%= yield :aditional_options_menunav  %>
+		<li>
+			 <a href="#">Configuración<span class="arrow"></span></a>
+			 <ul style="width: 200px">
+				<li><%= link_to "Conceptos nomina",backend_human_resource_concepts_url%></li>
+				<li><%= link_to "Conceptos por tipo personal",backend_human_resource_concept_personal_types_url%></li>
+				<li><%= link_to "Departamentos",backend_human_resource_departments_url%></li>
+				<li><%= link_to "Cargos",backend_human_resource_positions_url%></li>
+			 </ul>
+		</li>
+		<li>
+			 <a href="#">Reportes<span class="arrow"></span></a>
+				<ul>
+                                  <li>Administración
+                                    <ul>
+                                      <li>Nómina
+                                        <ul>
+                                          <li><%= link_to "Nominas procesadas",backend_human_resource_last_payrolls_url%></li>
+                                          <li><%= link_to "Por concepto nomina",backend_human_resource_resumen_concept_personal_type_by_payroll_report_url,:class => "external-overlay", :rel=>".overlay"%></li>
+                                          <li><%= link_to "Varaciones salariales","alert('En desarrollo')"%></li>
+                                        </ul>
+                                      </li>
+
+                                      
+                                    </ul>
+                                  </li>
+                                  <li>Personal
+                                        <ul style="width: 250px">
+                                          <li><%= link_to "Empleados activos",backend_human_resource_employee_report_status_url(Payroll::EmployeeStatusType::ACTIVE)%></li>
+                                          <li><%= link_to "Empleados egresados",backend_human_resource_employee_report_status_url(Payroll::EmployeeStatusType::GRADUATE)%></li>
+                                          <li><%= link_to "Empleados en proceso de vacaciones",backend_human_resource_employee_report_status_url(Payroll::EmployeeStatusType::REST)%></li>
+                                          <li><%= link_to "Empleados supsendios",backend_human_resource_employee_report_status_url(Payroll::EmployeeStatusType::SUSPENDED)%></li>
+                                          <li><%= link_to "Movimientos de personal","alert('En desarrollo')"%></li>
+                                          <li><%= link_to "Asistencia",backend_human_resource_monitoring_assistances_url%></li>
+                                        </ul>
+                                    </li>
+				</ul>
+		</li>
+		<li>
+			 <a href="#">Ayuda<span class="arrow"></span></a>
+			 <ul>
+
+			 </ul>
+		</li>
+
+</ul>
+

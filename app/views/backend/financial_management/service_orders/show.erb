@@ -1,0 +1,173 @@
+<div style="border: 1px solid #D2D2D2">
+  <div id="content_info_voucher">
+	 <div class="subc c55l">
+		<div class="border header">
+		  <h2><%= COMPANY_NAME.upcase %></h2>
+		  <b><%= COMPANY_IDENTIFICATION_DOCUMENT.upcase %></b><br/>
+		  <b><%= COMPANY_PHONE.upcase %></b>
+		</div>
+	 </div>
+	 <div class="subc c40r left">
+		<div class="border">
+		  <h2><%= @service_order.class.model_humanize_name.upcase%> </h2>
+		  <br/>
+		  <h2>Nº <b class="red">OC-<%= @service_order.id.to_code  %> </b></h2>
+		</div>
+	 </div>
+	 <br/>
+
+	 <table cellspacing="0" class="border">
+		  <thead>
+			 <tr>
+				<th class="border-top-left"><b>INFORMACION DEL PROVEEDOR</b></th>
+				<th  class="border-top-right"><%= Accounting::ServiceOrder.human_attribute_name("create_by").upcase%></th>
+			 </tr>
+		  </thead>
+		 <tbody>
+			<tr>
+			  <td rowspan="3" class="border-bottom-left">
+				 <%	supplier = @service_order.supplier
+						contact   = supplier.contact
+				  %>
+				 <h2><%= supplier.name%></h2>
+				 <label>Doc Nº:</label> <b><%= supplier.identification_document.upcase  %></b><br/>
+				 <label>Contacto:</label> <b><%= supplier.person_name_contact.to_s.upcase%></b><br/>
+				 <label>Dirección:</label> <b><%= contact.address.upcase%></b><br/>
+				 <label>Teléfono:</label> <b><%= contact.phone.upcase%></b><br/>
+				 <label>Correo:</label> <b><%= contact.email.upcase%></b><br/>
+			  </td>
+			  <td class="center ">
+				 <%= @service_order.create_by.name%>
+			  </td>
+			</tr>
+		  <tr>
+			 <td class="header" colspan="1">DATOS DE ENTREGA DE LA ORDEN</td>
+		  </tr>
+		  <tr class="center">
+			 <td colspan="1" class=" border-bottom-right">
+				Fecha de entrega: <b><%= l  @service_order.posting_date.to_date %></b><br/>
+				
+			 </td>
+		  </tr>
+
+	 </tbody>
+	 </table>
+	 <br/>
+	 <table>
+		<thead>
+		  <tr>
+			 <th class="center" style="width: 10px">ITEM</th>
+			 <th class="left">CODIGO</th>
+			 <th class="left">DESCRIPCION</th>
+			 <th class="right">CANTIDAD</th>
+			 <th class="right">SUB TOTAL</th>
+			 <th class="right">TOTAL</th>
+		  </tr>
+		</thead>
+		<tbody class="items">
+				<%
+					 item = 0
+                               @service_order_positions.each do |position|
+					 item += 1
+				%>
+				<tr>
+				  <% accounting_service_order = position.accounting_service_order  %>
+				  <td class="center"><%= item%></td>
+				  <td><%= position.id.to_code  %></td>
+				  <td><%= position.concept  %></td>
+				  <td class="right"><%= position.quantity  %></td>
+				  <td class="right"><%= position.sub_total.to_currency(false)  %></td>
+				  <td class="right"><%= position.total.to_currency(false)  %></td>
+				</tr>
+			 <% end %>
+		</tbody>
+	 </table>
+	 <div>
+		<div class="subc c50l">
+		  <div class="border-line">
+			 <br/><br/><br/><br/>
+		  </div>
+		</div>
+		<div class="subc c50r">
+		  <table style="margin-top: 5px;">
+			 <thead>
+				<tr>
+				  <th>FORMA DE PAGO</th>
+				  <th>REFERENCIA</th>
+				  <th>IMPUESTOS</th>
+				  <th>TOTAL</th>
+				</tr>
+			 </thead>
+			 <tbody>
+				<tr>
+				  <td></td>
+				  <td></td>
+				  <td class="right "><%= @service_order.tax_amount.to_currency(false)%></td>
+				  <td class="right highlight"><%= @service_order.total_amount.to_currency%></td>
+				</tr>
+			 </tbody>
+		  </table>
+		</div>
+	 </div>
+	 <div class="border-line">
+		TOTAL (En letras): <b><%= @service_order.total_amount.to_word.upcase %></b>
+	 </div>
+	 <table>
+		<thead>
+		  <tr class="center">
+			 <td>
+				OBSERVACIONES
+			 </td>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr>
+			 <td></td>
+		  </tr>
+		</tbody>
+	 </table>
+<br/>
+  <div class="footer">
+	 <div class="subc c50l">
+		<table>
+		  <thead>
+		  <tr>
+			 <th>
+				Preparado
+			 </th>
+			 <th>
+				Aprobado
+			 </th>
+			 <th>
+				Contabilizado
+			 </th>
+			 <th>
+				Revisado
+			 </th>
+		  </tr>
+		  </thead>
+		  <tbody>
+			 <tr>
+				<td><br/><br/><br/></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			 </tr>
+		  </tbody>
+		</table>
+	 </div>
+	 <div class="subc c50r">
+		<div class="border">
+		  <b>RECIBIDO:</b>
+		  <br/>
+		  <br/>
+		  <br/>
+		  <hr/>
+		  CI:
+		</div>
+	 </div>
+  </div>
+
+
+  </div>
+</div>

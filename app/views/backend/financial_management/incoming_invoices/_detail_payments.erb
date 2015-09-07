@@ -1,0 +1,36 @@
+
+
+<table>
+
+	   <thead>
+	 <tr>
+		<th><%= IncomingInvoicePayment.human_attribute_name("amount")%> </th>
+		<th><%= IncomingInvoicePayment.human_attribute_name("payment_method_type")%> </th>
+		<th><%= IncomingInvoicePayment.human_attribute_name("transaction_reference")%> </th>
+		<th><%= IncomingInvoicePayment.human_attribute_name("transaction_date")%> </th>
+		<th><%= IncomingInvoicePayment.human_attribute_name("created_at")%> </th>
+	 </tr>
+  </thead>
+
+  <tbody>
+	 <% @incoming_invoice.incoming_invoice_payments.each do |incoming_invoice_payment| %>
+		<tr>
+		  <td>
+			 <%= number_to_currency(incoming_invoice_payment.amount, :delimiter => ".", :separator => ",", :unit => "")  %>
+		  </td>
+		  <td>
+			 <%= incoming_invoice_payment.payment_method_type.name %>
+		  </td>
+		  <td>
+			 <%= incoming_invoice_payment.transaction_reference %>
+		  </td>
+		  <td>
+			 <%= incoming_invoice_payment.transaction_date %>
+		  </td>
+		  <td>
+			 <%= l(incoming_invoice_payment.created_at,:format => :default_date) %>
+		  </td>
+		</tr>
+	 <% end %>
+  </tbody>
+</table>

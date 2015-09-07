@@ -1,0 +1,50 @@
+<% if @contact.new_record? 
+      url = {:url => frontend_contacts_url(@contact),:method => :post}
+ else 
+    url = {:url => frontend_contact_url(@contact),:method => :put}
+ end
+ %>
+ <% form_remote_for @contact, url  do |f|%>
+  <div class="account-part">
+    <div id="" class="description">
+    
+      <div class="details showing_2">
+        <% unless @contact.new_record? %>
+          <p><%= @contact.fullname%></p>
+          <p><%= @contact.identification_document %></p>
+          <p></p>
+          <p>Telf: <%= @contact.phone%></p>
+          <p>Celular:<%= @contact.cellphone ?  @contact.cellphone :  "N/A" %></p>
+         <% end %>
+      </div>
+
+    </div>
+    <div class="clearing"></div>
+    <div class="separator form editing_2 hidden">
+      <%= render :partial => "form_2",:locals => {:f => f} %>
+    </div>
+    <ul class="form-handling">
+        <li>
+          <p class="editing_2 hidden">
+            <%= submit_tag "Guardar",:class => "button " %>
+          </p>
+        </li>
+        <li>
+          <p class="editing_2 hidden">
+            <%= link_to_function("Cancelar", "",:id => "button_cancel_2",:class => "button no-background") %>
+          </p>
+        </li>
+        <li >
+          <p class="showing_2">
+            <%= link_to_function("Editar", "",:id => "button_edit_2",:class => "button  gray") %>
+          </p>
+        </li>
+      </ul>
+  </div>
+<% end %>
+
+
+
+
+
+

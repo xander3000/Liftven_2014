@@ -1,0 +1,8 @@
+if @paper_type and @paper_type.requiere_other_paper?
+  paper_type_tag = "#paper_types_#{@product_component_type}"
+  page << "jQuery('#{paper_type_tag}').children().remove().end()"
+  page << "jQuery('#{paper_type_tag}').append(jQuery('<option></option>').val('').html('-- Seleccione --'));"
+  @paper_types.each do |paper_type|
+     page << "jQuery('#{paper_type_tag}').append(jQuery('<option></option>').val('#{paper_type.id}').html('#{paper_type.name}'));"
+  end
+end

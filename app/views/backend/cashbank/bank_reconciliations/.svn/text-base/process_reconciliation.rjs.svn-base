@@ -1,0 +1,3 @@
+page.replace_html "reconciliation_detail",  :partial => "form_total"
+page.replace_html "items_r", :partial => "items_r"
+page.replace_html "items_l",  :partial => "items_l"

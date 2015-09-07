@@ -1,0 +1,68 @@
+<div class="block-container-items">
+  <% @products.each do |product| %>
+  <div class="block-item" ref="<%= product.id %>">
+    <div class="block-item-text">
+      <%= product.name %>
+    </div>
+  </div>
+  <% end %>
+  
+  
+      <% semantic_form_remote_for @invoice, :update => "#{controller.controller_name}_container",:url => generate_invoice_backend_shortcuts_url,:html => {:class => "form_invoice_generate"} do |f| %>
+       
+        <%#= hidden_field(:product_by_invoice,:product_id)  %>
+        <%#= hidden_field(:product_by_invoice,:unit_price,:value => "1")  %>
+
+        <%#= hidden_field(:invoice,:client_id,:value => "2")  %>
+        <%#= hidden_field(:invoice,:total)  %>
+        <%# = hidden_field(:invoice,:payment_method_type_id,:value => "4")  %>
+        <p>
+          
+          <%#= text_field(:product_by_invoice,:quantity,:size => 5) %>
+        </p>
+		<%= render :partial => "form",:locals => {:f => f} %>
+		<br/>
+      <%= link_to_function "FACTURAR","invoiceGenerate()", :disable_with => "Por favor espere...",:id => "contable_document-button",:class => "button" %>
+      <% end %>
+    <div>
+
+    </div>
+  
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<script type="text/javascript">
+
+  function invoiceGenerate()
+        {
+          result = confirm("¿Esta seguro de ejecutar esta acción?")
+          if (result)
+            $(".form_invoice_generate").submit();
+        }
+
+
+    $(document).ready(function(){
+      $(".block-item").click(function () {
+		  $('#item_product_form input,#item_product_form select').val('');
+        $("#product_product_id").val($(this).attr("ref"));
+		  
+		  $('.like_input').html('0,00');
+		  $("#product_side_dimension_x").val("");
+		  $("#product_side_dimension_y").val("");
+		  $("#page_size_type").val(0);
+		  $("input.dimension").removeAttr("readonly");
+		  $("#product_quantity").removeAttr("readonly");
+		  //increase_total_price();
+
+		  $.ajax({
+			 type: "POST",
+			 url: "<%= find_product_components_by_product_backend_invoices_url %>",
+			 data: {product_id: $('#product_product_id').val()}
+		  })
+		  
+      });
+    });
+</script>

@@ -1,0 +1,65 @@
+
+
+<div>
+  <div class="c30l subc">
+	 Fecha inicio: <%= @init_date%><br/>
+	 Fecha fin: <%=  @end_date%><br/>
+	 Quincena: <%=  @fortnight%><br/>
+  </div>
+  <div class="c70r subc">
+	 <div class="actionsBar right no-print">
+		<%=  select("regular_paroll_check","id",@regular_paroll_checks.collect {|p| [ p.name, p.id ] }, { :include_blank => true} ,:onchange => remote_function(:url => select_date_backend_human_resource_monitoring_assistances_url,:with => "$(this).serialize()"),:style => "padding:3px;")%>
+	 | <%= link_to(image_tag("icons/printer.png"),"",:class => "button") %>
+	 </div>
+  </div>
+</div>
+
+<hr/>
+
+
+
+<hr/>
+<table border="1">
+  <thead>
+	 <tr>
+		<th>
+		  Empleado
+		</th>
+		<th>
+		  Asistencias  (días)
+		</th>
+		<th>
+		  Inasistencias (días)
+		</th>
+		<th>
+		  Retraso (min)
+		</th>
+	 </tr>
+  </thead>
+  <tbody>
+	 <% @monitoring_assistances_all_active_employeess.each do |employee_assistance| %>
+
+	 <tr>
+		<td>
+		  <%= employee_assistance[:employee_fullname] %>
+		</td>
+
+		<td>
+		  <%=employee_assistance[:count_weekdays] %>
+		</td>
+		<td>
+
+		  <%= employee_assistance[:count_non_weekdays] %>
+		</td>
+		<td>
+		  <%= number_to_currency(employee_assistance[:diff_time_check_in], :delimiter => ".", :separator => ",", :unit => "")  %>
+		</td>
+	 </tr>
+	 <% end %>
+  </tbody>
+
+
+</table>
+
+
+

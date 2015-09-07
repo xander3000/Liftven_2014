@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/1597/trunk/Venom/public/stylesheets/backend/financial_management
+END
+advances.css
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/1090/trunk/Venom/public/stylesheets/backend/financial_management/advances.css
+END
+suppliers.css
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/933/trunk/Venom/public/stylesheets/backend/financial_management/suppliers.css
+END
+outgoing_invoices.css
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/1493/trunk/Venom/public/stylesheets/backend/financial_management/outgoing_invoices.css
+END
+payment_orders.css
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/857/trunk/Venom/public/stylesheets/backend/financial_management/payment_orders.css
+END
+payment_schedules.css
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/791/trunk/Venom/public/stylesheets/backend/financial_management/payment_schedules.css
+END
+sales_ledgers.css
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/855/trunk/Venom/public/stylesheets/backend/financial_management/sales_ledgers.css
+END
+service_orders.css
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/1495/trunk/Venom/public/stylesheets/backend/financial_management/service_orders.css
+END
+purchase_ledgers.css
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/850/trunk/Venom/public/stylesheets/backend/financial_management/purchase_ledgers.css
+END
+clients.css
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/1017/trunk/Venom/public/stylesheets/backend/financial_management/clients.css
+END
+incoming_invoices.css
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/845/trunk/Venom/public/stylesheets/backend/financial_management/incoming_invoices.css
+END
+credit_notes.css
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/1597/trunk/Venom/public/stylesheets/backend/financial_management/credit_notes.css
+END

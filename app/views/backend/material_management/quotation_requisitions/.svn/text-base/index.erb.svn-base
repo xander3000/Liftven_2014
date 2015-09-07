@@ -1,0 +1,51 @@
+<%= include_javascript("jquery.dataTables.min.js") %>
+<%= include_stylesheet("jquery.datatable.css") %>
+<div class="actionsBar right no-print">
+  <%= link_to(image_tag("icons/arrow_left.png"),backend_cpanel_home_index_url,:class => "button",:title => "Regresar") %>
+  |
+  <%= link_to(image_tag("icons/add.png"),new_backend_material_management_quotation_requisition_url,:class => "button") %>
+  
+  
+</div>
+<hr/>
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="concepts" width="100%">
+	<thead>
+		<tr>
+		  <th><%= Material::QuotationRequisition.human_attribute_name("id")%> </th>
+		  <th><%= Material::QuotationRequisition.human_attribute_name("create_by")%> </th>
+		  <th><%= Material::QuotationRequisition.human_attribute_name("posting_date")%> </th>
+		  <th><%= Material::QuotationRequisition.human_attribute_name("note")%> </th>
+		  <th><%= Material::QuotationRequisition.human_attribute_name("completed")%> </th>
+		  <th>Licitar</th>
+		</tr>
+	</thead>
+	<tbody>
+	  <% @quotation_requisitions.each do |quotation_requisition|  %>
+
+          <tr onclick="window.location.href='<%= backend_material_management_quotation_requisition_url(quotation_requisition) %>'">
+				<td class="left "><%= quotation_requisition.id.to_code%> </td>
+				<td class="center"><%= quotation_requisition.create_by.name%> </td>
+				<td class="center"><%= l quotation_requisition.posting_date.to_date %> </td>
+				<td class="center"><%= quotation_requisition.note %></td>
+				<td class="center"><%= (quotation_requisition.completed ? "Sí" : "No")  %></td>
+				<td class="center"><%= link_to(image_tag("icons/star.png"),backend_material_management_quotation_requisition_select_best_supplier_url(quotation_requisition)) if quotation_requisition.can_select_best_supplier?  %> </td>
+		  </tr>
+		<% end %>
+	</tbody>
+</table>
+
+
+
+
+<script type="text/javascript">
+  var oTable;
+
+  $(document).ready(function() {
+		oTable =  $('#concepts').dataTable({
+            oLanguage: {
+                sUrl: "/javascripts/i18n/jquery.DataTables-es.txt"
+            }
+        });
+  });
+
+</script>

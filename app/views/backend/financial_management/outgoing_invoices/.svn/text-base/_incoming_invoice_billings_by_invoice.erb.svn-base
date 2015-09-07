@@ -1,0 +1,19 @@
+<% @incoming_invoice_billings.each do |incoming_invoice_billing| %>
+  <tr class="item ">
+		<td>
+		  <%= number_to_currency(incoming_invoice_billing.amount, :delimiter => ".", :separator => ",", :unit => "")  %>
+		</td>
+		<td>
+		  <%= incoming_invoice_billing.payment_method_type.name if incoming_invoice_billing.payment_method_type%>
+		</td>
+		<td>
+		  <%= incoming_invoice_billing.transaction_reference %>
+		</td>
+		<td>
+		  <%= incoming_invoice_billing.transaction_date %>
+		</td>
+		<td>
+		  <%= incoming_invoice_billing.cash_bank_pos_card_terminal ? incoming_invoice_billing.cash_bank_pos_card_terminal.name : "" %>
+		</td>
+	 </tr>
+<% end %>

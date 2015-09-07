@@ -1,0 +1,61 @@
+<div id="" class="content_form">
+<%  semantic_fields_for @pos_card_terminal_position do |c| %>
+  <% c.inputs "Datos de Puntos de Venta" do %>
+  <div id="pos_card_terminal_position_form">
+	 <table frame="border" rules="cols" >
+		<thead>
+		  <tr>
+			 <th class="code">
+				<%= CashBank::PosCardTerminalPosition.human_attribute_name("cash_bank_pos_card_terminal") %>
+			 </th>
+			 <th class="code">
+				<%= CashBank::PosCardTerminalPosition.human_attribute_name("lot_number") %>
+			 </th>
+			 <th class="quantity">
+				<%= CashBank::PosCardTerminalPosition.human_attribute_name("credit_total") %>
+			 </th>
+			 <th class="amount" colspan="2">
+				<%= CashBank::PosCardTerminalPosition.human_attribute_name("debit_total") %>
+			 </th>
+		  </tr>
+		  <tr id="">
+			 <td class="code center">
+				<%= c.input :cash_bank_pos_card_terminal,:collection => @pos_card_terminals,:label => false,:input_html => {} %>
+			 </td>
+			 <td class="code center">
+				<%= c.input :lot_number,:label => false,:input_html => {:size => 5} %>
+			 </td>
+			 <td class=" center amount">
+				<%= c.input :credit_total,:label => false,:input_html => {:size => 15,:class => "right"} %>
+			 </td>
+			 <td id="" class="center amount">
+				<%= c.input :debit_total,:label => false,:input_html => {:size => 15,:class => "right"} %>
+			 </td>
+			 <td class="center">
+				<%= link_to_remote image_tag("icons/add.png"), :url => add_pos_card_terminal_position_backend_invoices_url,:with => "$('#pos_card_terminal_position_form input,#pos_card_terminal_position_form select').serialize()",:html => {:id => "add_button_pos_card",:class => "hidden"} %>
+			 </td>
+		  </tr>
+		</thead>
+		<tbody id="pos_card_terminal_positions_added">
+		     <%= render :partial => "pos_card_terminal_positions_added" if @pos_card_terminal_positions_added %>
+		</tbody>
+	 </table>
+  </div>
+  <% end %>
+<% end %>
+
+</div>
+
+<script type="text/javascript">
+	 function set_total_amount_pos_card()
+	 {
+		if($("#cash_bank_pos_card_terminal_position_cash_bank_pos_card_terminal_id").val() != '' && $("#pos_card_terminal_position_form input").val() != '')
+		  $("#add_button_pos_card").show();
+		  else
+		$("#add_button_pos_card").hide();
+	 }
+	$(document).ready(function(){
+		$("#pos_card_terminal_position_form input").blur( function () { set_total_amount_pos_card(); } );
+		$("#cash_bank_pos_card_terminal_position_cash_bank_pos_card_terminal_id").change( function () { set_total_amount_pos_card(); } );
+	});
+</script>

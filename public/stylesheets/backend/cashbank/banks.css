@@ -1,0 +1,17 @@
+/* 
+    Document   : bank_accounts
+    Created on : 01/09/2013, 07:47:33 AM
+    Author     : gabriel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+@import "../contable_document.css";
+
+#new_cash_bank_bank_account.formtastic fieldset > ol > li label{
+	width: 155px;
+}

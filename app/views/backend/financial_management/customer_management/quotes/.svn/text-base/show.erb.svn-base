@@ -1,0 +1,20 @@
+
+<div class="actionsBar right no-print">
+  <%= link_to(image_tag("icons/arrow_left.png"),backend_financial_management_customer_management_quotes_url,:class => "button",:title => "Regresar") %>
+</div>
+<hr/>
+<div>
+  <% semantic_form_remote_for @quote, :update => "#{controller.controller_name}_container",:url => backend_financial_management_customer_management_quotes_url,:html => {:class => "form_generate"} do |f| %>
+  <div class="">
+	 <%= render :partial => "form",:locals => {:f => f} %>
+  </div>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+	 $(document).ready(function(){
+                $(".crm_quote input, .crm_quote select, .crm_quote textarea").attr("disabled","disabled");
+					 $("#quotes-items a").hide();
+	});
+
+</script>

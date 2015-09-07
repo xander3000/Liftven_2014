@@ -1,0 +1,8 @@
+if @success
+	page << "$('#item_product_form input,#item_product_form select ').val('')"
+	page.hide "add_button_cash"
+
+	page.replace_html "cash_count_positions_added", :partial => "cash_count_positions_added"
+else
+	page.show_errors([@cash_count_position], "message_overlay", nil)
+end

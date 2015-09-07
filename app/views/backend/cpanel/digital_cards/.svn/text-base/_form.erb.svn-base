@@ -1,0 +1,7 @@
+  <% f.inputs do  %>
+    <%= f.input :digital_card_type %>
+    <%= f.input :partial_template %>
+    <%= f.input :name %>
+    <%= f.input :quantity_fields %>
+    <%= f.input :image %>
+  <% end %>

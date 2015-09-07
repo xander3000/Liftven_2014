@@ -1,0 +1,12 @@
+<li>
+  <a href="#">Cuenta bancaria <%= @bank_account.name%> <span class="arrow"></span></a>
+  <ul style="width: 200px;">
+      <li><%= link_to "Nuevo",new_backend_cashbank_bank_account_url%></li>
+      <li class="disabled"><%= link_to "Detalle",backend_cashbank_bank_account_url(@bank_account)%></li>
+		<li type='separator'></li>
+		<li class="disabled"><%= link_to "Chequeras asociadas",backend_cashbank_bank_account_checkbooks_url(@bank_account)%></li>
+		 <li type='separator'></li>
+		<li class="disabled"><%= link_to "Movimientos bancarios",backend_cashbank_bank_account_bank_movements_url(@bank_account)%></li>
+		
+  </ul>
+</li>

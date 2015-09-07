@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/1274/trunk/Venom/app/views/backend/accountancy/basic_config_accounting_concepts
+END
+index.erb
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/1274/trunk/Venom/app/views/backend/accountancy/basic_config_accounting_concepts/index.erb
+END
+new.erb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/1274/trunk/Venom/app/views/backend/accountancy/basic_config_accounting_concepts/new.erb
+END
+_form.erb
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/1274/trunk/Venom/app/views/backend/accountancy/basic_config_accounting_concepts/_form.erb
+END
+edit.erb
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/1274/trunk/Venom/app/views/backend/accountancy/basic_config_accounting_concepts/edit.erb
+END

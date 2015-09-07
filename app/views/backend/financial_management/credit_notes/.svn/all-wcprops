@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/1596/trunk/Venom/app/views/backend/financial_management/credit_notes
+END
+show.erb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/1596/trunk/Venom/app/views/backend/financial_management/credit_notes/show.erb
+END
+_form_client.erb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/1596/trunk/Venom/app/views/backend/financial_management/credit_notes/_form_client.erb
+END
+_form.erb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/1596/trunk/Venom/app/views/backend/financial_management/credit_notes/_form.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/1596/trunk/Venom/app/views/backend/financial_management/credit_notes/show.html.erb
+END
+remove_product.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/1596/trunk/Venom/app/views/backend/financial_management/credit_notes/remove_product.rjs
+END
+_form_items.erb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/1596/trunk/Venom/app/views/backend/financial_management/credit_notes/_form_items.erb
+END
+index.erb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/1596/trunk/Venom/app/views/backend/financial_management/credit_notes/index.erb
+END
+new.erb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/1596/trunk/Venom/app/views/backend/financial_management/credit_notes/new.erb
+END
+create.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/1596/trunk/Venom/app/views/backend/financial_management/credit_notes/create.rjs
+END
+search_invoices.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/1596/trunk/Venom/app/views/backend/financial_management/credit_notes/search_invoices.rjs
+END
+_product_by_credit_notes.erb
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/1596/trunk/Venom/app/views/backend/financial_management/credit_notes/_product_by_credit_notes.erb
+END
+load_product_by_invoice.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/1596/trunk/Venom/app/views/backend/financial_management/credit_notes/load_product_by_invoice.rjs
+END
+add_product.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/1596/trunk/Venom/app/views/backend/financial_management/credit_notes/add_product.rjs
+END

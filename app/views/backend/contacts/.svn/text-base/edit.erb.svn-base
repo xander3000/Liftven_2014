@@ -1,0 +1,16 @@
+<% semantic_form_remote_for @contact, :url => backend_contact_url(@contact) do |f| %>
+        <div class="top-actions">
+            <%= link_to "Cancelar", backend_contacts_url %>&nbsp;&nbsp;|
+            <%= submit_tag "Actualizar",:class => "button" %>
+        </div>
+      <%= render :partial => "form",:locals => {:f => f} %>
+<% end %>
+<script type="text/javascript">
+  $(document).ready(function(){
+	 <% if @contact.has_user? %>
+		$("#user_login").attr("disabled",true);
+	 <% end %>
+    $(".identification_document").mask("~-9999999?99");
+	 $("#contact_identification_document,#contact_email").attr("disabled", true)
+  });
+</script>

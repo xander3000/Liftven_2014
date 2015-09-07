@@ -1,0 +1,61 @@
+<div class="content_form">
+  <% f.inputs "Detalles del Pago" do %>
+	 <%= f.input :only_issue %>
+	 <%= f.input :invoice_printing_type,:wrapper_html => {:class => "hidden"} %>
+  <table id="incoming_invoice_billing" frame="border" rules="cols" >
+		<thead>
+		  <tr>
+			 <th><%= IncomingInvoiceBilling.human_attribute_name("amount")%> </th>
+			 <th><%= IncomingInvoiceBilling.human_attribute_name("payment_method_type")%> </th>
+			 <th><%= IncomingInvoiceBilling.human_attribute_name("transaction_reference")%> </th>
+			 <th><%= IncomingInvoiceBilling.human_attribute_name("transaction_date")%></th>
+			 <th colspan="2"><%= IncomingInvoiceBilling.human_attribute_name("cash_bank_pos_card_terminal")%></th>
+		  </tr>
+		
+			 <tr>
+				<td>
+				  <%= text_field :incoming_invoice_billing,"amount",:class => "right" %>
+				</td>
+				<td>
+				  <%= select(:incoming_invoice_billing,"payment_method_type_id",@payment_method_types.collect {|p| [ p.name, p.id ] },{:prompt => "-- Seleccione --"},:onchange => remote_function(:url => get_additional_incoming_invoice_billing_information_backend_invoices_url,:with => "$(this).serialize()")) %>
+				</td>
+				<td>
+				  <span class="hidden additional_information"><%= text_field :incoming_invoice_billing,"transaction_reference" %></span>
+				</td>
+				<td>
+				  <span class="hidden additional_information"><%= text_field :incoming_invoice_billing,"transaction_date",:class => "datepicker",:readonly => true %></span>
+				</td>
+				<td>
+				  <span class="hidden additional_pos_card_terminal_information"><%= select(:incoming_invoice_billing,"cash_bank_pos_card_terminal_id",@cash_bank_pos_card_terminals.collect {|p| [ p.name, p.id ] },:prompt => "-- Seleccione --") %></span>
+				</td>
+				<td class="center">
+				  <%= link_to_remote image_tag("icons/add.png"), :url => add_incoming_invoice_billing_backend_invoices_url,:with => "$('#incoming_invoice_billing input,#incoming_invoice_billing select').serialize()",:html => {:id => "",:class => ""} %>
+				</td>
+			 </tr>
+		</thead>
+		<tbody id="incoming_invoice_billings_by_invoice">
+			<%= render :partial => "incoming_invoice_billings_by_invoice" %>
+		</tbody>
+	 </table>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+
+  			$(".datepicker").datepicker({
+				changeMonth: true,
+				changeYear: true,
+				dateFormat: 'yy-mm-dd',
+				maxDate: "-0",
+				minDate: "-20"
+        });
+		  $("#invoice_only_issue").change(function() {
+			 if($(this).is(":checked"))
+				$("#incoming_invoice_billing").hide("slow");
+			 else
+				$("#incoming_invoice_billing").show("slow");
+		  });
+  });
+
+</script>

@@ -1,0 +1,155 @@
+<%
+  sub_total = 0
+  total = 0
+  advance_payment = 0
+  discount = @budget.nil?  ? 0 : @budget.discount.to_f
+  
+  tax = AppConfig.tax
+  colspan = (@budget.nil? or @budget.new_record?) ? "":"3"
+
+%>
+
+<% @product_by_budgets.each do |item| %>
+  <%
+    sub_total += item.total_price
+  %>
+  <tr class="item ">
+      <td class="code center">
+        <%= item.product.name %>
+      </td>
+      <td class="quantity center">
+        <%= item.quantity %>
+      </td>
+      <td class="description">
+        <% 
+           products_components = []
+           product_component_by_budgets = {}
+          if @budget.nil?
+            product_component_by_budgets = @components_by_budgets[item.id_temporal.to_s.to_sym]
+          else
+             item.product_component_by_budgets.each do |product_component_by_budget|
+                product_component_by_budgets[product_component_by_budget.product_component_type_id.to_s.to_sym] = [] if product_component_by_budgets[product_component_by_budget.product_component_type_id.to_s.to_sym].nil?
+                product_component_by_budgets[product_component_by_budget.product_component_type_id.to_s.to_sym] << product_component_by_budget
+             end
+          end
+             product_component_by_budgets.each do |product_component_id,product_components|
+                components = []
+                product_component_type = ProductComponentType.find(product_component_id.to_s)
+                product_components.each do |product_component|
+                  components << "#{product_component["element_type"].constantize::HUMANIZE_MODEL_NAME}: #{product_component["element_type"].constantize.find(product_component["element_id"]).name}"
+                end
+                products_components << "<i>#{product_component_type.name}:</i> #{components.join(", ")} "
+             end if product_component_by_budgets
+         %>
+        <%= products_components.join("<br/>")%>
+        <br/>
+        <span>
+          <%= "<i>#{ProductByBudget.human_attribute_name('quantity_page_sheet')}:</i> #{item.quantity_page_sheet}" if item.quantity_page_sheet %>
+        </span>
+        <br/>
+        <%
+          accesories = []
+          accesories_by_budgets = @budget.nil? ? @accesories_by_budgets[item.id_temporal.to_s.to_sym] : item.accesory_component_by_budgets
+
+          accesories_by_budgets.each do |accesories_by_budget|
+            accesories << accesories_by_budget.accessory_component_type.name
+          end if accesories_by_budgets
+
+        %>
+          <%= "<i>Accesorios:</i> #{accesories.join(", ")} " if not accesories.empty? %>
+      </td>
+      <td class="dimensions center">
+        <%= item.side_dimension_x %>
+        X
+        <%= item.side_dimension_y %>
+      </td>
+      <td>
+         <%= item.note %>
+      </td>
+      <td class="unit_price right">
+       <%= number_to_currency(item.unit_price, :delimiter => ".", :separator => ",", :unit => "") %>
+      </td>
+      <td  class="total_price right">
+        <%= number_to_currency(item.total_price, :delimiter => ".", :separator => ",", :unit => "") %>
+      </td>
+     
+      <td class="center">
+          <%= link_to_remote image_tag("icons/delete.png"),:url => remove_product_backend_budgets_url,:with => "'id_temporal='+#{item.id_temporal}",:confirm => "¿Esta seguro de remover este elemento de lista <<#{item.id_temporal}-#{item.product.name}>>?" if colspan.empty? %>
+      </td>
+      
+    </tr>
+<% end if @product_by_budgets %>
+   <tr id="footer_total" class="right border-top">
+     <td id="sub-total"  class="totalizers" colspan="6">
+      SUB-TOTAL (Bs.)
+    </td>
+    <td class="no-border-right">
+        <%= hidden_field(:budget, :sub_total,:value => sub_total) %>
+      <%= number_to_currency(sub_total, :delimiter => ".", :separator => ",", :unit => "") %>
+    </td>
+  </tr>
+
+  <tr class="right">
+    <td class="totalizers" colspan="6">
+      IVA <b><%= tax %> %</b>
+    </td>
+    <td id="tax" class="no-border-right">
+      <% tax = sub_total*tax/100%>
+      <%= hidden_field(:budget, :tax,:value => tax) %>  
+      <%= number_to_currency(tax, :delimiter => ".", :separator => ",", :unit => "") %>
+    </td>
+  </tr>
+  <% if defined?(print_advance_payment) %>
+  <tr class="right">
+    <td class="totalizers" colspan="6">
+		ANTICIPO (Bs.)
+	 </td>
+	 <td class="no-border-right right">
+		<% advance_payment = @budget.advance_payment %>
+		<%= number_to_currency(@budget.advance_payment, :delimiter => ".", :separator => ",", :unit => "") %>
+	 </td>
+  </tr>
+
+  <% end %>
+  
+  <tr class="right">
+    <td class="totalizers" colspan="6">
+      TOTAL A PAGAR (Bs.)
+    </td>
+    <td id="total" class="no-border-right right">
+      <% 
+			 aux_total = tax+sub_total.to_f-advance_payment.to_f
+			 #aux_total = aux_total + (aux_total*@budget.increase_percent/100) - (aux_total*@budget.discount_percent/100) if !@budget.nil?
+			 total = aux_total
+		%>
+		<span><%= number_to_currency(total, :delimiter => ".", :separator => ",", :unit => "") %></span>
+            <%= hidden_field(:budget, :total,:value => total) %>  
+            <%= hidden_field_tag "total_f",total %>
+            <%= hidden_field_tag "total_ft",total %>
+    </td>
+  </tr>
+
+  <script type="text/javascript">
+     $(document).ready(function(){
+      /*$("#budget_increase_percent").blur(function () {
+		  $("#budget_discount_percent").val(0);
+        increase_percent = $("#total_f").val()*$(this).val()/100;
+        total = parseFloat($("#total_f").val())+increase_percent;
+
+        
+        $("#total_ft").val(total);
+        $("#total_ft").formatCurrency({symbol: ' Bs ', region: 'es-ES'});
+        $("#total span").html($("#total_ft").val());
+		});
+      $("#budget_discount_percent").blur(function () {
+		  $("#budget_increase_percent").val(0);
+        discount_percent = $("#total_f").val()*$(this).val()/100;
+        total = parseFloat($("#total_f").val())-discount_percent;
+
+        
+        $("#total_ft").val(total);
+        $("#total_ft").formatCurrency({symbol: ' Bs ', region: 'es-ES'});
+        $("#total span").html($("#total_ft").val());
+		});*/
+     });
+  </script>

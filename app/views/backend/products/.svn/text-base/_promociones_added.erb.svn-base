@@ -1,0 +1,24 @@
+    <div class="item">
+      <table>
+        <tbody>
+          <% session[:promociones].each do |item| %>
+          <tr>
+            <td style="width: 15%;" class="first right">
+              <%= item[:nombre] %>
+            </td>
+            <td style="width: 20%;" class="center">
+             <%= item[:fecha_de] %>
+              
+            </td>
+            <td style="width: 20%;" class="center">
+              <%= item[:fecha_hasta] %>
+            </td>
+            <td style="width: 20%;" class="center">
+              <%= item[:porcentaje] %>
+            </td>
+          </tr>
+          <% end if session[:promociones] %>
+        </tbody>
+      </table>
+
+    </div>

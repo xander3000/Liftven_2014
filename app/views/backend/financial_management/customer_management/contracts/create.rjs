@@ -1,0 +1,6 @@
+if @success
+	page.redirect_to  backend_financial_management_customer_management_contract_url(@contract)
+else
+	page.show_errors([@contract], "message_overlay", nil)
+end
+

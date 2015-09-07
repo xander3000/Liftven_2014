@@ -1,0 +1,53 @@
+<%= include_javascript("jquery.dataTables.min.js") %>
+<%= include_stylesheet("jquery.datatable.css") %>
+<div class="actionsBar right no-print">
+  <%= link_to(image_tag("icons/arrow_left.png"),backend_cpanel_home_index_url,:class => "button",:title => "Regresar") %>
+  |
+  <%= link_to(image_tag("icons/printer.png"),backend_material_management_raw_materials_url("pdf"),:class => "button") %>
+</div>
+<hr/>
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="concepts" width="100%">
+	<thead>
+		<tr>
+			 <th><%= Material::RawMaterial.human_attribute_name("id")%> </th>
+			 <th><%= Material::RawMaterial.human_attribute_name("name")%> </th>
+			 <th><%= Material::RawMaterial.human_attribute_name("material_base_measure_unit")%> </th>
+			 <th><%= Material::RawMaterial.human_attribute_name("storage")%> </th>
+                         <th><%= Material::RawMaterial.human_attribute_name("unrestricted_use_stock")%> </th>
+			 <th><%= Material::RawMaterial.human_attribute_name("min_stock")%> </th>
+			 <th><%= Material::RawMaterial.human_attribute_name("max_stock")%> </th>
+                         <th><%= Material::RawMaterial.human_attribute_name("moving_price")%> </th>
+		</tr>
+	</thead>
+	<tbody>
+	  <% @raw_materials.each do |raw_material|  %>
+       
+          <tr class="external-overlay" rel=".overlay" ref=""  onclick="window.location.href='<%= backend_material_management_raw_material_url(raw_material) %>'">
+				<td class="left"><%= raw_material.id.to_code%> </td>
+				<td class="left"><%= raw_material.name%> </td>
+				<td class="left"><%= raw_material.material_base_measure_unit.name%> </td>
+				<td class="center"><%= raw_material.storage%> </td>
+				<td class="center"><%= number_to_currency(raw_material.unrestricted_use_stock, :delimiter => ".", :separator => ",", :unit => "")%></td>
+				<td class="center"><%= number_to_currency(raw_material.max_stock, :delimiter => ".", :separator => ",", :unit => "")%></td>
+				<td class="center"><%= number_to_currency(raw_material.max_stock, :delimiter => ".", :separator => ",", :unit => "")%> </td>
+                                <td class="center"><%= number_to_currency(raw_material.moving_price, :delimiter => ".", :separator => ",", :unit => "")%> </td>
+		  </tr>
+		<% end %>
+	</tbody>
+</table>
+
+
+
+
+<script type="text/javascript">
+  var oTable;
+
+  $(document).ready(function() {
+		oTable =  $('#concepts').dataTable({
+            oLanguage: {
+                sUrl: "/javascripts/i18n/jquery.DataTables-es.txt"
+            }
+        });
+  });
+
+</script>

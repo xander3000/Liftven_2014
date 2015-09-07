@@ -1,0 +1,41 @@
+<% @cash_journal.cash_bank_cash_count_positions.each do |position| %>
+
+<tr>
+  <td>
+        <%= position.id.to_code %>
+  </td>
+  <td>
+	 <%= position.cash_bank_cash_journal_position_category_type.name %>
+  </td>
+  <td>
+	 <%= position.cash_bank_cash_journal_position_concept_type.name %>
+  </td>
+  <td>
+	 <%= position.total %>
+  </td>
+  <td>
+	 <%= position.invoice_tenderer.name %>
+  </td>
+  <td>
+	 <%= position.invoice_date  %>
+  </td>
+  <td>
+	 <%= position.is_fiscal ? "Sì" : "No" %>
+  </td>
+  <td>
+	 <%= number_to_currency(position.invoice_sub_total, :delimiter => ".", :separator => ",", :unit => "Bs") %>
+  </td>
+  <td>
+	 <%= number_to_currency(position.invoice_tax , :delimiter => ".", :separator => ",", :unit => "Bs") %>
+  </td>
+  <td>
+	 <%= position.invoice_reference  %>
+  </td>
+  <td>
+	 <%= position.invoice_control_number  %>
+  </td>
+  <td>
+
+  </td>
+</tr>
+<% end %>

@@ -1,0 +1,12 @@
+page << "$('fieldset.reset input').val('')"
+page << "$('fieldset.reset input').attr('readonly',true)"
+#TODO: pasar a packing_material
+#page << "$('#finished_product_presentation_unit_type_measurement_id').children().remove().end()"
+if @presentation_unit_type_measure
+  page << "$('fieldset.reset input').attr('readonly',false)"
+  page.assign "side_rm_x", @presentation_unit_type_measure.side_dimension_x;
+  page.assign "side_rm_y", @presentation_unit_type_measure.side_dimension_y;
+#  @presentation_unit_type_measurements.each do |item|
+#      page << "$('#finished_product_presentation_unit_type_measurement_id').append(jQuery('<option ref=\"322x323\"></option>').val('#{item.id}').html('#{item.full_name}'));"
+#  end
+end

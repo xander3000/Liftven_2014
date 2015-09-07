@@ -1,0 +1,31 @@
+<table>
+  <tbody>
+	 <tr id="footer_total" class="right border-top">
+     <td id="total"  class="totalizers">
+		 SUBTOTAL
+    </td>
+    <td class="no-border-right ">
+		<p id="subtotal_price_currency" class="like_input"><%= @bank_movement.amount.to_currency if  !@bank_movement.new_record?%></p>
+		<%= hidden_field_tag "subtotal_price_amount" %>
+    </td>
+  </tr>
+
+  <tr class="right">
+    <td class="totalizers">
+		 TOTAL RETENCIONES
+    </td>
+    <td id="total_retentions" class="no-border-right">
+		<p id="total_retentions_currency" class="like_input"></p>
+    </td>
+  </tr>
+  <tr class="right">
+    <td class="totalizers">
+      TOTAL
+    </td>
+    <td id="" class="no-border-right right">
+		<p id="total_price_currency" class="like_input"><%= @bank_movement.amount.to_currency if  !@bank_movement.new_record?%> </p>
+		<%= f.input :amount,:wrapper_html => {:class => "hidden"},:input_html => {:class => "reset not-editabble"} %>
+    </td>
+  </tr>
+  </tbody>
+</table>

@@ -1,0 +1,103 @@
+/* 
+    Document   : credit_notes
+    Created on : 20/02/2012, 08:45:52 PM
+    Author     : gabriel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+@import "../contable_document.css";
+
+#credit_note-button
+{
+    width: 100%;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+#credit_note_show
+{
+    border: 1px solid #D2D2D2;
+    padding: 10px;
+   color: #808080;
+
+
+}
+
+#credit_note_show .control
+{
+    font-weight: bold;
+    padding-right: 5px;
+    position: relative;
+    right: 0;
+    top: 0;
+    white-space: nowrap;
+}
+
+#credit_note_show .control span
+{
+
+    font-size: 2.5em;
+    color: #EC2E38;
+    font-weight: normal;
+}
+
+#credit_note_show #letterhead
+{
+    margin: 15px 0;
+}
+
+#credit_note_show #letterhead div.subc ul
+{
+    display: block;
+    padding-top: 15px;
+}
+
+#credit_note_show #letterhead div.subc li
+{
+    list-style: circle;
+    display: inline-block;
+}
+
+#credit_note_show #details
+{
+    border: 1px solid #D2D2D2;
+    padding: 10px;
+    background: #F1F1F1;
+    -moz-border-radius:0 25px 0 25px;
+    -webkit-border-radius:0 25px 0 25px;
+    border-radius: 0 25px 0 25px;
+
+}
+
+#credit_note_show  #details
+{
+    color: #000;
+}
+
+#credit_note_show  #details b
+{
+    color: #808080;
+}
+#credit_note_show  #details hr
+{
+    border-color: #000;
+}
+#form_items table td.unit_price, #form_items table td.total_price{
+	width: 16%;
+}
+
+#credit_note_show  #details table
+{
+    border: none;
+}
+
+#credit_note_show  #details #footer_total
+{
+    margin-top: 5px;
+}

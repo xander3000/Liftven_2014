@@ -1,0 +1,59 @@
+<%= include_javascript("jquery.dataTables.min.js") %>
+<%= include_stylesheet("jquery.datatable.css") %>
+
+<div class="actionsBar right no-print">
+  <%= link_to(image_tag("icons/arrow_left.png"),backend_cpanel_home_index_url,:class => "button",:title => "Regresar") %>
+</div>
+<hr/>
+
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="items" width="100%">
+	<thead>
+		<tr>
+		   <th><%= CashBank::Bank.human_attribute_name("code")%> </th>
+			<th><%= CashBank::Bank.human_attribute_name("name")%> </th>
+			<th><%= CashBank::Bank.human_attribute_name("fullname")%> </th>
+			<th>Acciones</th>
+		</tr>
+	</thead>
+	<tbody>
+	  <% @banks.each do |item|  %>
+	  <tr onclick="window.location.href='<%= backend_cashbank_bank_url(item) %>'">
+			 <td class="left"><%= item.code%> </td>
+			 <td class="left"><%= item.name%> </td>
+			 <td class="left"><%= item.fullname%> </td>
+			 <td class="left"><%= link_to(image_tag("icons/add.png"),backend_cashbank_bank_set_format_print_check_url(item),:class => "external-overlay", :rel=>".overlay")%> </td>
+		  </tr>
+		<% end %>
+	</tbody>
+</table>
+
+
+
+
+<script type="text/javascript">
+  var oTable;
+
+  $(document).ready(function() {
+		oTable =  $('#items').dataTable({
+				scrollX: true,
+            oLanguage: {
+                sUrl: "/javascripts/i18n/jquery.DataTables-es.txt"
+            }
+        });
+
+		 $("a.external-overlay").overlay({
+		  mask: {
+					 color: '#000',
+					 loadSpeed: 200,
+					 opacity: 0.9
+		  },
+		  onBeforeLoad: function() {
+				var wrap = this.getOverlay().find(".contentWrap");
+				wrap.load(this.getTrigger().attr("href"));
+		  }
+		});
+  });
+
+
+
+</script>

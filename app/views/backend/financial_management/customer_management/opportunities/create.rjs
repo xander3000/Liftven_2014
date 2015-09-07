@@ -1,0 +1,6 @@
+if @success
+	page.redirect_to  backend_financial_management_customer_management_opportunity_url(@opportunity)
+else
+	page.show_errors([@opportunity], "message_overlay", nil)
+end
+

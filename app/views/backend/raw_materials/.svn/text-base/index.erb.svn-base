@@ -1,0 +1,18 @@
+<div id="raw_materials">
+  <div id="raw_materials_index_left"class="c20l subc">
+     <%= render :partial => "index_left" %>
+
+  </div>
+  <div class="c75r subc">
+    <div class="">
+      <% form_layout do %>
+        <%= render :partial => "index_right_options" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		//$('#slider').sliderNav();
+	});
+</script>

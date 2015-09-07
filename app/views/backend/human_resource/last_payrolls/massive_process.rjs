@@ -1,0 +1,1 @@
+page.redirect_to(backend_human_resource_last_payrolls_url)

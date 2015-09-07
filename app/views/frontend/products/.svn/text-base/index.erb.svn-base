@@ -1,0 +1,11 @@
+<p style="float: left; margin:10px 40px 0 10px;">
+  <%= image_tag "products/imprenta-digital.jpg" %>
+</p>
+<p>
+<h2>Impresión Digital</h2>
+</p>
+<p>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et gravida enim. Ut felis metus, tempus a facilisis sed, accumsan a neque. Sed posuere suscipit egestas. Sed faucibus tellus id nulla consectetur sagittis. Pellentesque pretium congue nisl vitae dictum. Duis egestas, magna vitae luctus dignissim, augue lacus vehicula nulla, molestie laoreet lacus enim et sapien. Nulla volutpat ullamcorper tellus mattis interdum. Cras vehicula sem eget mi facilisis rutrum. Praesent hendrerit lacus ac elit gravida sodales. Pellentesque mattis diam id erat bibendum ornare. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis vel lorem dui, ac lobortis libero. Cras mattis mi vel leo pulvinar tincidunt. Aliquam metus magna, sodales non ultricies at, dictum id nibh.
+
+Curabitur luctus, metus vel laoreet aliquet, turpis lacus hendrerit libero, eget porttitor odio nunc non nisi. Etiam rutrum arcu at nulla volutpat vulputate. Pellentesque nisi quam, mollis at fermentum ac, fringilla eu ligula. Duis eleifend, dolor ut vestibulum sollicitudin, mi justo lacinia lectus, consectetur facilisis tellus massa vitae erat. Vestibulum ut ornare est. Sed in ultricies odio. Morbi id elit id elit pellentesque porttitor at sit amet purus. Curabitur eget arcu viverra nisl ornare iaculis vel quis leo. Pellentesque sed neque sit amet dolor venenatis mattis. Vivamus vel nunc justo. In ultrices neque at justo suscipit non sagittis dui venenatis. 
+</p>

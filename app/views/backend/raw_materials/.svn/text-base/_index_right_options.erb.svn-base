@@ -1,0 +1,13 @@
+<div class="top-actions">
+<%= link_to_remote "Nuevo Material", :update => "#{controller.controller_name}_container", :url => new_backend_raw_material_url %>
+|
+<%= link_to_remote "Nuevo Orden de Compra", :update => "#{controller.controller_name}_container", :url => new_backend_raw_material_url %>
+|
+<%= link_to_remote "Nuevo Entrada de Compra", :update => "#{controller.controller_name}_container", :url => new_backend_raw_material_url %>
+</div>
+<div class="help-message">
+  <p>Presionar <b>Nuevo</b> para crear un nuevo material.</p>
+  <p>Seleccionar un material de la lista para modificar algún dato o agregar un proveedor que la distribuya.</p>
+  <!--p>Para realizar una búsqueda, colocar una palabra en el buscador y presionar <b>Buscar</b>.</p>
+  <p>Para ver todas los materiales, presionar la <b>X</b> que aparece en el buscador</p-->
+</div>

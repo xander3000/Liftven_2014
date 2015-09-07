@@ -1,0 +1,6 @@
+if @accountant_account
+	#page << "$('accountant_account-#{@accountant_account.id}').find( '>ul').html(' ')"
+	page.replace_html "accountant_account-children-#{@accountant_account.id}", :partial => "children"
+	
+end
+

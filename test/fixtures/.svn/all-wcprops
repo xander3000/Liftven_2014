@@ -1,0 +1,1727 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/1502/trunk/Venom/test/fixtures
+END
+crm_quote_positions.yml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/1124/trunk/Venom/test/fixtures/crm_quote_positions.yml
+END
+raw_material_price_definition_set_color_by_components.yml
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/459/trunk/Venom/test/fixtures/raw_material_price_definition_set_color_by_components.yml
+END
+contact_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/contact_types.yml
+END
+presentation_unit_type_measures.yml
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/presentation_unit_type_measures.yml
+END
+price_list_products.yml
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/price_list_products.yml
+END
+material_raw_material_freight_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/797/trunk/Venom/test/fixtures/material_raw_material_freight_types.yml
+END
+suppliers.yml
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/suppliers.yml
+END
+field_form_colors.yml
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/284/trunk/Venom/test/fixtures/field_form_colors.yml
+END
+payroll_historical_payrolls.yml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/567/trunk/Venom/test/fixtures/payroll_historical_payrolls.yml
+END
+invoice_printing_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/667/trunk/Venom/test/fixtures/invoice_printing_types.yml
+END
+account_payable_incoming_invoice_taxes.yml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/1281/trunk/Venom/test/fixtures/account_payable_incoming_invoice_taxes.yml
+END
+orders.yml
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/orders.yml
+END
+crm_sector_account_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/1115/trunk/Venom/test/fixtures/crm_sector_account_types.yml
+END
+accesory_component_by_budgets.yml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/449/trunk/Venom/test/fixtures/accesory_component_by_budgets.yml
+END
+cash_bank_bank_accounts.yml
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/571/trunk/Venom/test/fixtures/cash_bank_bank_accounts.yml
+END
+material_quotation_requisition_positions.yml
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/880/trunk/Venom/test/fixtures/material_quotation_requisition_positions.yml
+END
+inventories.yml
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/inventories.yml
+END
+material_inventory_blocking_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/797/trunk/Venom/test/fixtures/material_inventory_blocking_types.yml
+END
+goods_movements.yml
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/566/trunk/Venom/test/fixtures/goods_movements.yml
+END
+payroll_personal_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/567/trunk/Venom/test/fixtures/payroll_personal_types.yml
+END
+goods_movement_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/566/trunk/Venom/test/fixtures/goods_movement_types.yml
+END
+currency_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/currency_types.yml
+END
+material_cycle_inventory_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/797/trunk/Venom/test/fixtures/material_cycle_inventory_types.yml
+END
+value_quarter_sheet_color_raw_materials.yml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/423/trunk/Venom/test/fixtures/value_quarter_sheet_color_raw_materials.yml
+END
+tracking_states.yml
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/tracking_states.yml
+END
+material_ean_categories.yml
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/797/trunk/Venom/test/fixtures/material_ean_categories.yml
+END
+material_weight_units.yml
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/797/trunk/Venom/test/fixtures/material_weight_units.yml
+END
+positions.yml
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/391/trunk/Venom/test/fixtures/positions.yml
+END
+accounting_basic_config_accounting_concepts.yml
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/1274/trunk/Venom/test/fixtures/accounting_basic_config_accounting_concepts.yml
+END
+priorities.yml
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/1112/trunk/Venom/test/fixtures/priorities.yml
+END
+material_purchase_requisition_positions.yml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/879/trunk/Venom/test/fixtures/material_purchase_requisition_positions.yml
+END
+material_raw_material_categories.yml
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/797/trunk/Venom/test/fixtures/material_raw_material_categories.yml
+END
+measure_change_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/603/trunk/Venom/test/fixtures/measure_change_types.yml
+END
+delivery_notes.yml
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/526/trunk/Venom/test/fixtures/delivery_notes.yml
+END
+commercialization_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/423/trunk/Venom/test/fixtures/commercialization_types.yml
+END
+cases.yml
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/cases.yml
+END
+incoming_invoice_document_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/565/trunk/Venom/test/fixtures/incoming_invoice_document_types.yml
+END
+presentation_unit_type_conversions.yml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/presentation_unit_type_conversions.yml
+END
+material_temperature_conditions.yml
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/797/trunk/Venom/test/fixtures/material_temperature_conditions.yml
+END
+notifications.yml
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/notifications.yml
+END
+finished_product_category_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/finished_product_category_types.yml
+END
+contacts.yml
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/contacts.yml
+END
+crm_accounts.yml
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/1110/trunk/Venom/test/fixtures/crm_accounts.yml
+END
+accounting_transaction_movement_accounting_concepts.yml
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/1274/trunk/Venom/test/fixtures/accounting_transaction_movement_accounting_concepts.yml
+END
+material_product_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/341/trunk/Venom/test/fixtures/material_product_types.yml
+END
+roles.yml
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/958/trunk/Venom/test/fixtures/roles.yml
+END
+app_configs.yml
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/301/trunk/Venom/test/fixtures/app_configs.yml
+END
+payroll_amount_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/567/trunk/Venom/test/fixtures/payroll_amount_types.yml
+END
+payroll_positions.yml
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/751/trunk/Venom/test/fixtures/payroll_positions.yml
+END
+cash_bank_daily_cash_closings.yml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/611/trunk/Venom/test/fixtures/cash_bank_daily_cash_closings.yml
+END
+product_component_by_invoices.yml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/353/trunk/Venom/test/fixtures/product_component_by_invoices.yml
+END
+crm_calls.yml
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/1110/trunk/Venom/test/fixtures/crm_calls.yml
+END
+presentation_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/presentation_types.yml
+END
+crm_opportunity_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/1112/trunk/Venom/test/fixtures/crm_opportunity_types.yml
+END
+material_valoration_categories.yml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/797/trunk/Venom/test/fixtures/material_valoration_categories.yml
+END
+employees.yml
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/330/trunk/Venom/test/fixtures/employees.yml
+END
+account_payable_payment_order_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/856/trunk/Venom/test/fixtures/account_payable_payment_order_types.yml
+END
+payroll_employee_status_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/751/trunk/Venom/test/fixtures/payroll_employee_status_types.yml
+END
+crm_meeting_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/1112/trunk/Venom/test/fixtures/crm_meeting_types.yml
+END
+payroll_concepts.yml
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/567/trunk/Venom/test/fixtures/payroll_concepts.yml
+END
+cities.yml
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/1036/trunk/Venom/test/fixtures/cities.yml
+END
+cash_bank_check_offereds.yml
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/571/trunk/Venom/test/fixtures/cash_bank_check_offereds.yml
+END
+material_prescription_container_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/797/trunk/Venom/test/fixtures/material_prescription_container_types.yml
+END
+product_component_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/338/trunk/Venom/test/fixtures/product_component_types.yml
+END
+material_goods_movements.yml
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/825/trunk/Venom/test/fixtures/material_goods_movements.yml
+END
+material_hazardou_substance_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/797/trunk/Venom/test/fixtures/material_hazardou_substance_types.yml
+END
+cash_bank_banks.yml
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/571/trunk/Venom/test/fixtures/cash_bank_banks.yml
+END
+raw_materials.yml
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/raw_materials.yml
+END
+material_time_units.yml
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/797/trunk/Venom/test/fixtures/material_time_units.yml
+END
+payroll_employees.yml
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/751/trunk/Venom/test/fixtures/payroll_employees.yml
+END
+customer_details.yml
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/784/trunk/Venom/test/fixtures/customer_details.yml
+END
+material_quotation_requisition_position_status_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/938/trunk/Venom/test/fixtures/material_quotation_requisition_position_status_types.yml
+END
+security_roles.yml
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/986/trunk/Venom/test/fixtures/security_roles.yml
+END
+countries.yml
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/1036/trunk/Venom/test/fixtures/countries.yml
+END
+user_groups.yml
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/user_groups.yml
+END
+material_picking_areas.yml
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/797/trunk/Venom/test/fixtures/material_picking_areas.yml
+END
+account_payable_payment_frequencies.yml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/791/trunk/Venom/test/fixtures/account_payable_payment_frequencies.yml
+END
+cash_bank_pos_card_terminal_positions.yml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/612/trunk/Venom/test/fixtures/cash_bank_pos_card_terminal_positions.yml
+END
+product_by_budgets.yml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/product_by_budgets.yml
+END
+payroll_staffs.yml
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/751/trunk/Venom/test/fixtures/payroll_staffs.yml
+END
+accounting_service_orders.yml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/1493/trunk/Venom/test/fixtures/accounting_service_orders.yml
+END
+cash_bank_cash_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/958/trunk/Venom/test/fixtures/cash_bank_cash_types.yml
+END
+digital_card_fields.yml
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/284/trunk/Venom/test/fixtures/digital_card_fields.yml
+END
+products.yml
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/products.yml
+END
+account_payable_payment_schedule_positions.yml
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/791/trunk/Venom/test/fixtures/account_payable_payment_schedule_positions.yml
+END
+identification_document_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/identification_document_types.yml
+END
+reason_inventories.yml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/reason_inventories.yml
+END
+element_for_products.yml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/338/trunk/Venom/test/fixtures/element_for_products.yml
+END
+accesory_component_by_invoices.yml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/449/trunk/Venom/test/fixtures/accesory_component_by_invoices.yml
+END
+payroll_concept_personal_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/567/trunk/Venom/test/fixtures/payroll_concept_personal_types.yml
+END
+customer_client_elevator_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/784/trunk/Venom/test/fixtures/customer_client_elevator_types.yml
+END
+payroll_monitoring_assistances.yml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/862/trunk/Venom/test/fixtures/payroll_monitoring_assistances.yml
+END
+crm_projects_lift_category_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/1036/trunk/Venom/test/fixtures/crm_projects_lift_category_types.yml
+END
+payroll_last_payrolls.yml
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/567/trunk/Venom/test/fixtures/payroll_last_payrolls.yml
+END
+goods_movement_positions.yml
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/566/trunk/Venom/test/fixtures/goods_movement_positions.yml
+END
+contact_categories.yml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/contact_categories.yml
+END
+material_expiry_time_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/797/trunk/Venom/test/fixtures/material_expiry_time_types.yml
+END
+state_matrices.yml
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/state_matrices.yml
+END
+crm_lead_sources.yml
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/1112/trunk/Venom/test/fixtures/crm_lead_sources.yml
+END
+product_component_by_budgets.yml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/353/trunk/Venom/test/fixtures/product_component_by_budgets.yml
+END
+security_submodules.yml
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/784/trunk/Venom/test/fixtures/security_submodules.yml
+END
+material_purchase_requisition_status_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/879/trunk/Venom/test/fixtures/material_purchase_requisition_status_types.yml
+END
+material_goods_movement_positions.yml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/825/trunk/Venom/test/fixtures/material_goods_movement_positions.yml
+END
+client_discount_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/client_discount_types.yml
+END
+trackers.yml
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/trackers.yml
+END
+field_form_font_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/284/trunk/Venom/test/fixtures/field_form_font_types.yml
+END
+accounting_accounting_concept_operation_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/571/trunk/Venom/test/fixtures/accounting_accounting_concept_operation_types.yml
+END
+home_page_slides.yml
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/779/trunk/Venom/test/fixtures/home_page_slides.yml
+END
+supplier_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/933/trunk/Venom/test/fixtures/supplier_types.yml
+END
+payroll_genders.yml
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/751/trunk/Venom/test/fixtures/payroll_genders.yml
+END
+goods_receipt_positions.yml
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/554/trunk/Venom/test/fixtures/goods_receipt_positions.yml
+END
+budgets.yml
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/budgets.yml
+END
+salulations.yml
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/1110/trunk/Venom/test/fixtures/salulations.yml
+END
+accounting_accounting_concepts.yml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/571/trunk/Venom/test/fixtures/accounting_accounting_concepts.yml
+END
+payroll_payment_method_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/784/trunk/Venom/test/fixtures/payroll_payment_method_types.yml
+END
+account_payable_payment_orders.yml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/856/trunk/Venom/test/fixtures/account_payable_payment_orders.yml
+END
+material_production_order_positions.yml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/819/trunk/Venom/test/fixtures/material_production_order_positions.yml
+END
+crm_contract_statuses.yml
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/1112/trunk/Venom/test/fixtures/crm_contract_statuses.yml
+END
+cash_bank_cash_count_movements.yml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/612/trunk/Venom/test/fixtures/cash_bank_cash_count_movements.yml
+END
+invoices.yml
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/invoices.yml
+END
+price_list_component_accesories.yml
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/458/trunk/Venom/test/fixtures/price_list_component_accesories.yml
+END
+cash_bank_cash_journal_count_positions.yml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/1493/trunk/Venom/test/fixtures/cash_bank_cash_journal_count_positions.yml
+END
+config_panel_submodules.yml
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/751/trunk/Venom/test/fixtures/config_panel_submodules.yml
+END
+payroll_position_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/751/trunk/Venom/test/fixtures/payroll_position_types.yml
+END
+location_inventories.yml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/location_inventories.yml
+END
+crm_lead_status_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/1112/trunk/Venom/test/fixtures/crm_lead_status_types.yml
+END
+presentation_unit_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/presentation_unit_types.yml
+END
+accessory_component_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/341/trunk/Venom/test/fixtures/accessory_component_types.yml
+END
+cash_bank_bank_account_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/571/trunk/Venom/test/fixtures/cash_bank_bank_account_types.yml
+END
+crm_activities.yml
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/1115/trunk/Venom/test/fixtures/crm_activities.yml
+END
+color_mode_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/423/trunk/Venom/test/fixtures/color_mode_types.yml
+END
+account_payable_supplier_credit_notes.yml
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/1231/trunk/Venom/test/fixtures/account_payable_supplier_credit_notes.yml
+END
+additional_component_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/341/trunk/Venom/test/fixtures/additional_component_types.yml
+END
+material_payment_method_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/880/trunk/Venom/test/fixtures/material_payment_method_types.yml
+END
+material_valoration_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/797/trunk/Venom/test/fixtures/material_valoration_types.yml
+END
+material_production_orders.yml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/819/trunk/Venom/test/fixtures/material_production_orders.yml
+END
+cash_bank_cash_journal_position_concept_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/1046/trunk/Venom/test/fixtures/cash_bank_cash_journal_position_concept_types.yml
+END
+taxes.yml
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/1281/trunk/Venom/test/fixtures/taxes.yml
+END
+custom_designs.yml
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/763/trunk/Venom/test/fixtures/custom_designs.yml
+END
+purchase_orders.yml
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/554/trunk/Venom/test/fixtures/purchase_orders.yml
+END
+digital_cards.yml
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/284/trunk/Venom/test/fixtures/digital_cards.yml
+END
+measure_change_denominations.yml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/603/trunk/Venom/test/fixtures/measure_change_denominations.yml
+END
+crm_projects_executives.yml
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/1036/trunk/Venom/test/fixtures/crm_projects_executives.yml
+END
+material_purchase_requisition_position_status_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/879/trunk/Venom/test/fixtures/material_purchase_requisition_position_status_types.yml
+END
+incoming_invoice_payments.yml
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/561/trunk/Venom/test/fixtures/incoming_invoice_payments.yml
+END
+cash_bank_cashes.yml
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/571/trunk/Venom/test/fixtures/cash_bank_cashes.yml
+END
+material_measure_units.yml
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/797/trunk/Venom/test/fixtures/material_measure_units.yml
+END
+cash_bank_bank_movements.yml
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/571/trunk/Venom/test/fixtures/cash_bank_bank_movements.yml
+END
+security_permissions.yml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/986/trunk/Venom/test/fixtures/security_permissions.yml
+END
+states.yml
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/states.yml
+END
+account_payable_payment_order_document_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/857/trunk/Venom/test/fixtures/account_payable_payment_order_document_types.yml
+END
+supplier_withholding_taxes.yml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/1153/trunk/Venom/test/fixtures/supplier_withholding_taxes.yml
+END
+payroll_payment_frequencies.yml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/567/trunk/Venom/test/fixtures/payroll_payment_frequencies.yml
+END
+goods_receipts.yml
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/554/trunk/Venom/test/fixtures/goods_receipts.yml
+END
+material_goods_receipt_positions.yml
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/825/trunk/Venom/test/fixtures/material_goods_receipt_positions.yml
+END
+multimedia_files.yml
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/multimedia_files.yml
+END
+accounting_service_order_positions.yml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/1493/trunk/Venom/test/fixtures/accounting_service_order_positions.yml
+END
+assigments.yml
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/958/trunk/Venom/test/fixtures/assigments.yml
+END
+account_payable_status_incoming_invoices.yml
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/1209/trunk/Venom/test/fixtures/account_payable_status_incoming_invoices.yml
+END
+cash_bank_bank_movement_operation_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/571/trunk/Venom/test/fixtures/cash_bank_bank_movement_operation_types.yml
+END
+crm_call_invitees.yml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/1112/trunk/Venom/test/fixtures/crm_call_invitees.yml
+END
+payroll_regular_payroll_checks.yml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/757/trunk/Venom/test/fixtures/payroll_regular_payroll_checks.yml
+END
+accounting_payable_accounts.yml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/1014/trunk/Venom/test/fixtures/accounting_payable_accounts.yml
+END
+material_goods_movement_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/825/trunk/Venom/test/fixtures/material_goods_movement_types.yml
+END
+material_quotation_requisition_quality_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/880/trunk/Venom/test/fixtures/material_quotation_requisition_quality_types.yml
+END
+cash_bank_check_status_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/571/trunk/Venom/test/fixtures/cash_bank_check_status_types.yml
+END
+config_panel_module_categories.yml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/751/trunk/Venom/test/fixtures/config_panel_module_categories.yml
+END
+account_payable_incoming_invoice_positions.yml
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/791/trunk/Venom/test/fixtures/account_payable_incoming_invoice_positions.yml
+END
+accounting_withholding_taxe_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/1153/trunk/Venom/test/fixtures/accounting_withholding_taxe_types.yml
+END
+cash_bank_bank_autoreconciliation_by_descriptions.yml
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/1347/trunk/Venom/test/fixtures/cash_bank_bank_autoreconciliation_by_descriptions.yml
+END
+customer_client_requirement_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/784/trunk/Venom/test/fixtures/customer_client_requirement_types.yml
+END
+cash_bank_checkbooks.yml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/571/trunk/Venom/test/fixtures/cash_bank_checkbooks.yml
+END
+crm_opportunity_status_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/1112/trunk/Venom/test/fixtures/crm_opportunity_status_types.yml
+END
+crm_projects_call_manager_registers.yml
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/1039/trunk/Venom/test/fixtures/crm_projects_call_manager_registers.yml
+END
+material_raw_materials.yml
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/797/trunk/Venom/test/fixtures/material_raw_materials.yml
+END
+cash_bank_bank_reconciliations.yml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/626/trunk/Venom/test/fixtures/cash_bank_bank_reconciliations.yml
+END
+crm_projects_lift_models.yml
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/1277/trunk/Venom/test/fixtures/crm_projects_lift_models.yml
+END
+account_payable_incoming_invoices.yml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/791/trunk/Venom/test/fixtures/account_payable_incoming_invoices.yml
+END
+config_panel_modules.yml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/751/trunk/Venom/test/fixtures/config_panel_modules.yml
+END
+finished_products.yml
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/finished_products.yml
+END
+crm_account_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/1112/trunk/Venom/test/fixtures/crm_account_types.yml
+END
+crm_quotes.yml
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/1124/trunk/Venom/test/fixtures/crm_quotes.yml
+END
+material_production_order_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/819/trunk/Venom/test/fixtures/material_production_order_types.yml
+END
+entities.yml
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/1036/trunk/Venom/test/fixtures/entities.yml
+END
+incoming_invoice_positions.yml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/557/trunk/Venom/test/fixtures/incoming_invoice_positions.yml
+END
+credit_note_entries.yml
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/566/trunk/Venom/test/fixtures/credit_note_entries.yml
+END
+crm_notes.yml
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/1112/trunk/Venom/test/fixtures/crm_notes.yml
+END
+field_form_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/284/trunk/Venom/test/fixtures/field_form_types.yml
+END
+payroll_fixed_concepts.yml
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/567/trunk/Venom/test/fixtures/payroll_fixed_concepts.yml
+END
+finish_product_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/338/trunk/Venom/test/fixtures/finish_product_types.yml
+END
+material_price_control_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/797/trunk/Venom/test/fixtures/material_price_control_types.yml
+END
+crm_quote_stage_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/1124/trunk/Venom/test/fixtures/crm_quote_stage_types.yml
+END
+material_purchase_orders.yml
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/825/trunk/Venom/test/fixtures/material_purchase_orders.yml
+END
+accounting_accountant_accounts.yml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/571/trunk/Venom/test/fixtures/accounting_accountant_accounts.yml
+END
+digital_card_models.yml
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/287/trunk/Venom/test/fixtures/digital_card_models.yml
+END
+product_by_credit_notes.yml
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/304/trunk/Venom/test/fixtures/product_by_credit_notes.yml
+END
+printing_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/338/trunk/Venom/test/fixtures/printing_types.yml
+END
+goods_movement_reasons.yml
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/566/trunk/Venom/test/fixtures/goods_movement_reasons.yml
+END
+credit_notes.yml
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/304/trunk/Venom/test/fixtures/credit_notes.yml
+END
+account_payable_payment_schedules.yml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/791/trunk/Venom/test/fixtures/account_payable_payment_schedules.yml
+END
+crm_projects_lifts.yml
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/1036/trunk/Venom/test/fixtures/crm_projects_lifts.yml
+END
+dossier_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/454/trunk/Venom/test/fixtures/dossier_types.yml
+END
+payroll_historical_personal_type_changes.yml
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/1502/trunk/Venom/test/fixtures/payroll_historical_personal_type_changes.yml
+END
+accounting_ledger_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/571/trunk/Venom/test/fixtures/accounting_ledger_types.yml
+END
+incoming_invoices.yml
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/554/trunk/Venom/test/fixtures/incoming_invoices.yml
+END
+incoming_invoice_billings.yml
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/562/trunk/Venom/test/fixtures/incoming_invoice_billings.yml
+END
+product_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/338/trunk/Venom/test/fixtures/product_types.yml
+END
+credit_note_emision_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/304/trunk/Venom/test/fixtures/credit_note_emision_types.yml
+END
+material_measure_unit_convertions.yml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/797/trunk/Venom/test/fixtures/material_measure_unit_convertions.yml
+END
+raw_material_price_definition_set_black_by_components.yml
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/459/trunk/Venom/test/fixtures/raw_material_price_definition_set_black_by_components.yml
+END
+accounting_receivable_accounts.yml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/994/trunk/Venom/test/fixtures/accounting_receivable_accounts.yml
+END
+crm_emails.yml
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/1110/trunk/Venom/test/fixtures/crm_emails.yml
+END
+client_reputation_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/client_reputation_types.yml
+END
+cash_bank_bank_movement_retention_positions.yml
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/571/trunk/Venom/test/fixtures/cash_bank_bank_movement_retention_positions.yml
+END
+material_purchasing_groups.yml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/797/trunk/Venom/test/fixtures/material_purchasing_groups.yml
+END
+crm_projects_lift_material_for_manufacturing_phases.yml
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/1277/trunk/Venom/test/fixtures/crm_projects_lift_material_for_manufacturing_phases.yml
+END
+custom_design_category_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/941/trunk/Venom/test/fixtures/custom_design_category_types.yml
+END
+payroll_departments.yml
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/751/trunk/Venom/test/fixtures/payroll_departments.yml
+END
+crm_leads.yml
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/1110/trunk/Venom/test/fixtures/crm_leads.yml
+END
+cash_bank_daily_cash_openings.yml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/681/trunk/Venom/test/fixtures/cash_bank_daily_cash_openings.yml
+END
+binding_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/338/trunk/Venom/test/fixtures/binding_types.yml
+END
+price_definition_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/423/trunk/Venom/test/fixtures/price_definition_types.yml
+END
+crm_projects_lift_manufacturing_phases.yml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/1277/trunk/Venom/test/fixtures/crm_projects_lift_manufacturing_phases.yml
+END
+client_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/client_types.yml
+END
+account_payable_incoming_invoice_retentions.yml
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/1156/trunk/Venom/test/fixtures/account_payable_incoming_invoice_retentions.yml
+END
+presentation_unit_type_measurements.yml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/presentation_unit_type_measurements.yml
+END
+standard_measures.yml
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/275/trunk/Venom/test/fixtures/standard_measures.yml
+END
+material_storage_conditions.yml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/797/trunk/Venom/test/fixtures/material_storage_conditions.yml
+END
+permissions.yml
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/permissions.yml
+END
+purchase_order_positions.yml
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/554/trunk/Venom/test/fixtures/purchase_order_positions.yml
+END
+value_quarter_sheet_black_raw_materials.yml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/423/trunk/Venom/test/fixtures/value_quarter_sheet_black_raw_materials.yml
+END
+customer_client_technical_details.yml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/784/trunk/Venom/test/fixtures/customer_client_technical_details.yml
+END
+material_quotation_requisitions.yml
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/880/trunk/Venom/test/fixtures/material_quotation_requisitions.yml
+END
+crm_contacts.yml
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/1110/trunk/Venom/test/fixtures/crm_contacts.yml
+END
+account_payable_incoming_invoice_status_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/791/trunk/Venom/test/fixtures/account_payable_incoming_invoice_status_types.yml
+END
+price_lists.yml
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/price_lists.yml
+END
+security_module_categories.yml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/784/trunk/Venom/test/fixtures/security_module_categories.yml
+END
+cash_bank_cash_count_positions.yml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/612/trunk/Venom/test/fixtures/cash_bank_cash_count_positions.yml
+END
+material_goods_receipts.yml
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/825/trunk/Venom/test/fixtures/material_goods_receipts.yml
+END
+cash_bank_bank_reconciliation_bank_statements.yml
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/630/trunk/Venom/test/fixtures/cash_bank_bank_reconciliation_bank_statements.yml
+END
+web_page_portfolios.yml
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/881/trunk/Venom/test/fixtures/web_page_portfolios.yml
+END
+page_size_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/338/trunk/Venom/test/fixtures/page_size_types.yml
+END
+material_purchase_order_positions.yml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/825/trunk/Venom/test/fixtures/material_purchase_order_positions.yml
+END
+digital_card_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/284/trunk/Venom/test/fixtures/digital_card_types.yml
+END
+crm_projects_lift_manufacturing_phase_lift_models.yml
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/1277/trunk/Venom/test/fixtures/crm_projects_lift_manufacturing_phase_lift_models.yml
+END
+material_raw_material_packaging_categories.yml
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/797/trunk/Venom/test/fixtures/material_raw_material_packaging_categories.yml
+END
+crm_meeting_invitees.yml
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/1112/trunk/Venom/test/fixtures/crm_meeting_invitees.yml
+END
+users.yml
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/users.yml
+END
+value_square_meter_raw_materials.yml
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/443/trunk/Venom/test/fixtures/value_square_meter_raw_materials.yml
+END
+state_by_user_groups.yml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/301/trunk/Venom/test/fixtures/state_by_user_groups.yml
+END
+account_payable_incoming_invoice_document_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/791/trunk/Venom/test/fixtures/account_payable_incoming_invoice_document_types.yml
+END
+cash_bank_pos_card_terminal_movements.yml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/611/trunk/Venom/test/fixtures/cash_bank_pos_card_terminal_movements.yml
+END
+accounting_retention_accounting_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/571/trunk/Venom/test/fixtures/accounting_retention_accounting_types.yml
+END
+cash_bank_involvement_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/571/trunk/Venom/test/fixtures/cash_bank_involvement_types.yml
+END
+product_price_definition_set_by_components.yml
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/427/trunk/Venom/test/fixtures/product_price_definition_set_by_components.yml
+END
+cash_bank_cash_journals.yml
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/1046/trunk/Venom/test/fixtures/cash_bank_cash_journals.yml
+END
+cash_bank_bank_movement_positions.yml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/571/trunk/Venom/test/fixtures/cash_bank_bank_movement_positions.yml
+END
+crm_opportunities.yml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/1110/trunk/Venom/test/fixtures/crm_opportunities.yml
+END
+material_price_determination_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/797/trunk/Venom/test/fixtures/material_price_determination_types.yml
+END
+custom_design_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/941/trunk/Venom/test/fixtures/custom_design_types.yml
+END
+designs.yml
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/designs.yml
+END
+cash_bank_cash_journal_counts.yml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/1493/trunk/Venom/test/fixtures/cash_bank_cash_journal_counts.yml
+END
+cash_bank_pos_card_terminals.yml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/611/trunk/Venom/test/fixtures/cash_bank_pos_card_terminals.yml
+END
+unit_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/unit_types.yml
+END
+cash_bank_cash_journal_position_category_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/1046/trunk/Venom/test/fixtures/cash_bank_cash_journal_position_category_types.yml
+END
+material_purchase_requisitions.yml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/879/trunk/Venom/test/fixtures/material_purchase_requisitions.yml
+END
+material_volume_units.yml
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/797/trunk/Venom/test/fixtures/material_volume_units.yml
+END
+product_price_definition_sets.yml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/445/trunk/Venom/test/fixtures/product_price_definition_sets.yml
+END
+cash_bank_cash_journal_positions.yml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/1046/trunk/Venom/test/fixtures/cash_bank_cash_journal_positions.yml
+END
+product_by_invoices.yml
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/product_by_invoices.yml
+END
+crm_meetings.yml
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/1112/trunk/Venom/test/fixtures/crm_meetings.yml
+END
+raw_material_categories.yml
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/378/trunk/Venom/test/fixtures/raw_material_categories.yml
+END
+packing_materials.yml
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/packing_materials.yml
+END
+value_quarter_sheet_white_raw_materials.yml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/423/trunk/Venom/test/fixtures/value_quarter_sheet_white_raw_materials.yml
+END
+comments.yml
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/comments.yml
+END
+payroll_variable_concepts.yml
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/567/trunk/Venom/test/fixtures/payroll_variable_concepts.yml
+END
+price_definition_set_by_component_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/427/trunk/Venom/test/fixtures/price_definition_set_by_component_types.yml
+END
+payroll_historical_wage_adjustments.yml
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/1148/trunk/Venom/test/fixtures/payroll_historical_wage_adjustments.yml
+END
+docs.yml
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/docs.yml
+END
+crm_projects.yml
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/1036/trunk/Venom/test/fixtures/crm_projects.yml
+END
+paper_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/338/trunk/Venom/test/fixtures/paper_types.yml
+END
+material_goods_movement_reasons.yml
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/825/trunk/Venom/test/fixtures/material_goods_movement_reasons.yml
+END
+accounting_advances.yml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/1091/trunk/Venom/test/fixtures/accounting_advances.yml
+END
+security_modules.yml
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/784/trunk/Venom/test/fixtures/security_modules.yml
+END
+clients.yml
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/273/trunk/Venom/test/fixtures/clients.yml
+END
+payment_method_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/343/trunk/Venom/test/fixtures/payment_method_types.yml
+END
+crm_contracts.yml
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/1110/trunk/Venom/test/fixtures/crm_contracts.yml
+END

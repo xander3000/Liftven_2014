@@ -1,0 +1,29 @@
+
+<div >
+  <p>Seleccione categoría</p>
+
+  <ul id="categories_design" class="inline">
+	 <% @custom_design_category_types.each do |custom_design_category_type| %>
+		<% category = "category_design_#{custom_design_category_type.id}" %>
+    <li id="<%= category %>" class="pointer" onclick="select_category_design('<%= category %>')"><%= custom_design_category_type.name %> </li>
+	<% end %>
+  </ul>
+
+</div>
+
+<script type="text/javascript">
+  function select_category_design(category){
+	 $('#category_design').val(category);
+	 $("#"+category+" img").addClass("selected");
+	  $.ajax({
+                  type: "POST",
+                  url: "<%= set_type_design_frontend_designs_url %>",
+                  data:  {type_design : $('#template_1_step_1 li img.selected').attr("id"),category_design: $("#category_design").val() }
+		});
+	 $('a.externalDesign[rel]').each(function() {$(this).overlay().close();});
+  }
+  $(document).ready(function(){
+	 category = $('#category_design').val()
+	 $("#"+category+" img").addClass("selected");
+  });
+</script>

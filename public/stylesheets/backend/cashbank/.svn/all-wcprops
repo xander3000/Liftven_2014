@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/1202/trunk/Venom/public/stylesheets/backend/cashbank
+END
+cashes.css
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/975/trunk/Venom/public/stylesheets/backend/cashbank/cashes.css
+END
+bank_movements.css
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/1090/trunk/Venom/public/stylesheets/backend/cashbank/bank_movements.css
+END
+bank_accounts.css
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/1202/trunk/Venom/public/stylesheets/backend/cashbank/bank_accounts.css
+END
+cash_journals.css
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/1046/trunk/Venom/public/stylesheets/backend/cashbank/cash_journals.css
+END
+banks.css
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/1202/trunk/Venom/public/stylesheets/backend/cashbank/banks.css
+END
+bank_reconciliations.css
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/735/trunk/Venom/public/stylesheets/backend/cashbank/bank_reconciliations.css
+END

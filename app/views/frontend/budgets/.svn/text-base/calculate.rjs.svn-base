@@ -1,0 +1,12 @@
+if @success
+  page << "$('#product_by_budget_unit_price').val(#{@unit_price})"""
+  page << "$('#product_by_budget_total_price').val(#{@total_price})"
+  page.show "prices"
+  page.show "add_to_cart"
+else
+  page.hide "prices"
+  page.hide "add_to_cart"
+  page << "$('a.buttonFinish').addClass('buttonDisabled')"
+  page.show_errors([@product_by_budget], "message_overlay", nil)
+end
+

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cpanel/digital_cards
+END
+new.erb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cpanel/digital_cards/new.erb
+END
+_form.erb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cpanel/digital_cards/_form.erb
+END

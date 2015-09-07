@@ -1,0 +1,17 @@
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: liftven_2014
+  pool: 5
+  username: postgres
+  password: postgres
+  host: 127.0.0.1
+
+production:
+  adapter: postgresql
+  encoding: utf8
+  database: liftven_2014
+  pool: 5
+  username: postgres
+  password: postgres
+  host: localhost

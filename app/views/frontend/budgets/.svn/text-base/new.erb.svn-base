@@ -1,0 +1,53 @@
+<%= include_javascript("jquery.tools.tabs.js") %>
+<%= include_stylesheet("jquery.smart_tab.css") %>
+
+<% content_for :venom_leadspace_head do %>
+  <%= render :partial => "leadspaces" %>
+<% end %>
+
+
+
+  <div id="tabs" class="stContainer">
+    <ul class="header-tab">
+      <% @finished_product_category_types.each do |finished_product_category_type| %>
+		  <% if finished_product_category_type.has_products?%>
+         <li>
+          <a href="<%= frontend_find_products_by_category_url(finished_product_category_type.id)%>">
+            <h2 class="title-tab"><%= finished_product_category_type.full_name %></h2>
+          </a>
+        </li>
+		  <% end %>
+      <% end %>
+    </ul>
+
+<div class="css-panes">
+  <div id="budget" class="box_container" style="display:block">
+
+    </div>
+</div>
+      
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("form").reset();
+    $("#tabs ul.header-tab").tabs("div.css-panes > div", {effect: 'ajax',current: 'sel'});
+  });
+
+</script>

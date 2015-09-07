@@ -1,0 +1,10 @@
+
+<div id="" class="content_form">
+	 <br/>
+    <% f.inputs "" do %>
+		<%= f.input :cash_bank_bank,:as => :select,:collection => CashBank::Bank.all,:input_html => {:onchange => remote_function(:url => search_bank_account_by_bank_backend_cashbank_checkbooks_url,:with => "$(this).serialize()")}%>
+		<%= f.input :cash_bank_bank_account,:collection => [],:input_html => {:style => "width:185px"}%>
+		<%= f.input :initial_check_number,:input_html => {:size => 20}%>
+		<%= f.input :final_check_number,:input_html => {:size => 20}%>
+    <% end %>
+</div>

@@ -1,0 +1,3 @@
+if @success
+	page.redirect_to(backend_human_resource_show_massive_process_url(@payroll_regular_payroll_check))
+end

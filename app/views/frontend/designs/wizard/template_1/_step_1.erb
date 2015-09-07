@@ -1,0 +1,22 @@
+<h2 class="StepTitle">Paso 1: Selecciona el trabajo</h2>
+<ul id="template_1_step_1">
+  <li>
+    <%= image_tag "buttons/tarjeta_presentacion.png" %>
+  </li>
+  <li>
+    <%= image_tag "buttons/invitacion.png" %>
+  </li>
+  <li>
+    <%= image_tag "buttons/calendario.png" %>
+  </li>
+</ul>
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+      $("#template_1_step_1 li img").click(function () {
+        $('#template_1_step_1 li img').removeClass("selected");
+        $(this).addClass("selected");
+      });
+    });
+
+    </script>

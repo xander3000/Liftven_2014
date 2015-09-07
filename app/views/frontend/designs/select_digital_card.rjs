@@ -1,0 +1,7 @@
+# TODO Operate on the page object
+page << "$(\"#card_selected img\").attr('src','#{@digital_card_model.image.url}');"
+page.replace_html "card_fields", :partial => "#{self.controller.controller_path}/templates/#{@digital_card_model.partial_template}/fields"
+page.replace_html "card_preview", :partial => "#{self.controller.controller_path}/templates/#{@digital_card_model.partial_template}/preview"
+page << "$('#card_selected').show();"
+page << "$('#card_selected span.labels').show();"
+

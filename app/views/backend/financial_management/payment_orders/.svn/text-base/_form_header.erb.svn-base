@@ -1,0 +1,32 @@
+
+<div id="" class="content_form">
+    <% f.inputs "Datos de cabecera" do %>
+		<%= f.input :external_doc_id,:as => :hidden %>
+		<%= f.input :external_doc_type,:as => :hidden %>
+		<%= f.input :accounting_accounting_concept,:collection => @accounting_concepts ? @accounting_concepts : Accounting::AccountingConcept.all,:input_html => {:onchange => remote_function(:url => set_payment_order_type_backend_financial_management_payment_orders_url,:with => "$(this).serialize()+'&payment_order_external_doc_id='+$('#account_payable_payment_order_external_doc_id').val()+'&payment_order_external_doc_type='+$('#account_payable_payment_order_external_doc_type').val()"),:class => "autoselect reset"}%>
+		<%= f.input :account_payable_payment_order_document_type,:collection => @payment_order_document_types ? @payment_order_document_types : AccountPayable::PaymentOrderDocumentType.all,:input_html => {:class => "reset",:onchange => remote_function(:url => set_payment_order_document_type_backend_financial_management_payment_orders_url,:with => "$(this).serialize()"),:class => "autoselect"}%>
+		<hr/>
+		<%= f.input :cash_bank_bank,:input_html  => {:onchange => remote_function(:url => set_bank_backend_financial_management_payment_orders_url,:with => "$(this).serialize()+'&bank_movement_operation_type_id='+$('#cash_bank_bank_movement_cash_bank_bank_movement_operation_type_id').val()"),:class => "reset"}%>
+		<%= f.input :cash_bank_bank_account,:collection => @payment_order.new_record? ? [] : [@payment_order.cash_bank_bank_account],:input_html => {:onchange => remote_function(:url => set_bank_account_backend_financial_management_payment_orders_url,:with => "$(this).serialize()+'&bank_movement_operation_type_id='+$('#cash_bank_bank_movement_cash_bank_bank_movement_operation_type_id').val()"),:class => " reset"} %>
+		<%= f.input :accounting_accountant_account,:collection => @payment_order.new_record? ? [] : [@payment_order.accounting_accountant_account],:input_html => {:class => "reset"} %>
+		<%= f.input :cash_bank_involvement_type,:collection =>  @payment_order.new_record? ? [] : [@payment_order.cash_bank_involvement_type],:input_html => {:class => "autoselect reset"} %>
+                <hr/>
+		<%= f.input :tenderer_type,:as => :string,:wrapper_html => {:class => "hidden"},:input_html => {:class => "reset",:size => 25} %>
+		<%= f.input :tenderer_id,:as => :string,:wrapper_html => {:class => "hidden"},:input_html => {:class => "reset",:size => 25} %>
+		<%= f.input :tenderer_name,:wrapper_html => {:class => ""},:input_html => {:readonly => true,:class => "reset",:size => 25} %>
+                <hr/>
+		<%= f.input :description,:input_html => {:class => "reset"} %>
+		<%= f.input :posting_date,:input_html => {:class => " reset",:readonly => true,:size => 10 } %>
+                <hr/>
+		<%= f.input :amount,:input_html => {:class => " reset right",:size => 10,:readonly => true } %>
+		<%= f.input :amount_withheld_committed,:input_html => {:class => " reset right",:readonly => true,:size => 10 } %>
+		<%= f.input :amount_withheld,:input_html => {:class => " reset right",:readonly => true,:size => 10 } %>
+                
+    <% end %>
+  
+</div>
+
+<script type="text/javascript">
+  
+</script>
+

@@ -1,0 +1,1 @@
+page.replace_html "price_definition_set_by_component_type", :partial => "price_definition_set_by_component_type"

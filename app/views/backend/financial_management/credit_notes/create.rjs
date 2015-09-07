@@ -1,0 +1,6 @@
+if @success
+  page.redirect_to backend_financial_management_credit_note_url(@credit_note)
+else
+  page.show_errors([@credit_note], "message_overlay", nil)
+end
+

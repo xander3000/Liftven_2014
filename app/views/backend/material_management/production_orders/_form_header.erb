@@ -1,0 +1,21 @@
+
+<div id="contact_form" class="content_form">
+
+    <% f.inputs "Datos de cabecera" do %>
+		<%= f.input :material_production_orden_type,:input_html => {:onchange => remote_function(:url => set_production_orden_type_backend_material_management_production_orders_url,:with => "$(this).serialize()")} %>
+		<%= f.input :proyect_name,:as => :select,:collection => @production_order.proyect_name.nil? ? [] : [@production_order.proyect_name],:wrapper_html => {:class => "#{@production_order.new_record? ? 'hidden' : ''}"}  %>
+		<%= f.input :delivery_date %>
+		<%= f.input :requesting_unit_name,:as => :string,:input_html => {:class => "",:disabled => true}%>
+		<%= f.input :description%>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+      $("#material_production_order_delivery_date").datepicker({
+          changeMonth: true,
+          dateFormat: 'yy-mm-dd',
+          minDate: "0",
+          maxDate: "5",
+			 beforeShowDay: noWeekendsOrHolidays
+        });
+</script>

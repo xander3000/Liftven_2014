@@ -1,0 +1,158 @@
+/*   
+  SmartTab plugin v0.99
+  jQuery Tab Control Plugin
+  
+  http://tech-laboratory.blogspot.com
+  http://techlaboratory.wordpress.com
+*/
+.stContainer {
+    position:relative;
+    margin:5px 0;
+    padding:0;     
+    left:5%;     
+    font: normal 12px Verdana, Arial, Helvetica, sans-serif; 
+    color: #969695;
+    /*background-color:   #F8F8F8;*/
+    border:             0px solid #CCC;
+    width:926px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius  : 8px;    
+}
+.stContainer div.item-tab {
+    -webkit-border-radius: 5px; 
+    -moz-border-radius  : 8px;    
+    position: relative;    
+    margin:             0;   
+    border:             1px solid #CCC;
+    padding:            10px;   
+    
+    /*height: 300px;     */
+    width:905px;
+    font-size: 12px;
+    color:              #5A5655;   
+    background-color:   #F8F8F8;
+    text-align:left;
+    overflow:show;    
+}
+.stContainer div.item-tab h2{
+    background-color: #E0E0E0;
+    border: 1px solid #E0E0E0;
+    border-radius: 5px 5px 5px 5px;
+    clear: both;
+    color: #5A5655;
+    display: block;
+    font: bold 16px Verdana,Arial,Helvetica,sans-serif;
+    margin: 0 0 10px 0;
+    padding: 5px;
+    position: relative;
+    text-align: left;
+    z-index: 88;
+}
+
+.stContainer div.item-tab ul li{
+    width: 150px;
+    display: inline-block;
+}
+
+.stContainer div.item-tab img{
+    text-align: center;
+}
+
+.stContainer ul.header-tab {
+    display:block;
+    list-style: none;    
+    position: relative;    
+    padding: 0px ;
+    padding-top: 0px;   
+    padding-right: 0px; 
+    padding-left: 5px;     
+    margin: 10px 0 ;
+    width:920px;
+    height:70px; 
+    clear: both;
+	 z-index: 50;
+    /*border: 1px solid #CCCCCC;
+    background: #EEEEEE;*/
+    /*-moz-border-radius-topleft      : 8px;
+    -moz-border-radius-topright     : 8px;
+    -moz-border-radius-bottomleft   : 0px;
+    -moz-border-radius-bottomright  : 0px; 
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -webkit-border-bottom-left-radius: 0px;
+    -webkit-border-bottom-right-radius: 0px;  */
+}
+.stContainer ul.header-tab li{
+    position: relative; 
+    margin: 0;
+    padding: 0 5px;
+    
+    /*border-bottom: 0px solid #E0E0E0 !important;
+    border-right: 1px solid #E0E0E0;  
+    border-left: 1px solid #E0E0E0;      */
+    float: left;
+    
+}
+.stContainer ul.header-tab li a {
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius  : 8px;
+    display: block;
+    border: 1px solid #CCCCCC;
+    
+    background: #F8F8F8;
+    height: 60px;
+    margin: 0;
+    outline-style: none;
+    padding: 3px;
+    position: relative;
+    text-decoration: none;
+    width: 165px;
+    z-index: 99;
+  
+}
+.stContainer ul.header-tab li a img {
+  display:block;
+  margin:0;
+  padding:3px;
+  height:50px;
+  width:50px;
+  
+}
+.stContainer ul.header-tab li a h2.title-tab {
+   display: block;
+    float: left;
+    font: bold 20px Verdana,Arial,Helvetica,sans-serif;
+    padding: 5px;
+    position: relative;
+    text-align: left;
+    color: #CCCCCC;
+
+ 
+}
+.stContainer ul.header-tab li a small {
+  font: normal 12px Verdana, Arial, Helvetica, sans-serif;
+  float:left;
+}
+.stContainer ul.header-tab li a:hover {
+  color:#FFF; 
+  background: #98BF0C;
+}
+.stContainer ul.header-tab li a.sel {
+
+  background: #003888;
+  -moz-box-shadow: 5px 5px 8px #888;
+  -webkit-box-shadow: 5px 5px 8px #888;
+  box-shadow: 5px 5px 8px #888;
+  cursor:text;   
+}
+
+.stContainer ul.header-tab li a.sel h2,.stContainer ul.header-tab li a:hover h2{
+   color: #F8F8F8;
+}
+
+.stContainer ul.header-tab li a.dis {
+  color:#CCCCCC;  
+  background: #F8F8F8;  
+  cursor:text;   
+}

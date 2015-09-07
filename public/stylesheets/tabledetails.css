@@ -1,0 +1,83 @@
+/* 
+    Document   : tabledetails
+    Created on : 31/07/2011, 03:05:21 PM
+    Author     : gabriel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+/*
+#block-detail div.block-detail
+{
+  display: inline-block;
+  vertical-align: top;
+}
+
+#block-detail #block-detail-left
+{
+    width: 49%;
+}
+
+#block-detail #block-detail-right
+{
+     width:49%;
+}
+*/
+.table-details
+{
+    /*border-bottom:  1px solid #EBEBEB;*/
+    width: 100%;
+    white-space: normal;
+    word-wrap: break-word;
+    padding: 5px;
+}
+
+.table-details:hover
+{
+    background: #EBEFFA;
+}
+
+.table-details td.info
+{
+    text-align: right;
+    width: 120px;
+    color: #888888;
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 1.2em;
+}
+
+.table-details td.data
+{
+    text-align: left;
+    padding-left: 5px;
+    font-size: 1.0em;
+    line-height: 1.39em;
+    color: #333333;
+}
+
+.qoute-detail
+{
+    border-bottom: 1px solid #DDDDDD;
+    border-left: 1px solid #4D90F0;
+    border-top: 1px solid #DDDDDD;
+    padding: 5px;
+}
+.qoute-detail h2
+{
+    color: #888888;
+}
+.qoute-detail span
+{
+    background-image: url(/images/buttons/options_default.png);
+    cursor: pointer;
+    float: right;
+    height: 13px;
+    margin: -17px 10px 0 0;
+    /*margin-right: -44px;*/
+    width: 13px;
+}

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/1276/trunk/Venom/app/views/backend/accountancy/accountant_accounts
+END
+_children.erb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/accountancy/accountant_accounts/_children.erb
+END
+create.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/accountancy/accountant_accounts/create.rjs
+END
+new.erb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/1200/trunk/Venom/app/views/backend/accountancy/accountant_accounts/new.erb
+END
+show_children.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/accountancy/accountant_accounts/show_children.rjs
+END
+_form.erb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/1201/trunk/Venom/app/views/backend/accountancy/accountant_accounts/_form.erb
+END
+process_movements_by_criterion.erb
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/1276/trunk/Venom/app/views/backend/accountancy/accountant_accounts/process_movements_by_criterion.erb
+END
+movements_by_criterion.erb
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/1276/trunk/Venom/app/views/backend/accountancy/accountant_accounts/movements_by_criterion.erb
+END

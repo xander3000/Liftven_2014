@@ -1,0 +1,95 @@
+<%= include_javascript("jquery.dataTables.min.js") %>
+<%= include_stylesheet("jquery.datatable.css") %>
+<div class="actionsBar right no-print">
+  <%= link_to(image_tag("icons/arrow_left.png"),backend_cpanel_home_index_url,:class => "button",:title => "Regresar") %>
+  |
+  <%= link_to(image_tag("icons/add.png"),new_backend_human_resource_concept_personal_type_url,:class => "button") %>
+</div>
+<hr/>
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="concepts" width="100%">
+	<thead>
+		<tr>
+		  <th><%= Payroll::ConceptPersonalType.human_attribute_name("payroll_personal_type")%> </th>
+		  <th><%= Payroll::ConceptPersonalType.human_attribute_name("payroll_concept")%> </th>
+		  <th><%= Payroll::ConceptPersonalType.human_attribute_name("payroll_amount_type")%> </th>
+		  <th><%= Payroll::ConceptPersonalType.human_attribute_name("payroll_payment_frequency")%> </th>
+		  <th><%= Payroll::ConceptPersonalType.human_attribute_name("unit")%> </th>
+		  <th><%= Payroll::ConceptPersonalType.human_attribute_name("value")%> </th>
+		  <th><%= Payroll::ConceptPersonalType.human_attribute_name("retains_spf")%> </th>
+		  <th><%= Payroll::ConceptPersonalType.human_attribute_name("retains_fju")%> </th>
+		  <th><%= Payroll::ConceptPersonalType.human_attribute_name("retains_sso")%> </th>
+		  <th><%= Payroll::ConceptPersonalType.human_attribute_name("retains_faov")%> </th>
+		  <th><%= Payroll::ConceptPersonalType.human_attribute_name("retains_islr")%> </th>
+		</tr>
+	</thead>
+	<tbody>
+	  <% @payroll_concept_personal_types.each do |payroll_concept_personal_type|  %>
+       
+		 <tr  onclick="window.location.href='<%= backend_human_resource_concept_personal_type_url(payroll_concept_personal_type) %>'">
+                         <td class="left"><%= payroll_concept_personal_type.payroll_personal_type.name%> </td>
+			 <td class="left"><%= payroll_concept_personal_type.payroll_concept.fullname%> </td>
+			 <td class="left"><%= payroll_concept_personal_type.payroll_amount_type.name%> </td>
+			 <td class="center"><%= payroll_concept_personal_type.payroll_payment_frequency.name%> </td>
+                         <td class="center"><%= payroll_concept_personal_type.unit%> </td>
+                         <td class="center"><%= payroll_concept_personal_type.value%> </td>
+                         <td class="center"><%= payroll_concept_personal_type.retains_spf ? "Sí" : "No"%> </td>
+                         <td class="center"><%= payroll_concept_personal_type.retains_fju ? "Sí" : "No"%> </td>
+                         <td class="center"><%= payroll_concept_personal_type.retains_sso ? "Sí" : "No"%> </td>
+                         <td class="center"><%= payroll_concept_personal_type.retains_faov ? "Sí" : "No"%> </td>
+                         <td class="center"><%= payroll_concept_personal_type.retains_islr ? "Sí" : "No"%> </td>
+		  </tr>
+		<% end %>
+	</tbody>
+</table>
+
+
+
+
+<script type="text/javascript">
+  var oTable;
+
+
+
+
+
+
+  function fnGetSelected(oTableLocal) {
+    var aReturn = new Array();
+    var aTrs = oTableLocal.fnGetNodes();
+
+    for (var i = 0; i < aTrs.length; i++) {
+        if ($(aTrs[i]).hasClass('row_selected')) {
+            aReturn.push(aTrs[i]);
+        }
+    }
+    return aReturn;
+}
+  $(document).ready(function() {
+		oTable =  $('#concepts').dataTable({
+            oLanguage: {
+                sUrl: "/javascripts/i18n/jquery.DataTables-es.txt"
+            }
+				
+        });
+  $("#employees tbody").click(function (event) {
+		$(oTable.fnSettings().aoData).each(function () {
+			 $(this.nTr).removeClass('row_selected');
+		});
+		$(event.target.parentNode).addClass('row_selected');
+  });
+		$("tr.external-overlay[rel]").overlay({
+		  mask: {
+					 color: '#000',
+					 loadSpeed: 200,
+					 opacity: 0.9
+		  },
+		  onBeforeLoad: function() {
+				var wrap = this.getOverlay().find(".contentWrap");
+				wrap.load(this.getTrigger().attr("ref"));
+		  }
+		});
+  });
+
+
+
+</script>

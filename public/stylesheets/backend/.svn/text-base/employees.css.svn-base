@@ -1,0 +1,16 @@
+/* 
+    Document   : employees
+    Created on : 11/08/2013, 08:37:18 PM
+    Author     : gabriel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+@import "listing.css";
+@import "contable_document.css";
+

@@ -1,0 +1,28 @@
+<div class="actionsBar right no-print">
+  
+  <%= link_to(image_tag("icons/pencil.png"),edit_backend_human_resource_concept_personal_type_url(@payroll_concept_personal_type),:class =>"button",:title =>"Editar empleado") %>
+  |
+  <%= link_to(image_tag("icons/arrow_left.png"),backend_human_resource_concept_personal_types_url,:class => "button",:title => "Regresar") %>
+</div>
+<hr/>
+<div>
+  <% semantic_form_remote_for @payroll_concept_personal_type, :update => "#{controller.controller_name}_container",:url => "",:html => {:class => "form_generate"} do |f| %>
+  <div class="">
+	 <%= render :partial => "form",:locals => {:f => f} %>
+  </div>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+        function generate()
+        {
+          result = confirm("¿Esta seguro de ejecutar esta acción?")
+          if (result)
+            $(".form_generate").submit();
+        }
+        $(document).ready(function(){
+                $("form.payroll_concept_personal_type input, form.payroll_concept_personal_type select").attr("disabled","disabled")
+                $("button, input:submit,input:button,a.button").button();
+	});
+
+</script>

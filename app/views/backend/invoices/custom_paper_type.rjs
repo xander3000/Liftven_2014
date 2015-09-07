@@ -1,0 +1,11 @@
+if @paper_type.requiere_other_paper?
+  page << "$('#elements_#{@product_component_type_id}_#{@paper_type.class.to_s}').empty();"
+  @paper_types.each do |paper_type|
+     element = paper_type
+     rev = "product_component_id[#{@product_component_type_id}]element_type[#{@paper_type.class.to_s}]"
+     page << "$('#elements_#{@product_component_type_id}_#{@paper_type.class.to_s}').append(\"<li><a href='#' rev='#{ rev }' rel='#{paper_type.id}'>#{ element.name }</a></li>\");"
+  end
+  page << "$('.dropdown').droplist();"
+else
+  page << "$('.dropDownContainer dd ul').hide();"
+end

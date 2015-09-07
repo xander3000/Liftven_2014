@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/1186/trunk/Venom/app/views/backend/shortcuts
+END
+generate_invoice.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/shortcuts/generate_invoice.rjs
+END
+_form.erb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/shortcuts/_form.erb
+END
+_form_items.erb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/shortcuts/_form_items.erb
+END
+index.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/1186/trunk/Venom/app/views/backend/shortcuts/index.erb
+END

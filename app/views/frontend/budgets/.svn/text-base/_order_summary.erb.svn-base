@@ -1,0 +1,37 @@
+<h3>Resumen de la orden</h3>
+  <ul>
+    <li class="subgrand-total">
+      <p>
+          <strong>Subtotal</strong><br/>
+          <%= number_to_currency(current_cart_subtotal, :delimiter => ".", :separator => ",", :unit => "Bs") %>
+      </p>
+    </li>
+    <li class="total grand-total">
+      <p>
+        <strong>Total</strong>
+        <br/>
+        <span class="">
+          <%= number_to_currency(current_cart_subtotal*1.12, :delimiter => ".", :separator => ",", :unit => "Bs") %>
+        </span>
+      </p>
+    </li>
+    <% if payment_method_selected %>
+    <li class="paymet_method">
+      <p>
+        <strong>Método de pago</strong>
+        <br/>
+        <%= @budget.payment_method_type.name %>
+        
+      </p>
+    </li>
+    <% end %>
+  </ul>
+  <div id="orders_amount">
+    <% if current_cart.size == 1 %>
+      <p><%= current_cart.size %> elemento agregado</p>
+    <% else %>
+      <p><%= current_cart.size %> elementos agregados</p>
+    <% end %>
+    
+  </div>
+  

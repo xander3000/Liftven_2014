@@ -1,0 +1,14 @@
+<div id="venom-leadspace-body">
+  <div id="venom-sp-nav">
+    <div id="venom-sp-logo">
+      <h1><%= @title %> </h1>
+    </div>
+  </div>
+  <div id="venom-leadspace-logo-container">
+    <div class="content-info">
+      <p>
+          Regístrese para contratar  nuestros servicios, efectuar pagos  y realizar el seguimiento de sus pedidos..
+      </p>
+    </div>
+  </div>
+</div>

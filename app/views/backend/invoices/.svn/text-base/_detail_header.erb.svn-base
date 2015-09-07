@@ -1,0 +1,32 @@
+<div class="panel_header">
+    <div>
+      <br/>
+      <b><%= Invoice.human_attribute_name("client")%> :</b>&nbsp;
+      <%= @invoice.client.name %>
+    </div>
+    <div>
+      <br/>
+      <b><%= Invoice.human_attribute_name("id")%> :</b>&nbsp;
+      <%= format_code(@invoice.id,"05") %>
+    </div>
+	 <div>
+      <br/>
+      <b><%= Invoice.human_attribute_name("advance_payment")%> :</b>&nbsp;
+      <%=  number_to_currency(@invoice.advance_payment.to_f, :delimiter => ".", :separator => ",", :unit => "Bs") %>
+    </div>
+
+  <br/>
+  <br/>
+</div>
+
+
+
+<script type="text/javascript">
+  			$("#incoming_invoice_billing_transaction_date").datepicker({
+          changeMonth: true,
+          dateFormat: 'yy-mm-dd',
+          maxDate: "-0",
+			 yearRange: 'c-80:c+30'
+        });
+</script>
+

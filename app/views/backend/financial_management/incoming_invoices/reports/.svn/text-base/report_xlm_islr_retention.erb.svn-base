@@ -1,0 +1,89 @@
+<style type="text/css">
+  div.overlay {
+	 width: 600px;
+}
+
+
+#parameters_criterion select{
+  width: 80%;
+  padding: 3px;
+}
+
+#parameters_criterion input{
+  max-width: 74%;
+  border: 1px solid #C2C2C2;
+  padding: 4px;
+}
+
+
+</style>
+
+<div class="headerWrap">
+    <div class="headerWrapContent">
+    <h2>Busqueda de ventas por criterio</h2>
+    </div>
+  </div>
+<% form_tag process_report_islr_retentions_backend_financial_management_incoming_invoices_url,:id => "parameters_criterion_form" do %>
+  <div id="parameters_criterion" class="mainWrapContent">
+
+	 <div>
+		<div class="subc c25l">
+
+		</div>
+		<div class="subc c50l">
+		  <p>
+			 <label>
+				Periodo
+			 </label><br/>
+			 <%= text_field(:incoming_invoice_retention, :date_from,:size => 8,:class => "datepicker",:value => Date.today.at_beginning_of_month.to_s )[0,7 ] %>
+		  </p>
+		</div>
+
+	 </div>
+  </div>
+<% end %>
+  <div class="footerWrap">
+    <div class="footerWrapContent right">
+      <%= button_to_function("Buscar", "$(\"#parameters_criterion_form\").submit()")  %>
+    </div>
+  </div>
+
+<script type="text/javascript">
+  function action_after_complete_for_supplier(item){
+    switch (item.code_response) {
+        case ("ok"):
+				 $("#bank_movement_beneficiary").val(item.supplier_id)
+		 break;
+        case ("no-ok"):
+            alert('no-ok');
+            break;
+        /*default:
+            alert('problemas buscando');*/
+    }
+  }
+	$(document).ready(function(){
+                $("button, input:submit,input:button,a.button ").button();
+					 $(".datepicker").datepicker({
+						changeMonth: true,
+						dateFormat: 'yy-mm-dd',
+						minDate: "-365",
+						maxDate: "+0",
+						yearRange: 'c-80:c+30'
+					 }).attr("readonly",true);
+
+					 $("#beneficiary_name").autocomplete({
+					  source: "<%= autocomplete_by_supplier_name_backend_contacts_url %>",
+					  minLength: 3,
+					  search: function( event, ui ) {
+						$("#bank_movement_beneficiary").val("0")
+					  },
+					  select: function( event, ui ) {
+						 if(ui.item)
+							 action_after_complete_for_supplier(ui.item);
+					  }
+				  });
+
+
+
+		  });
+</script>

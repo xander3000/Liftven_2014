@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/1495/trunk/Venom/app/helpers/backend
+END
+session_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/273/trunk/Venom/app/helpers/backend/session_helper.rb
+END
+home_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/273/trunk/Venom/app/helpers/backend/home_helper.rb
+END
+docs_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/784/trunk/Venom/app/helpers/backend/docs_helper.rb
+END
+raw_materials_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/273/trunk/Venom/app/helpers/backend/raw_materials_helper.rb
+END
+designs_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/273/trunk/Venom/app/helpers/backend/designs_helper.rb
+END
+budgets_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/1239/trunk/Venom/app/helpers/backend/budgets_helper.rb
+END
+orders_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/1085/trunk/Venom/app/helpers/backend/orders_helper.rb
+END
+cases_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/784/trunk/Venom/app/helpers/backend/cases_helper.rb
+END
+reports_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/378/trunk/Venom/app/helpers/backend/reports_helper.rb
+END
+incoming_invoices_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/557/trunk/Venom/app/helpers/backend/incoming_invoices_helper.rb
+END
+products_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/273/trunk/Venom/app/helpers/backend/products_helper.rb
+END
+customer_details_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/784/trunk/Venom/app/helpers/backend/customer_details_helper.rb
+END
+shorcuts_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/387/trunk/Venom/app/helpers/backend/shorcuts_helper.rb
+END
+finished_products_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/273/trunk/Venom/app/helpers/backend/finished_products_helper.rb
+END
+multimedia_files_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/273/trunk/Venom/app/helpers/backend/multimedia_files_helper.rb
+END
+contacts_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/273/trunk/Venom/app/helpers/backend/contacts_helper.rb
+END
+invoices_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/273/trunk/Venom/app/helpers/backend/invoices_helper.rb
+END
+credit_notes_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/304/trunk/Venom/app/helpers/backend/credit_notes_helper.rb
+END

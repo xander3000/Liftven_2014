@@ -1,0 +1,86 @@
+<div id="detail_incoming_invoice">
+  <div class="headerWrap">
+    <div class="headerWrapContent">
+		<h2>Seleccionar productos / servicios</h2>
+    </div>
+  </div>
+  <div class="mainWrapContent">
+	   <% semantic_form_remote_for @quote_position, :update => "#{controller.controller_name}_container",:url => add_position_backend_financial_management_customer_management_quotes_url,:html => {:class => "form_generate"} do |f| %>
+			 <div>
+				<div class="subc c70l">
+				  <% f.inputs do %>
+					 Producto:<hr/><br/>
+					 <%= f.input :product_id,:wrapper_html => {:class => "hidden"},:as => :string,:label => false,:input_html => {} %>
+					 <%= f.input :unit_price,:wrapper_html => {:class => "hidden"},:input_html => {} %>
+					 <%= f.input :total_price,:wrapper_html => {:class => "hidden"},:input_html => {} %>
+					 <%= f.input :product_code,:wrapper_html => {},:as => :string,:label => false,:input_html => {:size => 30,:class => "",:placeholder => "Búsqueda por Nombre o Código"} %>
+
+
+				  <% end %>
+				</div>
+				<div class="subc c30r">
+					<% f.inputs do %>
+					 Cantidad:<hr/><br/>
+					 <%= f.input :quantity,:as => :string,:label => false,:input_html => {:size => 6,:class => ""} %>
+				  <% end %>
+				</div>
+			 </div>
+		<% end %>
+
+
+  </div>
+
+  <div class="footerWrap">
+    <div class="footerWrapContent right">
+      <%= button_to_function("Añadir", "$(\"#new_crm_quote_position\").submit()")  %>
+		
+    </div>
+  </div>
+
+</div>
+<script type="text/javascript">
+
+  function product_after_complete(item){
+    switch (item.code_response) {
+        case ("ok"):
+            $("#crm_quote_position_product_id").val(item.id);
+				$("#crm_quote_position_unit_price").val(item.price);
+				$("#crm_quote_position_total_price").val(0);
+				$("#info_product").remove();
+				$("#crm_quote_position_product_code_input").append("<a id='info_product' title='<b>Info</b><br/>Precio unitario: "+item.price_currency+"<br/>'>&nbsp;&nbsp;<img src='/images/icons/info.png'/></a>");
+				$('a[title]').tooltip();
+            break;
+        case ("no-ok"):
+			 alert_error('no-ok');
+            break;
+        case ("no-found"):
+            alert('Producto no registrado');
+            break;
+        default:
+            alert('problemas buscando');
+    }
+
+  }
+  
+  $(document).ready(function(){ // Script del Navegador
+    $("button, input:submit,input:button,a.button ").button();
+	 $("#crm_quote_position_product_code").autocomplete({
+                 source: "<%= autocomplete_backend_products_url %>",
+                 minLength: 3,
+                 select: function( event, ui ) {
+                   if(ui.item){
+                     product_after_complete(ui.item);
+                       
+                  }
+                 }
+              });
+
+	$("#crm_quote_position_quantity").blur( function () {
+		unit_price = parseFloat($("#crm_quote_position_unit_price").val());
+		quantity = parseFloat($(this).val());
+		total_price = quantity*unit_price
+		parseFloat($("#crm_quote_position_total_price").val(total_price));
+  });
+
+  });
+</script>

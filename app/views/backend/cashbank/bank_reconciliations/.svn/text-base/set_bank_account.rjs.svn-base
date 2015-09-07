@@ -1,0 +1,8 @@
+page << "$('#cash_bank_bank_reconciliation_accounting_accountant_account_id').children().remove().end()"
+if @success
+		page << "$('#cash_bank_bank_reconciliation_accounting_accountant_account_id').append(jQuery('<option></option>').val('#{@bank_account.accounting_accountant_account.id}').html('#{@bank_account.accounting_accountant_account.fullname}'));"
+		page.replace_html "items_l",  :partial => "items_l"
+else
+	
+end
+page

@@ -1,0 +1,15 @@
+<% semantic_form_remote_for @product, :url => backend_products_url do |f| %>
+        <div class="top-actions">
+          <%= link_to "Cancelar",backend_products_url %>&nbsp;&nbsp;|
+          <%= submit_tag "Guardar",:class => "button" %>
+        </div>
+      <%= render :partial => "form",:locals => {:f => f} %>
+<% end %>
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+
+          $("#product_price_definition_type_id").change();
+	});
+</script>

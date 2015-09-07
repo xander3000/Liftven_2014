@@ -1,0 +1,71 @@
+<%= render :partial => "form_header",:locals => {:f => f} %>
+<div id="form_payment_mode" class="<%= @payment_order.new_record?  ? "hidden" : (@payment_order.account_payable_payment_order_document_type.require_doc ? "" : "hidden")%> ">
+  <%= render :partial => "form_payment_mode",:locals => {:f => f,:show => show} %>
+</div>
+<br/>
+
+<script type="text/javascript">
+    function action_after_complete_for_tenderer(item,tender_type){
+
+      switch (item.code_response) {
+          case ("ok"):
+              if(tender_type == "Supplier"){
+                $("#account_payable_payment_order_tenderer_id").val(item.supplier_id)
+					 $('#account_payable_payment_order_doc_id').val('').children().remove().end().append(jQuery('<option></option>').val(' ').html(' '));
+					 if($("#account_payable_payment_order_doc_type_demodulize").val()){
+						$.each( eval("item."+$("#account_payable_payment_order_doc_type_demodulize").val()), function( key, value ) {
+						  $('#account_payable_payment_order_doc_id').append(jQuery('<option></option>').val(value.id).html(value.fullname));
+						});
+					 }
+					 
+				  }
+              else
+                $("#account_payable_payment_order_tenderer_id").val(item.client_id)
+              break;
+          case ("no-ok"):
+              alert('no-ok');
+              break;
+
+      }
+    }
+          $(document).ready(function(){
+
+				$('.autoselect').each(function (index, domEle) {
+				  if($('#'+$(this).attr("id")+' > option').length <= 2){
+					 $(this)[0].selectedIndex = 1;
+					 $(this).change();
+					 $(this).removeAttr("onchange")
+				  }
+				});
+
+
+
+
+              $("#account_payable_payment_order_tenderer_type").blur( function () {
+                
+                if($(this).val() == "Supplier")
+                  source = "<%= autocomplete_by_supplier_name_backend_contacts_url %>";
+                else
+                  source = "<%= autocomplete_by_client_name_backend_contacts_url %>";
+                
+              
+               $("#account_payable_payment_order_tenderer_name").autocomplete({
+                      source: source,
+                      minLength: 3,
+                      select: function( event, ui ) {
+                        
+                        if(ui.item)
+                            action_after_complete_for_tenderer(ui.item,$("#account_payable_payment_order_tenderer_type").val());
+                      },
+                      open: function( event, ui ) {
+                         $('#account_payable_payment_order_tenderer_id').val('')
+                      }
+                 });
+
+
+
+
+              });
+
+      });
+</script>

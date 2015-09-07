@@ -1,0 +1,23 @@
+page << "$('#cash_bank_bank_movement_cash_bank_checkbook_id').children().remove().end()"
+page << "$('#cash_bank_bank_movement_accounting_accountant_account_id').children().remove().end()"
+
+if @success
+		page << "$('#cash_bank_bank_movement_accounting_accountant_account_id').append(jQuery('<option></option>').val('#{@bank_account.accounting_accountant_account.id}').html('#{@bank_account.accounting_accountant_account.fullname}'));"
+	if not @checkbooks.empty?
+		if @checkbooks.size > 1
+			page << "$('#cash_bank_bank_movement_cash_bank_checkbook_id').append(jQuery('<option></option>').val(' ').html('-- Seleccione una chequera --'));"
+		end
+	end
+	@checkbooks.each do |checkbook|
+    page << "$('#cash_bank_bank_movement_cash_bank_checkbook_id').append(jQuery('<option></option>').val('#{checkbook.id}').html('#{checkbook.full_name}'));"
+  end
+
+	if @checkbooks.size == 1
+		page << "$('#cash_bank_bank_movement_cash_bank_checkbook_id').change();"
+	end
+else
+	if @bank_account
+		page.show_errors([@bank_account], "message_overlay", nil)
+	end
+end
+

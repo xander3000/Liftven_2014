@@ -1,0 +1,251 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/products
+END
+add_element_types.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/products/add_element_types.rjs
+END
+edit.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/products/edit.rjs
+END
+_price_list_product_1.erb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/products/_price_list_product_1.erb
+END
+_promociones_added.erb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/products/_promociones_added.erb
+END
+_form_1.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/products/_form_1.erb
+END
+_show_4_1.erb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/products/_show_4_1.erb
+END
+_show_4_2.erb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/products/_show_4_2.erb
+END
+_form_2.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/products/_form_2.erb
+END
+_edit.erb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/products/_edit.erb
+END
+_form_3.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/products/_form_3.erb
+END
+_form_5.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/products/_form_5.erb
+END
+create.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/products/create.rjs
+END
+select_element_type.erb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/products/select_element_type.erb
+END
+_inventory.erb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/products/_inventory.erb
+END
+_price_list_product.erb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/products/_price_list_product.erb
+END
+_show_1.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/products/_show_1.erb
+END
+_show_2.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/products/_show_2.erb
+END
+_show_3.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/products/_show_3.erb
+END
+_price_definition_set_by_component_type.erb
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/products/_price_definition_set_by_component_type.erb
+END
+_form.erb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/products/_form.erb
+END
+_show_5.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/products/_show_5.erb
+END
+show.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/products/show.rjs
+END
+select_product_component_types.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/products/select_product_component_types.rjs
+END
+_price_list_product_added.erb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/products/_price_list_product_added.erb
+END
+_index_right_options.erb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/products/_index_right_options.erb
+END
+new_promocion.erb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/products/new_promocion.erb
+END
+_show.erb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/products/_show.erb
+END
+_product_component_types_elements.erb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/products/_product_component_types_elements.erb
+END
+select_presentation_types.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/products/select_presentation_types.rjs
+END
+select_price_definition_set_by_component_type.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/products/select_price_definition_set_by_component_type.rjs
+END
+_new.erb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/products/_new.erb
+END
+new.erb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/products/new.erb
+END
+show_element_type.erb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/products/show_element_type.erb
+END
+add_price_list_product.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/products/add_price_list_product.rjs
+END
+select_price_definition.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/products/select_price_definition.rjs
+END
+add_promocion.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/products/add_promocion.rjs
+END
+_form_4_1.erb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/products/_form_4_1.erb
+END
+_form_4_2.erb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/products/_form_4_2.erb
+END
+index.erb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/products/index.erb
+END
+update.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/products/update.rjs
+END
+check_product_component_types.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/products/check_product_component_types.rjs
+END

@@ -1,0 +1,119 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/1202/trunk/Venom/app/views/backend/cashbank/bank_reconciliations
+END
+show.erb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cashbank/bank_reconciliations/show.erb
+END
+set_period.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cashbank/bank_reconciliations/set_period.rjs
+END
+_form_items_r.erb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cashbank/bank_reconciliations/_form_items_r.erb
+END
+bank_book.erb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cashbank/bank_reconciliations/bank_book.erb
+END
+process_reconciliation.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cashbank/bank_reconciliations/process_reconciliation.rjs
+END
+set_bank_account.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cashbank/bank_reconciliations/set_bank_account.rjs
+END
+create.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cashbank/bank_reconciliations/create.rjs
+END
+new.erb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/1186/trunk/Venom/app/views/backend/cashbank/bank_reconciliations/new.erb
+END
+_items_l.erb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cashbank/bank_reconciliations/_items_l.erb
+END
+bank_statement.erb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cashbank/bank_reconciliations/bank_statement.erb
+END
+_items_r.erb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cashbank/bank_reconciliations/_items_r.erb
+END
+_form.erb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cashbank/bank_reconciliations/_form.erb
+END
+_form_items.erb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cashbank/bank_reconciliations/_form_items.erb
+END
+_form_total.erb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cashbank/bank_reconciliations/_form_total.erb
+END
+index.erb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/1202/trunk/Venom/app/views/backend/cashbank/bank_reconciliations/index.erb
+END
+_form_header.erb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cashbank/bank_reconciliations/_form_header.erb
+END
+_uploader.erb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cashbank/bank_reconciliations/_uploader.erb
+END
+set_bank.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cashbank/bank_reconciliations/set_bank.rjs
+END
+_form_items_l.erb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cashbank/bank_reconciliations/_form_items_l.erb
+END

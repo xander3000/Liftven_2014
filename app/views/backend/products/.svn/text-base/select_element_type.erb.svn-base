@@ -1,0 +1,46 @@
+<div id="components_element_type">
+  <div class="headerWrap">
+    <div class="headerWrapContent">
+    <h2><%= @element_type::HUMANIZE_MODEL_NAME %></h2>
+    </div>
+  </div>
+  <div class="mainWrapContent">
+
+    <% form_layout do %>
+      <% form_remote_tag :url => add_element_types_backend_products_url,:html => {:id => "add_element_types"} do |f| %>
+        <%= hidden_field_tag :product_component_type_id,@product_component_type_id %>
+        <%= hidden_field_tag :element_type_name,@element_type.to_s %>
+          <ul>
+           
+            <% element_type_name = "element_type_#{@product_component_type_id}" %>
+             <% @element_type.all.each do |element_type| %>
+             <%
+                if current_element_types_selected.has_key?(element_type_name.to_s) and current_element_types_selected[element_type_name.to_s].has_key?(@element_type.to_s) and current_element_types_selected[element_type_name.to_s][@element_type.to_s][:value_ids].include?(element_type.id.to_s)
+                  checked = true
+                else
+                  checked = false
+                end
+                
+              %>
+              <li>
+                <label>
+                  <%= check_box_tag  "element_type_ids[]",element_type.id,checked %>
+                  <%= element_type.name %>
+                </label>
+              </li>
+             <% end %>
+          </ul>
+        <% end %>
+      <% end %>
+    
+  </div>
+  <div class="footerWrap">
+    <div class="footerWrapContent right">
+      <%= button_to_function("Guardar", "$(\"#add_element_types\").submit()")  %>
+    </div>
+  </div>
+</div>
+
+<style type="">
+
+</style>

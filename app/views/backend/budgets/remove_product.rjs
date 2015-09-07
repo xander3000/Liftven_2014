@@ -1,0 +1,3 @@
+  page << "$('#item_product_form input').val('')"
+  page.replace_html "product_by_budgets_items",  :partial => "product_by_budgets"
+

@@ -1,0 +1,79 @@
+<div id="quotation_requisition_positions" class="content_form" style="">
+<% f.inputs "Posiciones" do %>
+	 <div id="form_items">
+		<table frame="border" rules="cols" >
+		  <thead>
+			 <tr>
+				<th class="material">
+				  <%= Material::QuotationRequisitionPosition.human_attribute_name(:material_raw_material)%>
+				</th>
+				<th class="quantity">
+				  <%= Material::QuotationRequisitionPosition.human_attribute_name(:quantity)%>
+				</th>
+				<th class="unit">
+				  <%= Material::QuotationRequisitionPosition.human_attribute_name(:material_order_measure_unit)%>
+				</th>
+				<th class="bg_supplier_1">
+				  <%= Material::QuotationRequisitionPosition.human_attribute_name(:supplier_1)%>
+				</th>
+				<th class="bg_supplier_1">
+				  <%= Material::QuotationRequisitionPosition.human_attribute_name(:sub_total_supplier_1)%>
+				</th>
+				<th class="bg_supplier_1">
+				  <%= Material::QuotationRequisitionPosition.human_attribute_name(:tax_supplier_1)%>
+				</th>
+				<th class="bg_supplier_1">
+				  <%= Material::QuotationRequisitionPosition.human_attribute_name(:total_supplier_1)%>
+				</th>
+				<th class="bg_supplier_2">
+				  <%= Material::QuotationRequisitionPosition.human_attribute_name(:supplier_2)%>
+				</th>
+				<th class="bg_supplier_2">
+				  <%= Material::QuotationRequisitionPosition.human_attribute_name(:sub_total_supplier_2)%>
+				</th>
+				<th class="bg_supplier_2">
+				  <%= Material::QuotationRequisitionPosition.human_attribute_name(:tax_supplier_2)%>
+				</th>
+				<th class="bg_supplier_2">
+				  <%= Material::QuotationRequisitionPosition.human_attribute_name(:total_supplier_2)%>
+				</th>
+				<th class="bg_supplier_3">
+				  <%= Material::QuotationRequisitionPosition.human_attribute_name(:supplier_3)%>
+				</th>
+				<th class="bg_supplier_3">
+				  <%= Material::QuotationRequisitionPosition.human_attribute_name(:sub_total_supplier_3)%>
+				</th>
+				<th class="bg_supplier_3">
+				  <%= Material::QuotationRequisitionPosition.human_attribute_name(:tax_supplier_3)%>
+				</th>
+				<th class="bg_supplier_3">
+				  <%= Material::QuotationRequisitionPosition.human_attribute_name(:total_supplier_3)%>
+				</th>
+				
+				  <th class="">
+					 <%= Material::QuotationRequisitionPosition.human_attribute_name(:selected_supplier)%>
+				  </th>
+				
+
+				<th class="">
+				  <%= Material::QuotationRequisitionPosition.human_attribute_name(:note)%>
+				</th>
+			 </tr>
+				
+
+		  </thead>
+		  <tbody id="items">
+			 <%= render :partial => "items" %>
+		  </tbody>
+		</table>
+	 </div>
+  <% end %>
+</div>
+<script type="text/javascript">
+
+	$(document).ready(function(){
+	  
+		
+		
+	});
+</script>

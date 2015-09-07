@@ -1,0 +1,55 @@
+<div id="contact_form" class="content_form">
+<% f.inputs "Posiciones" do %>
+	 <div id="form_items">
+		<table frame="border" rules="cols" >
+		  <thead>
+			 <tr>
+				<th class="material">
+				  <%= Material::PurchaseRequisitionPosition.human_attribute_name(:material_raw_material)%>
+				</th>
+				<th class="quantity">
+				  <%= Material::PurchaseRequisitionPosition.human_attribute_name(:quantity)%>
+				</th>
+				<th class="unit">
+				  <%= Material::PurchaseRequisitionPosition.human_attribute_name(:material_order_measure_unit)%>
+				</th>
+				<th class="unit">
+				  <%= Material::PurchaseRequisitionPosition.human_attribute_name(:reason)%>
+				</th>
+
+
+			 </tr>
+			 <tr id="item_product_form">
+			  <% semantic_fields_for Material::PurchaseRequisitionPosition.new do |pop| %>
+				<td class=" center">
+				  <%= text_field_tag "material_name","",:placeholder => "Ingrese material" %>
+				  <%= pop.input :material_raw_material,:label => false,:wrapper_html => {:class => "hidden"}  %>
+				</td>
+				<td class="center quantity">
+				  <%= pop.input :quantity,:label => false,:input_html => {:class => "quantity"}%>
+				</td>
+				<td class="center unit">
+				  <%= pop.input :material_order_measure_unit,:label => false,:input_html => {:class => ""}%>
+				</td>
+				<td class="">
+					 <%= pop.input :reason,:label => false,:input_html => {:class => "",:placeholder => "Motivo o razón del pedido"}%>
+				</td>
+				<td class="center " style="width: 25px;">
+				  <%= link_to_remote image_tag("icons/add.png"), :url => add_backend_material_management_purchase_requisitions_url,:with => "$('#item_product_form input, #item_product_form select').serialize()",:html => {:id => "add_product_button",:class => "hidden"} %>
+				</td>
+			 </tr>
+			<% end %>
+		  </thead>
+		  <tbody id="items">
+			 <%= render :partial => "items" %>
+		  </tbody>
+		</table>
+	 </div>
+  <% end %>
+</div>
+<script type="text/javascript">
+
+	$(document).ready(function(){
+
+	});
+</script>

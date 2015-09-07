@@ -1,0 +1,56 @@
+
+<div id="" class="content_form">
+	 <br/>
+    <% f.inputs "" do %>
+		<%= f.input :name,:input_html => {:size => 20}%>
+		<%= f.input :cash_bank_cash_type,:input_html => {}%>
+		<%= f.input :accounting_accountant_account_id,:as => :string,:wrapper_html => {:class => "hidden"}%>
+		<%= f.input :accounting_accountant_account_name,:as => :string,:input_html => {:size => 10}%>
+		<%= f.input :responsible,:collection => @responsibles,:input_html => {}%>
+		<%= f.input :has_fiscal_printer %>
+    <% end %>
+</div>
+
+
+
+<script type="text/javascript">
+
+
+function action_after_complete_for_accountant_account(item){
+    switch (item.code_response) {
+        case ("ok"):
+            $("#cash_bank_cash_accounting_accountant_account_id").val(item.id)
+            break;
+        case ("no-ok"):
+				$("#cash_bank_cash_accounting_accountant_account_name").val('')
+            $("#cash_bank_cash_accounting_accountant_account_id").val('')
+            break;
+        default:
+				$("#cash_bank_cash_accounting_accountant_account_name").val('')
+            $("#cash_bank_cash_accounting_accountant_account_id").val('')
+				break;
+    }
+  }
+
+
+    $(document).ready(function(){
+
+
+	 $("#cash_bank_cash_accounting_accountant_account_name").autocomplete({
+			  source: "<%= autocomplete_by_accountant_account_backend_accountancy_accounting_concepts_url %>",
+			  minLength: 3,
+			  select: function( event, ui ) {
+				 if(ui.item)
+					 action_after_complete_for_accountant_account(ui.item);
+			  },
+			  open: function( event, ui ) {
+				 $("#cash_bank_cash_accounting_accountant_account_id").val('');
+			  }
+		  });
+
+	 $("button, input:submit,input:button,a.button ").button();
+
+
+
+});
+</script>

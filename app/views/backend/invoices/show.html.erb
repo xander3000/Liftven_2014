@@ -1,0 +1,131 @@
+<div class="actionsBar right">
+
+<%= link_to(image_tag("icons/printer_islr.png"),backend_invoice_show_voucher_withholding_islr_url(@invoice,"pdf"),:class => "button",:title =>"Comprobante retención ISLR")+"|"  %>
+<%= link_to(image_tag("icons/printer.png"),backend_invoice_url(@invoice,"pdf"),:class => "button",:title =>"Imprimir factura") if @invoice.free_printed? %>
+  </div>
+<br/>
+<div id="invoice_show">
+  <div id="" class="right control">
+    FACTURA Nº <span><%= format_code(@invoice.id, "06") %></span>
+  </div>
+
+  <div id="letterhead">
+    <div id="logo"  class="c50l subc">
+    <%= image_tag "clients/#{PROJECT_NAME}/logos/logo2.png" %>
+  </div>
+    <div class="c50r subc">
+      <ul>
+        <li>VOLANTES</li> <li>CATALOGOS</li> <li>REVISTAS</li> <li>FOLLETOS</li> <li>CALENDARIOS</li> <li>HABLADORES</li>
+        <li>DIPTICOS</li> <li>TRIPTICOS</li> <li>TARJETAS DE PRESENTACION</li> <li>TARJETAS EN PAPELES ESPECIALES</li>
+        <li>IMPRESION EN LITHOAUTOADHESIVO</li> <li>AFICHES</li> <li>CARPETAS</li> <li>LIBRETAS</li>
+        <li>MANUALES</li> <li>PENDONES</li> <li>PANCARTAS</li> <li>VALLAS</li> <li>BACKINGS</li> <li>CAJAS DE LUZ</li>
+        <li>VINIL MICROPERFORADO</li> <li>VINIL AUTOADHESIVO</li> <li>VINIL IMANTADO</li> <li>ROTULACION DE VEHICULOS</li>
+        <li>CLEAR</li> <li>BACKLIGHT</li> <li>FROSTER</li> <li>CALCOMANIAS</li>
+      </ul>
+    </div>
+  </div>
+  <div id="details">
+    <b>NOMBRE O RAZÓN SOCIAL: </b> <%= @invoice.client.name %><br/><br/>
+    <b>C.I. / RIF: </b><%= @invoice.client.identification_document %><br/><br/>
+    <b>DOMICILIO FISCAL: </b><%= @invoice.client.address %><br/><br/>
+    <b>FECHA: </b><%= l @invoice.created_at %><br/><br/>
+    <b>TLFS: </b><%= @invoice.client.phone %><br/><br/>
+    <b>CORREO ELECTRÓNICO: </b><%= @invoice.client.email %><br/><br/><br/>
+   
+    <div id="form_items">
+      <table border="0">
+        <thead>
+          <tr class=" border-top">
+            <th class="code center">
+              Código
+            </th>
+            <th class="amount center">
+              Cantidad
+            </th>
+            <th class="description">
+              Descripción
+            </th>
+            <th class="unit_price right">
+              Precio Unitario
+            </th>
+            <th class="total_price right">
+              Total
+            </th>
+          </tr>
+        </thead>
+        <tbody id="product_by_invoices_items">
+          <%= render :partial => "product_by_invoices_show" %>
+        </tbody>
+      </table>
+    </div>
+	 <% if @invoice.has_incoming_invoice_billings? and false %>
+		<div>
+			 <table id="incoming_invoice_billing" frame="border" rules="cols" >
+				<thead>
+				  <tr>
+					 <th><%= IncomingInvoiceBilling.human_attribute_name("amount")%> </th>
+					 <th><%= IncomingInvoiceBilling.human_attribute_name("payment_method_type")%> </th>
+					 <th><%= IncomingInvoiceBilling.human_attribute_name("transaction_reference")%> </th>
+					 <th><%= IncomingInvoiceBilling.human_attribute_name("transaction_date")%> </th>
+					 <th colspan="2"><%= IncomingInvoiceBilling.human_attribute_name("cash_bank_pos_card_terminal")%> </th>
+
+				  </tr>
+				</thead>
+				<tbody id="incoming_invoice_billings_by_invoice">
+					<%= render :partial => "incoming_invoice_billings_by_invoice" %>
+				</tbody>
+			 </table>
+		</div>
+	<% end %>
+  </div>
+  <br/>
+  <div>
+    <div class="c80l subc center">
+      Venom Impresos Digitales C. A.<br/>
+      Av. Francisco de Miranda, Multicentro Empresarial del Este,
+      Torre Miranda, Local PB-2, Chacao.<br/>
+      venomdescargas@gmail.com<br/>
+    </div>
+    <div class="c10r subc">
+        RIF. J-29680598-9<br/>
+        TELF. FAX: 0212-740.2088<br/>
+        0212-740.2089<br/><br/>
+        <%= COMPANY_URL%> <br/>
+    </div>
+
+  </div>
+  <div id="" class="right control">
+    FACTURA  Nº <span><%= format_code(@invoice.id, "06") %></span>
+  </div>
+  
+</div>
+<div id="dialog-print" title="Selecione impresora de salida">
+  <%#= link_to_function(image_tag("icons/laser_printer.png"), "",:class => "button",:title => "Impresora Común") %>
+  <%#= link_to_remote(image_tag("icons/fiscal_printer.png"), :url => backend_invoice_fiscal_print_url(@invoice),:html => {:class => "button",:title => "Impresora Fiscal"}) %>
+</div>
+
+<script type="text/javascript">
+        function print()
+        {
+          $( "#dialog-print" ).dialog( "open" );
+        }
+		  $(document).ready(function(){
+			 <% if @invoice.free_printed? %>
+						window.location.href = '<%=backend_invoice_url(@invoice,"pdf") %>'
+			<% end %>
+			  /*$( "#dialog-print" ).dialog({
+					 autoOpen: false,
+					 height: 200,
+					 width: 278,
+					 modal: true,
+					 buttons: {
+						  Cancelar: function() {
+								$( this ).dialog( "close" );
+						  }
+					 },
+					 close: function() {
+						  allFields.val( "" ).removeClass( "ui-state-error" );
+					 }
+				});*/
+		  });
+  </script>

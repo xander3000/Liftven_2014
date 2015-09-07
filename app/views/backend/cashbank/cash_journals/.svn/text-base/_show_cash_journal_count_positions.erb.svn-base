@@ -1,0 +1,67 @@
+<% amount_total = 0 %>
+<p><b class="border-bottom">Arqueo de caja</b></p>
+		<div>
+		  <% @consolidate_count_positions.each do |measure_change_type_id,measure_change_type_name|  %>
+
+			 <div class="<%= cycle("c50l","c50r") %>  subc">
+			 <table>
+				<thead>
+				  <tr>
+					 <th colspan="3"><%= measure_change_type_name[:name] %> </th>
+				  </tr>
+
+				</thead>
+				<tbody>
+				  <tr>
+					 <td class="center">
+						Denominación
+					 </td>
+					 <td class="center">
+						Cantidad
+					 </td>
+					 <td class="center">
+						Total
+					 </td>
+				  </tr>
+				<% measure_change_type_name[:denominations].each do |denomination_id,denomination_value| %>
+				  <tr>
+					 <td class="center">
+						<%= denomination_value[:name] %>
+					 </td>
+					 <td class="center">
+						<%= denomination_value[:quantity] %>
+					 </td>
+					 <td class="right">
+						<%= number_to_currency(denomination_value[:total_amount], :delimiter => ".", :separator => ",", :unit => "") %>
+						<% amount_total += denomination_value[:total_amount] %>
+					 </td>
+				  </tr>
+				  <% end %>
+				</tbody>
+			 </table>
+		  </div>
+		  <% end %>
+		  <div class="right" style="margin-right: 8px">
+				<p>
+					 <% @consolidate_count_positions.each do |measure_change_type_id,measure_change_type_name|  %>
+					 <i><%= measure_change_type_name[:name]%> : </i>
+					 <b><%= number_to_currency(measure_change_type_name[:total_amount], :delimiter => ".", :separator => ",", :unit => "") %></b>
+					 <br/>
+					 <% end %>
+					 <i>Documentos: </i>
+					 <b><%= number_to_currency(@cash_journal_count.total_amount_register, :delimiter => ".", :separator => ",", :unit => "") %></b>
+					 <br/>
+					 <i>SubTotal: </i>
+					 <b><%= number_to_currency(@cash_journal_count.total_amount_register+amount_total, :delimiter => ".", :separator => ",", :unit => "") %></b>
+					 <br/>
+					 
+					 <i>Importe de Caja: </i>
+					 <b><%= number_to_currency(@cash_journal.opening_balance_amount, :delimiter => ".", :separator => ",", :unit => "") %></b>
+					 <br/>
+				  <i>Diferencia: </i>
+				  <b class="<%= @cash_journal_count.difference_amount_count >= 0 ? "green" : "red" %>"><%= number_to_currency(@cash_journal_count.difference_amount_count, :delimiter => ".", :separator => ",", :unit => "") %></b>
+				</p>
+
+				
+		  </div>
+		</div>

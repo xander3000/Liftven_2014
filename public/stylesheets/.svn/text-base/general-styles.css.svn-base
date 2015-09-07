@@ -1,0 +1,70 @@
+/* 
+    Document   : general-styles
+    Created on : 08/10/2011, 12:21:31 PM
+    Author     : gabriel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+/*
+    END: General
+*/
+
+.tooltip {
+	display:none;
+	background:transparent url(/tools/img/tooltip/black_arrow.png);
+	font-size:12px;
+	height:70px;
+	width:160px;
+	padding:25px;
+	color:#fff;
+}
+
+.hidden{
+    display: none;
+}
+.left
+{
+    text-align: left;
+}
+.center
+{
+    text-align: center;
+}
+.right
+{
+    text-align: right;
+}
+.uppercase{
+    
+}
+.more-info
+{
+    background: transparent url(/images/icons/info.png) no-repeat center right;
+    cursor: pointer;
+}
+
+.clearing{
+    clear: both;
+    margin: 0;
+    padding: 0;
+}
+
+.venom_1{
+    color: #D5006E;
+}
+.venom_2{
+    color: #f6d017;
+}
+.venom_3{
+    color: #008cca;
+}
+.successfully{
+    color:#090;
+    font-size: 15px;
+}

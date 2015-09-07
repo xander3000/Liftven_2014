@@ -1,0 +1,63 @@
+<div id="form_items">
+  <table frame="border" rules="cols">
+    <thead>
+      <tr>
+
+        <th class="amount">
+          Cant.
+        </th>
+        <th class="description">
+          Componentes
+        </th>
+        <th class="dimensions">
+          Tamaño
+        </th>
+        <th class="unit_price">
+          Precio Unitario
+        </th>
+        <th colspan="2" class="total_price">
+          Total
+        </th>
+      </tr>
+      <tr id="item_product_form">
+
+        <td class="amount center">
+          <%= text_field_tag "product[quantity]","",:class => "select_price",:placeholder => "Ingrese cant",:size => 5,:readonly => true %>
+        </td>
+        <td class="description">
+          <%= text_field_tag "product_description","",:placeholder => "Ingrese descripción o nombre del produco" %>
+        </td>
+        <td class="dimensions">
+          <%#= select("standard_measure", "id", @standard_measures.collect {|p| [ p.full_name, p.value ] }, { :include_blank => " Seleccione " },{:readonly => "true",:class => "select_price"}) %>
+          <%= text_field_tag "product[side_dimension_x]","",:class => "select_price",:title => "ancho",:placeholder => "ancho",:readonly => true,:size => 4 %>
+          X
+          <%= text_field_tag "product[side_dimension_y]","",:class => "select_price",:title => "largo",:placeholder => "largo",:readonly => true,:size => 4 %>
+        </td>
+        <td class="unit_price right">
+         <%= text_field_tag "product[unit_price]","",:placeholder => "Precio unitario",:readonly => true,:class => "right",:size => "11" %>
+        </td>
+        <td class="total_price right">
+          <%= text_field_tag "product[total_price]","",:placeholder => "Precio total",:readonly => true,:class => "right",:size => "11" %>
+        </td>
+        <td class="center">
+          <%= link_to_remote image_tag("icons/add.png"), :url => add_product_backend_credit_notes_url,:with => "$('#item_product_form input').serialize()",:html => {:id => "add_product_button",:class => "hidden"} %>
+        </td>
+      </tr>
+    </thead>
+    <tbody id="product_by_credit_notes_items">
+      <%= render :partial => "product_by_credit_notes" %>
+    </tbody>
+  </table>
+</div>
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+          $("#standard_measure_id").change(function () {
+            value = $(this).val();
+            value = value.split('x');
+            $("#product_side_dimension_x").val(value[0]);
+            $("#product_side_dimension_y").val(value[1]);
+          });
+	});
+</script>

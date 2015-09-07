@@ -1,0 +1,308 @@
+/* 
+    Document   : contable_document
+    Created on : 20/02/2012, 08:43:04 PM
+    Author     : gabriel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+
+a{
+	text-decoration: none;
+	color: #000;
+	cursor: text;
+}
+
+.right{
+	text-align: right;
+}
+.center{
+	text-align: center;
+}
+.control
+{
+    font-weight: bold;
+    padding-right: 5px;
+    position: relative;
+	 text-transform: uppercase;
+    right: 0;
+    top: 0;
+    white-space: nowrap;
+}
+
+.control span
+{
+
+    font-size: 2.5em;
+    color: black;
+    font-weight: normal;
+}
+
+#details
+{
+    border: 1px solid #D2D2D2;
+    padding: 10px;
+    background: #F1F1F1;
+    -moz-border-radius:0 25px 0 25px;
+    -webkit-border-radius:0 25px 0 25px;
+    border-radius: 0 25px 0 25px;
+	  color: #000;
+	  min-height: 725px;
+
+}
+#details b
+{
+    color: #808080;
+}
+#details hr
+{
+    border-color: #000;
+}
+
+
+#details table
+{
+    border: none;
+}
+
+#details #footer_total
+{
+    margin-top: 5px;
+}
+table td, table th
+{
+    border-color: #D2D2D2;
+}
+
+
+#form_items table thead td {
+    text-align: center;
+}
+
+
+#form_items table td input
+{
+    width: 90%;
+}
+
+#form_items table td.code
+{
+    width: 15%;
+}
+
+#form_items table td.amount
+{
+    width: 5%;
+}
+#form_items table td.amount input
+{
+    width: 80%
+}
+
+#form_items table td.description
+{
+    width: 30%
+}
+
+#form_items table td.quantity_page
+{
+    width: 6%
+}
+
+#form_items table td.quantity_page input
+{
+    width: 40%
+}
+
+#form_items table td.quantity
+{
+    width: 6%
+}
+
+#form_items table td.quantity input
+{
+    width: 65%
+}
+#form_items table td.packing_material
+{
+    width: 20%
+}
+
+#form_items table td.packing_material select
+{
+    min-width: 200px;
+}
+#form_items table td.delivery_date
+{
+    width: 10%
+}
+
+#form_items table td.delivery_date input
+{
+    width: 90%
+}
+
+
+#form_items table td.note
+{
+    width: 10%
+}
+
+#form_items table td.dimensions input
+{
+
+}
+
+#form_items table td.dimensions
+{
+    width: 15%;
+}
+
+#form_items table td.dimensions input
+{
+    width: 35px;
+}
+
+#form_items table td.unit_price, #form_items table td.total_price
+{
+    width: 9%;
+    text-align: right;
+}
+#form_items table td.sub_total, #form_items table td.total
+{
+    width: 190px;
+    text-align: right;
+}
+#form_items table td #total
+{
+    color: #000;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+
+#form_items #product_components{
+    text-align: left;
+}
+
+
+table tr.border-top{
+    border-top: 1px solid #D2D2D2;
+}
+
+hr
+{
+	color: #fff;
+	background:transparent;
+	margin: 0 0 0.5em 0;
+	padding: 0 0 0.5em 0;
+	border:0;
+	border-bottom: 1px #eee solid;;
+}
+
+#details hr {
+    border-color: #000000;
+}
+
+  #content_info_voucher h2{
+	color: #000;
+	 font-size: 1.5em;
+	 font-weight: bolder;
+}
+
+  #content_info_voucher table{
+		width: 98%;
+		margin-left: 12px;
+  }
+
+  #content_info_voucher table.no-border td{
+	  border:none;
+  }
+
+  #content_info_voucher table.no-border th{
+	  border: 1px solid #D2D2D2;
+	}
+
+  #content_info_voucher table th,#content_info_voucher table td{
+	  border-bottom: 1px solid #CCCCCC;
+    border-right: 1px solid #CCCCCC;
+  }
+
+    #content_info_voucher .border-line{
+	  border: 1px solid #D2D2D2;
+		padding: 5px;
+		margin: 5px 10px;
+  }
+
+  #content_info_voucher .border{
+	  border: 1px solid #D2D2D2;
+		-moz-border-radius:10px;
+		-webkit-border-radius:10px;
+		border-radius:10px;
+		padding: 5px;
+		margin: 5px 10px;
+  }
+  #content_info_voucher .border.header{
+	  height: 60px;
+  }
+
+  #content_info_voucher .border.description b{
+	  font-size: 1em;
+	  font-weight: bolder;
+  }
+
+  #content_info_voucher table tbody.items td{
+	padding: 2px 0.5em;
+}
+
+  #content_info_voucher div.footer table{
+		  -moz-border-radius:10px;
+		  -webkit-border-radius:10px;
+		  border-radius:10px;
+  }
+  #content_info_voucher div.footer table th{
+	  background-color: white;
+	  width: 25%;
+
+  }
+
+  #content_info_voucher div.footer div.border{
+	  margin: 0 10px 10px 10px;
+  }
+
+  #content_info_voucher table.border{
+	  border-collapse:inherit;
+	  padding: 0;
+	  border: 1px solid #CCCCCC;
+  }
+
+  #content_info_voucher table.border .border-top-left{
+	 border-top-left-radius: 10px;
+	 -moz-border-top-left-radius:10px;
+	  -webkit-border-top-left-radius:10px;
+  }
+  #content_info_voucher table.border .border-top-right{
+	 border-top-right-radius: 10px;
+	 -moz-border-top-right-radius:10px;
+	  -webkit-border-top-right-radius:10px;
+  }
+  #content_info_voucher table.border .border-bottom-left{
+	 border-bottom-left-radius: 10px;
+	 -moz-border-bottom-left-radius:10px;
+	  -webkit-border-bottom-left-radius:10px;
+  }
+  #content_info_voucher table.border .border-bottom-right{
+	 border-bottom-right-radius: 10px;
+	  -moz-border-bottom-right-radius:10px;
+	  -webkit-border-bottom-right-radius:10px;
+  }
+
+  #content_info_voucher table label{
+	 width: 60px;
+	 float: left;
+}

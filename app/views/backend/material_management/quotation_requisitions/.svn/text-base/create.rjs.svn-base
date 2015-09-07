@@ -1,0 +1,6 @@
+if  @success
+	page.redirect_to backend_material_management_quotation_requisition_url(@quotation_requisition)
+else
+  page.show_errors([@quotation_requisition], "message_overlay", nil)
+end
+

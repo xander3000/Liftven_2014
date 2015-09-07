@@ -1,0 +1,8 @@
+if @success
+  page << "$('#price_definition_set_by_component_type input.visible').val('')"
+  page << "$('#price_definition_set_by_component_type select').val('')"
+  page.replace_html "price_list_product_added", :partial => "price_list_product_added"
+else
+  page.alert("Registro no valido")
+end
+

@@ -1,0 +1,45 @@
+<div>
+  <div id="tabs">
+	<ul>
+	  <% @lift_manufacturing_phases.each do |phase| %>
+		  <li id="tab-<%= phase.id %>" title="<%= phase.name %>: <%= phase.note %>"><a href="#tabs-<%= phase.id %>"><%= phase.name%> </a></li>
+		<% end %>
+	</ul>
+	 <% @lift_manufacturing_phases.each do |phase| %>
+		<div id="tabs-<%= phase.id %>">
+		  <table>
+			 <thead>
+				<tr>
+				  <th>
+					 <%= Crm::Projects::LiftMaterialForManufacturingPhase.human_attribute_name("material_raw_material") %>
+				  </th>
+				  <th>
+					 <%= Crm::Projects::LiftMaterialForManufacturingPhase.human_attribute_name("quantity") %>
+				  </th>
+				  <th>
+					 Disponible en almacen
+				  </th>
+				</tr>
+			 </thead>
+			 <tbody>
+				<% @lift_model.lift_material_for_manufacturing_phases(phase).each do |lift_material_for_manufacturing_phase| %>
+				<tr>
+				  <% material = lift_material_for_manufacturing_phase.material_raw_material %>
+				  <td class="center"><%= material.name%></td>
+				  <td class="center"><%= lift_material_for_manufacturing_phase.quantity.to_currency(false)%> (<%= material.material_issue_measure_unit.name%>)</td>
+				  <td class="center <%= lift_material_for_manufacturing_phase.quantity > material.unrestricted_use_stock ? 'red' : ''%>"><%= material.unrestricted_use_stock.to_currency(false) %></td>
+				</tr>
+				<% end %>
+			 </tbody>
+		  </table>
+		</div>
+	 <% end %>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+		$( "#tabs" ).tabs();
+  });
+</script>
+

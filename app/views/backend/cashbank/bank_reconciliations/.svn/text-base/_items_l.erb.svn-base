@@ -1,0 +1,26 @@
+<% @bank_movements.compact.each do |bank_movement| %>
+
+	 <tr class="item <%= cycle("odd","ever")%> ">
+		<td class="center">
+		  <%= bank_movement.date.to_default_date %>
+		</td>
+		<td class="center">
+		  <%= bank_movement.cash_bank_bank_movement_operation_type.name %>
+		</td>
+		<td class="center">
+		  <%= bank_movement.vale %>
+		</td>
+		<td class="center">
+		  <%= bank_movement.description %>
+		</td>
+		<td class="center">
+		  <%= number_to_currency(bank_movement.debit_amount, :delimiter => ".", :separator => ",", :unit => "") %>
+		</td>
+		<td class="center">
+		  <%= number_to_currency(bank_movement.credit_amount, :delimiter => ".", :separator => ",", :unit => "") %>
+		</td>
+		<td class="center">
+		  <%= number_to_currency(bank_movement.account_balance_to_date, :delimiter => ".", :separator => ",", :unit => "") %>
+		</td>
+	 </tr>
+<% end if @bank_movements%>

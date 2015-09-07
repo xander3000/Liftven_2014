@@ -1,0 +1,14 @@
+/* 
+    Document   : goods_receipts
+    Created on : 21/07/2013, 07:57:03 PM
+    Author     : gabriel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+@import "../contable_document.css";

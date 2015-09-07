@@ -1,0 +1,9 @@
+<div id="budgets_finished_product_category_type">
+  <div class="scrollable vertical">
+    <div class="items">
+          <div class="item">
+            <%= image_tag "buttons/product_category_types/#{@finished_product_category_type.tag_name}.png" %>
+          </div>
+    </div>
+  </div>
+</div>

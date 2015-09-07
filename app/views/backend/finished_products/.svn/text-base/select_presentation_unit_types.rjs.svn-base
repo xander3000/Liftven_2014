@@ -1,0 +1,9 @@
+page << "$('#finished_product_presentation_unit_type_id').children().remove().end()"
+page << "$('fieldset.reset input').val('')"
+page << "$('fieldset.reset input').attr('readonly',true)"
+if @raw_material
+  page << "$('#finished_product_presentation_unit_type_id').append(jQuery('<option ref=\"0x0\"></option>').val('').html(''));"
+  @presentation_unit_types.each do |item|
+    page << "$('#finished_product_presentation_unit_type_id').append(jQuery('<option ref=\"322x323\"></option>').val('#{item.id}').html('#{item.name}'));"
+  end
+end

@@ -1,0 +1,49 @@
+<div id="detail_incoming_invoice">
+  <div class="headerWrap">
+    <div class="headerWrapContent">
+		<h2>Seleccionar materiales/insumos</h2>
+    </div>
+  </div>
+  <div class="mainWrapContent">
+	   <% semantic_form_remote_for @lift_material_for_manufacturing_phase, :update => "#{controller.controller_name}_container",:url => add_lift_material_for_manufacturing_phase_backend_supply_chain_lift_material_for_manufacturing_phases_url,:html => {:class => "form_generate"} do |f| %>
+			 <div>
+				<% f.inputs do %>
+				  <%= f.input :crm_projects_lift_manufacturing_phase,:wrapper_html => {},:input_html => {} %>
+				   <%= f.input :material_raw_material_name,:wrapper_html => {},:input_html => {:class => ""} %>
+				  <%= f.input :material_raw_material,:wrapper_html => {:class => "hidden"},:input_html => {:class => ""} %>
+				  <%= f.input :quantity,:wrapper_html => {},:input_html => {:class => "amount",:size => 5} %>
+				<% end %>
+	 		 </div>
+		<% end %>
+
+
+  </div>
+
+  <div class="footerWrap">
+    <div class="footerWrapContent right">
+      <%= button_to_function("Añadir", "$(\"#new_crm_projects_lift_material_for_manufacturing_phase\").submit()")  %>
+
+    </div>
+  </div>
+
+</div>
+<script type="text/javascript">
+
+  $(document).ready(function(){ // Script del Navegador
+
+	 		  $("#crm_projects_lift_material_for_manufacturing_phase_material_raw_material_name").autocomplete({
+			  source: "<%= autocomplete_by_name_backend_material_management_raw_materials_url %>",
+			  minLength: 3,
+			  open: function(event,ui){
+				 $("#crm_projects_lift_material_for_manufacturing_phase_material_raw_material_id").val("")
+			  },
+			  select: function( event, ui ) {
+				 if(ui.item)
+					 action_after_complete_for_raw_materials(ui.item);
+			  }
+		  });
+
+    $("button, input:submit,input:button,a.button ").button();
+	
+  });
+</script>

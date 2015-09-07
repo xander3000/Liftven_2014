@@ -1,0 +1,44 @@
+<div id="" class="content_form">
+  
+    <% f.inputs "Datos generales" do %>
+		<%= f.input :crm_projects_lift_category_type,:input_html  => {:onchange => remote_function(:url => set_lift_model_backend_financial_management_client_customer_management_project_lifts_url,:with => "$(this).serialize()")}%>
+		  <%= f.input :crm_projects_lift_model,:collection => [],:input_html  => {:onchange => remote_function(:url => set_phases_for_model_backend_financial_management_client_customer_management_project_lifts_url,:with => "$(this).serialize()")}%>
+		  <hr/>
+				<div>
+				  <div class="c45l subc">
+						 <% f.inputs "" do %>
+						<%= f.input :tower,:input_html  => {:size => "",:class => "right"}%>
+						<%= f.input :about_travel,:input_html  => {:size => "5",:class => "right"}%>
+						<%= f.input :stops,:input_html  => {:size => "3",:class => "right"}%>
+					 <%= f.input :load_capacity,:input_html  => {:size => "5",:placeholder => "Kg",:class =>"right"}%>
+					 <%= f.input :width_pit,:input_html  => {:size => "4",:class => "right"}%>
+					 <%= f.input :fund_pit,:input_html  => {:size => "4",:class => "right"}%>
+					 <% end %>
+				  </div>
+				  <div class="c50r subc">
+					 <% f.inputs "" do %>
+					 <%= f.input :module,:input_html  => {:size => "",:class => "right"}%>
+					 <%= f.input :route,:input_html  => {:size => "5",:class => "right"}%>
+					 <%= f.input :levels,:input_html  => {:size => "3",:class => "right"}%>
+					 <%= f.input :passenger_capacity,:input_html  => {:size => "5",:placeholder => "",:class =>"right"}%>
+					 <%= f.input :width_pit,:input_html  => {:size => "4",:class => "right"}%>
+					 <%= f.input :moat,:input_html  => {:size => "4",:class => "right"}%>
+					 <% end %>
+				  </div>
+				</div>
+ <% end %>
+<% f.inputs "Datos Producción" do %>
+	 <div id="manufacturing_phases">
+
+	 </div>
+<% end %>
+</div>
+
+
+<script type="text/javascript">
+
+  		$(document).ready(function(){
+
+		  
+		});
+</script>

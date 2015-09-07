@@ -1,0 +1,29 @@
+<div id="new_comment_form">
+  <div class="headerWrap">
+    <div class="headerWrapContent">
+          <h2>Editar <%=  "#{@price_list_component_accesory.name} (#{@price_list_component_accesory.lower_limit},#{@price_list_component_accesory.upper_limit})"%> </h2>
+    </div>
+  </div>
+  <div class="mainWrapContent">
+     <% form_layout do %>
+        <% semantic_form_remote_for @price_list_component_accesory, :url => backend_cpanel_price_list_component_accesory_url(@price_list_component_accesory) do |f| %>
+          <% f.inputs do  %>
+            <%= f.input :name,:input_html => {:disabled => true} %>
+				<%= f.input :amount %>
+				<%= f.input :lower_limit %>
+				<%= f.input :upper_limit %>
+          <% end %>
+        <% end %>
+      <% end %>
+  </div>
+  <div class="footerWrap">
+    <div class="footerWrapContent right">
+      <%= button_to_function("Actualizar", "$(\"#price_list_component_accesories_container form\").submit()")  %>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function(){ // Script del Navegador
+    $("button, input:submit,input:button,a.button ").button();
+  });
+</script>

@@ -1,0 +1,11 @@
+<% f.inputs do%>
+<%=  f.input :name,:label => false,:input_html => {:placeholder => "Ingrese Nombre de la Materia Prima",:class => "top"} %>
+<%= f.input :raw_material_category,:input_html => {:onchange => remote_function(:url => backend_raw_material_select_raw_material_category_url(@raw_material.id.to_i),:with => "$(this).serialize()")} %>
+<%= f.input :packing_material,:collection =>[], :input_html => {:onchange => remote_function(:url => { :action => :select_packing_material },:with => "jQuery(this).serialize()")} %>
+<%= f.input :dossier_dependence,:wrapper_html => {:class => ((@raw_material.raw_material_category and @raw_material.raw_material_category.is_a_paper_type?)  ? "" : "hidden")} %>
+<% end %>
+<script type="text/javascript">
+	$(document).ready(function(){
+          
+	});
+</script>

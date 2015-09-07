@@ -1,0 +1,33 @@
+<div>
+<div class="headerWrap">
+    <div class="headerWrapContent">
+          <h2>Agregar concepto Variable</h2>
+    </div>
+  </div>
+  <div class="mainWrapContent">
+      <label>Nombre: </label><%= @employee.fullname%><br/>
+      <label>Sueldo mensual: </label><%= @employee.salary.to_currency%><br/>
+      <label>Sueldo diario: </label><%= @employee.salary_for_day.to_currency%><br/>
+      <hr/>
+  <% semantic_form_remote_for @employee_variable_concept,:url => backend_human_resource_employee_add_variable_concept_url(@employee),:html => {:class => "form_generate"} do |f| %>
+	 <% f.inputs do%>
+		<%= f.input :amount,:label => false,:input_html => {:placeholder => "Monto",:class => "top",:size => 40} %>
+		<%= f.input :unit,:input_html => {:size => 5}  %>
+		<%= f.input :payroll_concept_personal_type,:collection => @payroll_concept_personal_types %>
+		<%= f.input :payroll_payment_frequency,:input_html => {} %>
+                <%= f.input :note,:input_html => {} %>
+	 <% end %>
+  <% end %>
+  </div>
+<div class="footerWrap">
+    <div class="footerWrapContent right">
+      <%= button_to_function("Agregar", "$(\"#new_payroll_variable_concept\").submit()")  %>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+      $(document).ready(function(){ // Script del Navegador
+        $("button, input:submit,input:button,a.button ").button();
+      });
+</script>

@@ -1,0 +1,133 @@
+/* 
+    Document   : jquery.carousel
+    Created on : 27/03/2012, 05:47:13 AM
+    Author     : gabriel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+.carousel{
+    margin: 0px 3.5%;
+}
+.carousel ul {
+    position:absolute;
+    overflow:hidden;
+    margin:0;
+    padding:0;
+    list-style:none;
+    /*left: 170px;+*/
+}
+
+
+.carousel .mask {
+    position:relative;
+    overflow:hidden;
+}
+
+.carousel ul li {
+    float:left;
+    padding: 5px 15px;
+    color:#fff;
+    /*font-size:8em;*/
+    text-align:center;
+    margin:0;
+}
+
+.carousel .pagination-links {
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+.carousel .pagination-links li {
+    
+}
+
+.carousel .pagination-links li a {
+    background: url("/images/icons/icons-sprites.png") no-repeat scroll -252px -385px transparent;
+    cursor: pointer;
+    float: left;
+    height: 16px;
+    width: 18px;
+}
+
+
+
+.carousel .pagination-links li a:hover {
+    text-decoration:none;
+}
+
+.carousel .pagination-links li.current a {
+    background:#444;
+    color:#fff;
+}
+
+
+.carousel .pagination-links li.current a {
+    background: url("/images/icons/icons-sprites.png") no-repeat scroll -133px -246px transparent;
+}
+
+.carousel a.next, .carousel a.prev{
+    background: url("/images/icons/icons-sprites.png") no-repeat scroll -252px -385px transparent;
+    cursor: pointer;
+    float: left;
+    height: 16px;
+    width: 18px;
+}
+
+.carousel a.next.disabled,.carousel a.prev.disabled {
+    background: none;
+}
+
+.carousel a.next {
+    background: url("/images/icons/icons-sprites.png") no-repeat scroll -39px -69px transparent;
+    margin-left: 5px;
+}
+.carousel a.prev {
+    background: url("/images/icons/icons-sprites.png") no-repeat scroll 0 -129px transparent;
+    margin-right: 5px;
+}
+
+
+.carousel .disabled {
+    color:gray;
+    cursor:default;
+}
+
+.carousel .mask {
+        width:900px;
+        height: 250px;
+        
+}
+
+.carousel ul li img
+{
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    -moz-box-shadow: 5px 5px 10px #555;
+    -webkit-box-shadow: 5px 5px 10px #555;
+    box-shadow: 5px 5px 10px #555;
+}
+
+.carousel ul li img.selected{
+    -moz-box-shadow: 5px 5px 10px   #98BF0C;
+    -webkit-box-shadow: 5px 5px 10px   #98BF0C;
+    box-shadow: 5px 5px 10px  #98BF0C;
+}
+
+
+.carousel ul li, .carousel ul li img{
+    height: 115px;
+    width: 150px;
+}
+
+.carousel ul li img{
+    height: 100px;
+    
+}

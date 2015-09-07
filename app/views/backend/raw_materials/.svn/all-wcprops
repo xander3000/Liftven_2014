@@ -1,0 +1,173 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/raw_materials
+END
+_price_list_product.erb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/raw_materials/_price_list_product.erb
+END
+_show_1.erb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/raw_materials/_show_1.erb
+END
+_show_2.erb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/raw_materials/_show_2.erb
+END
+remove_inventory.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/raw_materials/remove_inventory.rjs
+END
+_show_3.erb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/raw_materials/_show_3.erb
+END
+_form.erb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/raw_materials/_form.erb
+END
+_show_4.erb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/raw_materials/_show_4.erb
+END
+_inventories.erb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/raw_materials/_inventories.erb
+END
+show.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/raw_materials/show.rjs
+END
+new_inventory.erb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/raw_materials/new_inventory.erb
+END
+index.erb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/raw_materials/index.erb
+END
+update.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/raw_materials/update.rjs
+END
+edit.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/raw_materials/edit.rjs
+END
+show__.erb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/raw_materials/show__.erb
+END
+_index_right_options.erb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/raw_materials/_index_right_options.erb
+END
+select_packing_material.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/raw_materials/select_packing_material.rjs
+END
+_show.erb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/raw_materials/_show.erb
+END
+_index_left.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/raw_materials/_index_left.erb
+END
+_form_1.erb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/raw_materials/_form_1.erb
+END
+_form_2.erb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/raw_materials/_form_2.erb
+END
+_edit.erb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/raw_materials/_edit.erb
+END
+_form_3.erb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/raw_materials/_form_3.erb
+END
+_form_4.erb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/raw_materials/_form_4.erb
+END
+_new.erb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/raw_materials/_new.erb
+END
+create.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/raw_materials/create.rjs
+END
+select_raw_material_category.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/raw_materials/select_raw_material_category.rjs
+END
+new.erb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/raw_materials/new.erb
+END
+add_inventory.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/raw_materials/add_inventory.rjs
+END

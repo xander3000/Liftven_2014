@@ -1,0 +1,186 @@
+<div style="border: 1px solid #D2D2D2">
+  <div id="content_info_voucher">
+	 <div class="subc c55l">
+		<div class="border header">
+		  <h2><%= COMPANY_NAME.upcase %></h2>
+		  <b><%= COMPANY_IDENTIFICATION_DOCUMENT.upcase %></b><br/>
+		  <b><%= COMPANY_PHONE.upcase %></b>
+		</div>
+	 </div>
+	 <div class="subc c40r left">
+		<div class="border">
+		  <h2>COMPROBANTE DE ENTRADA FACTURA</h2>
+		  <br/>
+		  <h2>Nº <b class="red"><%= @incoming_invoice.code  %> </b></h2>
+		</div>
+	 </div>
+	 <br/>
+
+	 <table cellspacing="0" class="border">
+		  <thead>
+			 <tr>
+				<th class="border-top-left"><b>INFORMACION DEL CLIENTE</b></th>
+				<th>FECHA</th>
+				<th class="border-top-right">TOTAL</th>
+			 </tr>
+		  </thead>
+		 <tbody>
+			<tr>
+			  <td rowspan="5" class="border-bottom-left">
+				 <%	tenderer = @incoming_invoice.tenderer
+						contact   = tenderer.contact
+				  %>
+				 <h2><%= tenderer.name%></h2>
+				 <label>Doc Nº:</label> <b><%= tenderer.identification_document.upcase  %></b><br/>
+				 <label>Contacto:</label> <b><%= tenderer.person_name_contact.to_s.upcase%></b><br/>
+				 <label>Dirección:</label> <b><%= contact.address.upcase%></b><br/>
+				 <label>Teléfono:</label> <b><%= contact.phone.upcase%></b><br/>
+				 <label>Correo:</label> <b><%= contact.email.upcase%></b><br/>
+			  </td>
+			  <td class="center">
+					 <%= l  @incoming_invoice.invoice_date.to_date %>
+			  </td>
+			  <td class="right">
+					 <%= @incoming_invoice.total_amount.to_currency%>
+			  </td>
+			</tr>
+		  <tr>
+			 <td class="header" colspan="2"><%= AccountPayable::IncomingInvoice.human_attribute_name("account_payable_incoming_invoice_document_type").upcase%> </td>
+		  </tr>
+		  <tr class="center">
+			 <td colspan="2"><%= @incoming_invoice.account_payable_incoming_invoice_document_type.name%></td>
+		  </tr>
+			<tr>
+			  <td class="header"><%= AccountPayable::IncomingInvoice.human_attribute_name("control_number").upcase%></td>
+			  <td class="header"><%= AccountPayable::IncomingInvoice.human_attribute_name("reference").upcase%></td>
+			</tr>
+			<tr>
+			  <td><%= @incoming_invoice.control_number%></td>
+			  <td class="border-bottom-right"><%= @incoming_invoice.reference%></td>
+			</tr>
+	 </tbody>
+	 </table>
+	 <br/>
+	 <table>
+		<thead>
+		  <tr>
+			 <th class="center" style="width: 10px">ITEM</th>
+		
+			 <th class="left">DESCRIPCION</th>
+			 <th class="right">CANTIDAD</th>
+			 <th class="right">PRECIO UNIT.</th>
+			 <th class="right">TOTAL</th>
+		  </tr>
+		</thead>
+		<tbody class="items">
+		  <% 
+		
+				item = 0
+		  %>
+				<% 
+					 @incoming_invoice.account_payable_incoming_invoice_positions.each do |position|
+					 item += 1
+				%>
+				<tr>
+				  <% material_raw_material = position.material_raw_material  %>
+				  <td class="center"><%= item%></td>
+				  <td><%= position.description  %></td>
+				  <td class="right"><%= position.quantity  %></td>
+				  <td class="right"><%= position.sub_total.to_currency(false)  %></td>
+				  <td class="right"><%= position.total.to_currency(false)  %></td>
+				</tr>
+				<% end %>
+
+		
+		</tbody>
+	 </table>
+	 <div>
+		<div class="subc c50l">
+		  <div class="border-line">
+			 <br/><br/><br/><br/>
+		  </div>
+		</div>
+		<div class="subc c50r">
+		  <table style="margin-top: 5px;">
+			 <thead>
+				<tr>
+				  <th>FORMA DE PAGO</th>
+				  <th>REFERENCIA</th>
+				  <th>IMPUESTOS</th>
+				  <th>TOTAL</th>
+				</tr>
+			 </thead>
+			 <tbody>
+				<tr>
+				  <td></td>
+				  <td></td>
+				  <td class="right "><%= @incoming_invoice.tax_amount.to_currency(false)%></td>
+				  <td class="right highlight"><%= @incoming_invoice.total_amount.to_currency%></td>
+				</tr>
+			 </tbody>
+		  </table>
+		</div>
+	 </div>
+	 <div class="border-line">
+		TOTAL (En letras): <b><%= @incoming_invoice.total_amount.to_word.upcase %></b>
+	 </div>
+
+	 <table>
+		<thead>
+		  <tr class="center">
+			 <td>
+				OBSERVACIONES
+			 </td>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr>
+			 <td></td>
+		  </tr>
+		</tbody>
+	 </table>
+<br/>
+  <div class="footer">
+	 <div class="subc c50l">
+		<table>
+		  <thead>
+		  <tr>
+			 <th>
+				Preparado
+			 </th>
+			 <th>
+				Aprobado
+			 </th>
+			 <th>
+				Contabilizado
+			 </th>
+			 <th>
+				Revisado
+			 </th>
+		  </tr>
+		  </thead>
+		  <tbody>
+			 <tr>
+				<td><br/><br/><br/></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			 </tr>
+		  </tbody>
+		</table>
+	 </div>
+	 <div class="subc c50r">
+		<div class="border">
+		  <b>RECIBIDO:</b>
+		  <br/>
+		  <br/>
+		  <br/>
+		  <hr/>
+		  CI:
+		</div>
+	 </div>
+  </div>
+
+
+  </div>
+</div>

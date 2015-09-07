@@ -1,0 +1,49 @@
+<%= include_javascript("jquery.dataTables.min.js") %>
+<%= include_stylesheet("jquery.datatable.css") %>
+<div class="actionsBar right no-print">
+  <%= link_to(image_tag("icons/arrow_left.png"),backend_cpanel_home_index_url,:class => "button",:title => "Regresar") %>
+  |
+  <%= link_to(image_tag("icons/add.png"),new_backend_material_management_purchase_requisition_url,:class => "button") %>
+</div>
+<hr/>
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="concepts" width="100%">
+	<thead>
+		<tr>
+		  <th style="width: 10px;">St</th>
+		  <th><%= Material::PurchaseRequisition.human_attribute_name("id")%> </th>
+		  <th><%= Material::PurchaseRequisition.human_attribute_name("create_by")%> </th>
+		  <th><%= Material::PurchaseRequisition.human_attribute_name("posting_date")%></th>
+		  <th><%= Material::PurchaseRequisition.human_attribute_name("note")%> </th>
+		  <th><%= Material::PurchaseRequisition.human_attribute_name("material_purchase_requisition_status_type")%> </th>
+		</tr>
+	</thead>
+	<tbody>
+	  <% @purchase_requisitions.each do |purchase_requisition|  %>
+
+          <tr onclick="window.location.href='<%= backend_material_management_purchase_requisition_url(purchase_requisition) %>'">
+				<td class="center" title="<%= purchase_requisition.material_purchase_requisition_status_type.name %>"><%= image_tag purchase_requisition.material_purchase_requisition_status_type.icon %></td>
+				<td class="left "><%= purchase_requisition.id.to_code%> </td>
+				<td class="center"><%= purchase_requisition.create_by.name%> </td>
+				<td class="center"><%= l purchase_requisition.posting_date.to_date %> </td>
+				<td class="center"><%= purchase_requisition.note %></td>
+				<td class="center "><%= purchase_requisition.material_purchase_requisition_status_type.name %></td>
+		  </tr>
+		<% end %>
+	</tbody>
+</table>
+
+
+
+
+<script type="text/javascript">
+  var oTable;
+
+  $(document).ready(function() {
+		oTable =  $('#concepts').dataTable({
+            oLanguage: {
+                sUrl: "/javascripts/i18n/jquery.DataTables-es.txt"
+            }
+        });
+  });
+
+</script>

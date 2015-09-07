@@ -1,0 +1,149 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/1277/trunk/Venom/test/unit/crm
+END
+email_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/1110/trunk/Venom/test/unit/crm/email_test.rb
+END
+meeting_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/1112/trunk/Venom/test/unit/crm/meeting_test.rb
+END
+meeting_type_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/1112/trunk/Venom/test/unit/crm/meeting_type_test.rb
+END
+contact_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/1110/trunk/Venom/test/unit/crm/contact_test.rb
+END
+activity_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/1115/trunk/Venom/test/unit/crm/activity_test.rb
+END
+account_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/1110/trunk/Venom/test/unit/crm/account_test.rb
+END
+quote_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/1124/trunk/Venom/test/unit/crm/quote_test.rb
+END
+account_type_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/1112/trunk/Venom/test/unit/crm/account_type_test.rb
+END
+call_invitee_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/1112/trunk/Venom/test/unit/crm/call_invitee_test.rb
+END
+lead_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/1110/trunk/Venom/test/unit/crm/lead_test.rb
+END
+note_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/1112/trunk/Venom/test/unit/crm/note_test.rb
+END
+project_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/1036/trunk/Venom/test/unit/crm/project_test.rb
+END
+lead_status_type_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/1112/trunk/Venom/test/unit/crm/lead_status_type_test.rb
+END
+call_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/1110/trunk/Venom/test/unit/crm/call_test.rb
+END
+meeting_invitee_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/1112/trunk/Venom/test/unit/crm/meeting_invitee_test.rb
+END
+sector_account_type_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/1115/trunk/Venom/test/unit/crm/sector_account_type_test.rb
+END
+opportunity_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/1110/trunk/Venom/test/unit/crm/opportunity_test.rb
+END
+opportunity_type_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/1112/trunk/Venom/test/unit/crm/opportunity_type_test.rb
+END
+contract_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/1110/trunk/Venom/test/unit/crm/contract_test.rb
+END
+contract_status_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/1112/trunk/Venom/test/unit/crm/contract_status_test.rb
+END
+opportunity_status_type_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/1112/trunk/Venom/test/unit/crm/opportunity_status_type_test.rb
+END
+quote_stage_type_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/1124/trunk/Venom/test/unit/crm/quote_stage_type_test.rb
+END
+quote_position_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/1124/trunk/Venom/test/unit/crm/quote_position_test.rb
+END
+lead_source_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/1112/trunk/Venom/test/unit/crm/lead_source_test.rb
+END

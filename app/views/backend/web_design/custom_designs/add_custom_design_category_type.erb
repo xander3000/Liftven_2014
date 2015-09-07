@@ -1,0 +1,26 @@
+  <div class="headerWrap">
+    <div class="headerWrapContent">
+    <h2>Agregar Categoria</h2>
+    </div>
+  </div>
+  <div class="mainWrapContent">
+   <% semantic_form_remote_for @custom_design_category_type, :url => process_add_custom_design_category_type_backend_web_design_custom_designs_url do |f| %>
+
+      <%  f.inputs do%>
+		  <%= f.input :custom_design_type,:collection => [@custom_design_type_design] %>
+		  <%= f.input :name %>
+
+		<% end %>
+<% end %>
+  </div>
+  <div class="footerWrap">
+    <div class="footerWrapContent right">
+      <%= button_to_function("Guardar", "$(\"#new_custom_design_category_type\").submit()")  %>
+    </div>
+  </div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+                $("button, input:submit,input:button,a.button ").button();
+		  });
+</script>

@@ -1,0 +1,6 @@
+if @success
+  page << "$('#item_product_form input,#item_product_form select ').val('')"
+  page.hide "add_product_button"
+  page.replace_html "product_by_credit_notes_items",  :partial => "product_by_credit_notes"
+end
+

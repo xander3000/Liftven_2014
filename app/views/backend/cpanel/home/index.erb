@@ -1,0 +1,377 @@
+<%= include_stylesheet("jquery.treeview.css") %>
+<%= include_stylesheet("jquery.contextMenu.css") %>
+<%= include_javascript("jquery.treeview.js") %>
+<%= include_javascript("jquery.ui.position.js") %>
+<%= include_javascript("jquery.contextMenu.js") %>
+<%#= include_javascript("jquery.accordion") %>
+<%= include_javascript("jquery.easing.1.3") %>
+<%#= include_stylesheet("jquery.accordion") %>
+
+
+
+
+
+
+
+<div class="hidden">
+
+
+
+
+<ul id="browser" class="filetree">
+  		<li class="closed"><span class="folder">Seguridad</span>
+			<ul>
+					<li><span class="file"><%= link_to "Gestion de usuarios",backend_cpanel_users_url%></span></li>
+					<li><span class="file"><%= link_to "Permisos",""  %></span></li>
+			</ul>
+		</li>
+		<li class="closed"><span class="folder">Productos o servicios</span>
+			<ul>
+			  <li class="closed"><span class="folder">Clasificación</span>
+				 <ul>
+					<li><span class="file"><%= link_to "Tipos del producto ",""  %></span></li>
+					<li><span class="file"><%= link_to "Categorias del producto",""  %></span></li>
+				 </ul>
+			  </li>
+				  <li class="closed"><span class="folder">Precios</span>
+					<ul>
+					  <li><span class="file"><%= link_to "Por Tipo de accesorios",backend_cpanel_accessory_component_types_url  %></span></li>
+						<li><span class="file"><%= link_to "Por materia prima y componente (color)",backend_cpanel_raw_material_price_definition_set_color_by_components_url  %></span></li>
+						<li><span class="file"><%= link_to "Por materia prima y componente (monocromatico)",backend_cpanel_raw_material_price_definition_set_black_by_components_url  %></span></li>
+						<li><span class="file"><%= link_to "Otros Componetes",backend_cpanel_price_list_component_accesories_url  %></span></li>
+					</ul>
+				 </li>
+			  
+                          
+			</ul>
+		</li>
+		<li class="closed"><span class="folder">Ordenes</span>
+			<ul>
+			  <li><span class="file"><%= link_to "Matriz de estado",backend_cpanel_state_matrices_url %></span>
+					
+				</li>
+				
+			</ul>
+		</li>
+		<li class="closed"><span class="folder">Compras</span>
+			<ul>
+			  <li>
+				 <span class="file"><%= link_to "Nueva orden de compra",new_backend_material_management_purchase_order_url %></span>
+				</li>
+			</ul>
+		</li>
+		<li class="closed"><span class="folder">Mercancia</span>
+			<ul>
+			  <li>
+				 <span class="file"><%= link_to "Movimientos de Mercancia",new_backend_material_management_goods_movement_url %></span>
+				</li>
+			</ul>
+		</li>
+		<li class="closed"><span class="folder">Facturación</span>
+			<ul>
+			  <li>
+				 <span class="file"><%= link_to "Cuentas por pagar",backend_incoming_invoices_url %></span>
+			  <li>
+				 <span class="file"><%= link_to "Nuevo Entrada de Factura",new_backend_incoming_invoice_url %></span>
+			  </li>
+				</li>
+			</ul>
+		</li>
+		<li class="closed"><span class="folder">Recursos Humanos</span>
+			<ul>
+			  <li>
+				 <span class="file"><%= link_to "Empleados",backend_human_resource_employees_url %></span>
+			  <li class="closed"><span class="folder">Nomina ordinaria</span>
+				 <ul>
+					<li class=""><span class="file"><%= link_to "Generar nomina ordinaria",new_massive_process_backend_human_resource_last_payrolls_url  %></span></li>
+					<li class=""><span class="file"><%= link_to "Reporte última nomina procesada",backend_human_resource_last_payrolls_url  %></span></li>
+				 </ul>
+			  </li>
+				</li>
+			</ul>
+		</li>
+		<li class="closed"><span class="folder">Contabilidad</span>
+			<ul>
+				  <li class="context-menu-accounting_concept"><span class="file"><%= link_to "Conceptos Contables",backend_accountancy_accounting_concepts_url  %></span></li>
+				  <li id="accountant_account-0" class="context-menu-accountant_account closed"><span class="folder">Plan de cuentas</span>
+					<ul>
+					  <% @accountant_accounts.each do |accountant_account| %>
+					  <li id="accountant_account-<%= accountant_account.id%>" class="closed remote context-menu-accountant_account"  url="<%= backend_accountancy_accountant_account_show_children_url(accountant_account) %>">
+							 <span class="folder"> <%= accountant_account.fullname %> </span>
+							 <ul id="accountant_account-children-<%= accountant_account.id%>" class="treeview-children"></ul>
+						</li>
+					  <% end %>
+					</ul>
+				 </li>
+			</ul>
+		</li>
+		<li class="closed"><span class="folder">Caja y Banco</span>
+			<ul>
+			  <li class="closed">
+				 <span class="folder">Caja</span>
+				 <ul>
+					<li><span class="file"><%= link_to "Libro de caja",""  %></span></li>
+					<li><span class="file"><%= link_to "Cierres de Caja diario",daily_cash_closing_backend_invoices_url  %></span></li>
+					<li  class="closed">
+					  <span class="folder">Configuración</span>
+					  <ul>
+						 <li class="context-menu-cashes"><span class="file"><%= link_to "Cajas registradas",backend_cashbank_cashes_url  %></span></li>
+					  </ul>
+					</li>
+				 </ul>
+			  </li>
+			  <li class="closed">
+				 <span class="folder">Banco</span>
+				 <ul>
+					<li><span class="file"><%= link_to "Libro de Banco",backend_cashbank_bank_movements_url  %></span></li>
+					<li class="context-menu-bank_movement_reverts"><span class="file"><%= link_to "Registrar movimiento bancario",new_backend_cashbank_bank_movement_url  %></span></li>
+					<li class="context-menu-bank_bank_reconciliations"><span class="file"><%= link_to "Conciliacion  Bancaria",backend_cashbank_bank_reconciliations_url %></span></li>
+					<li class="closed">
+					  <span class="folder">Cancelaciones *</span>
+					  <ul>
+						 <li>
+							<li><span class="file"><%= link_to "Programación de pagos *","#" %></span></li>
+							<li><span class="file"><%= link_to "Desprogramación de pagos *","#" %></span></li>
+						 </li>
+					  </ul>
+					</li>
+					
+					<li  class="closed">
+					  <span class="folder">Cuentas Bancarias</span>
+					  <ul>
+						 <li class="context-menu-bank_accounts"><span class="file"><%= link_to "Cuentas registradas",backend_cashbank_bank_accounts_url  %></span></li>
+					  </ul>
+					</li>
+					<li  class="closed">
+					  <span class="folder">Cheques</span>
+					  <ul>
+						 <li class="context-menu-checks"><span class="file"><%= link_to "Cheques contabilizados",backend_cashbank_check_offereds_url  %></span></li>
+						 <li class="context-menu-checkbooks"><span class="file"><%= link_to "Chequeras",backend_cashbank_checkbooks_url  %></span></li>
+					  </ul>
+					</li>
+					<li class="closed">
+					  <span class="folder">Configuración</span>
+					  <ul>
+						 <li class="context-menu-banks"><span class="file"><%= link_to "Bancos registrados",backend_cashbank_banks_url %></span></li>
+					  </ul>
+					</li>
+				 </ul>
+			  </li>
+			</ul>
+		</li>
+	</ul>
+
+</div>
+<div id="dialog-form"></div>
+
+<div id="accordion">
+<% @modules.each do |modul| %>
+  <% unless  modul[:submodules].empty? %>
+	 <h3><%= modul[:module].name.upcase  %></h3>
+		<div class="block-container-items">
+			 <% modul[:submodules].each do |submodule| %>
+				<% if submodule.active %>
+				  <div class="block-item" title="<%= "#{submodule.name.upcase}: #{submodule.description}"%>" onclick="window.location.href='<%= eval(submodule.url) %>'">
+					 <div class="subc c20l">
+						<%= image_tag (submodule.icon_path.nil? or submodule.icon_path.empty?) ? "icons/backend/cpanel/default.png" : submodule.icon_path %>
+					 </div>
+					 <div class="subc c68r text">
+						<b><%= link_to(truncate(submodule.name.upcase, :length => 30), eval(submodule.url)) %></b><br/>
+					 </div>
+				  </div>
+				<% end %>
+			 <% end %>
+		</div>
+	 <% end %>
+<% end %>
+</div>
+
+
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+
+
+
+
+      var icons = {
+            header: "ui-icon-circle-arrow-e",
+            activeHeader: "ui-icon-circle-arrow-s"
+        };
+        $( "#accordion" ).accordion({
+            heightStyle: "content",
+            icons: icons,
+            heightStyle: "content"
+        });
+
+
+	$("#browser").treeview();
+
+	$.contextMenu({
+        selector: '.context-menu-accountant_account',
+        callback: function(key, options) {
+            var m = "clicked: " + key;
+				parent_account_id = $(this).attr("id").split("-")
+				
+            switch(key)
+				 {
+					 case "add":
+						 $.ajax({
+							 type: "POST",
+							 url: "<%= new_backend_accountancy_accountant_account_url %>",
+							 data: {parent_account_id: parent_account_id[1]}
+						  });
+						 break;
+				 }
+        },
+        items: {
+				"add": {name: "Agregar", icon: "add"}
+        }
+    });
+
+	$.contextMenu({
+        selector: '.context-menu-accounting_concept',
+        callback: function(key, options) {
+            switch(key)
+				 {
+					 case "add":
+						 $.ajax({
+							 type: "POST",
+							 url: "<%= new_backend_accountancy_accounting_concept_url %>"
+						  });
+						 break;
+				 }
+        },
+        items: {
+				"add": {name: "Nuevo", icon: "add"}
+        }
+    });
+
+	$.contextMenu({
+        selector: '.context-menu-banks',
+        callback: function(key, options) {
+            switch(key)
+				 {
+					 case "add":
+						 $.ajax({
+							 type: "POST",
+							 url: "<%= new_backend_cashbank_bank_url %>"
+						  });
+						 break;
+				 }
+        },
+        items: {
+				"add": {name: "Nuevo", icon: "add"}
+        }
+    });
+
+	$.contextMenu({
+        selector: '.context-menu-bank_accounts',
+        callback: function(key, options) {
+            switch(key)
+				 {
+					 case "add":
+						 $.ajax({
+							 type: "POST",
+							 url: "<%= new_backend_cashbank_bank_account_url %>"
+						  });
+						 break;
+				 }
+        },
+        items: {
+				"add": {name: "Nuevo", icon: "add"}
+        }
+    });
+	$.contextMenu({
+        selector: '.context-menu-checkbooks',
+        callback: function(key, options) {
+            switch(key)
+				 {
+					 case "add":
+						 $.ajax({
+							 type: "POST",
+							 url: "<%=  new_backend_cashbank_checkbook_url %>"
+						  });
+						 break;
+				 }
+        },
+        items: {
+				"add": {name: "Nueva", icon: "add"}
+        }
+    });
+	$.contextMenu({
+        selector: '.context-menu-checks',
+        callback: function(key, options) {
+            switch(key)
+				 {
+					 case "cancel":
+						 $.ajax({
+							 type: "POST",
+							 url: "<%=  new_backend_cashbank_check_offered_url %>"
+						  });
+						 break;
+
+					  case "format":
+					  break;
+
+					  case "print":
+					  break;
+				 }
+        },
+        items: {
+				"cancel": {name: "Anular cheque", icon: "cancel"},
+				"format": {name: "Formato de cheque", icon: "format"},
+				"print": {name: "Imprimir cheque", icon: "print"}
+        }
+    });
+	 	$.contextMenu({
+        selector: '.context-menu-cashes',
+        callback: function(key, options) {
+            switch(key)
+				 {
+					 case "add":
+						 $.ajax({
+							 type: "POST",
+							 url: "<%=  new_backend_cashbank_cash_url %>"
+						  });
+						 break;
+				 }
+        },
+        items: {
+				"add": {name: "Nuevo", icon: "add"}
+        }
+    });
+	 	$.contextMenu({
+        selector: '.context-menu-bank_movement_reverts',
+        callback: function(key, options) {
+            switch(key)
+				 {
+					 case "redo":
+						 $.ajax({
+							 type: "POST",
+							 url: "<%=  new_revert_backend_cashbank_bank_movements_url %>"
+						  });
+						 break;
+				 }
+        },
+        items: {
+				"redo": {name: "Reversar movimiento", icon: "redo"}
+        }
+    });
+	 	$.contextMenu({
+        selector: '.context-menu-bank_bank_reconciliations',
+        callback: function(key, options) {
+            switch(key)
+				 {
+					 case "add":
+						 window.location.href = '<%= new_backend_cashbank_bank_reconciliation_url%> '
+						 break;
+				 }
+        },
+        items: {
+				"add": {name: "Nueva conciliación", icon: "add"}
+        }
+    });
+});
+</script>

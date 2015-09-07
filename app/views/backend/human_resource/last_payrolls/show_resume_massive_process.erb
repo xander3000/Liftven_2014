@@ -1,0 +1,195 @@
+<style type="text/css">
+  table{
+	 font-size: 0.9em;
+}
+
+</style>
+
+<div class="">
+
+  <div>
+	 <table>
+		<tr>
+		  <th rowspan="2">Item</th>
+		  <th rowspan="2">
+			 <%= Payroll::Employee.human_attribute_name("fullname")%>
+		  </th>
+		  <th rowspan="2">
+			 <%= Payroll::Staff.human_attribute_name("identification_document")%>
+			 
+		  </th>
+		  <th rowspan="2">
+			 <%= Payroll::Employee.human_attribute_name("payroll_position")%>
+			 
+		  </th>
+		  <th rowspan="2">
+			 <%= Payroll::Employee.human_attribute_name("income_date")%>
+		  </th>
+		  <th rowspan="2">
+			 <%= Payroll::Employee.human_attribute_name("integral_salary")%>
+		  </th>
+		  <th rowspan="2">
+                          <%= Payroll::Employee.human_attribute_name("salary_fortnight")%>
+		  </th>
+		  <th rowspan="2">
+                          <%= Payroll::Employee.human_attribute_name("salary_daily")%>
+		  </th>
+		  <th rowspan="2">
+                          <%= Payroll::LastPayroll.human_attribute_name("amount_allocations")%>
+		  </th>
+                  <th colspan="5">
+                          <%= Payroll::LastPayroll.human_attribute_name("contractual_obligations")%>
+		  </th>
+                  <th rowspan="2">
+                          <%= Payroll::LastPayroll.human_attribute_name("other_deductions")%>
+		  </th>
+		  <th rowspan="2">
+                          <%= Payroll::LastPayroll.human_attribute_name("amount_deductions")%>
+		  </th>
+                  <th rowspan="2">
+                          <%= Payroll::LastPayroll.human_attribute_name("total_amount")%>
+		  </th>
+
+		</tr>
+                <tr>
+                  <th>
+                    SSO
+                  </th>
+                  <th>
+                    SPF
+                  </th>
+                  <th>
+                      FAOV
+                  </th>
+                  <th>
+                      ISLR
+                  </th>
+                  <th>
+                      MONTO
+                  </th>
+
+                </tr>
+		<tbody>
+                  <%
+						  cont = 0
+                    total_faov = 0
+                    total_islr = 0
+                    total_sso = 0.0
+                    total_spf = 0
+						  total_allocated = 0
+						  total_deducted = 0
+						  total_amount = 0
+
+                %>
+                  <% @payroll_regular_payroll_check.paid_employees.each do |employee|  %>
+		  <tr class="<%= cycle("odd", "ever") %>">
+                        <%
+                            totals = employee.totals_payroll_by_regular_payroll_check(@payroll_regular_payroll_check)
+                            contractual_obligations = employee.contractual_obligations_payroll_by_regular_payroll_check(@payroll_regular_payroll_check)
+                            salary = Payroll::LastPayroll.base_amount_by_concept(@payroll_regular_payroll_check,employee,Payroll::Concept.basic_salary)
+
+                      %>
+			 <td class="center border-right ">
+				<%= cont += 1 %>
+			 </td>
+			 <td class="center border-right ">
+				<%= employee.fullname.upcase %>
+			 </td>
+			 <td class="center border-right">
+				<%= employee.identification_document %>
+			 </td>
+			 <td class="center border-right">
+				<%= employee.payroll_position.name %>
+			 </td>
+			 <td class="center border-right">
+				<%= l employee.income_date.to_date %>
+			 </td>
+			 <td class="center border-right">
+                              <%= number_to_currency(salary, :delimiter => ".", :separator => ",", :unit => "")  %>
+			 </td>
+			 <td class="center border-right">
+				<%= number_to_currency(salary/2, :delimiter => ".", :separator => ",", :unit => "")  %>
+			 </td>
+			 <td class="center border-right">
+				<%= number_to_currency(employee.salary_for_day, :delimiter => ".", :separator => ",", :unit => "")  %>
+			 </td>
+			 <td class="center border-right green">
+				<% total_allocated += totals[:amount_allocations] %>
+				<%= number_to_currency(totals[:amount_allocations], :delimiter => ".", :separator => ",", :unit => "")  %>
+			 </td>
+			 <td class="center border-right">
+				  <% total_sso +=  contractual_obligations[Payroll::Concept::SSO.to_sym].to_f %>
+				  <%= number_to_currency(contractual_obligations[Payroll::Concept::SSO.to_sym].to_f, :delimiter => ".", :separator => ",", :unit => "")  %>
+			 </td>
+			 <td class="center border-right">
+				  <% total_spf += contractual_obligations[Payroll::Concept::SPF.to_sym].to_f %>
+				  <%= number_to_currency(contractual_obligations[Payroll::Concept::SPF.to_sym].to_f, :delimiter => ".", :separator => ",", :unit => "")  %>
+			 </td>
+			 <td class="center border-right">
+				  <% total_faov += contractual_obligations[Payroll::Concept::FAOV.to_sym].to_f %>
+				  <%= number_to_currency(contractual_obligations[Payroll::Concept::FAOV.to_sym].to_f, :delimiter => ".", :separator => ",", :unit => "")  %>
+			 </td>
+			<td class="center border-right">
+				  <% total_islr += contractual_obligations[Payroll::Concept::ISLR.to_sym].to_f %>
+				  <%= number_to_currency(contractual_obligations[Payroll::Concept::ISLR.to_sym].to_f, :delimiter => ".", :separator => ",", :unit => "")  %>
+			 </td>
+			 <td class="center border-right">
+				<%= number_to_currency(contractual_obligations[:total], :delimiter => ".", :separator => ",", :unit => "")  %>
+			 </td>
+			 <td class="center border-right">
+				<%= number_to_currency((totals[:amount_deductions] - contractual_obligations[:total]), :delimiter => ".", :separator => ",", :unit => "")  %>
+			 </td>
+			 <td class="center border-right red">
+				<% total_deducted += totals[:amount_deductions] %>
+				<%= number_to_currency(totals[:amount_deductions], :delimiter => ".", :separator => ",", :unit => "")  %>
+			 </td>
+			 <td class="center border-right green">
+				  <% total_amount += totals[:total_amount] %>
+				 <b><%= number_to_currency(totals[:total_amount], :delimiter => ".", :separator => ",", :unit => "")  %></b>
+			 </td>
+		  </tr>
+                  <% end %>
+		  <tr>
+			 
+			 <td class="right border-right border-top" colspan="8">
+				<b>Totales</b>
+			 </td>
+			 <td class="center border-right border-top">
+				<b><%= number_to_currency(total_allocated, :delimiter => ".", :separator => ",", :unit => "")  %></b>
+			 </td>
+			 <td class="center border-right border-top">
+				<b><%= number_to_currency(total_sso, :delimiter => ".", :separator => ",", :unit => "")  %></b>
+			 </td>
+			 <td class="center border-right border-top">
+				<b><%= number_to_currency(total_spf, :delimiter => ".", :separator => ",", :unit => "")  %></b>
+			 </td>
+			 <td class="center border-right border-top">
+				<b><%= number_to_currency(total_faov, :delimiter => ".", :separator => ",", :unit => "")  %></b>
+			 </td>
+			 <td  class="center border-right border-top">
+				<b><%= number_to_currency(total_islr, :delimiter => ".", :separator => ",", :unit => "")  %></b>
+			 </td>
+			 <td colspan="2" class="border-top"></td>
+			 <td class="center border-left border-top border-right">
+				<b><%= number_to_currency(total_deducted, :delimiter => ".", :separator => ",", :unit => "")  %></b>
+			 </td>
+			 <td class="center border-left border-top border-right">
+				<b><%= number_to_currency(total_amount, :delimiter => ".", :separator => ",", :unit => "")  %></b>
+			 </td>
+		  </tr>
+		</tbody>
+	 </table>
+  </div>
+  <br/>
+  <div>
+	 <div class="subc c50l">
+		Realizado por:<br/>
+		<b><%= @payroll_regular_payroll_check.user.name if @payroll_regular_payroll_check.user%></b>
+	 </div>
+	 <div class="subc c45r">
+		Aprobado por:<br/>
+		<b><%= @payroll_regular_payroll_check.paid_by.name if @payroll_regular_payroll_check.paid_by %></b>
+	 </div>
+  </div>
+  
+</div>

@@ -1,0 +1,33 @@
+
+
+<div class="">
+  <% semantic_form_remote_for @bank, :update => "#{controller.controller_name}_container",:url => backend_cashbank_banks_url,:html => {:class => "form_generate"} do |f| %>
+        <%= render :partial => "form",:locals => {:f => f} %>
+  <hr/>
+  <%= link_to_function "PROCESAR","generate()", :disable_with => "Por favor espere...",:id => "contable_document-button",:class => "button" %>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+function generate()
+        {
+          result = confirm("¿Esta seguro de ejecutar esta acción?")
+          if (result)
+            $(".form_generate").submit();
+        }
+	 function setFullname(){
+		fullname = $("#cash_bank_bank_code").val()+" - "+$("#cash_bank_bank_name").val();
+		$("#cash_bank_bank_fullname").val(fullname)
+	 }
+
+    $(document).ready(function(){
+		uppercase_on_keypress()
+	  $("#cash_bank_bank_code,#cash_bank_bank_name").blur( function () {
+				  setFullname();
+		});
+
+
+	 $("button, input:submit,input:button,a.button ").button();
+
+});
+</script>

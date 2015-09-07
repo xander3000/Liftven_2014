@@ -1,0 +1,6 @@
+if @success
+	page.redirect_to backend_human_resource_employee_url(@payroll_employee)
+else
+	page.show_errors([@historical_personal_type_change], "message_overlay", nil)
+end
+

@@ -1,0 +1,47 @@
+<%
+  caso = @order.caso
+  budget = caso.budget
+  new_notification = caso.has_new_notifications?
+%>
+
+<div class="right control">
+		<%= @title.upcase %>  Nº <span><%= format_code(caso.id, "06") %></span>
+</div>
+  <div id="details">
+    <b>NOMBRE O RAZÓN SOCIAL: </b> <%= budget.client.name %><br/>
+    <b>C.I. / RIF: </b><%= budget.client.identification_document %><br/>
+    <b>DOMICILIO FISCAL: </b><%= budget.client.address %><br/>
+    <b>FECHA: </b><%= l  budget.created_at %><br/>
+    <b>TLFS: </b><%= budget.client.phone %><br/>
+    <b>CORREO ELECTRÓNICO: </b><%= budget.client.email %><br/>
+	 <b>PRESUPUESTO ASOCIADO: </b><%= format_code(budget.id, "06") %><br/>
+	 <b>FECHA Y HORA DE ENTREGA: </b><%= l caso.budget.delivery_date %> <%= caso.budget.delivery_time %><br/>
+    <hr/>
+    <div id="form_items">
+      <table border="0">
+        <thead>
+          <tr>
+            <td class="code center">
+              Asunto
+            </td>
+            <td class="description">
+              Descripcion
+            </td>
+          </tr>
+        </thead>
+        <tbody id="">
+          <tr>
+				<td>
+				  <%= caso.subject %>
+				</td>
+				<td>
+				  <%= caso.note %>
+				</td>
+			 </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<div class="right control ">
+		<%= @title.upcase %>  Nº <span><%= format_code(caso.id, "06") %></span>
+</div>

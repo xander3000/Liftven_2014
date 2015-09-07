@@ -1,0 +1,74 @@
+<%= include_javascript("jquery.droplist.js") %>
+<%= include_stylesheet("jquery.droplist.css") %>
+<div id="form_items">
+  <table frame="border" rules="cols" >
+    <thead>
+      <tr>
+        <th class="code">
+          Producto
+        </th>
+        <th class="amount">
+          Cant.
+        </th>
+        <th class="description hidden">
+          Componentes
+        </th>
+        <th class="dimensions hidden">
+          Tamaño
+        </th>
+        <th class="note">
+          Observaciones
+        </th>
+        <th class="unit_price">
+          Precio Unitario
+        </th>
+        <th colspan="2" class="total_price">
+          Total
+        </th>
+      </tr>
+      <tr id="item_product_form">
+        <td class="code center">
+          <%= hidden_field_tag "product[product_id]","",:class => "",:value => 1 %>
+          <%= text_field_tag "product[product_name]","",:class => "select_price" %>
+        </td>
+        <td class="amount center">
+          <%= text_field_tag "product[quantity]","",:class => "select_price",:placeholder => "Ingrese cant",:size => 5 %>
+        </td>
+        <td id="product_components" class="description hidden"></td>
+        <td class="dimensions hidden">
+          <div id="dimensions_inputs">
+            <%= text_field_tag "product[side_dimension_x]","",:class => " dimension",:title => "ancho",:placeholder => "ancho",:size => 4,:value => 0 %>
+            X
+            <%= text_field_tag "product[side_dimension_y]","",:class => " dimension",:title => "largo",:placeholder => "largo",:size => 4,:value => 0 %>
+            <%= hidden_field_tag "page_size_type",0,:class => " dimension dimension" %>
+          </div>
+        </td>
+        <td class="center">
+            <%= text_area_tag  "product[note]","",:class => "left",:size => "80x1" %>
+        </td>
+        <td class="unit_price right">
+        <p id="product_unit_price_currency" class="like_input hidden">0,00</p>
+         <%= text_field_tag "product[unit_price]","",:placeholder => "Precio unitario",:class => "right prices select_price",:size => "11" %>
+        </td>
+        <td class="total_price right">
+          <p id="product_total_price_currency" class="like_input hidden">0,00</p>
+          <%= text_field_tag "product[total_price]","",:placeholder => "Precio total",:readonly => true,:class => "right prices",:size => "11" %>
+        </td>
+        <td class="center">
+          <%#= link_to_function(image_tag("icons/calculator.png"),"$('#product_product_id').blur()")  %>
+          <%= link_to_remote image_tag("icons/add.png"), :url => add_product_backend_financial_management_outgoing_invoices_url,:with => "$('#item_product_form input, #item_product_form textarea').serialize()",:html => {:id => "add_product_button",:class => "hidden"} %>
+        </td>
+      </tr>
+    </thead>
+    <tbody id="product_by_invoices_items">
+      <%= render :partial => "product_by_invoices" %>
+    </tbody>
+  </table>
+</div>
+
+<script type="text/javascript">
+
+	$(document).ready(function(){
+
+	});
+</script>

@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/1495/trunk/Venom/app/helpers/backend/financial_management
+END
+receivable_accounts_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/991/trunk/Venom/app/helpers/backend/financial_management/receivable_accounts_helper.rb
+END
+clients_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/1017/trunk/Venom/app/helpers/backend/financial_management/clients_helper.rb
+END
+incoming_invoices_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/791/trunk/Venom/app/helpers/backend/financial_management/incoming_invoices_helper.rb
+END
+advances_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/1089/trunk/Venom/app/helpers/backend/financial_management/advances_helper.rb
+END
+suppliers_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/933/trunk/Venom/app/helpers/backend/financial_management/suppliers_helper.rb
+END
+outgoing_invoices_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/1493/trunk/Venom/app/helpers/backend/financial_management/outgoing_invoices_helper.rb
+END
+payment_orders_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/856/trunk/Venom/app/helpers/backend/financial_management/payment_orders_helper.rb
+END
+payment_schedules_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/791/trunk/Venom/app/helpers/backend/financial_management/payment_schedules_helper.rb
+END
+sales_ledgers_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/851/trunk/Venom/app/helpers/backend/financial_management/sales_ledgers_helper.rb
+END
+payable_accounts_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/1014/trunk/Venom/app/helpers/backend/financial_management/payable_accounts_helper.rb
+END
+account_receivable_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/975/trunk/Venom/app/helpers/backend/financial_management/account_receivable_helper.rb
+END
+service_orders_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/1495/trunk/Venom/app/helpers/backend/financial_management/service_orders_helper.rb
+END
+purchase_ledgers_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/845/trunk/Venom/app/helpers/backend/financial_management/purchase_ledgers_helper.rb
+END

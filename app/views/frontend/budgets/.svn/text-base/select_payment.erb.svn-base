@@ -1,0 +1,55 @@
+<%= include_javascript("jquery.maskedinput-1.3.min") %>
+
+<div>
+  <div id="select_payment" class="c75l subc">
+    <h1>Metodos de Pago</h1>
+    <% form_layout do %>
+      <% form_remote_for @order, :url => payment_frontend_budgets_url  do |f| %>
+        <% @payment_methods.each do |payment_method| %>
+          <div class="payment_option">
+				<% fields_for @budget do |b| %>
+				  <%= render :partial => "payment_method_#{payment_method.tag_name}",:locals => {:f => b} %>
+				<% end %>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="c20r subc">
+      <br/>
+      <br/>
+    <div id="order-summary" class="info">
+        <%= render :partial => "order_summary" %>
+        <div id="order_process">
+          <%= link_to_function"Procesar pago", "$('#new_order').submit()"%>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    //$("#budget_transaction_number").masked("9999-9999-9999-9999");
+    //$("#order_credit_debit_card_expiry_date").masked("99/99");
+
+      $("#budget_transaction_date").datepicker({
+              changeMonth: true,
+              changeYear: true,
+              dateFormat: 'yy-mm-dd',
+              maxDate: "-0",
+              minDate: "-30"
+        });
+
+    $(".payment_option img").click(function(){
+      parent = $(this).parent().parent();
+      $(".payment_option .form").hide();
+      $(".payment_option .note").show();
+      jQuery(".form",parent).show();
+      jQuery(".note",parent).hide();
+      jQuery("input[type='radio']",parent).attr("checked",true);
+    });
+    
+  });
+</script>

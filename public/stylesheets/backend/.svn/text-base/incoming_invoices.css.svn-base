@@ -1,0 +1,22 @@
+/* 
+    Document   : purchase_orders
+    Created on : 20/07/2013, 10:17:43 AM
+    Author     : gabriel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+@import "contable_document.css";
+
+
+
+
+
+#detail_incoming_invoice #tabs.ui-widget-content{
+	border: none;
+}

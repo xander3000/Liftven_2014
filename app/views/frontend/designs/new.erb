@@ -1,0 +1,18 @@
+<%= include_javascript("jquery.smartwizard.min.js") %>
+<%= include_stylesheet("jquery.smartwizard.css") %>
+<%= include_javascript("jquery.lightbox.min.js") %>
+<%= include_stylesheet("jquery.lightbox.css") %>
+<%= include_javascript("jquery.carousel.js") %>
+<%= include_stylesheet("jquery.carousel.css") %>
+<%= include_javascript("jquery.validationEngine.js") %>
+<%= include_javascript("i18n/jquery.validationEngine-es.js") %>
+<%= include_stylesheet("jquery.validationEngine.css") %>
+<%= include_javascript("jquery.url.js") %>
+
+
+
+<% content_for :venom_leadspace_head do %>
+  <%= render :partial => "leadspaces" %>
+<% end %>
+ <%= render :partial => "form" %>
+

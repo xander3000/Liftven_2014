@@ -1,0 +1,114 @@
+<%
+	 owner = Supplier.find_owner
+	 contact = owner.contact
+%>
+
+<div>
+  <div id="content_info_voucher">
+	 <div class="subc c55l">
+		<div class="">
+		  <h2><%= contact.fullname.upcase %></h2>
+		  <b><%= owner.identification_document %></b><br/>
+		</div>
+	 </div>
+	 <div class="subc c40r left">
+		<div class="">
+		  <h2>MAYOR ANALITICO</h2>
+		  <b class="center">Desde <%= l @date_from.to_date %> hasta <%= l @date_to.to_date  %></b><br/>
+		  <b class="center">Código cuenta contable: <%= @accountant_account.code  %></b><br/>
+		  <b class="center">Descripción: <%=@accountant_account.name  %></b><br/>
+		</div>
+	 </div>
+	 <br/>
+	 <hr/>
+
+
+	 <table class="no-border">
+		<thead>
+			 <tr>
+				<th>
+				  <%= Accounting::TransactionMovementAccountingConcept.human_attribute_name("date")%>
+				</th>
+				<th>
+				  Número
+				</th>
+				<th>
+				  Detalle
+				</th>
+				<th>
+				  Saldo anterior
+				</th>
+				<th>
+				  Débitos
+				</th>
+				<th>
+				  Créditos
+				</th>
+				<th>
+				  Saldo
+				</th>
+			 </tr>
+	 </thead>
+	 <tbody>
+		<% 
+			 initial_amount = 0
+			 debits = 0
+			 credits = 0
+		%>
+		<% @transaction_movement_accounting_concepts.each do |transaction| %>
+		<% 
+				initial_amount += (transaction.credit  - transaction.debit)
+				debits += transaction.debit
+				credits += transaction.credit
+	 %>
+		<tr>
+		  <td>
+			 <%= l transaction.date.to_date %>
+		  </td>
+		  <td>
+
+		  </td>
+		  <td>
+			 <%= transaction.reference_document.name %>
+		  </td>
+		  <td>
+
+		  </td>
+		  <td class="right">
+			 <%= transaction.debit.to_f.to_currency(false) %>
+		  </td>
+		  <td class="right">
+			 <%= transaction.credit.to_f.to_currency(false) %>
+		  </td>
+		  <td class="right">
+			 <%= initial_amount.to_f.to_currency(false) %>
+		  </td>
+		</tr>
+		<% end %>
+		<tr class="border-top">
+		  <td>
+			 <b>Total Cuenta:</b>
+		  </td>
+		  <td>
+
+		  </td>
+		  <td >
+			 <%=@accountant_account.name  %>
+		  </td>
+		  <td>
+
+		  </td>
+		  <td class="right">
+			 <%= debits.to_f.to_currency(false)  %>
+		  </td>
+		  <td class="right">
+			 <%= credits.to_f.to_currency(false)  %>
+		  </td>
+		  <td class="right">
+			 <%= initial_amount.to_f.to_currency(false)  %>
+		  </td>
+		</tr>
+	 </tbody>
+	 </table>
+  </div>
+</div>

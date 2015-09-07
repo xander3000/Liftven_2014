@@ -1,0 +1,19 @@
+<div class="actionsBar right no-print">
+	 <%= link_to(image_tag("icons/arrow_left.png"),backend_human_resource_departments_url,:class => "button",:title => "Regresar") %>
+	 |
+	 <%= link_to(image_tag("icons/pencil.png"),edit_backend_human_resource_department_url(@payroll_department),:class => "button",:title => "Editar departamento") %>
+</div>
+<hr/>
+<div>
+  <% semantic_form_remote_for @payroll_department, :update => "#{controller.controller_name}_container",:url => "",:html => {:class => "form_generate"} do |f| %>
+  <div class="">
+	 <%= render :partial => "form",:locals => {:f => f} %>
+  </div>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+                $(".payroll_department input, .payroll_department select").attr("disabled","disabled");
+	});
+</script>

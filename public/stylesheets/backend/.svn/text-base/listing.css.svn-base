@@ -1,0 +1,118 @@
+/* 
+    Document   : listing
+    Created on : 01/09/2011, 09:21:11 AM
+    Author     : gabriel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+ div.toolbar span.count{
+    color:#FF6600;
+}
+
+ div.toolbar span.state{
+    color:#003366;
+}
+
+ div.item div.panel_items{
+    /*display: none;*/
+}
+
+ div.item div.panel_items div.item{
+    width: 45%;
+    height: 78px;
+    cursor: pointer;
+}
+  div.panel_items div.item div.attr_1{
+    font-size: 1.4em;
+    padding-bottom: 2px;
+    text-transform: uppercase;
+}
+
+ div.panel_items div.item div.attr_1.new_notification{
+    background: transparent url(/images/icons/email.png) top right no-repeat;
+}
+
+ div.panel_items div.item div.attr_2{
+    font-size: 0.9em;
+    padding-bottom: 6px;
+}
+ div.panel_items div.item div.attr_2 span{
+    color:#6C6C6C;
+}
+
+ div.panel_items div.item div.attr_3{
+    text-align: justify;
+}
+ div.panel_items div.item div.attr_3 p{
+    text-align: justify;
+    line-height:normal;
+}
+
+ div.item div.panel_items div.item.side-left{
+    float: left
+}
+
+ div.item div.panel_items div.item.side-right{
+    float: right;
+}
+
+ div.item div.panel_items div.item div.subcl{
+    padding: 5% 0;
+}
+
+div.panel_header
+{
+    background-color: #EBEBEB;
+    border: medium none;
+    height: auto;
+    margin: 5px 0;
+    padding: 5px;
+}
+
+div.panel_header h2 {
+    border: medium none;
+    margin-bottom: 2px;
+    color: #666666;
+}
+div.panel_header h3 {
+    color: #666666;
+    font-size: 1.2em;
+}
+
+div.panel_header b.value
+{
+    color: #666666;
+    font-size: 1.2em;
+}
+
+div.panel_items div.item{
+
+   border: 1px solid #BABABA;
+   margin-bottom: 4px;
+   padding: 5px;
+}
+
+div.panel_items div.item:hover{
+    background: #FAEE8D;
+}
+
+div.panel_items div.item div.subcl{
+    border: none;
+    border-right: 1px solid #BABABA;
+    margin: 0;
+}
+
+div.panel_items div.item div.code{
+    border: none;
+    border-right: 1px solid #BABABA;
+    margin: 0;
+}
+
+div.panel_items div.item div.date{
+    font-size: 0.8em;
+}

@@ -1,0 +1,43 @@
+<%= include_javascript "jquery.slidernav" %>
+<%= include_stylesheet "jquery.slidernav" %>
+
+
+<div id="products">
+  <div class="c30l subc">
+    <div class="slider-tabs">
+      <%= link_to "Todos","",:class => "selected" %>
+      <%= link_to "Otros","",:class => "" %>
+    </div>
+    <div id="slider">
+      <div class="slider-content">
+        <ul>
+        <% Product::LETTERS.each do |letter|  %>
+          <div class="slider-content-letter">
+            <li id="<%= letter %>"><a name="<%= letter %>" class="title"><%= letter.capitalize %></a>
+              <ul>
+                <% @products[letter.to_sym].each do |product| %>
+                  <li>
+                    <%= link_to_remote product.name,:url => backend_product_url(product),:method => "get" %>
+                  </li>
+                <% end %>
+              </ul>
+            </li>
+            </div>
+          <% end %>
+        </ul>
+      </div>
+      </div>
+  </div>
+  <div class="c70l subc">
+    <div class="subcr border-left">
+      <% form_layout do %>
+        <%= render :partial => "index_right_options" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#slider').sliderNav();
+	});
+</script>

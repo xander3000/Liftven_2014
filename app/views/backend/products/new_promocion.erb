@@ -1,0 +1,32 @@
+<div id="components_element_type">
+  <div class="headerWrap">
+    <div class="headerWrapContent">
+    <h2>Agregar Promoción</h2>
+    </div>
+  </div>
+  <div class="mainWrapContent">
+    <% form_remote_tag :url => add_promocion_backend_products_url,:html => {:id => "add_element_types"} do |f| %>
+      <p>
+        <%= label_tag "promocion_nombre", "Nombre"%>
+        <%= text_field_tag "promocion[nombre]" %>
+      </p>
+      <p>
+        <%= label_tag "promocion_fecha_de", "Fecha Desde"%>
+        <%= text_field_tag "promocion[fecha_de]" %>
+      </p>
+      <p>
+        <%= label_tag "promocion_fecha_hasta", "Fecha Hasta"%>
+        <%= text_field_tag "promocion[fecha_hasta]" %>
+      </p>
+      <p>
+        <%= label_tag "promocion_porcentaje", "Porcentaje"%>
+        <%= text_field_tag "promocion[porcentaje]" %>
+      </p>
+    <% end %>
+  </div>
+  <div class="footerWrap">
+    <div class="footerWrapContent right">
+      <%= button_to_function("Guardar", "$(\"#add_element_types\").submit()")  %>
+    </div>
+  </div>
+</div>

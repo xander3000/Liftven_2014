@@ -1,0 +1,86 @@
+<style type="text/css">
+  fieldset {padding: 0.5em 0.19em;text-align: center}
+</style>
+
+<fieldset class="border">
+  <hr/>
+  <legend>Componentes por Materia Prima</legend>
+
+
+    <table>
+      <thead>
+        <tr>
+
+			 <th>
+				<%= RawMaterialPriceDefinitionSetColorByComponent.human_attribute_name("component") %>
+			 </th>
+			 <th>
+				<%= RawMaterialPriceDefinitionSetColorByComponent.human_attribute_name("raw_material") %>
+			 </th>
+			 <th>
+				<%= RawMaterialPriceDefinitionSetColorByComponent.human_attribute_name("amount_t") %>
+			 </th>
+			 <th>
+				<%= RawMaterialPriceDefinitionSetColorByComponent.human_attribute_name("amount_tr") %>
+			 </th>
+			 <th>
+				<%= RawMaterialPriceDefinitionSetColorByComponent.human_attribute_name("base_amount") %>
+			 </th>
+			 <th>
+				Acción
+			 </th>
+        </tr>
+      </thead>
+      <tbody class="">
+		  <% @raw_material_price_definition_set_black_by_components.each do |raw_material_price_definition_set_black_by_component| %>
+			 <tr>
+
+				<td>
+					 <%= raw_material_price_definition_set_black_by_component.component.name %>
+				</td>
+				<td>
+					 <%= raw_material_price_definition_set_black_by_component.raw_material.name %>
+				</td>
+				<td>
+					 <%= number_to_currency(raw_material_price_definition_set_black_by_component.amount_t, :delimiter => ".", :separator => ",", :unit => "Bs.") %>
+				</td>
+                                <td>
+					 <%= number_to_currency(raw_material_price_definition_set_black_by_component.amount_tr, :delimiter => ".", :separator => ",", :unit => "Bs.") %>
+				</td>
+				<td>
+					 <%= raw_material_price_definition_set_black_by_component.base_amount ? "Sí" : "No" %>
+				</td>
+
+
+				<td>
+				  <%= link_to(image_tag("icons/page_edit.png"), edit_backend_cpanel_raw_material_price_definition_set_black_by_component_url(raw_material_price_definition_set_black_by_component),:class => "external-overlay button",:rel => ".overlay" ) %>
+				</td>
+			 </tr>
+		  <% end %>
+      </tbody>
+    </table>
+  <br/>
+</fieldset>
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+
+
+
+      $("a.external-overlay[rel]").overlay({
+            mask: {
+                    color: '#000',
+                    loadSpeed: 200,
+                    opacity: 0.9
+            },
+            onBeforeLoad: function() {
+                var wrap = this.getOverlay().find(".contentWrap");
+                wrap.load(this.getTrigger().attr("href"));
+            }
+          });
+
+
+      });
+</script>

@@ -1,0 +1,19 @@
+      <div class="block-container-items">
+           <div class="block-item">
+            <div class="block-item-text center">
+              <%= link_to("Diseños personalizados", new_backend_web_design_custom_design_url) %>
+            </div>
+          </div>
+           <div class="block-item">
+            <div class="block-item-text center">
+              <%= link_to("Pagina Principal / Slide", new_backend_web_design_home_page_slide_url) %>
+            </div>
+          </div>
+           <div class="block-item">
+            <div class="block-item-text center">
+              <%= link_to("Pagina Principal / Portafolio", new_backend_web_design_portfolio_url) %>
+            </div>
+          </div>
+        </div>
+
+

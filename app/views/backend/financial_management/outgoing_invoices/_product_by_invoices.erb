@@ -1,0 +1,151 @@
+<%
+  sub_total = 0
+  total = 0
+  discount = @invoice.nil?  ? 0 : @invoice.discount.to_f
+  advance_payment = @invoice.nil?  ? 0 : @invoice.advance_payment.to_f
+  if @budget
+  advance_payment_to_paid = @budget.has_invoice_for_advance_payment? ? 0 :  advance_payment
+else
+advance_payment_to_paid = advance_payment
+end
+  tax = @invoice.nil? ? 0 : @invoice.tax
+  
+  
+  colspan = (@invoice.nil? or @invoice.new_record?) ? "":"3"
+  v_current_client  = (@invoice.nil? ? current_client : @invoice.client)
+%>
+
+<% @product_by_invoices.each do |item| %>
+  <%
+    sub_total += item.total_price.round(2)
+  %>
+  <tr class="item ">
+      <td class="code center">
+        <%= item.product_name %>
+      </td>
+      <td class="quantity center">
+        <%= item.quantity %>
+      </td>
+      <td class="description hidden">
+
+      </td>
+      <td class="dimensions center hidden">
+        <%= item.side_dimension_x %>
+        X
+        <%= item.side_dimension_y %>
+      </td>
+      <td>
+         <%= item.note %>
+      </td>
+      <td class="unit_price right">
+       <%= number_to_currency(item.unit_price, :delimiter => ".", :separator => ",", :unit => "Bs") %>
+      </td>
+      <td  class="total_price right">
+        <%= number_to_currency(item.total_price, :delimiter => ".", :separator => ",", :unit => "Bs") %>
+      </td>
+
+      <td class="center">
+          <% if @from_budget  %>
+            <%= link_to_remote image_tag("icons/delete.png"),:url => remove_product_from_invoice_backend_financial_management_outgoing_invoices_url,:with => "'id_temporal='+#{item.id_temporal}",:confirm => "¿Esta seguro de remover este elemento de lista <<#{item.id_temporal}-#{item.product.name}>>?" %>
+          <% else %>
+            <%= link_to_remote image_tag("icons/delete.png"),:url => remove_product_from_invoice_backend_financial_management_outgoing_invoices_url,:with => "'id_temporal='+#{item.id_temporal}",:confirm => "¿Esta seguro de remover este elemento de lista <<#{item.id_temporal}-#{item.product.name}>>?" if colspan.empty?  %>
+          <% end %>
+        </td>
+
+    </tr>
+<% end if @product_by_invoices %>
+  <tr class="right">
+
+  </tr>
+   <tr id="footer_total" class="right border-top">
+    <td id="sub-total" class="totalizers" colspan="4">
+      SUB-TOTAL
+    </td>
+    <td class="no-border-right">
+		<%#= sub_total %>
+      <%= number_to_currency(sub_total, :delimiter => ".", :separator => ",", :unit => "") %>
+    </td>
+  </tr>
+
+  <tr class="right">
+    <td class="totalizers" colspan="4">
+      IVA <b><%= AppConfig.tax %> %</b>
+		<% tax = ((@invoice.nil? or @invoice.tax.zero?) ? (sub_total*AppConfig.tax/100) : @invoice.tax).round(2) %>
+    </td>
+    <td id="tax" class="no-border-right">
+		<%#= tax.round(2) %>
+      <%= number_to_currency(tax, :delimiter => ".", :separator => ",", :unit => "") %>
+    </td>
+  </tr>
+
+
+  <tr id="" class="right">
+    <td id="" class="totalizers " colspan="4">
+      TOTAL
+    </td>
+    <td id="" class="no-border-right border-bottom">
+		<% total = ((@invoice.nil? or @invoice.total.zero?) ? (tax+sub_total) : @invoice.total).round(2) %>
+      <%#= total %>
+		<%= number_to_currency(total, :delimiter => ".", :separator => ",", :unit => "") %>
+    </td>
+  </tr>
+
+  <tr class="right">
+    <td class="totalizers" colspan="4">
+      ANTICIPO
+    </td>
+    <td id="tax" class="no-border-right">
+      <%= hidden_field(:invoice,:advance_payment) %>
+      <%= number_to_currency(advance_payment, :delimiter => ".", :separator => ",", :unit => "") %>
+    </td>
+  </tr>
+  <% if @budget and @budget.with_advance_payment%>
+  <tr class="right">
+    <td class="totalizers" colspan="4">
+      ANTICIPO FORMA DE PAGO
+    </td>
+    <td class="no-border-right">
+      <%= @budget.payment_method_type.name %>
+    </td>
+  </tr>
+  <% if @budget.payment_method_type.require_additional_information %>
+      <tr class="right">
+        <td class="totalizers" colspan="4">
+          ANTICIPO NUMERO DE TRANSACCION
+        </td>
+        <td class="no-border-right">
+          <%= @budget.transaction_number %>
+        </td>
+      </tr>
+      <tr class="right">
+        <td class="totalizers" colspan="4">
+          ANTICIPO FECHA DE TRANSACCION
+        </td>
+        <td class="no-border-right">
+          <%= @budget.transaction_date %>
+        </td>
+      </tr>
+    <% end %>
+  <% end %>
+  <tr class="right">
+    <td class="totalizers" colspan="4">
+		<p><b>BALANCE A PAGAR</b></p>
+    </td>
+    <td id="total" class="no-border-right right border-top">
+      <% total_to_paid = ((@invoice.nil? or @invoice.balance.zero?) ? (tax+sub_total-advance_payment_to_paid) : @invoice.balance)  %>
+		<p><b><%= number_to_currency(total_to_paid, :delimiter => ".", :separator => ",", :unit => "Bs") %></b></p>
+    </td>
+  </tr>
+
+  <script type="text/javascript">
+     $(document).ready(function(){
+            $("#invoice_transaction_date").datepicker({
+              changeMonth: true,
+              changeYear: true,
+              dateFormat: 'yy-mm-dd',
+              maxDate: "-0",
+              minDate: "-30"
+          });
+			 $("#incoming_invoice_billing_amount").val(<%= total_to_paid.to_f.round(2) %>)
+     });
+  </script>

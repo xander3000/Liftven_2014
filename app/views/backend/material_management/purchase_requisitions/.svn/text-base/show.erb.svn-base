@@ -1,0 +1,137 @@
+<style type="text/css">
+  #content_info_voucher table label{
+	 width: 150px;
+}
+</style>
+
+<div style="border: 1px solid #D2D2D2">
+  <div id="content_info_voucher">
+	 <div class="subc c55l">
+		<div class="border header">
+		  <h2><%= COMPANY_NAME.upcase %></h2>
+		  <b><%= COMPANY_IDENTIFICATION_DOCUMENT.upcase %></b><br/>
+		  <b><%= COMPANY_PHONE.upcase %></b>
+		</div>
+	 </div>
+	 <div class="subc c40r left">
+		<div class="border">
+		  <h2>PEDIDO DE COMPRA</h2>
+		  <br/>
+		  <h2>Nº <b class="red">PC-<%= @purchase_requisition.id.to_code  %> </b></h2>
+		</div>
+	 </div>
+	 <br/>
+
+	 <table cellspacing="0" class="border">
+		  <thead>
+			 <tr>
+				<th class="border-top-left border-top-right"><b>INFORMACION DEL PEDIDO</b></th>
+			 </tr>
+		  </thead>
+		 <tbody>
+			<tr>
+			  <td class="border-bottom-left border-bottom-right">
+				 <label><%= Material::PurchaseRequisition.human_attribute_name("create_by")%>:</label><h2><%= @purchase_requisition.create_by.name%></h2>
+				 <label><%= Material::PurchaseRequisition.human_attribute_name("posting_date")%>:</label> <b><%= l @purchase_requisition.posting_date.to_date%></b><br/>
+				 <label><%= Material::PurchaseRequisition.human_attribute_name("delivery_date")%>:</label> <b><%= l @purchase_requisition.delivery_date.to_date%></b><br/>
+				 <label><%= Material::PurchaseRequisition.human_attribute_name("material_purchase_requisition_status_type")%>:</label> <b class="green"><%= @purchase_requisition.material_purchase_requisition_status_type.name.upcase%></b><br/>
+			  </td>
+			</tr>
+	 </tbody>
+	 </table>
+	 <br/>
+	 <table>
+		<thead>
+		  <tr>
+			 <th class="center" style="width: 10px">ITEM</th>
+			 <th class="left">CODIGO</th>
+			 <th class="left">DESCRIPCION</th>
+			 <th class="center">CANTIDAD PEDIDA</th>
+			 <th class="center">CANTIDAD VERIFICADA</th>
+			 <th class="center">CANTIDAD APROBADA</th>
+			 <th class="center">MOTIVO</th>
+			 <th class="center">VERIFICADA POR</th>
+			 <th class="center">APROBADA POR</th>
+		  </tr>
+		</thead>
+		<tbody class="items">
+				<%
+					 item = 0
+					 @purchase_requisition_positions.each do |position|
+					 item += 1
+				%>
+				<tr>
+				  <% material_raw_material = position.material_raw_material  %>
+				  <td class="center"><%= item%></td>
+				  <td><%= material_raw_material.id.to_code  %></td>
+				  <td><%= material_raw_material.name  %></td>
+				  <td class="center"><%= position.quantity  %></td>
+				  <td class="center"><%= position.verified_quantity  %></td>
+				  <td class="center"><%= position.approved_quantity  %></td>
+				  <td class="center"><%= position.reason  %></td>
+				  <td class="center"><%= position.verified_by.name if position.verified_by  %></td>
+				  <td class="center"><%= position.approved_by.name if position.approved_by %></td>
+				</tr>
+			 <% end %>
+		</tbody>
+	 </table>
+<br/>
+	 <table>
+		<thead>
+		  <tr class="center">
+			 <td>
+				OBSERVACIONES
+			 </td>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr>
+			 <td><%= @purchase_requisition.note.upcase%></td>
+		  </tr>
+		</tbody>
+	 </table>
+<br/>
+  <div class="footer">
+	 <div class="subc c50l">
+		<table>
+		  <thead>
+		  <tr>
+			 <th>
+				Preparado
+			 </th>
+			 <th>
+				Aprobado
+			 </th>
+			 <th>
+				Contabilizado
+			 </th>
+			 <th>
+				Revisado
+			 </th>
+		  </tr>
+		  </thead>
+		  <tbody>
+			 <tr>
+				<td><br/><br/><br/></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			 </tr>
+		  </tbody>
+		</table>
+	 </div>
+	 <div class="subc c50r">
+		<div class="border">
+		  <b>RECIBIDO:</b>
+		  <br/>
+		  <br/>
+		  <br/>
+		  <hr/>
+		  CI:
+		</div>
+	 </div>
+  </div>
+
+
+  </div>
+</div>

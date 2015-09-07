@@ -1,0 +1,4 @@
+<% semantic_form_for @digital_card, :url => backend_cpanel_digital_cards_url,:html => {:multipart => true} do |f| %>
+      <%= render :partial => "form",:locals => {:f => f} %>
+<%= submit_tag "Guardar",:class => "button" %>
+<% end %>

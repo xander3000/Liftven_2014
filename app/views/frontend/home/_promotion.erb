@@ -1,0 +1,47 @@
+<style>
+
+</style>
+
+<div id="venom-promotion-module">
+  <div id="venom-promotion-scrollable">
+    <!-- "previous page" action -->
+<a class="prev browse left"><</a>
+    <div class="scrollable">
+
+      <div class="items">
+
+          <!-- 1-5 -->
+          <div>
+            <%= link_to(image_tag("home/promotions/budget.png"),new_frontend_budget_url) %>
+            
+          </div>
+
+          <!-- 5-10 -->
+          <div>
+             <%= link_to(image_tag("home/promotions/design.png"),new_frontend_design_url) %>
+            
+          </div>
+
+          <!-- 10-15 -->
+          <div>
+            <%= link_to(image_tag("home/promotions/price_list.png"),"#",:class => "price_list") %>
+            
+          </div>
+      </div>
+    </div>
+
+<!-- "next page" action -->
+<a class="next browse right">></a>
+  </div>
+</div>
+
+<script type="text/javascript">
+// execute your scripts when the DOM is ready. this is mostly a good habit
+ $(document).ready( function(){
+
+	// initialize scrollable
+	//$(".scrollable").scrollable();
+
+});
+</script>
+

@@ -1,0 +1,22 @@
+<ul>
+  <li><a href="#Home"><%= link_to(image_tag("clients/#{PROJECT_NAME}/logos/isotipo2.png"),backend_cpanel_home_index_url())%> </a></li>
+  <li type='separator'></li>
+  <li>
+	  <%= link_to "Ordenes de producción",backend_orders_url,:class => "first #{is_active_nav?("orders")}",:title => "Ordenes en Producción" %>
+  </li>
+  <li>
+	 <%= link_to "Presupuestos",backend_budgets_url,:class => "first #{is_active_nav?("budgets")}",:title => "Presupuestos" %>
+  </li>
+  <li>
+	 <%= link_to "Facturas",backend_invoices_url,:class => "first #{is_active_nav?("invoices")}",:title => "Facturas" %>
+  </li>
+  <li>
+	 <%= link_to "Diseño Portal Web",backend_web_design_base_index_url,:class => "first #{is_active_nav?("web_designs")}",:title => "Diseño Portal Web" if current_user.user_has_user_group?(UserGroup::SUPERVISOR_COMERCIAL)%>
+  </li>
+  <li>
+	 <%= link_to "Accesos directos",backend_shortcuts_url,:class => "first #{is_active_nav?("shortcuts")}",:title => "Accesos Directos" %>
+  </li>
+  <li>
+	 <%= link_to "Contactos",backend_contacts_url,:class => "first #{is_active_nav?("contacts")}",:title => "Contactos" %>
+  </li>
+</ul>

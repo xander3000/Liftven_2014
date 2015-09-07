@@ -1,0 +1,5 @@
+	page << "$('#bank_movement_bank_account').children().remove().end()"
+	page << "$('#bank_movement_bank_account').append(jQuery('<option></option>').val('').html('-- Seleccione una cuenta --'));"
+	@bank_accounts.each do |bank_account|
+			page << "$('#bank_movement_bank_account').append(jQuery('<option></option>').val('#{bank_account.id}').html('#{bank_account.fullname}'));"
+	end

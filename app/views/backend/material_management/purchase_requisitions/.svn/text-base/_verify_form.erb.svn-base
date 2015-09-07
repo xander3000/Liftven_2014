@@ -1,0 +1,23 @@
+<%= render :partial => "form_header",:locals => {:f => f} %>
+<%= render :partial => "verify_form_items",:locals => {:f => f} %>
+
+
+
+<script type="text/javascript">
+
+
+  
+		$(document).ready(function(){
+                    $("#material_purchase_requisition_posting_date,#material_purchase_requisition_delivery_date").datepicker({
+                    changeMonth: true,
+                    dateFormat: 'yy-mm-dd',
+                    minDate: "-0",
+                    maxDate: "+35",
+                    yearRange: 'c-80:c+30',
+          beforeShowDay: noWeekendsOrHolidays
+        });
+		  $("#contact_form input,#contact_form textarea").attr("disabled","disabled")
+
+
+	});
+</script>

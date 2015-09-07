@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf8"/>
+<title><%= SITE_NAME %></title>
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+
+
+  <%= stylesheet_link_tag "jquery-ui/smoothness/jquery-ui-1.9.1.custom"%>
+  <%= stylesheet_link_tag "jquery-ui_hacks/smoothness/jquery-ui-1.8.14.custom"%>
+  <%= stylesheet_link_tag "frontend/#{controller.controller_name}"  %>
+  <%= stylesheet_link_tag "jquery.overlay_2"  %>
+  <%#= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Dancing+Script"  %>
+
+  <%#= stylesheet_link_tag "jquery.notifyBar" %>
+  <!--yield head_stylesheet-->
+    <%= yield :head_stylesheet %>
+  <!--yield head_stylesheet-->
+
+  <!--[if lte IE 7]>
+  <![endif]-->
+  <%= javascript_include_tag "jquery.min" %>
+  <%= javascript_include_tag "jquery-ui-1.10.2.custom.min" %>
+  <%= javascript_include_tag "jrails" %>
+  <%= javascript_include_tag "jquery.tools.min" %>
+  
+  <%= javascript_include_tag "frontend/application" %>
+  <!--yield head_javascript-->
+    <%= yield :head_javascript %>
+  <!--yield head_javascript-->
+</head>
+
+
+  <body>
+
+		<center>
+			 <div >
+				<%= yield %>
+			 </div>
+		</center>
+		<center>
+		  <div  class="facebox" id="modal-external">
+			 <div class="contentWrap"></div>
+		  </div>
+		</center>
+	   <div id="message_overlay"></div>
+		<script  type="text/javascript">
+		  $(document).ready( function(){});
+		</script>
+</body>
+</html>

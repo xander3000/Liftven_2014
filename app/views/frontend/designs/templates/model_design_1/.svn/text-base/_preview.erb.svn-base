@@ -1,0 +1,45 @@
+<style type="text/css">
+ .content_model_design_preview span{
+    color: white;
+  }
+.company_name{
+    font-size: 28px;
+    left: 20px;
+    top: 15px;
+}
+
+.fullname{
+    height: 15px;
+    right: 20px;;
+    top: 86px;
+}
+
+.address{
+    height: 12px;
+    font-size: 13px;
+    right: 20px;
+    top: 113px;
+}
+
+.telephone-number{
+    height: 12px;
+    top: 130px;
+    right: 20px;
+     font-size: 10px;
+}
+
+.email{
+   height: 10px;
+    top: 145px;
+    font-size: 10px;
+    right: 20px;
+}
+
+</style>
+
+<%= image_tag "" %>
+<span id="" class="company_name labels">Su empresa</span><br/>
+<span id="" class="fullname  labels">Nombre y apellidos</span><br/>
+<span id="" class="address labels">Direccion completa</span><br/>
+<span id="" class="telephone-number labels">Telf: <span id="" class="telephone">0x1x1234567</span></span><br/>
+<span id="" class="email labels">sucorreo@suempresa.com</span><br/>

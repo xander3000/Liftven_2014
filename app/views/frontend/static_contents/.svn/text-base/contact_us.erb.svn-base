@@ -1,0 +1,55 @@
+<% content_for :venom_leadspace_head do %>
+<div id="contact_us_leadspaces">
+    <%= render :partial => "contact_us_leadspaces" %>
+</div>
+<% end %>
+
+<div id="contact_us_content">
+   <div class="subc c33l">
+     <h2>N&uacute;meros Telef&oacute;nicos</h2>
+      <div>
+          <b>Preguntas generales: </b>
+           <br/>
+           <p>(+58-212) - 740.20.88</p>
+           <br/>
+          <b>Fax:</b>
+           <br/>
+           <p>(+58-212) - 740.20.89</p>
+       </div>
+  </div>
+
+   <div class=" subc c30l">
+    <h2>Soporte</h2>
+      <div>
+         <b>Correos:</b>
+         <br/>
+         <p>Sientete libre al enviar un correo a: <%= link_to "venomimpresos@gmail.com",frontend_contact_us_email_us_url,:class => "external",:rel => "#modal-external"%></p>
+       </div>
+   </div>
+
+   <div class=" subc c33r">
+     <h2>Otro contacto</h2>
+      <div>
+           <b>Dirección:</b>
+           <br/>
+           <p>Av. Fco de Miranda. Multicentro Empresarial del Este Caracas. Torre Miranda, Local PB-2. Chacao. Caracas - Venezuela</p>
+           <br/>
+           
+           <b>Redes Sociales:</b>
+           <ul class="social_networking">
+             <li>
+               <p>
+                 <%= image_tag "global/venom_twiter.png"%> @Netprint1
+               </p>
+             </li>
+             <li>
+               <p>
+                <%= image_tag "global/venom_facebook.png"%> Netprint Impresos
+               </p>
+             </li>
+           </ul>
+
+       </div>
+   </div>
+
+ </div>

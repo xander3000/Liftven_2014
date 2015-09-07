@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/1129/trunk/Venom/app/views/backend/session
+END
+new.erb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/session/new.erb
+END
+new2.erb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/session/new2.erb
+END
+_qaptcha.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/session/_qaptcha.erb
+END
+show.erb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/1129/trunk/Venom/app/views/backend/session/show.erb
+END

@@ -1,0 +1,13 @@
+if @incoming_invoice_document_type
+	if @incoming_invoice_document_type.require_purchase_oden
+		page << "$('#incoming_invoice_supplier').attr('readonly',true)"
+		page.show "incoming_invoice_purchase_order_input" 
+	else
+		page << "$('#incoming_invoice_supplier').attr('readonly',false)"
+		page.hide "incoming_invoice_purchase_order_input"
+
+	end
+	page.replace_html "items", :text => ""
+	page << "$('#contact_form select.reset, #contact_form input.reset').val('')"
+end
+

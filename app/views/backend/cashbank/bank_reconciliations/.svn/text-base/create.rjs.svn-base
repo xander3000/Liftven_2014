@@ -1,0 +1,6 @@
+if @success
+	page.redirect_to :action => "index"
+else
+	page.show_errors([@bank_reconciliation], "message_overlay", nil)
+end
+

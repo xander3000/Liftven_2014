@@ -1,0 +1,191 @@
+<%= include_stylesheet("jquery.colorpicker.css")%>
+<%= include_stylesheet("jquery.validationEngine.css") %>
+<%= include_stylesheet("googlefontpicker.css") %>
+<%= include_javascript("jquery.colorpicker.js") %>
+<%= include_javascript("jquery.validationEngine.js") %>
+<%= include_javascript("i18n/jquery.validationEngine-es.js") %>
+<%= include_javascript("jquery.url.js") %>
+<%= include_javascript("jquery.googlefontpicker.js") %>
+
+<div>
+    <div id="model_design_preview" class="subc c50l content_model_design_preview">
+		
+			 <div id="model_design_toolbar">
+				<div id="colorSelector"><div style="background-color: #000000"></div></div>
+				<div id="colorpickerHolder"></div>
+				<div id="draw_text"><%= text_field_tag "draw_input_text" ,nil,:id => "draw_input_text",:placeholder => "Default texto" %></div>
+				<div id="font_text">
+				  <a href="#" class="plus"></a>&nbsp;
+				  <a href="#" class="minus"></a>&nbsp;
+				  <a href="#" id='selectH1' class="selector"></a>
+				</div>
+
+				<div id="draw_add_text" class=" ">
+				  Agregar texto
+				</div>
+				<div id="draw_save" class=" ">
+				  Guardar
+				</div>
+			 </div>
+			
+		<div id="draw_image">
+		 
+				<%= image_tag current_session_wizard_step["step_2"][:value]%>
+                                <% get_temporal_digital_card_fields.each do |digital_card_field|  %>
+				  <div style="position:absolute;left: <%= digital_card_field.position_left%>px; top: <%= digital_card_field.position_top%>px;">
+					 <p style="font-size: <%= digital_card_field.font_size%>;color:#<%= digital_card_field.font_color%>"><%= digital_card_field.input_text%></p>
+					 </div>
+				<% end%>
+		</div>
+          <%#= render :partial => "#{controller.controller_path}/templates/#{current_type_design}/#{current_model_design}/preview" %>
+		<%  %>
+    </div>
+    <div id="model_design_info" class="subc c50r">
+        <%#= render :partial => "#{controller.controller_path}/templates/#{current_type_design}/#{current_model_design}/fields" %>
+    </div>
+</div>
+
+  <script type="text/javascript">
+			 var widt = false;
+			 var draw_selected;
+			 var draw_items = 1;
+			 
+	  function drawItems(){
+		  $('.draggable-item').draggable({
+			  handle: ".crosshair",
+			  //grid: [ 5,5 ],
+			 drag: function(event, ui){
+
+			 draw_selected = $(this);
+			 $("#draw_input_text").val(jQuery("p.draggable-item-text",draw_selected).html());
+			 //jQuery("input.draggable-item-position",draw_selected).val(draw_selected.css("top")+"|"+draw_selected.css("left"));
+
+			 /*var rotateCSS = 'rotate(' + ui.position.left + 'deg)';
+				$(this).css({
+				  '-moz-transform': rotateCSS,
+				  '-webkit-transform': rotateCSS
+				});*/
+			 },
+			stop: function(event, ui){
+			 draw_selected = $(this);
+			 jQuery("input.draggable-item-position",draw_selected).val(draw_selected.css("top")+","+draw_selected.css("left"));
+			 jQuery("input.draggable-item-position_left",draw_selected).val(parseFloat(draw_selected.css("left")));
+			 jQuery("input.draggable-item-position_top",draw_selected).val(parseFloat(draw_selected.css("top")));
+			 /*var rotateCSS = 'rotate(' + ui.position.left + 'deg)';
+				$(this).css({
+				  '-moz-transform': rotateCSS,
+				  '-webkit-transform': rotateCSS
+				});*/
+			 }
+		  });
+	  }
+
+	  function addDrawItem(){
+		item  = "<div class='draggable-item ui-draggable'>";
+		item +="<div class='crosshair ui-state-active ui-icon'></div>";
+		item +="<div class='rotate ui-state-active ui-icon'></div>";
+		item +="<input type='text' value='0-0' readonly='readonly' name='draggable-item-position_"+draw_items+"' id='draggable-item-position_"+draw_items+"' class='draggable-item-input draggable-item-position'>";
+	   item +="<p class='draggable-item-input draggable-item-text'>Default texto</p>"
+		item +="<input type='hidden' value='Default texto' name='draggable-item-text_"+draw_items+"' id='draggable-item-text_"+draw_items+"' class='draggable-item-input draggable-item-text validate[required]'>"
+		item +="<input type='hidden' name='draggable-item-color_"+draw_items+"' class='draggable-item-input draggable-item-color validate[required]'>"
+		item +="<input type='hidden' name='draggable-item-size_"+draw_items+"'  class='draggable-item-input draggable-item-size validate[required]'>"
+		item +="<input type='hidden' name='draggable-item-font_"+draw_items+"'  class='draggable-item-input draggable-item-font validate[required]'>"
+		item +="<input type='hidden' name='draggable-item-position_left_"+draw_items+"'  class='draggable-item-input draggable-item-position_left validate[required]'>"
+		item +="<input type='hidden' name='draggable-item-position_top_"+draw_items+"'  class='draggable-item-input draggable-item-position_top validate[required]'>"
+		item +="</div>";
+		$("#draw_image").append(item);
+		draw_items++;
+	  }
+
+      $(document).ready(function() {
+
+		  $('#colorpickerHolder').ColorPicker({
+			flat: true,
+			color: '#000000',
+			onSubmit: function(hsb, hex, rgb) {
+				$('#colorSelector div').css('backgroundColor', '#' + hex);
+				draw_selected.css("border-color",'#' + hex);
+				jQuery("p.draggable-item-text",draw_selected).css("color",'#' + hex);
+				jQuery("input.draggable-item-color",draw_selected).val(hex);
+			}
+		  });
+		  $('#colorpickerHolder > div').css('position', 'absolute');
+		  $('#colorSelector').bind('click', function() {
+			  $('#colorpickerHolder').stop().animate({height: widt ? 0 : 173}, 500);
+			  widt = !widt;
+		  });
+
+
+		  $('#selectH1').googleFontPicker({
+			callbackFunc: function(fontFamily){
+			
+			fontFamily_1 = fontFamily.split(",")[0].trim().replace(" ","+");
+			fontfamilyPath = "http://fonts.googleapis.com/css?family="+fontFamily_1;
+
+			 $('head').append("<link href='http://fonts.googleapis.com/css?family="+fontFamily_1+"' rel='stylesheet' type='text/css'>");
+
+
+
+				jQuery("p.draggable-item-text",draw_selected).css('fontFamily', fontFamily);
+				jQuery("input.draggable-item-font",draw_selected).val(fontFamily);
+			}
+		});
+
+		$('.plus').click(function(){
+		   var currentSize = parseInt(jQuery("p.draggable-item-text",draw_selected).css('fontSize'));
+			jQuery("p.draggable-item-text",draw_selected).css('fontSize',(currentSize+1)+'px');
+			jQuery("input.draggable-item-size",draw_selected).val((currentSize+1)+'px');
+		});
+		$('.minus').click(function(){
+		  var currentSize = parseInt(jQuery("p.draggable-item-text",draw_selected).css('fontSize'));
+			jQuery("p.draggable-item-text",draw_selected).css('fontSize',(currentSize-1)+'px');
+			jQuery("input.draggable-item-size",draw_selected).val((currentSize-1)+'px');
+		});
+
+
+		$("#draw_input_text").blur(function () {
+			 if(draw_selected){
+				jQuery("p.draggable-item-text",draw_selected).html($(this).val());
+				jQuery("input.draggable-item-text",draw_selected).val($(this).val());
+			 }
+		});
+		$("#draw_add_text").click(function () {
+		  addDrawItem();
+		  drawItems();
+		});
+		  
+		  $("#draw_save").click(function () {
+
+			 var step_value = decodeURIComponent($("#model_design_preview input.draggable-item-input").serialize()).replace(/\+/gi, " ");
+			 
+			 $.ajax({
+                  type: "POST",
+                  url: "<%= frontend_wizard_step_designs_url %>",
+                  data:  {step_number : 3,step_value: step_value,step_key:"id",draw_items : (draw_items-1)}
+          }).done(function() {
+				alert("Su diseño ha sido guardado");
+			 });;
+		  });
+		  
+
+        inputs_designs = ".draggable-item-text";
+        //$(inputs_designs).addClass("validate[required]");
+        //$("#model_design_info form").validationEngine('attach');
+        <%
+           if !current_session_wizard_step.empty? and !current_session_wizard_step["step_3"].nil?
+           labels_design = current_session_wizard_step["step_3"][:value]
+         %>
+          url = $.url('<%= "#{preview_frontend_designs_url}?#{labels_design}" %>');
+
+          $(inputs_designs).each(function (index, domEle) {
+            value = decodeURIComponent(url.param($(this).attr("name")));
+            value = value.replace(/\+/gi, " ");
+				
+              $(this).val(value);
+              item_preview = $(this).attr("id").replace('label_', "");
+              $("."+item_preview).html(value);
+          });
+        <% end %>
+
+      });
+</script>

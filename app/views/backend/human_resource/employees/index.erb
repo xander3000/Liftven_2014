@@ -1,0 +1,90 @@
+<%= include_javascript("jquery.dataTables.min.js") %>
+<%= include_stylesheet("jquery.datatable.css") %>
+<div class="actionsBar right no-print">
+  <%= link_to(image_tag("icons/printer.png"),backend_human_resource_employees_url("csv"),:class => "button",:title => "Regresar") %>
+  |
+  <%= link_to(image_tag("icons/arrow_left.png"),backend_cpanel_home_index_url,:class => "button",:title => "Regresar") %>
+</div>
+<hr/>
+
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="employees" width="100%">
+	<thead>
+		<tr>
+			<th style="width: 10px;">St</th>
+			<th><%= Payroll::Staff.human_attribute_name("identification_document")%> </th>
+			<th><%= Payroll::Staff.human_attribute_name("fullname")%> </th>
+			<th><%= Payroll::Employee.human_attribute_name("payroll_personal_type")%> </th>
+			<th><%= Payroll::Employee.human_attribute_name("payroll_position")%> </th>
+			<th><%= Payroll::Employee.human_attribute_name("payroll_department")%> </th>
+                        <th><%= Payroll::Employee.human_attribute_name("salary")%> </th>
+			<th><%= Payroll::Employee.human_attribute_name("income_date")%> </th>
+			<th><%= Payroll::Employee.human_attribute_name("discharge_date")%> </th>
+		</tr>
+	</thead>
+	<tbody>
+	  <% @payroll_employees.each do |payroll_employee|  %>
+		 <tr onclick="window.location.href='<%= backend_human_resource_employee_url(payroll_employee) %>'">
+			<td class="center" title="<%= payroll_employee.payroll_employee_status_type.name%> "><%= image_tag payroll_employee.is_active? ? "icons/bullet_square_green.png" : "icons/bullet_square_red.png"%></td>
+			 <td class="left"><%= payroll_employee.payroll_staff.identification_document%> </td>
+			 <td class="left"><%= payroll_employee.payroll_staff.fullname%> </td>
+			 <td class="left"><%= payroll_employee.payroll_personal_type.name%> </td>
+			 <td class="left"><%= payroll_employee.payroll_position.name%> </td>
+			 <td class="left"><%= payroll_employee.payroll_department.name%> </td>
+                         <td class="left"><%= payroll_employee.salary.to_currency(false)%> </td>
+			 <td class="left"><%= payroll_employee.income_date.to_default_date%> </td>
+			 <td class="left"><%= payroll_employee.discharge_date%> </td>
+		  </tr>
+		<% end %>
+	</tbody>
+</table>
+
+
+
+
+<script type="text/javascript">
+  var oTable;
+
+
+
+
+
+
+  function fnGetSelected(oTableLocal) {
+    var aReturn = new Array();
+    var aTrs = oTableLocal.fnGetNodes();
+
+    for (var i = 0; i < aTrs.length; i++) {
+        if ($(aTrs[i]).hasClass('row_selected')) {
+            aReturn.push(aTrs[i]);
+        }
+    }
+    return aReturn;
+}
+  $(document).ready(function() {
+		oTable =  $('#employees').dataTable({
+            oLanguage: {
+                sUrl: "/javascripts/i18n/jquery.DataTables-es.txt"
+            }
+        });
+  $("#employees tbody").click(function (event) {
+		$(oTable.fnSettings().aoData).each(function () {
+			 $(this.nTr).removeClass('row_selected');
+		});
+		$(event.target.parentNode).addClass('row_selected');
+  });
+		$("tr.external-overlay[rel]").overlay({
+		  mask: {
+					 color: '#000',
+					 loadSpeed: 200,
+					 opacity: 0.9
+		  },
+		  onBeforeLoad: function() {
+				var wrap = this.getOverlay().find(".contentWrap");
+				wrap.load(this.getTrigger().attr("ref"));
+		  }
+		});
+  });
+
+
+
+</script>

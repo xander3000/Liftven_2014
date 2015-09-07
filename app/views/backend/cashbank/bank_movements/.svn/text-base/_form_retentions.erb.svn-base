@@ -1,0 +1,26 @@
+<div id="form_retention">
+  <table frame="border" rules="cols" >
+    <thead>
+      <tr>
+		  <th style="width: 5px;">
+			 Seleccione
+		  </th>
+        <th class="">
+          <%= Accounting::RetentionAccountingType.human_attribute_name(:name)%>
+        </th>
+		  <th class="">
+          <%= Accounting::RetentionAccountingType.human_attribute_name(:retention_percentage)%>
+        </th>
+		  <th class="">
+          <%= CashBank::BankMovementRetentionPosition.human_attribute_name(:amount_subject_retention)%>
+        </th>
+        <th class="">
+          <%= CashBank::BankMovementRetentionPosition.human_attribute_name(:amount_retained)%>
+        </th>
+      </tr>
+    </thead>
+    <tbody id="items">
+      <%= render :partial => "items_retentions" %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,48 @@
+<%= include_javascript("jquery.dataTables.min.js") %>
+<%= include_stylesheet("jquery.datatable.css") %>
+<div class="actionsBar right no-print">
+  <%= link_to(image_tag("icons/arrow_left.png"),backend_cpanel_home_index_url,:class => "button",:title => "Regresar") %>
+  |
+  <%= link_to(image_tag("icons/add.png"),new_backend_cpanel_user_url,:class => "button") %>
+</div>
+<hr/>
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="modules" width="100%">
+	<thead>
+		<tr>
+			 <th><%= User.human_attribute_name("id")%> </th>
+			 <th><%= User.human_attribute_name("name")%> </th>
+			 <th><%= User.human_attribute_name("login")%> </th>
+			 <th><%= User.human_attribute_name("last_login_at")%> </th>
+			 <th><%= User.human_attribute_name("last_login_ip")%> </th>
+			 <th><%= User.human_attribute_name("active")%> </th>
+		</tr>
+	</thead>
+	<tbody>
+	  <% @users.each do |user|  %>
+
+		 <tr onclick="window.location.href='<%= backend_cpanel_user_url(user) %>'">
+				<td class="left"><%= user.id.to_code %> </td>
+				<td class="left"><%= user.name %> </td>
+				<td class="left"><%= user.login %></td>
+				<td class="left"><%= l user.last_login_at,:format => :default if user.last_login_at %></td>
+				<td class="left"><%= user.last_login_ip %></td>
+				<td class="left"><%= user.active ? "Sí" : "No" %></td>
+		  </tr>
+		<% end %>
+	</tbody>
+</table>
+
+
+
+<script type="text/javascript">
+  var oTable;
+
+  $(document).ready(function() {
+		oTable =  $('#modules').dataTable({
+            oLanguage: {
+                sUrl: "/javascripts/i18n/jquery.DataTables-es.txt"
+            }
+        });
+  });
+
+</script>

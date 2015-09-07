@@ -1,0 +1,15 @@
+<div id="contact_form" class="content_form">
+  
+    <% f.inputs "Datos de cabecera" do %>
+      <%= f.input :supplier,:wrapper_html => {:class => "hidden"},:input_html => {}%>
+      <%= f.input :supplier_name,:input_html => {} %>
+      <%= f.input :currency_type %>
+      <%= f.input :create_by,:input_html => {:disabled => "disabled"} %>
+      <%= f.input :posting_date,:as => :string,:input_html => {:disabled => "disabled"}  %>
+    <% end %>
+</div>
+
+<script type="text/javascript">
+
+</script>
+

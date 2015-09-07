@@ -1,0 +1,7 @@
+<% semantic_form_remote_for @raw_material, :url => backend_raw_materials_url do |f| %>
+        <div class="top-actions">
+          <%= link_to "Cancelar", backend_raw_materials_url %>&nbsp;&nbsp;|
+          <%= submit_tag "Guardar",:class => "button" %>
+        </div>
+      <%= render :partial => "form",:locals => {:f => f} %>
+<% end %>

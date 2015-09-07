@@ -1,0 +1,14 @@
+page.replace_html "#{controller.controller_name}_container", :partial => "edit"
+
+#if @raw_material_category.is_a_paper_type?
+#    page.replace_html "tabs-2", :partial => "show_2"
+#    page << "$('#tab-2').show('slow')";
+#    page << "$('#tab-3').hide();"
+#	elsif @raw_material_category.is_a_material_product_type?
+#    page.replace_html "tabs-3", :partial => "show_3"
+#    page << "$('#tab-2').hide();"
+#    page << "$('#tab-3').show('slow')";
+#else
+#		page << "$('#tab-2').hide();"
+#    page << "$('#tab-3').hide();";
+#end

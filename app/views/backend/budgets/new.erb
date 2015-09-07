@@ -1,0 +1,17 @@
+<%= javascript_include_tag "jquery.lookupSeniat" %>
+<div>
+  <% semantic_form_remote_for @budget, :update => "#{controller.controller_name}_container",:url => backend_budgets_url,:html => {:class => "form_generate"} do |f| %>
+        <%= render :partial => "form",:locals => {:f => f} %>
+  <%= link_to_function "PRESUPUESTAR","generate()", :disable_with => "Por favor espere...",:id => "contable_document-button",:class => "button" %>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+        function generate()
+        {
+          result = confirm("¿Esta seguro de ejecutar esta acción?")
+          if (result)
+            $(".form_generate").submit();
+        }
+
+</script>

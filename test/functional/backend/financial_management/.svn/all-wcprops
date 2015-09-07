@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/1495/trunk/Venom/test/functional/backend/financial_management
+END
+clients_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/1017/trunk/Venom/test/functional/backend/financial_management/clients_controller_test.rb
+END
+incoming_invoices_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/791/trunk/Venom/test/functional/backend/financial_management/incoming_invoices_controller_test.rb
+END
+advances_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/1091/trunk/Venom/test/functional/backend/financial_management/advances_controller_test.rb
+END
+suppliers_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/933/trunk/Venom/test/functional/backend/financial_management/suppliers_controller_test.rb
+END
+outgoing_invoices_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/1493/trunk/Venom/test/functional/backend/financial_management/outgoing_invoices_controller_test.rb
+END
+payment_orders_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/856/trunk/Venom/test/functional/backend/financial_management/payment_orders_controller_test.rb
+END
+sales_ledgers_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/851/trunk/Venom/test/functional/backend/financial_management/sales_ledgers_controller_test.rb
+END
+payment_schedules_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/791/trunk/Venom/test/functional/backend/financial_management/payment_schedules_controller_test.rb
+END
+payable_accounts_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/1014/trunk/Venom/test/functional/backend/financial_management/payable_accounts_controller_test.rb
+END
+account_receivable_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/975/trunk/Venom/test/functional/backend/financial_management/account_receivable_controller_test.rb
+END
+service_orders_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/1495/trunk/Venom/test/functional/backend/financial_management/service_orders_controller_test.rb
+END
+purchase_ledgers_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/845/trunk/Venom/test/functional/backend/financial_management/purchase_ledgers_controller_test.rb
+END
+receivable_accounts_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/991/trunk/Venom/test/functional/backend/financial_management/receivable_accounts_controller_test.rb
+END

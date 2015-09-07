@@ -1,0 +1,304 @@
+/* 
+    Document   : contable_document
+    Created on : 20/02/2012, 08:43:04 PM
+    Author     : gabriel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+
+#contable_document-button
+{
+    width: 100%;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+
+
+div.control
+{
+    font-weight: bold;
+    padding-right: 5px;
+    position: relative;
+	 text-transform: uppercase;
+    right: 0;
+    top: 0;
+    white-space: nowrap;
+}
+
+div.control span
+{
+
+    font-size: 2.5em;
+    color: #EC2E38;
+    font-weight: normal;
+}
+
+div.content_form > fieldset
+{
+    padding: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #D2D2D2;
+}
+
+div.content_form fieldset.no_border
+{
+    border: none;
+}
+
+div.content_form fieldset legend span
+{
+    padding: 5px;
+    color: #555555;
+	 font-size: 19px;
+    font-weight: normal;
+}
+
+form.formtastic div.content_form fieldset > ol > li label
+{
+    width: 14%;
+}
+
+form.formtastic div.content_form  div.subc > fieldset > ol > li label
+{
+    width: 28.5%;
+}
+
+form.formtastic div.content_form  div.subc > fieldset > ol > li.boolean label
+{
+   padding-left:0;
+}
+
+form.formtastic fieldset > ol > li fieldset ol
+{
+	padding: 0 0 0 14%;
+}
+
+
+
+ form.formtastic div.content_form fieldset > ol > li
+{
+    margin-bottom: 0.5em;
+}
+
+table td, table th
+{
+    border-color: #D2D2D2;
+}
+
+
+#form_items table thead td {
+    text-align: center;
+}
+
+
+#form_items table td input
+{
+    width: 90%;
+}
+
+#form_items table td.code
+{
+    width: 15%;
+}
+
+#form_items table td.amount
+{
+    width: 5%;
+}
+#form_items table td.amount input
+{
+    width: 80%
+}
+
+#form_items table td.description
+{
+    width: 30%
+}
+
+#form_items table td.quantity_page
+{
+    width: 6%
+}
+
+#form_items table td.quantity_page input
+{
+    width: 40%
+}
+
+#form_items table td.quantity
+{
+    width: 6%
+}
+
+#form_items table td.add_button
+{
+    width: 6%
+}
+
+#form_items table td.quantity input
+{
+    width: 65%
+}
+#form_items table td.packing_material
+{
+    width: 20%
+}
+
+#form_items table td.packing_material select
+{
+    min-width: 200px;
+}
+#form_items table td.delivery_date
+{
+    width: 10%
+}
+
+#form_items table td.delivery_date input
+{
+    width: 90%
+}
+
+
+#form_items table td.note
+{
+    width: 10%
+}
+
+#form_items table td.dimensions input
+{
+    
+}
+
+#form_items table td.dimensions
+{
+    width: 15%;
+}
+
+#form_items table td.dimensions input
+{
+    width: 35px;
+}
+
+#form_items table td.unit_price, #form_items table td.total_price
+{
+    width: 9%;
+    text-align: right;
+}
+#form_items table td.sub_total, #form_items table td.total
+{
+    width: 170px;
+    text-align: right;
+}
+#form_items table td #total
+{
+    color: #000;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+
+#form_items #product_components{
+    text-align: left;
+}
+
+#form_items input.quantity_page_sheet{
+    width: 55px;
+    position: relative;
+    top: -5px;
+    padding: 7px 5px;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+    border-radius:4px;
+}
+
+#item_product_form{
+	border-bottom: 1px solid #D2D2D2;
+}
+
+#contable_document_show
+{
+    border: 1px solid #D2D2D2;
+    padding: 10px;
+    color: #808080;
+}
+
+
+
+#contable_document_show .control
+{
+    font-weight: bold;
+    padding-right: 5px;
+    position: relative;
+    right: 0;
+    top: 0;
+    white-space: nowrap;
+}
+
+#contable_document_show .control span
+{
+
+    font-size: 2.5em;
+    color: #EC2E38;
+    font-weight: normal;
+}
+
+#contable_document_show #letterhead
+{
+    margin: 15px 0;
+}
+
+#contable_document_show #letterhead div.subc ul
+{
+    display: block;
+    padding-top: 15px;
+}
+
+#contable_document_show #letterhead div.subc li
+{
+    list-style: circle;
+    display: inline-block;
+}
+
+#contable_document_show #details
+{
+    border: 1px solid #D2D2D2;
+    padding: 10px;
+    background: #F1F1F1;
+    -moz-border-radius:0 25px 0 25px;
+    -webkit-border-radius:0 25px 0 25px;
+    border-radius: 0 25px 0 25px;
+
+}
+
+#contable_document_show  #details
+{
+    color: #000;
+}
+
+#contable_document_show  #details b
+{
+    color: #808080;
+}
+#contable_document_show  #details hr
+{
+    border-color: #000;
+}
+
+
+#contable_document_show  #details table
+{
+    border: none;
+}
+
+#contable_document_show  #details #footer_total
+{
+    margin-top: 5px;
+}

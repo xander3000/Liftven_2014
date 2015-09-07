@@ -1,0 +1,24 @@
+
+<div id="contact_form" class="content_form">
+  <% semantic_fields_for @incoming_invoice do |p| %>
+    <% p.inputs "Datos de cabecera" do %>
+		<%= p.input :incoming_invoice_document_type,:input_html => {:onchange => remote_function(:url => set_incoming_invoice_document_backend_incoming_invoices_url,:with => "$(this).serialize()")} %>
+		<%= p.input :purchase_order,:as => :string,:wrapper_html => {:class => "hidden"},:input_html => {:size => 10,:class => "right reset",:name => "purchase_order[purchase_order_id]"}%>
+		<%= p.input :supplier,:wrapper_html => {:class => "hidden"},:input_html  => {:class => "reset"}%>
+      <%= p.input :supplier,:as => :string,:input_html => {:name => "supplier_name",:readonly => true,:class => " reset"} %>
+		<%= p.input :invoice_date,:as => :string,:input_html => {:readonly => true,:class => "reset"} %>
+		<%= p.input :reference,:input_html => {:size => 20,:class => "reset"} %>
+		<%= p.input :control_number,:input_html => {:size => 20,:class => "reset"} %>
+		<%= p.input :description,:input_html => {:class => "reset"} %>
+		<%= p.input :tax,:input_html => {:readonly => true,:size => 5} %>
+      <%= p.input :currency_type %>
+      <%= p.input :create_by,:input_html => {:disabled => "disabled"} %>
+      <%= p.input :posting_date,:as => :string,:input_html => {:disabled => "disabled"}  %>
+    <% end %>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+
+</script>
+

@@ -1,0 +1,68 @@
+<div>
+<div class="headerWrap">
+    <div class="headerWrapContent">
+          <h2>Crear nuevo concepto contable</h2>
+    </div>
+  </div>
+  <div class="mainWrapContent">
+	  <% semantic_form_remote_for @accounting_concept, :update => "#{controller.controller_name}_container",:url => backend_accountancy_accounting_concepts_url,:html => {:class => "form_dialog_generate"} do |f| %>
+        <%= render :partial => "form",:locals => {:f => f} %>
+  <% end %>
+  </div>
+<div class="footerWrap">
+    <div class="footerWrapContent right">
+      <%= button_to_function("Agregar", "$(\".form_dialog_generate\").submit()",:class => "button")  %>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+      $(document).ready(function(){ // Script del Navegador
+        $("button, input:submit,input:button,a.button ").button();
+      });
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function action_after_complete_for_accountant_account(item){
+    switch (item.code_response) {
+        case ("ok"):
+            $("#accounting_accounting_concept_accounting_accountant_account_id").val(item.id)
+            break;
+        case ("no-ok"):
+				$("#accounting_accounting_concept_accounting_accountant_account_name").val('')
+            $("#accounting_accounting_concept_accounting_accountant_account_id").val('')
+            break;
+        default:
+				$("#accounting_accounting_concept_accounting_accountant_account_name").val('')
+            $("#accounting_accounting_concept_accounting_accountant_account_id").val('')
+				break;
+    }
+  }
+
+
+    $(document).ready(function(){
+
+		  $("#accounting_accounting_concept_accounting_accountant_account_name").autocomplete({
+			  source: "<%= autocomplete_by_accountant_account_backend_accountancy_accounting_concepts_url %>",
+			  minLength: 3,
+			  select: function( event, ui ) {
+				 if(ui.item)
+					 action_after_complete_for_accountant_account(ui.item);
+			  },
+			  open: function( event, ui ) {
+				 $("#accounting_accounting_concept_accounting_accountant_account_id").val('');
+			  }
+		  });
+
+
+		$("button, input:submit,input:button,a.button ").button();
+});
+</script>

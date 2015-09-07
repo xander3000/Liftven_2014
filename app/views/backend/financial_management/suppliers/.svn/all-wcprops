@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/1585/trunk/Venom/app/views/backend/financial_management/suppliers
+END
+_form_3.erb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/1157/trunk/Venom/app/views/backend/financial_management/suppliers/_form_3.erb
+END
+edit.erb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/1231/trunk/Venom/app/views/backend/financial_management/suppliers/edit.erb
+END
+create.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/financial_management/suppliers/create.rjs
+END
+new.erb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/1186/trunk/Venom/app/views/backend/financial_management/suppliers/new.erb
+END
+associate_credit_note.erb
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/1231/trunk/Venom/app/views/backend/financial_management/suppliers/associate_credit_note.erb
+END
+add_withholding_tax.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/1200/trunk/Venom/app/views/backend/financial_management/suppliers/add_withholding_tax.rjs
+END
+_show_3.erb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/1074/trunk/Venom/app/views/backend/financial_management/suppliers/_show_3.erb
+END
+_form.erb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/1200/trunk/Venom/app/views/backend/financial_management/suppliers/_form.erb
+END
+_show_4.erb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/1297/trunk/Venom/app/views/backend/financial_management/suppliers/_show_4.erb
+END
+_show_5.erb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/1231/trunk/Venom/app/views/backend/financial_management/suppliers/_show_5.erb
+END
+new_withholding_tax.erb
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/1509/trunk/Venom/app/views/backend/financial_management/suppliers/new_withholding_tax.erb
+END
+_supplier_withholding_taxes.erb
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/1501/trunk/Venom/app/views/backend/financial_management/suppliers/_supplier_withholding_taxes.erb
+END
+index.erb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/1232/trunk/Venom/app/views/backend/financial_management/suppliers/index.erb
+END
+update.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/financial_management/suppliers/update.rjs
+END
+process_associate_credit_note.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/1231/trunk/Venom/app/views/backend/financial_management/suppliers/process_associate_credit_note.rjs
+END
+show.erb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/1232/trunk/Venom/app/views/backend/financial_management/suppliers/show.erb
+END
+_form_1.erb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/1585/trunk/Venom/app/views/backend/financial_management/suppliers/_form_1.erb
+END
+_form_2.erb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/1157/trunk/Venom/app/views/backend/financial_management/suppliers/_form_2.erb
+END

@@ -1,0 +1,5 @@
+if @success
+	page << "$('a.external-overlay[rel]').each(function() {$(this).overlay().close();});"
+	page.replace_html "quotes-items", :partial => "quotes_items"
+	
+end

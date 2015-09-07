@@ -1,0 +1,6 @@
+if @payment_method_type_tag_name.eql?("ADVANCE_PAYMENT")
+	page.replace_html "detail_daily_cash_closing", :partial => "detail_daily_cash_closing_with_advance_payment"
+else
+	page.replace_html "detail_daily_cash_closing", :partial => "detail_daily_cash_closing"
+end
+

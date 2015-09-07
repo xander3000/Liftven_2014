@@ -1,0 +1,92 @@
+<div class="actionsBar right">
+   <%= link_to(image_tag("icons/printer.png"),backend_credit_note_url(@credit_note,"pdf"),:class => "button",:title =>"Imprimir nota de credito") if @credit_note.invoice.free_printed? %>
+	|
+	<%= link_to(image_tag("icons/arrow_left.png"),backend_credit_notes_url,:class => "button",:title =>"Regresar") %>
+</div>
+
+<div id="credit_note_show">
+  <div id="" class="right control">
+    <%= @title.upcase %> Nº <span><%= format_code(@credit_note.id, "06") %></span>
+  </div>
+
+  <div id="letterhead">
+    <div id="logo"  class="c50l subc">
+    <%= image_tag "clients/#{PROJECT_NAME}/logos/logo2.png" %>
+  </div>
+    <div class="c50r subc">
+      <ul>
+        <li>VOLANTES</li> <li>CATALOGOS</li> <li>REVISTAS</li> <li>FOLLETOS</li> <li>CALENDARIOS</li> <li>HABLADORES</li>
+        <li>DIPTICOS</li> <li>TRIPTICOS</li> <li>TARJETAS DE PRESENTACION</li> <li>TARJETAS EN PAPELES ESPECIALES</li>
+        <li>IMPRESION EN LITHOAUTOADHESIVO</li> <li>AFICHES</li> <li>CARPETAS</li> <li>LIBRETAS</li>
+        <li>MANUALES</li> <li>PENDONES</li> <li>PANCARTAS</li> <li>VALLAS</li> <li>BACKINGS</li> <li>CAJAS DE LUZ</li>
+        <li>VINIL MICROPERFORADO</li> <li>VINIL AUTOADHESIVO</li> <li>VINIL IMANTADO</li> <li>ROTULACION DE VEHICULOS</li>
+        <li>CLEAR</li> <li>BACKLIGHT</li> <li>FROSTER</li> <li>CALCOMANIAS</li>
+      </ul>
+    </div>
+  </div>
+  <div id="details">
+    <b>NOMBRE O RAZÓN SOCIAL: </b> <%= @credit_note.client.name %><br/>
+    <b>C.I. / RIF: </b><%= @credit_note.client.identification_document %><br/>
+    <b>DOMICILIO FISCAL: </b><%= @credit_note.client.address %><br/>
+    <b>FECHA: </b><%= l @credit_note.created_at %><br/>
+    <b>TLFS: </b><%= @credit_note.client.phone %><br/>
+    <b>CORREO ELECTRÓNICO: </b><%= @credit_note.client.email %><br/>
+    <hr/>
+    <div id="form_items">
+      <table border="0">
+        <thead>
+          <tr>
+            <td class="code center">
+              Codigo
+            </td>
+            <td class="amount center">
+              Cant.
+            </td>
+            <td class="description">
+              Descripción
+            </td>
+            <td class="dimensions center">
+              Dimensiones
+            </td>
+            <td class="unit_price center">
+              Precio Unitario
+            </td>
+            <td  class="total_price center">
+              Total
+            </td>
+          </tr>
+        </thead>
+        <tbody id="product_by_credit_notes_items">
+          <%= render :partial => "product_by_credit_notes" %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div>
+    <div class="c80l subc center">
+      VENOM Impresos Digitales C. A.<br/>
+      Av. Francisco de Miranda, Multicentro Empresarial del Este,
+      Torre Miranda, Local PB-2, Chacao.<br/>
+      venomdescargas@gmail.com<br/>
+    </div>
+    <div class="c10r subc">
+        RIF. J-29680598-9<br/>
+        TELF. FAX: 0212-740.2088<br/>
+        0212-740.2089<br/><br/>
+        www.venomimpresos.com<br/>
+    </div>
+
+  </div>
+  <div id="" class="right control">
+    <%= @title.upcase %>  Nº <span><%= format_code(@credit_note.id, "06") %></span>
+  </div>
+  
+</div>
+
+
+<script type="text/javascript">
+   $(document).ready(function(){
+	 
+	});
+</script>
+

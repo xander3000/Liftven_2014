@@ -1,0 +1,7 @@
+if @success
+	page.replace_html "variable_concepts", :partial => "show_variable_concepts"
+	page << "$('#new_payroll_variable_concept input,#new_payroll_variable_concept select').val('')"
+  page << "$('a[rel]').each(function() {$(this).overlay().close();});"
+else
+	page.show_errors([@employee_variable_concept], "message_overlay", nil)
+end

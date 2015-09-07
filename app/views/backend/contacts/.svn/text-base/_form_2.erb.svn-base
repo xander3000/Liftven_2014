@@ -1,0 +1,9 @@
+<% semantic_fields_for @user do |u| %>
+	 <% u.inputs do %>
+		<%= u.input :login,:label => false,:input_html => {:placeholder => "Usuario del contacto",:class => "top"} %>
+		<%= u.input :password,:input_html => {:style => "max-width:80px;"} %>
+		<%= u.input :password_confirmation,:input_html => {:style => "max-width:80px;"} %>
+		<%= u.input :user_groups,:input_html => {} %>
+		<%= u.input :active,:input_html => {} %>
+	 <% end %>
+<% end %>

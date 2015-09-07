@@ -1,0 +1,395 @@
+/* 
+    Document   : budgets
+    Created on : 12/10/2011, 10:17:09 AM
+    Author     : gabriel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+/*#right_head {
+    background: url("/images/home/slide/leadspace_right.jpg") repeat-x scroll 0 0 #00CAF4;
+    height: 178px;
+    position: absolute;
+    right: 0;
+    top: 1;
+    width: 50%;
+}
+
+#left_head {
+    background: url("/images/home/slide/leadspace_left.jpg") repeat-x scroll 0 0 #00CAF4;
+    height: 178px;
+    left: 0;
+    position: absolute;
+    top: 1;
+    width: 50%;
+
+}*/
+#venom-leadspace-head #venom-leadspace-body {
+    margin: 0 auto;
+    position: relative;
+    width: 980px;
+}
+
+#venom-leadspace-head #venom-leadspace-body
+{
+    background: url("/images/slide/leadspace-designs-bg.png") no-repeat scroll 50% 0 transparent;
+}
+
+#venom-leadspace-head #venom-leadspace-logo-container p{
+    padding-right: 75px;
+}
+
+#content-container {
+    padding-top: 90px;
+}
+
+.short-info_nav ul {
+    padding-top: 0;
+}
+
+form input[type="text"], form input[type="number"], form input[type="email"], form input[type="password"] {
+    width: 100%;
+}
+
+#cards_scrollable{
+    float: left;
+    margin-left: -85px;
+    margin-top: -30px;
+}
+
+.vertical {
+	position:relative;
+	overflow:hidden;
+	height: 600px;
+	width: 220px;
+}
+
+
+.content_model_design_preview{
+    position: relative;
+
+    margin: 15px;
+
+	 /*background: #FAFAFA url(../../images/backgrounds/grid.png) repeat scroll 0 0;*/
+    border: 1px solid #C3C3C3;
+	 -moz-border-radius:5px;
+	 -webkit-border-radius:5px;
+	 border-radius:5px;
+	 -moz-box-shadow: 0 1px 0 0 #FFFFFF;
+	  -webkit-box-shadow: 0 1px 0 0 #FFFFFF;
+	  box-shadow: 0 1px 0 0 #FFFFFF, 0 2px 3px 0 rgba(0, 0, 0, 0.1) inset;
+    height: 245px;
+    outline: medium none;
+    width: 75%;
+}
+
+.ui-icon{
+		 background-color: #F8F8F8;
+		-moz-border-radius:5px;
+		-webkit-border-radius:5px;
+		border-radius:5px;
+		cursor: pointer;
+		position: absolute;
+}
+.crosshair{
+	background-position: 1px -80px;
+    right: -9px;
+    top: -7px;
+}
+
+.rotate{
+	background-position: 97px -64px;
+    left: -7px;
+    top: -7px;
+}
+#draw_add_text{
+	background-position: 159px -113px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+    font-size: 0.7em;
+    right:77px;
+    position: absolute;
+    top: 5px;
+	 border: 1px solid #C3C3C3;
+	 padding: 6px;
+	 cursor: pointer;
+}
+#draw_save{
+	background-position: 159px -113px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+    font-size: 0.7em;
+    right:12px;
+    position: absolute;
+    top: 5px;
+	 border: 1px solid #C3C3C3;
+	 padding: 6px;
+	 cursor: pointer;
+	 font-weight: bold;
+}
+.draggable-item{
+	border: 1px dashed black;
+	/*width: 100px;
+	height: 35px;*/
+	top: 25%;
+	z-index: 5;
+	max-width: none;
+	position: absolute;
+}
+
+.draggable-item-text{
+	font-size: 0.8em;
+	border: 0px;
+	background: none;
+	padding: 0px 5px;
+	overflow: hidden;
+	white-space: nowrap;
+	width: auto;
+	color: #000;
+}
+.draggable-item-position{
+    background: none repeat scroll 0 0 #F8F8F8;
+    border: 0 none;
+    font-size: 0.5em;
+    left: -8px;
+    padding: 1px;
+    position: absolute;
+	 text-align: center;
+    bottom: -7px;
+    width: 46px;
+	 -moz-border-radius:5px;
+	 -webkit-border-radius:5px;
+	 border-radius:5px;
+	 border: 1px solid #AAAAAA;
+
+}
+
+#draw_text{
+	position: absolute;
+	top: 6px;
+	left: 45px;
+}
+#draw_text input{
+	/*-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;*/
+	border: 1px solid #e1e1e1;
+	padding: 5px;
+}
+
+#font_text{
+    left: 215px;
+    position: absolute;
+    top: 6px;
+}
+
+#model_design_toolbar{
+	position: absolute;
+	width: 90%;
+	top: 15px;
+	left: 5%;
+	padding: 4px 0;
+	height: 28px;
+	z-index: 10;
+	border: 1px solid #e1e1e1;
+	background: #eeeeee;
+	background: -moz-linear-gradient(top, #ffffff 0%, #eeeeee 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#eeeeee));
+	background: -webkit-linear-gradient(top, #ffffff 0%,#eeeeee 100%);
+	background: -o-linear-gradient(top, #ffffff 0%,#eeeeee 100%);
+	background: -ms-linear-gradient(top, #ffffff 0%,#eeeeee 100%);
+	background: linear-gradient(to bottom, #ffffff 0%,#eeeeee 100%);
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.1);
+	box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.1);
+}
+#colorSelector div{
+    background: url("../../images/colorpicker/select_box.png") repeat scroll center center transparent;
+    height: 28px;
+    left: 4px;
+    position: absolute;
+    top: 4px;
+    width: 28px;
+}
+#colorSelector{
+    height: 36px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 36px;
+}
+#colorpickerHolder{
+    height: 0;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 31px;
+    width: 356px;
+}
+
+#colorpickerHolder .colorpicker {
+    background-image: url("../../images/colorpicker/custom_background.png");
+    bottom: 0;
+    left: 0;
+    position: absolute;
+}
+
+.colorpicker_rgb_r {
+	background-image: url(../../images/colorpicker/custom_rgb_r.png);
+}
+.colorpicker_rgb_g {
+	background-image: url(../../images/colorpicker/custom_rgb_g.png);
+}
+.colorpicker_rgb_b {
+	background-image: url(../../images/colorpicker/custom_rgb_b.png);
+}
+.colorpicker_hsb_h {
+	background-image: url(../../images/colorpicker/custom_hsb_h.png);
+}
+.colorpicker_hsb_s {
+	background-image: url(../../images/colorpicker/custom_hsb_s.png);
+}
+.colorpicker_hsb_b {
+	background-image: url(../../images/colorpicker/custom_hsb_b.png);
+}
+.colorpicker_submit {
+	background: url(../../images/colorpicker/custom_submit.png) top;
+}
+
+
+
+#product_components  input  {
+    width: 30%;
+}
+
+
+
+.content_model_design_preview img{
+   height: 180px;
+   width: 335px;
+	text-align: center;
+	top: 60px;
+	 left: 150px;
+	position: absolute;
+	
+}
+
+.content_model_design_preview span.labels{
+    cursor: pointer;
+    position: absolute;
+    font-family: arial;
+}
+
+#template_1_step_1 li{
+ display: inline-block;
+ padding: 20px 50px;
+ 
+}
+#template_1_step_1 li img{
+    cursor: pointer;
+}
+
+#template_1_step_1 li img:hover{
+    -moz-box-shadow: 5px 5px 10px #555;
+    -webkit-box-shadow: 5px 5px 10px   #555;
+    box-shadow: 5px 5px 10px   #555;
+}
+
+#template_1_step_1 li img.selected, .inline li img.selected{
+    -moz-box-shadow: 5px 5px 10px   #98BF0C;
+    -webkit-box-shadow: 5px 5px 10px   #98BF0C;
+    box-shadow: 5px 5px 10px   #98BF0C;
+}
+
+
+
+#budget_design  fieldset p {
+    float: left;
+    margin-right: 30px;
+    width: 200px;
+}
+
+#budget_design select{
+    width: 160px;
+}
+
+
+#budget_design #side_dimension p{
+   width: 135px;
+}
+
+#budget_design #side_dimension p.dimension{
+   width: 50px;
+   margin-right: 18px;
+}
+#budget_design #side_dimension p.dimension2{
+   width: 10px;
+   margin: 25px 5px 10px 10px;
+}
+
+#budget_design #side_dimension input{
+   width: auto;
+}
+
+#budget_design #product_by_budget_quantity{
+   width: 45px;
+}
+#budget_design span.product_by_budget_quantity_button{
+    background: url("/images/buttons/scroll_nav_sprite.gif") no-repeat scroll 0 0 transparent;
+    cursor: pointer;
+    height: 11px;
+    margin: 0 0 0 0px;
+    text-align: center;
+    width: 11px;
+    display: inline-block;
+}
+
+#budget_design #product_by_budget_quantity_increase{
+    background-position: 0 -400px;
+}
+
+#budget_design #product_by_budget_quantity_increase:hover{
+    background-position: 0 -350px;
+}
+
+#budget_design #product_by_budget_quantity_decrease{
+    background-position: 0 -295px;
+}
+
+#budget_design #product_by_budget_quantity_decrease:hover{
+    background-position: 0 -245px;
+}
+
+
+#budget_design #add_to_cart,#budget_design .prices input
+{
+   width: auto;
+}
+
+#budget_design   .actions ul li {
+    display: inline-block;
+}
+
+#budget_design #calculator {
+    background: url("/images/icons/calculator.png") no-repeat scroll left center transparent;
+    border: medium none;
+    padding: 5px 0 5px 20px;
+}
+
+#budget_design #add_to_cart {
+    background: url("/images/icons/cart_put.png") no-repeat scroll left center transparent;
+    border: medium none;
+    padding: 5px 0 5px 20px;
+}
+
+#categories_design li{
+    width: 95px;
+}

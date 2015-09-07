@@ -1,0 +1,20 @@
+<div class="actionsBar right no-print">
+  <%= link_to(image_tag("icons/arrow_left.png"),backend_material_management_production_orders_url,:class => "button",:title => "Regresar") %>
+   |
+   <%= link_to(image_tag("icons/printer.png"),backend_material_management_production_order_url(@production_order,"pdf"),:class => "button",:title =>"Imprimir orden") %>
+</div>
+<hr/>
+<div>
+  <% semantic_form_remote_for @production_order, :update => "#{controller.controller_name}_container",:url => "",:html => {:class => "form_generate"} do |f| %>
+  <div class="">
+	 <%= render :partial => "form",:locals => {:f => f} %>
+  </div>
+    
+  <% end %>
+</div>
+<script type="text/javascript">
+	$(document).ready(function(){
+	  $("#item_product_form").hide();
+		$(".material_production_order input, .material_production_order select, .material_production_order textarea").attr("disabled","disabled")
+	});
+</script>

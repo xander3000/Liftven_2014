@@ -1,0 +1,5 @@
+if @success
+  page.redirect_to backend_human_resource_position_url(@payroll_position)
+else
+	page.show_errors([@payroll_position], "message_overlay", nil)
+end

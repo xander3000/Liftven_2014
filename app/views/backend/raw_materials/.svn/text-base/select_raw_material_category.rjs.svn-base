@@ -1,0 +1,33 @@
+page << "$('#raw_material_packing_material_id').children().remove().end().append($('<option></option>').val('').html(''));"
+
+if @raw_material_category
+  if @raw_material_category.is_a_paper_type?
+    page.replace_html "tabs-2", :partial => "form_2"
+    page << "$('#tab-2').show('slow')";
+    page << "$('#tab-3').hide();"
+		page << "$('#raw_material_dossier_dependence_input').show();"
+	elsif @raw_material_category.is_a_material_product_type?
+    page.replace_html "tabs-3", :partial => "form_3"
+    page << "$('#tab-2').hide();"
+    page << "$('#tab-3').show('slow')";
+		page << "$('#raw_material_dossier_dependence_input').hide();"
+	else
+		page << "$('#tab-2').hide();"
+    page << "$('#tab-3').hide('')";
+		page << "$('#raw_material_dossier_dependence_input').hide();"
+  end
+  page << "$('#content_conversions').html('')"
+  @raw_material_category.packing_materials.each do |item|
+    if (item.id.eql?(@packing_material_id))
+      selected = "selected=\"selected\""
+    else
+      selected = ''
+    end
+		page << "$('#raw_material_packing_material_id').append($('<option #{selected}></option>').val('#{item.id}').html('#{item.full_name}'));"
+  end
+	if @raw_material_category.packing_materials.empty?
+		page << "$('#raw_material_packing_material_input').hide()"
+	else
+		page << "$('#raw_material_packing_material_input').show()"
+	end
+end

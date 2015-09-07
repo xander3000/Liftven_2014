@@ -1,0 +1,32 @@
+<div id="new_comment_form">
+  <div class="headerWrap">
+    <div class="headerWrapContent">
+          <h2>Editar <%=  @accessory_component_type.name %> </h2>
+    </div>
+  </div>
+  <div class="mainWrapContent">
+     <% form_layout do %>
+        <% semantic_form_remote_for @accessory_component_type, :url => backend_cpanel_accessory_component_type_url(@accessory_component_type) do |f| %>
+          <% f.inputs do  %>
+            <%= f.input :name %>
+				<%= f.input :amount %>
+				<%= f.input :amount_per_square_meter %>
+				<%= f.input :amount_per_quarter_sheet %>
+				<%= f.input :amount_per_quantity %>
+				<%= f.input :amount_per_distance %>
+				<%= f.input :raw_material,:input_html => {:style => "width: 70%; "} %>
+          <% end %>
+        <% end %>
+      <% end %>
+  </div>
+  <div class="footerWrap">
+    <div class="footerWrapContent right">
+      <%= button_to_function("Actualizar", "$(\"#accessory_component_types_container form\").submit()")  %>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function(){ // Script del Navegador
+    $("button, input:submit,input:button,a.button ").button();
+  });
+</script>

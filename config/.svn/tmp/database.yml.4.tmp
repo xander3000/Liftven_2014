@@ -1,0 +1,48 @@
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: itechven_venom_production
+  pool: 5
+  username: postgres
+  password: postgres
+  host: 192.168.0.127
+
+#development:
+#  adapter: mysql
+#  encoding: utf8
+#  database: itechven_venom_production
+#  pool: 5
+#  username: root
+#  password:
+#  host: localhost
+
+<<<<<<< .mine
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: itechven_venom_production
+  pool: 5
+  username: postgres
+  password: postgres
+  host: localhost
+
+=======
+
+>>>>>>> .r1191
+test:
+  adapter: postgresql
+  encoding: utf8
+  database: venom_development
+  pool: 5
+  username: postgres
+  password: postgres
+  host: localhost
+
+production:
+  adapter: postgresql
+  encoding: utf8
+  database: itechven_venom_production
+  pool: 5
+  username: postgres
+  password: postgres
+  host: localhost

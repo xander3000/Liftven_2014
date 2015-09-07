@@ -1,0 +1,6 @@
+if @success
+	page << "$('#account_payable_payment_schedule_total_amount').val('#{@incoming_invoice.total_amount}')"
+	page << "$('#account_payable_payment_schedule_balance_amount').val('#{@incoming_invoice.balance}')"
+else
+	page.show_message_errors(@errors, "message_overlay", nil)
+end

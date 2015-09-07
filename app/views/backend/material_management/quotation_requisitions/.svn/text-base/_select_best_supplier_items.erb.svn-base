@@ -1,0 +1,58 @@
+<% @quotation_requisition_positions ||= current_quotation_requisition_positions_objects %>
+<% @quotation_requisition_positions.each do |quotation_requisition_position| %>
+<% semantic_fields_for quotation_requisition_position do |qrq| %>
+	 <tr class="item <%= cycle("odd","ever")%> ">
+		<td class="">
+		  <%= quotation_requisition_position.material_raw_material.name %>
+	 	</td>
+		<td class="center">
+		  <%= quotation_requisition_position.quantity %>
+		</td>
+		<td class="center">
+		  <%= quotation_requisition_position.material_order_measure_unit.name %>
+		</td>
+		<td class="center bg_supplier_1">
+		  <%= quotation_requisition_position.supplier_1.name %>
+		</td>
+		<td class="center bg_supplier_1">
+		  <%= quotation_requisition_position.sub_total_supplier_1 %>
+		</td>
+		<td class="center bg_supplier_1">
+		  <%= quotation_requisition_position.tax_supplier_1 %>
+		</td>
+		<td class="center bg_supplier_1">
+		  <%= quotation_requisition_position.total_supplier_1 %>
+		</td>
+		<td class="center bg_supplier_2">
+		  <%= quotation_requisition_position.supplier_2.name %>
+		</td>
+		<td class="center bg_supplier_2">
+		  <%= quotation_requisition_position.sub_total_supplier_2 %>
+		</td>
+		<td class="center bg_supplier_2">
+		  <%= quotation_requisition_position.tax_supplier_2 %>
+		</td>
+		<td class="center bg_supplier_2">
+		  <%= quotation_requisition_position.total_supplier_2 %>
+		</td>
+		<td class="center bg_supplier_3">
+		  <%= quotation_requisition_position.supplier_3.name %>
+		</td>
+		<td class="center bg_supplier_3">
+		  <%= quotation_requisition_position.sub_total_supplier_3 %>
+		</td>
+		<td class="center bg_supplier_3">
+		  <%= quotation_requisition_position.tax_supplier_3 %>
+		</td>
+		<td class="center bg_supplier_3">
+		  <%= quotation_requisition_position.total_supplier_3 %>
+		</td>
+		<td class="center">
+		  <%= qrq.input :selected_supplier,:collection => [quotation_requisition_position.supplier_1,quotation_requisition_position.supplier_2,quotation_requisition_position.supplier_3],:label => false,:input_html => {:name => "material_quotation_requisition_position[#{quotation_requisition_position.material_purchase_requisition_position.id}][selected_supplier_id]"} %>
+		</td>
+		<td class="center">
+		  <%= qrq.input :note,:label => false,:input_html => {:name => "material_quotation_requisition_position[#{quotation_requisition_position.material_purchase_requisition_position.id}][note]"} %>
+		</td>
+	 </tr>
+	 <% end %>
+<% end %>

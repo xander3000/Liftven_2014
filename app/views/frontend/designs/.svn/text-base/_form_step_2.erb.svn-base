@@ -1,0 +1,51 @@
+<% custom_design = CustomDesign.last(:conditions => {:type_design => current_type_design,:category_design => current_category_design}) %>
+
+<% path_template = current_type_design  %>
+<h2 class="StepTitle">Paso 2: Selecciona el modelo</h2>
+<div id="gallery"  class="carousel module">
+  
+    <ul>
+      <% custom_design.multimedia_files.each do |item| %>
+        <li>
+            <a href="<%= item.attach.url%>" title="">
+                <%= image_tag item.attach.url,:id => "template_#{item.id}" %>
+            </a>
+            <%= radio_button_tag "model_design", item.attach.url,:id => "" %>
+        </li>
+        <% end %>
+       
+    </ul>
+</div>
+
+  <script type="text/javascript">
+        $(document).ready(function(){
+         
+            $('#gallery input').click(function () {
+              $('#gallery li a img.selected').removeClass("selected");
+              jQuery("a img",$(this).parent("li")).addClass("selected");
+
+              $.ajax({
+                  type: "POST",
+                  url: "<%= set_model_design_frontend_designs_url %>",
+                  data:  {model_design : $(this).attr("id")}
+              });
+            });
+            $('#gallery a').lightBox();
+            $('#gallery').carousel({
+              itemsPerPage: 5,
+              itemsPerTransition: 3,
+              easing: 'linear',
+              noOfRows: 2
+            });
+            
+            <%
+             unless current_session_wizard_step.empty?
+             model_design = current_session_wizard_step["step_2"][:value]
+           %>
+					
+                $("#gallery li input[value='<%= model_design %>']").click();
+
+          <% end %>
+        });
+
+    </script> 

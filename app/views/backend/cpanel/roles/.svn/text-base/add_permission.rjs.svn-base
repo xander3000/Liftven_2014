@@ -1,0 +1,7 @@
+if @success
+  page << "$('a[rel]').each(function() {$(this).overlay().close();});"
+  page.redirect_to edit_backend_cpanel_role_url(@role)
+else
+  page.show_errors([@permission], "message_overlay", nil)
+end
+

@@ -1,0 +1,36 @@
+<div id="form_items_l" class="form_items_body">
+  <table frame="border" rules="cols" >
+	 <caption>
+		<b>Libro de Banco</b>
+	 </caption>
+	     <thead>
+      <tr>
+        <th class="">
+          <%= CashBank::BankMovement.human_attribute_name(:date)%>
+        </th>
+        <th class="">
+          <%= CashBank::BankMovement.human_attribute_name(:cash_bank_bank_movement_operation_type)%>
+        </th>
+		  <th class="">
+          <%= CashBank::BankMovement.human_attribute_name(:vale)%>
+        </th>
+		  <th class="">
+          <%= CashBank::BankMovement.human_attribute_name(:description)%>
+        </th>
+        <th class="unit_price">
+          <%= CashBank::BankMovement.human_attribute_name(:debit_amount)%>
+        </th>
+		  <th class="unit_price">
+          <%= CashBank::BankMovement.human_attribute_name(:credit_amount)%>
+        </th>
+		  <th class="unit_price">
+          <%= CashBank::BankMovement.human_attribute_name(:account_balance_to_date)%>
+        </th>
+      </tr>
+    </thead>
+	  <tbody id="items_l">
+      <%= render :partial => "items_l" %>
+    </tbody>
+  </table>
+</div>
+

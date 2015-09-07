@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/1347/trunk/Venom/app/controllers/backend/cpanel
+END
+submodules_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/1133/trunk/Venom/app/controllers/backend/cpanel/submodules_controller.rb
+END
+roles_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/1298/trunk/Venom/app/controllers/backend/cpanel/roles_controller.rb
+END
+finish_product_type_prices_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/1342/trunk/Venom/app/controllers/backend/cpanel/finish_product_type_prices_controller.rb
+END
+home_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/1204/trunk/Venom/app/controllers/backend/cpanel/home_controller.rb
+END
+digital_cards_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/824/trunk/Venom/app/controllers/backend/cpanel/digital_cards_controller.rb
+END
+users_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/1347/trunk/Venom/app/controllers/backend/cpanel/users_controller.rb
+END
+accessory_component_types_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/1342/trunk/Venom/app/controllers/backend/cpanel/accessory_component_types_controller.rb
+END
+raw_material_price_definition_set_black_by_components_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/!svn/ver/824/trunk/Venom/app/controllers/backend/cpanel/raw_material_price_definition_set_black_by_components_controller.rb
+END
+state_matrices_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/824/trunk/Venom/app/controllers/backend/cpanel/state_matrices_controller.rb
+END
+modules_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/1133/trunk/Venom/app/controllers/backend/cpanel/modules_controller.rb
+END
+raw_material_price_definition_set_color_by_components_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/!svn/ver/824/trunk/Venom/app/controllers/backend/cpanel/raw_material_price_definition_set_color_by_components_controller.rb
+END
+base_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/831/trunk/Venom/app/controllers/backend/cpanel/base_controller.rb
+END
+permissions_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/986/trunk/Venom/app/controllers/backend/cpanel/permissions_controller.rb
+END
+packing_materials_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/824/trunk/Venom/app/controllers/backend/cpanel/packing_materials_controller.rb
+END
+additional_component_types_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/824/trunk/Venom/app/controllers/backend/cpanel/additional_component_types_controller.rb
+END
+price_list_component_accesories_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/824/trunk/Venom/app/controllers/backend/cpanel/price_list_component_accesories_controller.rb
+END

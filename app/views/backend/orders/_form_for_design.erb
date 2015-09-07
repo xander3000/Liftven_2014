@@ -1,0 +1,18 @@
+      <%= label_tag "","Para:" %>
+      <br/>
+      <%= text_field_tag "","#{@order.client.name} <#{@order.client.email}>",:disabled => true,:size => 100 %>
+      <br/>
+      <br/>
+      <%= label_tag "","De:" %>
+      <br/>
+      <%= text_field_tag "","Venom Impresiones",:disabled => true,:size => 100 %>
+      <br/>
+      <br/>
+      <% semantic_fields_for @design do |d|  %>
+          <% d.inputs do  %>
+            <%= d.input :note,:input_html => {:rows => 20,:cols => 50} %>
+          <% end %>
+      <% end %>
+
+
+  

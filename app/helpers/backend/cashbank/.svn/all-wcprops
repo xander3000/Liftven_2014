@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/1046/trunk/Venom/app/helpers/backend/cashbank
+END
+cashes_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/602/trunk/Venom/app/helpers/backend/cashbank/cashes_helper.rb
+END
+bank_movements_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/572/trunk/Venom/app/helpers/backend/cashbank/bank_movements_helper.rb
+END
+bank_accounts_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/594/trunk/Venom/app/helpers/backend/cashbank/bank_accounts_helper.rb
+END
+check_offereds_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/595/trunk/Venom/app/helpers/backend/cashbank/check_offereds_helper.rb
+END
+checkbooks_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/595/trunk/Venom/app/helpers/backend/cashbank/checkbooks_helper.rb
+END
+cash_journals_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/1046/trunk/Venom/app/helpers/backend/cashbank/cash_journals_helper.rb
+END
+banks_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/593/trunk/Venom/app/helpers/backend/cashbank/banks_helper.rb
+END
+bank_reconciliations_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/626/trunk/Venom/app/helpers/backend/cashbank/bank_reconciliations_helper.rb
+END

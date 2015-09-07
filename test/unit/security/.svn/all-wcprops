@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/986/trunk/Venom/test/unit/security
+END
+submodule_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/784/trunk/Venom/test/unit/security/submodule_test.rb
+END
+role_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/986/trunk/Venom/test/unit/security/role_test.rb
+END
+module_category_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/784/trunk/Venom/test/unit/security/module_category_test.rb
+END
+module_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/784/trunk/Venom/test/unit/security/module_test.rb
+END
+permission_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/986/trunk/Venom/test/unit/security/permission_test.rb
+END

@@ -1,0 +1,5 @@
+if @success
+  page.alert("Viva!!")
+  else
+  page.show_errors([@customer_detail], "message_overlay", nil)
+end

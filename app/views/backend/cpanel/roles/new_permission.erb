@@ -1,0 +1,35 @@
+  <div class="headerWrap">
+    <div class="headerWrapContent">
+          <h2>Agregar nuevo permiso</h2>
+    </div>
+  </div>
+
+<div id=""  class="mainWrapContent">
+  <% semantic_form_remote_for @permission, :update => "#{controller.controller_name}_container",:url => backend_cpanel_role_add_permission_url(@role),:html => {:class => "form_generate"} do |f| %>
+        <% f.inputs do %>
+          <%= f.input :security_role,:input_html => {:disabled => true} %>
+			 <%= f.input :config_panel_module,:input_html => {:onchange => remote_function(:url => set_submodule_backend_cpanel_roles_url,:with => "$(this).serialize()")} %>
+          <%= f.input :config_panel_submodule,:collection => [],:input_html => {:onchange => remote_function(:url => search_actions_controller_backend_cpanel_roles_url,:with => "$(this).serialize()")} %>
+        <% end %>
+        <hr/>
+        <div id="actions" class="border">
+
+        </div>
+  <% end %>
+
+</div>
+
+  <div class="footerWrap">
+    <div class="footerWrapContent right">
+      <%= button_to_function("Guardar", "$(\"#new_security_permission \").submit()")  %>
+    </div>
+  </div>
+<script type="text/javascript">
+
+
+
+    $(document).ready(function(){
+        $("button, input:submit,input:button,a.button ").button();
+	 
+});
+</script>

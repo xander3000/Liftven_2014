@@ -1,0 +1,17 @@
+<%= render :partial => "form_header",:locals => {:f => f} %>
+<%= render :partial => "form_items",:locals => {:f => f} %>
+<br/>
+<div id="reconciliation_detail">
+  <%= render :partial => "form_total",:locals => {:f => f} %>
+</div>
+
+
+
+
+<script type="text/javascript">
+  var total_retenctions = 0;
+		$(document).ready(function(){
+
+		  $("#cash_bank_bank_reconciliation_period").masked("99/9999");
+	});
+</script>

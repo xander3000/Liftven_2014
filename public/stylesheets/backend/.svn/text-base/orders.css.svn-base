@@ -1,0 +1,157 @@
+/* 
+    Document   : orders
+    Created on : 30/07/2011, 09:30:39 AM
+    Author     : gabriel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+/*@import "../layout/3-columns.css";*/
+/*
+@import "../tabledetails.css";
+@import "../tablearticlesdetails.css";*/
+/**/
+@import "listing.css";
+
+.delivery_date{
+    font-size: 1.2em;
+}
+
+
+
+
+/*
+#orders div.toolbar span.count{
+    color:#FF6600;
+}
+
+#orders div.toolbar span.state{
+    color:#003366;
+}
+
+#orders div.item div.panel_items{
+    
+}
+
+#orders div.item div.panel_items div.item{
+    width: 45%;
+    height: 78px;
+    cursor: pointer;
+}
+#orders div.item div.panel_items div.item div.attr_1{
+    font-size: 1.4em;
+    padding-bottom: 2px;
+    text-transform: uppercase;
+}
+
+#orders div.item div.panel_items div.item div.attr_2{
+    font-size: 0.9em;
+    padding-bottom: 6px;
+}
+#orders div.item div.panel_items div.item div.attr_2 span{
+    color:#6C6C6C;
+}
+
+#orders div.item div.panel_items div.item div.attr_3{
+    text-align: justify;
+}
+#orders div.item div.panel_items div.item div.attr_3 p{
+    text-align: justify;
+    line-height:normal;
+}
+
+#orders div.item div.panel_items div.item.side-left{
+    float: left
+
+}
+
+#orders div.item div.panel_items div.item.side-right{
+    float: right;
+}
+
+#orders div.item div.panel_items div.item div.subcl{
+    padding: 5% 0;
+}
+
+
+div.panel_header
+{
+    background-color: #EBEBEB;
+    border: medium none;
+    height: auto;
+    margin: 5px 0;
+    padding: 5px;
+}
+
+div.panel_header h2 {
+    border: medium none;
+    margin-bottom: 2px;
+    color: #666666;
+}
+div.panel_header h3 {
+    color: #666666;
+    font-size: 1.2em;
+}
+
+div.panel_header b.value
+{
+    color: #666666;
+    font-size: 1.2em;
+}
+
+div.panel_items div.item{
+   
+   border: 1px solid #BABABA;
+   margin-bottom: 4px;
+   padding: 5px;
+}
+
+div.panel_items div.item:hover{
+    background: #FAEE8D;
+}
+
+
+div.panel_items div.item div.subcl{
+    border: none;
+    border-right: 1px solid #BABABA;
+    margin: 0;
+}
+
+*/
+
+#details #assigned ul
+{
+    list-style: none;
+}
+#details #assigned ul li
+{
+    padding-top: 5px;
+}
+
+#docs div.panel_items,#attachments div.panel_items
+{
+    min-height: 35px;
+    padding-left: 15px;
+}
+
+#attachments div.panel_items a{
+    text-decoration: none;
+    color: #333;
+}
+
+
+/*COMMENTS*/
+
+#new_comment_form #comment_note_input label{
+    float: none;
+}
+#new_comment_form textarea{
+    max-width: none;
+    width: 97%;
+    height: 170px;
+}
+

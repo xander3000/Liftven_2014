@@ -1,0 +1,123 @@
+<% 
+  @incoming_invoice_taxes ||= current_incoming_invoice_taxes_objects
+	amount_exempt = 0
+	tax_amount_reduced = 0
+	tax_amount_additional = 0
+	tax_amount_general = 0
+	amount_reduced = 0
+	amount_additional = 0
+	amount_general = 0
+
+	total_amounts = 0
+	 
+%>
+
+	<% semantic_fields_for @incoming_invoice do |p| %>
+
+	 <tr class="right ">
+		  <td style="width: 85%">
+			 <%= AccountPayable::IncomingInvoice.human_attribute_name("sub_total_amount") %>
+		  </td>
+		  <td>
+			 <%= p.input :sub_total_amount,:label => false,:input_html => {:readonly => true,:size => 5,:class => "amount reset right"} %>
+		  </td>
+		</tr>
+		<tr class="right">
+		  <td style="">
+			 <%= AccountPayable::IncomingInvoice.human_attribute_name("retained_amount") %>
+		  </td>
+		  <td>
+			 <%= p.input :retained_amount,:label => false,:input_html => {:readonly => true,:class => "amount reset right"} %>
+		  </td>
+		</tr>
+
+		<% @incoming_invoice_taxes.each do |incoming_invoice_tax| %>
+
+			 <%
+
+				  amount_exempt += incoming_invoice_tax.total_amount if incoming_invoice_tax.tax.exempt
+				  tax_amount_reduced += incoming_invoice_tax.tax_amount if incoming_invoice_tax.tax.reduced
+				  tax_amount_additional += incoming_invoice_tax.tax_amount if incoming_invoice_tax.tax.additional
+				  tax_amount_general += incoming_invoice_tax.tax_amount if incoming_invoice_tax.tax.general
+				  amount_reduced += incoming_invoice_tax.taxable if incoming_invoice_tax.tax.reduced
+				  amount_additional += incoming_invoice_tax.taxable if incoming_invoice_tax.tax.additional
+				  amount_general += incoming_invoice_tax.taxable if incoming_invoice_tax.tax.general
+				  total_amounts += incoming_invoice_tax.total_amount
+
+			 %>
+
+			 <tr class="right">
+				<% if incoming_invoice_tax.tax.exempt %>
+				  <td>
+					 Monto exento
+				  </td>
+				  <td class="numeric optional">
+						<li><%= text_field_tag "s",incoming_invoice_tax.total_amount,:size => 15,:class => "right sum_amount"  %></li>
+					 </td>
+				  <% else %>
+					 <td>
+						<%= "I.V.A #{incoming_invoice_tax.tax.amount.to_f.to_currency(false)}% Sobre " %>
+						<%= text_field_tag "s",incoming_invoice_tax.taxable,:size => 10,:class => "right sum_amount",:style => "width:11%"  %>
+					 </td>
+					 <td class="numeric optional">
+						<li><%= text_field_tag "s",incoming_invoice_tax.tax_amount,:size => 5,:class => "right sum_amount"%></li>
+					 </td>
+				  <% end %>
+					 
+			 </tr>
+
+		<% end %>
+
+		<tr class="right hidden">
+		  <td style="width: 85%">
+			 <%= AccountPayable::IncomingInvoice.human_attribute_name("tax_amount_general") %>
+		  </td>
+		  <td>
+			 <%= p.input :tax_amount_general,:label => false,:input_html => {:readonly => true,:size => 5,:class => "right",:value => tax_amount_general} %>
+			 <%= p.input :amount_general,:as => :hidden,:input_html => {:readonly => true,:size => 5,:class => "",:value => amount_general} %>
+		  </td>
+		</tr>
+		<tr class="right hidden">
+		  <td style="">
+			 <%= AccountPayable::IncomingInvoice.human_attribute_name("tax_amount_reduced") %>
+		  </td>
+		  <td>
+			 <%= p.input :tax_amount_reduced,:label => false,:input_html => {:readonly => true,:size => 5,:class => "right",:value => tax_amount_reduced} %>
+			 <%= p.input :amount_reduced,:as => :hidden,:input_html => {:readonly => true,:size => 5,:class => "",:value => amount_reduced} %>
+		  </td>
+		</tr>
+		<tr class="right hidden">
+		  <td style="">
+			 <%= AccountPayable::IncomingInvoice.human_attribute_name("tax_amount_additional") %>
+		  </td>
+		  <td>
+			 <%= p.input :tax_amount_additional,:label => false,:input_html => {:readonly => true,:size => 5,:class => "right",:value => tax_amount_additional} %>
+			 <%= p.input :amount_additional,:as => :hidden,:input_html => {:readonly => true,:size => 5,:class => "",:value => amount_additional} %>
+		  </td>
+		</tr>
+		<tr class="right hidden">
+		  <td style="">
+			 <%= AccountPayable::IncomingInvoice.human_attribute_name("amount_exempt") %>
+		  </td>
+		  <td>
+			 <%= p.input :amount_exempt,:label => false,:input_html => {:readonly => true,:size => 5,:class => "right",:value => amount_exempt} %>
+		  </td>
+		</tr>
+		<tr class="right">
+		  <td style="">
+			 <%= AccountPayable::IncomingInvoice.human_attribute_name("total_amount") %>
+		  </td>
+		  <td>
+			 <%= p.input :total_amount,:label => false,:input_html => {:readonly => true,:size => 5,:class => " reset right"} %>
+		  </td>
+		</tr>
+		<tr class="right">
+		  <td style="font-size: 2em">
+			 <%= AccountPayable::IncomingInvoice.human_attribute_name("amount_total_to_paid") %>
+		  </td>
+		  <td>
+			 <%= p.input :amount_total_to_paid,:label => false,:input_html => {:readonly => true,:size => 5,:class => "top reset right"} %>
+		  </td>
+		</tr>
+
+		<% end %>

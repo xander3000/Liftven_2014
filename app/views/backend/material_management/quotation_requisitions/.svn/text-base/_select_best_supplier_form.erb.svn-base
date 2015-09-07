@@ -1,0 +1,64 @@
+<%= render :partial => "form_header",:locals => {:f => f} %>
+<%= render :partial => "select_best_supplier_form_items",:locals => {:f => f} %>
+
+
+
+<script type="text/javascript">
+
+  function action_after_complete_for_suppliers(item,rel){
+    switch (item.code_response) {
+        case ("ok"):
+
+            $("#"+rel).val(item.supplier_id)
+				
+            break;
+        case ("no-ok"):
+            alert('no-ok');
+            break;
+        default:
+            alert('problemas buscando');
+    }
+  }
+
+
+  
+		$(document).ready(function(){
+                    $("#material_quotation_requisition_posting_date,#material_quotation_requisition_delivery_date").datepicker({
+                    changeMonth: true,
+                    dateFormat: 'yy-mm-dd',
+                    minDate: "-0",
+                    maxDate: "+35",
+                    yearRange: 'c-80:c+30',
+          beforeShowDay: noWeekendsOrHolidays
+        });
+		  $(".supplier_name").autocomplete({
+			 
+			  source: "<%= autocomplete_by_supplier_name_backend_contacts_url %>",
+			  minLength: 3,
+			  open: function( event, ui ) {
+				 $("#"+$(this).attr("rel")).val("")
+			  },
+			  select: function( event, ui ) {
+				 if(ui.item)
+					 action_after_complete_for_suppliers(ui.item,$(this).attr("rel"));
+			  }
+		  });
+
+		$("#sub_total_currency,#material_quotation_requisition_position_quantity").blur(function(){
+
+		  $("#material_quotation_requisition_position_sub_total").val($("#sub_total_currency").val());
+		  sub_total = $("#material_quotation_requisition_position_sub_total").val();
+		  quantity = $("#material_quotation_requisition_position_quantity").val();
+
+		  $("#material_quotation_requisition_position_total").val(parseFloat(sub_total)*parseInt(quantity));
+			//$("#sub_total_currency").parseNumber({format:"#,###.00", locale:"es"});
+			//$("#sub_total_currency").formatNumber({format:"#,###.00", locale:"es"});
+			$("#total_currency").html($("#material_quotation_requisition_position_total").val());
+			//$("#total_currency").parseNumber({format:"#,###.00", locale:"es"});
+			//$("#total_currency").formatNumber({format:"#,###.00", locale:"es"});
+
+
+		});
+		  
+	});
+</script>

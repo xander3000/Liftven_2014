@@ -1,0 +1,99 @@
+<style type="text/css">
+  div.overlay {
+	 width: 600px;
+}
+
+
+#parameters_criterion select{
+  width: 80%;
+  padding: 3px;
+}
+
+#parameters_criterion input{
+  max-width: 74%;
+  border: 1px solid #C2C2C2;
+  padding: 4px;
+}
+
+
+</style>
+
+<div class="headerWrap">
+    <div class="headerWrapContent">
+    <h2>Busqueda de movimientos por criterio</h2>
+    </div>
+  </div>
+<% form_tag process_movements_by_criterion_backend_accountancy_accountant_accounts_url,:id => "parameters_criterion_form" do %>
+  <div id="parameters_criterion" class="mainWrapContent">
+	 <div>
+		<div class="subc c50l">
+		  <p>
+			 <label>
+				<%= Accounting::AccountantAccount.human_attribute_name("base")%>
+			 </label><br/>
+			 <%= text_field(:accountant_accounts, :accountant_account_name) %>
+			 <%= hidden_field(:accountant_accounts, :accountant_account_id) %>
+		  </p>
+		</div>
+		<div class="subc c50r">
+		  <p>
+			 <label>
+				<%= Accounting::TransactionMovementAccountingConcept.human_attribute_name("date")%>
+			 </label><br/>
+			 <%= text_field(:accountant_accounts, :date_from,:size => 8,:class => "datepicker",:value => Date.today.at_beginning_of_month.to_s ) %> <%= text_field(:accountant_accounts, :date_to,:size => 8,:class => "datepicker",:value => Date.today.end_of_month.to_s) %>
+		  </p>
+		</div>
+
+	 </div>
+
+  </div>
+<% end %>
+  <div class="footerWrap">
+    <div class="footerWrapContent right">
+      <%= button_to_function("Buscar", "$(\"#parameters_criterion_form\").submit()")  %>
+    </div>
+  </div>
+
+<script type="text/javascript">
+    function action_after_complete_for_accountant_account(item){
+    switch (item.code_response) {
+        case ("ok"):
+            $("#accountant_accounts_accountant_account_id").val(item.id)
+            break;
+        case ("no-ok"):
+				$("#accountant_accounts_accountant_account_name").val('')
+            $("#accountant_accounts_accountant_account_id").val('')
+            break;
+        default:
+				$("#accountant_accounts_accountant_account_name").val('')
+            $("#accountant_accounts_accountant_account_id").val('')
+				break;
+    }
+  }
+	$(document).ready(function(){
+                $("button, input:submit,input:button,a.button ").button();
+					 $(".datepicker").datepicker({
+						changeMonth: true,
+						dateFormat: 'yy-mm-dd',
+						minDate: "-365",
+						maxDate: "+0",
+						yearRange: 'c-80:c+30'
+					 }).attr("readonly",true);
+
+					 $("#accountant_accounts_accountant_account_name").autocomplete({
+						 source: "<%= autocomplete_by_accountant_account_backend_accountancy_accounting_concepts_url %>",
+						 minLength: 3,
+						 select: function( event, ui ) {
+							if(ui.item)
+								action_after_complete_for_accountant_account(ui.item);
+						 },
+						 open: function( event, ui ) {
+							$("#accountant_accounts_accountant_account_id").val('');
+						 }
+					 });
+
+
+
+
+		  });
+</script>

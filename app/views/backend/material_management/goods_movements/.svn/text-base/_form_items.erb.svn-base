@@ -1,0 +1,38 @@
+<div id="form_items">
+  <table frame="border" rules="cols" >
+    <thead>
+      <tr>
+        <th class="material">
+          <%= Material::GoodsMovementPosition.human_attribute_name(:material_raw_material)%>
+        </th>
+        <th class="quantity">
+          <%= Material::GoodsMovementPosition.human_attribute_name(:quantity)%>
+        </th>
+		  <th class="quantity">
+          Disponible
+        </th>
+
+      </tr>
+      <tr id="item_product_form">
+        <td class=" center">
+			 <%= text_field_tag "material_name","",:placeholder => "Ingrese material" %>
+          <%= hidden_field_tag "material_goods_movement_position[material_raw_material_id]","",:class => "" %>
+        </td>
+        <td class="center quantity">
+			 <%= text_field_tag "material_goods_movement_position[quantity]","",:class => "quantity"%>
+        </td>
+
+      </tr>
+    </thead>
+    <tbody id="items">
+      <%= render :partial => "items" %>
+    </tbody>
+  </table>
+</div>
+
+<script type="text/javascript">
+
+	$(document).ready(function(){
+
+	});
+</script>

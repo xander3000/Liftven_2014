@@ -1,0 +1,21 @@
+<div class="actionsBar right no-print">
+  <%= link_to(image_tag("icons/arrow_left.png"),backend_cpanel_users_url,:class => "button",:title => "Regresar") %>
+  |
+  <%= link_to(image_tag("icons/pencil.png"),edit_backend_cpanel_user_url(@user),:class => "button",:title => "Editar") %>
+</div>
+<hr/>
+<div>
+  <% semantic_form_remote_for @user, :update => "#{controller.controller_name}_container",:url => "",:html => {:class => "form_generate"} do |f| %>
+  <div class="">
+	 <%= render :partial => "form",:locals => {:f => f} %>
+  </div>
+
+  <% end %>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+                $(".user input, .user select, .user textarea").attr("disabled","disabled")
+	});
+
+</script>

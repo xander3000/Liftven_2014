@@ -1,0 +1,15 @@
+<div id="" class="content_form">
+  
+    <% f.inputs "Datos generales" do %>
+		<%= f.input :client,:collection => [@client],:input_html  => {:class => "not-editabble",:disabled => true}%>
+		<%= f.input :user, :input_html => {:class => "not-editabble",:disabled => true} %>
+		<%= f.input :doc_type,:wrapper_html => {:class => "hidden"} %>
+		<%= f.input :doc,:collection => @docs, :input_html => {} %>
+  		<%= f.input :date,:as => :string, :input_html => {} %>
+		<%= f.input :note, :input_html => {} %>
+		<hr/>
+		<%= f.input :amount, :input_html => {:class => "top right",:size => 5} %>
+		<%= f.input :balance, :wrapper_html => {:class => "hidden"},:input_html => {:class => "top right",:size => 5,:readonly => true} %>
+	 <% end %>
+	 
+</div>

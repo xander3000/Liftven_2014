@@ -1,0 +1,17 @@
+<div id="" class="content_form">
+  <%  semantic_fields_for @supplier do |s| %>
+	 <% s.inputs "Datos fiscales" do %>
+		<%= s.input :is_national %>
+		<%= s.input :is_retention_agent,:input_html => {:class => "blocked"}%>
+		<%= s.input :is_taxpayer,:input_html => {:class => "blocked"}%>
+		<%= s.input :rate_retention,:input_html  => {:size => 5}%>
+    <% end %>
+    <% s.inputs "Retenciones I.S.L.R" do %>
+		 <div  id="supplier_withholding_taxes">
+		  <%= render :partial => "supplier_withholding_taxes" %>
+		</div>
+	 <% end %>
+  <% end %>
+
+</div>
+

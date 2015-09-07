@@ -1,0 +1,19 @@
+<div id="components_element_type">
+  <div class="headerWrap">
+    <div class="headerWrapContent">
+    <h2><%= @element_type::HUMANIZE_MODEL_NAME %></h2>
+    </div>
+  </div>
+  <div class="mainWrapContent">
+          <ul>
+             <% @elements_by_product.each do |element_type| %>
+              <li>
+                  <%= element_type.name %>
+              </li>
+             <% end %>
+          </ul>
+
+
+  </div>
+
+</div>

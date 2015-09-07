@@ -1,0 +1,29 @@
+<%= javascript_include_tag "jquery.lookupSeniat" %>
+
+
+<div class="actionsBar right no-print">
+  <%= link_to(image_tag("icons/arrow_left.png"),backend_financial_management_clients_url,:class => "button",:title => "Regresar") %>
+</div>
+<hr/>
+<div>
+  <% semantic_form_remote_for @client, :update => "#{controller.controller_name}_container",:url => backend_financial_management_client_url(@client),:html => {:class => "form_generate",:method => :put} do |f| %>
+  <div class="">
+	 <%= render :partial => "form",:locals => {:f => f} %>
+  </div>
+   <%= link_to_function "ACTUALIZAR","generate()", :disable_with => "Por favor espere...",:id => "contable_document-button",:class => "button" %>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+function generate()
+        {
+          result = confirm("¿Esta seguro de ejecutar esta acción?")
+          if (result)
+            $(".form_generate").submit();
+        }
+
+       	$(document).ready(function(){
+               // $(".supplier input, .supplier select, .supplier textarea").attr("disabled","disabled")
+					$(" input.not-editabble,  select.not-editabble").attr("disabled","disabled")
+	});
+</script>

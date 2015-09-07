@@ -1,0 +1,200 @@
+/* 
+    Document   : static_contents
+    Created on : 31/01/2012, 06:51:13 AM
+    Author     : gabriel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+#about_us_leadspaces #venom-leadspace-body {
+    background: url("/images/slide/leadspace-aboutus-bg.png") no-repeat scroll 50% 0 transparent;
+}
+
+#about_us_leadspaces #venom-sp-logo {
+    background-position: 0 -950px;
+}
+
+#about_us_main_content{
+    
+}
+
+#about_us_main_content div.subc{
+    padding: 0 5px;
+}
+
+#about_us_main_content p{
+    text-align: justify;
+    font-size: 12px;
+}
+
+#portfolio-content{
+	padding-top: 10px;
+}
+#portfolio{
+	
+   border: 10px solid #CCCCCC;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	-moz-box-shadow:0 0 4px 2px #999999;
+	-webkit-box-shadow:0 0 4px 2px #999999;
+	box-shadow:0 0 4px 2px #999999, 0 0 30px 15px #EEEEEE inset
+}
+
+#portfolio.nivoSlider {
+    position:relative;
+    background:url(../../images/icons/loader.gif) no-repeat 50% 50%;
+}
+#portfolio.nivoSlider img {
+    position:absolute;
+    top:0px;
+    left:0px;
+    display:none;
+}
+#portfolio.nivoSlider a {
+    border:0;
+    display:block;
+}
+
+.image_carousel {
+    padding: 15px 40px;
+    position: relative;
+    width: 870px;
+}
+
+.caroufredsel_wrapper{
+	 bottom: auto;
+    display: block;
+    float: none;
+    height: 170px;
+    left: auto;
+    margin: 0;
+    overflow: visible;
+    position: relative;
+    right: auto;
+    text-align: left;
+    top: auto;
+    width: 870px;
+    z-index: auto;
+	 margin: 2% 8%;
+}
+
+.caroufredsel_wrapper .prev ,.caroufredsel_wrapper .next{
+	background: transparent url(../../images/buttons/scroll_nav_sprite.gif) no-repeat center center;
+	height: 25px;
+	width: 15px;
+}
+
+.caroufredsel_wrapper .prev {
+	left: -15px;
+    position: relative;
+    top: -75px;
+	 background-position: 3px -150px;
+}
+.caroufredsel_wrapper .prev:hover{
+	 background-position: 3px -100px;
+}
+
+.caroufredsel_wrapper .next {
+    position: relative;
+    right: -805px;
+    top: -105px;
+	 background-position: 3px -48px;
+}
+.caroufredsel_wrapper .next:hover{
+	background-position: 3px 2px;
+}
+.image_carousel img {
+    background-color: white;
+    border: 1px solid #CCCCCC;
+    display: block;
+    float: left;
+    margin: 7px;
+    padding: 9px;
+}
+
+
+#services_leadspaces #venom-leadspace-body {
+    background: url("/images/slide/leadspace-services-bg.png") no-repeat scroll 50% 0 transparent;
+
+}
+
+#services_leadspaces #venom-leadspace-logo-container{
+    width: 50%;
+}
+
+#services_main_content #tabs-3 ul li{
+    display: block;
+}
+
+#price_list_leadspaces{
+    background: url("/images/slide/leadspace-price-list-bg.png") no-repeat scroll 50% 0 transparent;
+    height: 300px;
+}
+
+#price_list_leadspaces #venom-leadspace-logo-container{
+    width: 55%;
+}
+
+#price_list_leadspaces #venom-sp-logo {
+    background-position: 0 -550px;
+}
+
+#contact_us_leadspaces{
+    background: url("/images/slide/leadspace-contact_us-bg.png") no-repeat scroll 50% 0 transparent;
+    height: 300px;
+
+}
+
+#contact_us_content{
+    margin-top: 10px;
+}
+
+#contact_us_content div.item {
+    padding-bottom: 15px;
+}
+
+#contact_us_content img {
+    float: left;
+    padding-right: 5px;
+}
+
+#contact_us_content div b {
+    color: #4C4C4C;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+#contact_us_content div h2{
+    font-size: 1.5em;
+}
+
+#contact_us_content div p {
+    color: #4C4C4C;
+    font-size: 0.8em;
+}
+
+#contact_us_content div a{
+    color: #4C4C4C;
+    font-size: 0.8em;
+}
+
+#contact_us_content div ul.social_networking{
+    padding: 0;
+}
+#contact_us_content div ul.social_networking li{
+    display: inline-block;
+    width: 160px;
+}
+
+#contact_us_email_us p{
+    margin-bottom: 5px;
+}
+
+#jobs_content b a{
+    color: #A6A7AA;
+}

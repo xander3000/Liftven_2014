@@ -1,0 +1,60 @@
+<%= include_javascript("jquery.dataTables.min.js") %>
+<%= include_stylesheet("jquery.datatable.css") %>
+
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="items" width="100%">
+	<thead>
+		<tr>
+			<th style="width: 10px;">St</th>
+			<th><%= CashBank::DailyCashClosing.human_attribute_name("cash_bank_cash")%> </th>
+			<th><%= CashBank::DailyCashClosing.human_attribute_name("id")%> </th>
+			<th><%= CashBank::DailyCashClosing.human_attribute_name("report_z_number")%> </th>
+			<th><%= CashBank::DailyCashClosing.human_attribute_name("date")%> </th>
+			<th><%= CashBank::DailyCashClosing.human_attribute_name("total_amount_sales")%> </th>
+			<th><%= CashBank::DailyCashClosing.human_attribute_name("total_amount_cash")%> </th>
+			<th><%= CashBank::DailyCashClosing.human_attribute_name("total_amount_credit")%> </th>
+			<th><%= CashBank::DailyCashClosing.human_attribute_name("total_amount_debit")%> </th>
+			<th><%= CashBank::DailyCashClosing.human_attribute_name("total_amount_check")%> </th>
+			
+		</tr>
+	</thead>
+	<tbody>
+	  <% @daily_cash_closings.each do |item|  %>
+		 <tr class="external-overlay" rel=".overlay" ref="">
+			 <td class="center" title="Vigente"><%= image_tag "icons/bullet_square_green.png" %></td>
+			 <td class="left"><%= item.cash_bank_cash.name%> </td>
+			 <td class="left"><%= link_to(format_code(item.id,"05"),backend_show_daily_cash_closing_url(item)) %></td>
+			 <td class="left"><%= item.report_z_number%></td>
+			 <td class="left"><%= item.date%></td>
+			 <td class="right"><%=  number_to_currency(item.total_amount_sales, :delimiter => ".", :separator => ",", :unit => "")%></td>
+			 <td class="right"><%=  number_to_currency(item.total_amount_cash, :delimiter => ".", :separator => ",", :unit => "")%></td>
+			 <td class="right"><%=  number_to_currency(item.total_amount_credit, :delimiter => ".", :separator => ",", :unit => "")%></td>
+			 <td class="right"><%=  number_to_currency(item.total_amount_debit, :delimiter => ".", :separator => ",", :unit => "")%></td>
+			 <td class="right"><%=  number_to_currency(item.total_amount_check, :delimiter => ".", :separator => ",", :unit => "")%></td>
+			 
+		 </tr>
+		<% end %>
+	</tbody>
+</table>
+<div class="right">
+      <%#= link_to image_tag("/images/icons/invoice.png"),new_backend_item_url,:class => "button",:title => "nueva factura" %>
+      <%#= link_to image_tag("/images/icons/anchor.png"),"#",:class => "goTop button" %>
+</div>
+
+
+
+<script type="text/javascript">
+  var oTable;
+
+  $(document).ready(function() {
+		oTable =  $('#items').dataTable({
+            oLanguage: {
+                sUrl: "/javascripts/i18n/jquery.DataTables-es.txt"
+            }
+        });
+
+
+  });
+
+
+
+</script>

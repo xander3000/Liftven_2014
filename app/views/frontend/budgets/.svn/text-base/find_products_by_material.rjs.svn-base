@@ -1,0 +1,5 @@
+page << "jQuery('#product_by_budget_product_id').children().remove().end()"
+
+  @products.each do |item|
+    page << "jQuery('#product_by_budget_product_id').append(jQuery('<option></option>').val('#{item.id}').html('#{item.name}'));"
+  end

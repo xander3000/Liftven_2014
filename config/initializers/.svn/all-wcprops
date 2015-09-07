@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/1493/trunk/Venom/config/initializers
+END
+inflections.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/273/trunk/Venom/config/initializers/inflections.rb
+END
+wicked_pdf.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/641/trunk/Venom/config/initializers/wicked_pdf.rb
+END
+session_store.rb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/273/trunk/Venom/config/initializers/session_store.rb
+END
+class_extensions.rb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/275/trunk/Venom/config/initializers/class_extensions.rb
+END
+load_config.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/1127/trunk/Venom/config/initializers/load_config.rb
+END
+imgkit.rb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/524/trunk/Venom/config/initializers/imgkit.rb
+END
+backtrace_silencers.rb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/273/trunk/Venom/config/initializers/backtrace_silencers.rb
+END
+new_rails_defaults.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/273/trunk/Venom/config/initializers/new_rails_defaults.rb
+END
+mime_types.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/1493/trunk/Venom/config/initializers/mime_types.rb
+END
+formtastic.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/273/trunk/Venom/config/initializers/formtastic.rb
+END

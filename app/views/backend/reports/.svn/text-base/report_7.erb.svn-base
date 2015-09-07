@@ -1,0 +1,65 @@
+<div id="container"></div>
+
+
+<script type="text/javascript">
+  $(function () {
+    var chart;
+    $(document).ready(function() {
+       <%=
+          last_months = Time.now.months_since_to_now(6).inspect
+          
+        %>
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'container',
+                type: 'column'
+            },
+            title: {
+                text: 'Comportamiento ultimo semestre'
+            },
+            xAxis: {
+                categories: <%= last_months%>
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Total comprado al mes (%)'
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                backgroundColor: '#FFFFFF',
+                align: 'left',
+                verticalAlign: 'top',
+                x: 100,
+                y: 70,
+                floating: true,
+                shadow: true
+            },
+            tooltip: {
+                formatter: function() {
+                    return ''+
+                        this.series.name +': '+ this.y +' ('+ Math.round(this.percentage) +'%)';
+                }
+            },
+            plotOptions: {
+                column: {
+                     stacking: 'percent'
+                }
+            },
+                series: [{
+                name: 'Total Comprado',
+                data: [155.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6]
+
+            }, {
+                name: 'Por pagar',
+                data: [25.6, 38.8, 8.5, 3.4, 6.0, 4.5, 10.0]
+
+            }]
+        });
+    });
+
+});
+</script>
+
+

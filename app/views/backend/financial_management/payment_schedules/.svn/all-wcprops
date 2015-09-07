@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/1201/trunk/Venom/app/views/backend/financial_management/payment_schedules
+END
+edit.erb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/1186/trunk/Venom/app/views/backend/financial_management/payment_schedules/edit.erb
+END
+_payment_plan.erb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/financial_management/payment_schedules/_payment_plan.erb
+END
+index.erb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/1201/trunk/Venom/app/views/backend/financial_management/payment_schedules/index.erb
+END
+update.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/financial_management/payment_schedules/update.rjs
+END
+set_payment_plan.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/financial_management/payment_schedules/set_payment_plan.rjs
+END
+new.erb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/1186/trunk/Venom/app/views/backend/financial_management/payment_schedules/new.erb
+END
+_form_payment_plan.erb
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/financial_management/payment_schedules/_form_payment_plan.erb
+END
+create.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/financial_management/payment_schedules/create.rjs
+END
+_form_header.erb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/1126/trunk/Venom/app/views/backend/financial_management/payment_schedules/_form_header.erb
+END
+set_bank.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/financial_management/payment_schedules/set_bank.rjs
+END
+set_incoming_invoice.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/financial_management/payment_schedules/set_incoming_invoice.rjs
+END
+_form.erb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/1126/trunk/Venom/app/views/backend/financial_management/payment_schedules/_form.erb
+END

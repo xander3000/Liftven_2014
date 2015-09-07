@@ -1,0 +1,11 @@
+if @success
+  page << "$('#item_product_form input,#item_product_form select,#item_product_form textarea ').val('')"
+  page << "$('#product_product_id,#product_side_dimension_x,#product_side_dimension_y').val(1)"
+  page << "$('.like_input').html('0,00')"
+  page.hide "add_product_button"
+  page.replace_html "product_components", :text => ""
+  page.replace_html "product_by_invoices_items",  :partial => "product_by_invoices"
+else
+  page.show_errors([@product_by_invoice], "message_overlay", nil)
+end
+

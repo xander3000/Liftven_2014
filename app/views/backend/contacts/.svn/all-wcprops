@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/1186/trunk/Venom/app/views/backend/contacts
+END
+new.erb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/contacts/new.erb
+END
+create.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/contacts/create.rjs
+END
+_show_1.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/contacts/_show_1.erb
+END
+_show_2.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/contacts/_show_2.erb
+END
+select_list.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/contacts/select_list.rjs
+END
+_show_3.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/contacts/_show_3.erb
+END
+_form.erb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/contacts/_form.erb
+END
+index.erb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/1186/trunk/Venom/app/views/backend/contacts/index.erb
+END
+_index_slider.erb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/contacts/_index_slider.erb
+END
+update.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/contacts/update.rjs
+END
+_index_right_options.erb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/contacts/_index_right_options.erb
+END
+_show.erb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/contacts/_show.erb
+END
+show.erb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/contacts/show.erb
+END
+_form_1.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/contacts/_form_1.erb
+END
+_form_2.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/contacts/_form_2.erb
+END
+_form_3.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/contacts/_form_3.erb
+END
+edit.erb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/contacts/edit.erb
+END

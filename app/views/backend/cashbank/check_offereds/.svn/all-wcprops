@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/1203/trunk/Venom/app/views/backend/cashbank/check_offereds
+END
+_form.erb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/1203/trunk/Venom/app/views/backend/cashbank/check_offereds/_form.erb
+END
+search_checkbook_by_bank_account.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cashbank/check_offereds/search_checkbook_by_bank_account.rjs
+END
+search_bank_account_by_bank.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cashbank/check_offereds/search_bank_account_by_bank.rjs
+END
+index.erb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/1203/trunk/Venom/app/views/backend/cashbank/check_offereds/index.erb
+END
+new.erb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cashbank/check_offereds/new.erb
+END
+create.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/982/trunk/Venom/app/views/backend/cashbank/check_offereds/create.rjs
+END

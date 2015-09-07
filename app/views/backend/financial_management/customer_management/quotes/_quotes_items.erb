@@ -1,0 +1,71 @@
+<% @quote_positions ||= current_positions %>
+
+
+<% if !@quote_positions.empty? %>
+<%
+	 sub_total = 0.0
+%>
+  <table>
+	 <thead>
+		<tr>
+		  <th>Producto</th>
+		  <th class="right">Precio unitario</th>
+		  <th>Cantidad</th>
+		  <th class="right">Total</th>
+		</tr>
+	 </thead>
+	 <tbody>
+	 <% @quote_positions.each do |quote_position| %>
+		 <% sub_total += quote_position.total_price %>
+		<tr>
+		  <td class="center"><%= quote_position.product.name %> </td>
+		  <td class="right"><%= quote_position.unit_price.to_f.to_currency(false) %></td>
+		  <td class="center"><%= quote_position.quantity %></td>
+		  <td class="right"><%= quote_position.total_price.to_f.to_currency %></td>
+		</tr>
+		<% end %>
+		<tr>
+		  <td colspan="3" class="right border-top border-right"><b>Sub-Total:</b></td>
+		  <td class="right border-top"><%= sub_total.to_f.to_currency %> </td>
+		</tr>
+		<tr>
+		  <td colspan="3" class="right border-right"><b>Impuesto:</b></td>
+		  <% tax =  sub_total + sub_total*AppConfig.tax/100 %>
+		  <td class="right"><%= (tax = (sub_total*AppConfig.tax_percentage)).to_f.to_currency(false) %></td>
+		</tr>
+		<tr>
+		  <td colspan="3" class="right border-right"><b>Total:</b></td>
+		  <td class="right"><%= (tax+sub_total).to_f.to_currency %></td>
+		</tr>
+	 </tbody>
+  </table>
+<br/>
+<div class="right">
+	 <%= link_to "+  Añadir artículos de línea",new_position_backend_financial_management_customer_management_quotes_url,:class => "external-overlay",:rel=>".overlay"  %>
+</div>
+<% else %>
+	 <div class="center" style="background-color: #F9F8F8;border: 1px dashed #E3E3E3;color: #137DCF !important; margin-bottom: 12px; padding: 12px 0 12px 9px; text-align: center;">
+		<%= link_to "+  Añadir artículos de línea",new_position_backend_financial_management_customer_management_quotes_url,:class => "external-overlay",:rel=>".overlay"  %>
+	 </div>
+<% end %>
+
+
+<script type="text/javascript">
+ $(document).ready(function() {
+
+
+	 			  $("a.external-overlay").overlay({
+				mask: {
+						  color: '#000',
+						  loadSpeed: 200,
+						  opacity: 0.9
+				},
+				onBeforeLoad: function() {
+					 var wrap = this.getOverlay().find(".contentWrap");
+					 wrap.load(this.getTrigger().attr("href"));
+				},
+				onLoad:function() {}
+			 });
+  });
+
+</script>

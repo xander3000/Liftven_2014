@@ -1,0 +1,78 @@
+<div id="" class="content_form">
+    <% f.inputs "Datos generales" do %>
+		<%= f.input :subject,:label => false,:input_html  => {:class => "top",:placeholder => "Asunto"}%>
+		<div class="subc c50l">
+		  <% f.inputs do  %>
+			 <%= f.input :crm_contact %>
+			 <%= f.input :assigned_to,:input_html => {} %>
+		  
+		<% end %>
+		</div>
+		<div class="subc c50r">
+		  <% f.inputs do  %>
+			  <%= f.input :related_to_type,:as => :select,:collection => @related_to, :input_html => {:onchange => "autocomplete_for_relation()"} %>
+			  <%= f.input :related_to_name,:as => :string,:wrapper_html => {:class => ""},:input_html => {:class => @note.new_record? ? "hidden" : "",:size => 16} %>
+			 <%= f.input :related_to_id,:as => :string,:wrapper_html => {:class => "hidden"},:input_html => {:size => 16} %>
+		  <% end %>
+		</div>
+	 <% end %>
+
+  <% f.inputs :class => "" do %>
+	 <%= f.input :description,:input_html => {} %>
+  <% end %>
+  
+</div>
+
+<script type="text/javascript">
+  
+  
+	 function relation_after_complete(item){
+		  switch (item.code_response) {
+        case ("ok"):
+				$("#crm_note_related_to_id").val(item.id)
+            break;
+        case ("no-ok"):
+            alert('no-ok');
+            break;
+        case ("no-found"):
+			 alert_error('Cuenta no registrada');
+			 $("#crm_note_related_to_name").val("")
+            break;
+        default:
+            alert('problemas buscando');
+	  }
+	 }
+
+		 function autocomplete_for_relation(){
+				  if($('#crm_note_related_to_type').val() != "")
+						$("#crm_note_related_to_name").autocomplete({
+							source: "<%= autocomplete_for_relation_backend_financial_management_customer_management_notes_url %>?related_to_type=" + $('#crm_note_related_to_type').val(),
+							minLength: 3,
+							select: function( event, ui ) {
+							  if(ui.item){
+								 relation_after_complete(ui.item);
+							 }
+							}
+						}).show("slow");
+					 else
+						$("#crm_note_related_to_name").hide()
+	 }
+
+
+  		$(document).ready(function(){
+
+		  $(".date").datepicker({
+          changeMonth: true,
+			 changeYear: true,
+          dateFormat: 'yy-mm-dd'
+        }).attr('readonly',true);
+		  
+		  $(".time").timepicker({
+			 timeFormat: "hh:mm TT"
+        });
+
+		 // $("#crm_note_related_to_type_input").append("<input type='text' size='10' name='crm_note[start_date]'/>")
+
+
+		});
+</script>

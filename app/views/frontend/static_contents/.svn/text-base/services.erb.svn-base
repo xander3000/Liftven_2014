@@ -1,0 +1,76 @@
+<%= include_javascript("jquery.smartTab.js") %>
+<%= include_stylesheet("jquery.smart_tab.css") %>
+
+
+
+<% content_for :venom_leadspace_head do %>
+<div id="services_leadspaces">
+    <%= render :partial => "services_leadspaces" %>
+</div>
+<% end %>
+
+
+<div id="services_main_content">
+  <div id="tabs" class="stContainer">
+    <ul class="header-tab">
+        <li>
+          <a href="#tabs-1">
+
+            <h2 class="title-tab">Digital</h2>
+          </a>
+        </li>
+        <li>
+          <a href="#tabs-2">
+
+            <h2 class="title-tab">Litogr&aacute;fica</h2>
+          </a>
+        </li>
+        <li>
+          <a href="#tabs-3">
+
+          <h2 class="title-tab">Gigantografía</h2>
+          </a>
+        </li>
+        <li>
+          <a href="#tabs-4">
+
+          <h2 class="title-tab">Diseño Gráfico</h2>
+          </a>
+        </li>
+        <li>
+          <a href="#tabs-5">
+
+          <h2 class="title-tab">Otros Servicios</h2>
+          </a>
+        </li>
+      </ul>
+
+      <div id="tabs-1" class="item-tab">
+        <%= render :partial => "service_tab_1" %>
+      </div>
+      <div id="tabs-2" class="item-tab">
+          <%= render :partial => "service_tab_2" %>
+      </div>
+      <div id="tabs-3" class="item-tab">
+         <%= render :partial => "service_tab_3" %>
+      </div>
+      <div id="tabs-4" class="item-tab">
+         <%= render :partial => "service_tab_4" %>
+      </div>
+      <div id="tabs-5" class="item-tab">
+        <%= render :partial => "service_tab_5" %>
+      </div>
+  </div>
+</div>
+<script type="text/javascript">
+
+    $(document).ready(function(){
+    	// Smart Wizard
+
+       $('#tabs').smartTab({stopOnFocus:true,transitionEffect:'fade'});
+
+  });
+
+
+
+</script>

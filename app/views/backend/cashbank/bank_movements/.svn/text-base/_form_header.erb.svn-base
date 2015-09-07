@@ -1,0 +1,27 @@
+
+<div id="" class="content_form">
+    <% f.inputs "Datos de cabecera" do %>
+		<%= f.input :external_doc_id,:as => :hidden,:input_html => {:class => "not-editabble"} %>
+		<%= f.input :external_doc_type,:as => :hidden,:input_html => {:class => "external_doc not-editabble"} %>
+		<%= f.input :cash_bank_bank_movement_operation_type,:collection => @bank_movement_operation_types,:input_html => {:onchange => remote_function(:url => set_bank_movement_operation_type_backend_cashbank_bank_movements_url,:with => "$(this).serialize()+'&movement_external_doc_id='+$('#cash_bank_bank_movement_external_doc_id').val()+'&movement_external_doc_type='+$('#cash_bank_bank_movement_external_doc_type').val()"),:class => "autoselect not-editabble"} %>
+		<%= f.input :accounting_accounting_concept,:collection => @bank_movement.new_record? ? [] : [@bank_movement.accounting_accounting_concept],:input_html => {:class => "reset not-editabble"}%>
+		<%= f.input :cash_bank_bank,:input_html  => {:onchange => remote_function(:url => set_accounting_concept_backend_cashbank_bank_movements_url,:with => "$(this).serialize()+'&bank_movement_operation_type_id='+$('#cash_bank_bank_movement_cash_bank_bank_movement_operation_type_id').val()"),:class => "reset not-editabble"}%>
+		<%= f.input :cash_bank_bank_account,:collection => @bank_movement.new_record? ? [] : [@bank_movement.cash_bank_bank_account],:input_html => {:onchange => remote_function(:url => set_bank_account_backend_cashbank_bank_movements_url,:with => "$(this).serialize()+'&bank_movement_operation_type_id='+$('#cash_bank_bank_movement_cash_bank_bank_movement_operation_type_id').val()"),:class => "reset not-editabble"} %>
+		<%= f.input :cash_bank_checkbook,:collection =>  @bank_movement.new_record? ? [] : [@bank_movement.cash_bank_checkbook ? @bank_movement.cash_bank_checkbook : "" ],:input_html => {:onchange => remote_function(:url => set_check_number_backend_cashbank_bank_movements_url,:with => "$(this).serialize()+'&bank_movement_operation_type_id='+$('#cash_bank_bank_movement_cash_bank_bank_movement_operation_type_id').val()"),:class => "reset not-editabble"}%>
+		<%= f.input :accounting_accountant_account,:collection => @bank_movement.new_record? ? [] : [@bank_movement.accounting_accountant_account],:input_html => {:class => "reset not-editabble"} %>
+		<%#= f.input :cash_bank_involvement_type,:collection => @bank_movement.new_record? ? [] : [@bank_movement.cash_bank_involvement_type],:input_html => {:class => "reset not-editabble",:onchange => remote_function(:url => set_involvement_type_backend_cashbank_bank_movements_url,:with => "$(this).serialize()+'&movement_external_doc_id='+$('#cash_bank_bank_movement_external_doc_id').val()+'&movement_external_doc_type='+$('#cash_bank_bank_movement_external_doc_type').val()"),:class => "not-editabble"} %>
+		<%#= f.input :reference_document_type,:collection => [],:wrapper_html => {:class => "hidden"},:input_html => {:class => "not-editabble"} %>
+		<%#= f.input :reference_document_id,:as => :string,:wrapper_html => {:class => "hidden"},:input_html => {:onblur => "$(this).strPadLeft(6);"+remote_function(:url => set_reference_document_backend_cashbank_bank_movements_url,:with => "$(this).serialize()+'&reference_document_type='+$('#cash_bank_bank_movement_reference_document_type').val()"),:class => "reset right not-editabble",:size => 5,:maxlength => 6} %>
+		<%= f.input :beneficiary_id,:as => :string,:wrapper_html => {:class => "hidden"},:input_html => {:class => "reset",:size => 25} %>
+		<%= f.input :beneficiary_name,:wrapper_html => {},:input_html => {:class => "reset",:size => 40} %>
+		<%= f.input :vale,:input_html => {:class => "reset",:size => 15} %>
+		<%= f.input :description,:input_html => {:class => "reset"} %>
+		<%= f.input :date,:input_html => {:class => " reset",:readonly => true} %>
+    <% end %>
+  
+</div>
+
+<script type="text/javascript">
+
+</script>
+

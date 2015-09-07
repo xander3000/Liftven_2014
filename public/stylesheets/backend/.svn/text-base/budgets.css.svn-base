@@ -1,0 +1,106 @@
+/*
+    Document   : budgets
+    Created on : 16/08/2011, 06:50:01 AM
+    Author     : gabriel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/*
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+@import "contable_document.css";
+
+#budgets div.item div.panel_items div.item
+{
+    width: auto;
+    height: 45px;
+}
+
+#budgets div.item div.panel_items div.item div.subcl{
+    padding: 0.8% 0;
+}
+
+
+#budget_show
+{
+    border: 1px solid #D2D2D2;
+    padding: 10px;
+   color: #808080;
+}
+
+#budget_show #letterhead
+{
+    margin: 15px 0;
+}
+
+#budget_show #letterhead div.subc ul
+{
+    display: block;
+    padding-top: 15px;
+}
+
+#budget_show #letterhead div.subc li
+{
+    list-style: circle;
+    display: inline-block;
+}
+
+#budget_show #details
+{
+    border: 1px solid #D2D2D2;
+    padding: 10px;
+    background: #F1F1F1;
+    -moz-border-radius:0 25px 0 25px;
+    -webkit-border-radius:0 25px 0 25px;
+    border-radius: 0 25px 0 25px;
+
+}
+
+#budget_show  #details
+{
+    color: #000;
+}
+
+#budget_show  #details b
+{
+    color: #808080;
+}
+#budget_show  #details hr
+{
+    border-color: #000;
+}
+
+
+#budget_show  #details table
+{
+    border: none;
+}
+
+#budget_show  #details #footer_total
+{
+    margin-top: 5px;
+}
+
+form.formtastic.form_order_generate fieldset > ol > li.boolean label
+{
+    padding-left: 0%;
+}
+
+/* css for timepicker */
+.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl dt { float: left; clear:left; padding: 0 0 0 5px; }
+.ui-timepicker-div dl dd { margin: 0 10px 10px 45%; }
+.ui-timepicker-div td { font-size: 90%; }
+.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+
+.ui-timepicker-rtl{ direction: rtl; }
+.ui-timepicker-rtl dl { text-align: right; padding: 0 5px 0 0; }
+.ui-timepicker-rtl dl dt{ float: right; clear: right; }
+.ui-timepicker-rtl dl dd { margin: 0 45% 10px 10px; }
+
+.button.selected{
+	border: 1px solid yellow;
+}

@@ -1,0 +1,141 @@
+<div id="what_is_venom">
+  <div class="short-info">
+    <div class="short-info_background">
+    </div>
+    <div class="short-info_nav">
+      <ul>
+        <li>
+          <a href="#what_is_venom" class="active">¿ Que es Venom?</a>
+        </li>
+        <li>
+          <a href="#what_we_do">¿ Que hacemos en Venom?</a>
+        </li>
+        <li>
+          <a href="#our_mision">Nuestra misión</a>
+        </li>
+        <li>
+          <a href="#our_vision">Nuestra Visión</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="short-info_note">
+      <div class="">
+        <h1>Titulo</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat mi ultrices lectus rutrum dignissim. Maecenas quis eros elit, ac mattis felis.
+        </p>
+      </div>
+
+    </div>
+  <div class="info">
+    <h1>Sobre Net-Print</h1>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat mi ultrices lectus rutrum dignissim. Maecenas quis eros elit, ac mattis felis. Mauris erat elit, scelerisque sit amet feugiat a, porttitor ut lorem. Cras ut metus eu nisl tempus dignissim id viverra velit. Cras congue bibendum orci. Proin vel sem a ante rhoncus auctor. Nulla facilisi. Pellentesque blandit augue porttitor orci aliquet non aliquet arcu varius. Donec mauris est, varius non pellentesque sit amet, dapibus quis diam. Morbi feugiat urna eu sem ultricies rhoncus. Integer a risus quis elit feugiat laoreet nec ac lorem. Phasellus ipsum quam, vehicula et convallis vitae, egestas a orci. Nunc nec blandit leo. Sed lacinia semper eros quis vestibulum. Sed vitae posuere ligula. Cras consectetur lectus sed neque cursus tristique. 
+    </p>
+  </div>
+</div>
+
+<div id="what_we_do">
+  <div class="short-info">
+    <div class="short-info_background">
+    </div>
+    <div class="short-info_nav">
+      <ul>
+        <li>
+          <a href="#what_is_venom">¿ Que es Venom?</a>
+        </li>
+        <li>
+          <a href="#what_we_do" class="active">¿ Que hacemos en Venom?</a>
+        </li>
+        <li>
+          <a href="#our_mision">Nuestra misión</a>
+        </li>
+        <li>
+          <a href="#our_vision">Nuestra Visión</a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="info">
+    <h1>Lo que hacemos</h1>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat mi ultrices lectus rutrum dignissim. Maecenas quis eros elit, ac mattis felis. Mauris erat elit, scelerisque sit amet feugiat a, porttitor ut lorem. Cras ut metus eu nisl tempus dignissim id viverra velit. Cras congue bibendum orci. Proin vel sem a ante rhoncus auctor. Nulla facilisi. Pellentesque blandit augue porttitor orci aliquet non aliquet arcu varius. Donec mauris est, varius non pellentesque sit amet, dapibus quis diam. Morbi feugiat urna eu sem ultricies rhoncus. Integer a risus quis elit feugiat laoreet nec ac lorem. Phasellus ipsum quam, vehicula et convallis vitae, egestas a orci. Nunc nec blandit leo. Sed lacinia semper eros quis vestibulum. Sed vitae posuere ligula. Cras consectetur lectus sed neque cursus tristique.
+    </p>
+  </div>
+</div>
+
+<div id="our_mision">
+  <div class="short-info">
+    <div class="short-info_background">
+    </div>
+    <div class="short-info_nav">
+      <ul>
+        <li>
+          <a href="#what_is_venom">¿ Que es Venom?</a>
+        </li>
+        <li>
+          <a href="#what_we_do">¿ Que hacemos en Venom?</a>
+        </li>
+        <li>
+          <a href="#our_mision" class="active">Nuestra misión</a>
+        </li>
+        <li>
+          <a href="#our_vision">Nuestra Visión</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="info">
+    <h1>Nuestra Misión</h1>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat mi ultrices lectus rutrum dignissim. Maecenas quis eros elit, ac mattis felis. Mauris erat elit, scelerisque sit amet feugiat a, porttitor ut lorem. Cras ut metus eu nisl tempus dignissim id viverra velit. Cras congue bibendum orci. Proin vel sem a ante rhoncus auctor. Nulla facilisi. Pellentesque blandit augue porttitor orci aliquet non aliquet arcu varius. Donec mauris est, varius non pellentesque sit amet, dapibus quis diam. Morbi feugiat urna eu sem ultricies rhoncus. Integer a risus quis elit feugiat laoreet nec ac lorem. Phasellus ipsum quam, vehicula et convallis vitae, egestas a orci. Nunc nec blandit leo. Sed lacinia semper eros quis vestibulum. Sed vitae posuere ligula. Cras consectetur lectus sed neque cursus tristique.
+    </p>
+  </div>
+</div>
+
+<div id="our_vision">
+  <div class="short-info">
+    <div class="short-info_background">
+    </div>
+    <div class="short-info_nav">
+      <ul>
+        <li>
+          <a href="#what_is_venom">¿ Que es Venom?</a>
+        </li>
+        <li>
+          <a href="#what_we_do">¿ Que hacemos en Venom?</a>
+        </li>
+        <li>
+          <a href="#our_mision">Nuestra misión</a>
+        </li>
+        <li>
+          <a href="#our_vision" class="active">Nuestra Visión</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="info">
+    <h1>Nuestra Visión</h1>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat mi ultrices lectus rutrum dignissim. Maecenas quis eros elit, ac mattis felis. Mauris erat elit, scelerisque sit amet feugiat a, porttitor ut lorem. Cras ut metus eu nisl tempus dignissim id viverra velit. Cras congue bibendum orci. Proin vel sem a ante rhoncus auctor. Nulla facilisi. Pellentesque blandit augue porttitor orci aliquet non aliquet arcu varius. Donec mauris est, varius non pellentesque sit amet, dapibus quis diam. Morbi feugiat urna eu sem ultricies rhoncus. Integer a risus quis elit feugiat laoreet nec ac lorem. Phasellus ipsum quam, vehicula et convallis vitae, egestas a orci. Nunc nec blandit leo. Sed lacinia semper eros quis vestibulum. Sed vitae posuere ligula. Cras consectetur lectus sed neque cursus tristique.
+    </p>
+  </div>
+
+</div>
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    
+    $('.short-info_nav ul li a').click(
+          function()
+          {
+                $('html,body').animate({scrollTop:$($(this).attr("href")).offset().top+'px'}, 1000);return false;
+          }
+    );
+
+  });
+</script>

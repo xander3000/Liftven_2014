@@ -1,0 +1,25 @@
+page << "$('#form_retention .like_input').html('')"
+page << "$('#form_retention input.reset').val('0')"
+
+page << "$('#cash_bank_bank_movement_amount,#subtotal_price_amount').val('#{@total_price}')"
+page << "$('#total_price_currency,.amount_subject_retention, #subtotal_price_currency').html('#{@total_price.to_currency(false)}')"
+page << "$('#item_product_form input, #item_product_form select').val('')"
+page.show("item_product_form")
+page.replace_html "items", :partial => "items"
+page.show "item_product_form"
+
+#if @involvement_type
+#
+#		if @involvement_type.require_commitment?
+#
+#			page << "$('#cash_bank_bank_movement_position_description').val($('#cash_bank_bank_movement_description').val())"
+#			page << "$('#cash_bank_bank_movement_position_reference_document_type,#cash_bank_bank_movement_position_reference_document_type_name,#cash_bank_bank_movement_position_reference_document_id').hide().val('');"
+#		else
+#			page << "$('#cash_bank_bank_movement_position_reference_document_type,#cash_bank_bank_movement_position_reference_document_type_name,#cash_bank_bank_movement_position_reference_document_id').show().val('');"
+#			#page << "$('#cash_bank_bank_movement_reference_document_type').val('#{@movement_external_doc_type}')"
+#			#page << "$('#cash_bank_bank_movement_reference_document_id').val('#{@movement_external_doc_id}')"
+#			page.show "cash_bank_bank_movement_reference_document_id_input"
+#			page.show "cash_bank_bank_movement_reference_document_type_input"
+#			#page << "$('#cash_bank_bank_movement_reference_document_id').blur()" unless @movement_external_doc_id.empty?
+#		end
+#end

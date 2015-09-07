@@ -1,0 +1,18 @@
+if @incoming_invoice_document_type
+	page << "$('.reset').val('')"
+  page << "$('#account_payable_incoming_invoice_purchase_purchase_order_input input').val('')"
+	page.show "form_items"
+	
+	if @incoming_invoice_document_type.require_purchase_oden
+		page.show "account_payable_incoming_invoice_material_purchase_order_input"
+  	page.hide "fieldset.optional"
+		
+	else
+  	page.hide "account_payable_incoming_invoice_material_purchase_order_input"
+		page.show "fieldset.optional"
+
+	end
+	page.replace_html "items", :text => ""
+	page.replace_html "incoming_invoice_retentions", :text => ""
+end
+

@@ -1,0 +1,23 @@
+<% if @permissions.empty? %>
+<tr>
+  <td colspan="3" class="center">No hay elementos que mostrar</td>
+</tr>
+<% else %>
+  <% @permissions.each do |permission| %>
+    <tr>
+      <td class="center">
+        <%= permission.config_panel_submodule.name %>
+      </td>
+
+      <td class="left">
+        <%= permission.action_name %>
+      </td>
+      <td class="right">
+        <%= link_to_remote(image_tag("icons/delete.png"),:url => backend_cpanel_role_remove_permission_url(@role,permission),:confirm => "¿Desea usted remover permiso al rol #{@role.name}?",:html => {:class => "button"}) if edit %>
+      </td>
+    </tr>
+  <% end %>
+
+
+<% end %>
+

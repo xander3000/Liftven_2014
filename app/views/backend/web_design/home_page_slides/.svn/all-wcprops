@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/1338/trunk/Venom/app/views/backend/web_design/home_page_slides
+END
+new.erb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/1338/trunk/Venom/app/views/backend/web_design/home_page_slides/new.erb
+END
+create.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/1205/trunk/Venom/app/views/backend/web_design/home_page_slides/create.rjs
+END
+_form_prev.erb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/web_design/home_page_slides/_form_prev.erb
+END
+_form.erb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/web_design/home_page_slides/_form.erb
+END
+delete_prev.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/web_design/home_page_slides/delete_prev.rjs
+END
+_form_upload.erb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/1338/trunk/Venom/app/views/backend/web_design/home_page_slides/_form_upload.erb
+END
+index.erb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/web_design/home_page_slides/index.erb
+END

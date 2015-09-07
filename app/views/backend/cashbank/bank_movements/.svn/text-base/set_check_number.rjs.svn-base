@@ -1,0 +1,3 @@
+if @checkbook
+	page << "$('#cash_bank_bank_movement_vale').val('#{@voucher}')"
+end

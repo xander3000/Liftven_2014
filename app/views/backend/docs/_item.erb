@@ -1,0 +1,28 @@
+
+<div class="item <%= item_class %>" onclick="window.location.href='<%#= backend_case_docs_url(caso) %>'">
+  <div class="c20l subc subcl center code">
+    <h2><%= format_code(doc.id, "06") %></h2>
+  </div>
+  <div class="description c75r subc no-border">
+    <div>
+          <div class="attr_1 ">
+            <div class="left">
+              <%= doc.category.user.name %>.
+            </div>
+            <!--div class="c20r subc right date">
+              <%#= l order.created_at,:format => :default_date %>. <br/>
+            </div-->
+          </div>
+          <div class="attr_2">
+				  <span> Referencia: </span><%= format_code(doc.category.id,"06") %>. <span> <br/>
+              <span> Ultima Modificación: </span><%= l doc.updated_at,:format => :short %>.
+            
+          </div>
+          <div class="attr_3">
+            <p>
+              <%#= truncate(caso.subject,:length => 130)%>
+            </p>
+          </div>
+    </div>
+  </div>
+</div>

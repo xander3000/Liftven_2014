@@ -1,0 +1,91 @@
+<%= include_javascript("jquery.qaptcha")%>
+<%= include_stylesheet("jquery.qaptcha") %>
+
+
+<style type="text/css">
+  input
+  {
+    border-style: outset;
+    border-width: 1px;
+    
+    padding: 5px;
+   border: 1px solid #858585;
+}
+
+table {
+    
+    border-collapse: collapse;
+    
+    margin-bottom: 0.5em;
+    width: 100%;
+}
+
+th, td {
+    padding: 0.5em;
+}
+</style>
+
+<div style="margin-left: 15%; color: #858585;border: 1px solid #F18700;width: 225px;">
+
+  <div style="font-size: 0.9em; font-weight: bold; padding-left: 40px; height: 30px;background: transparent url(/images/icons/lock.jpg) no-repeat left center;">
+    <h1 style="color: #858585;">Autenticaci&oacute;n</h1>
+  </div>
+<div style="width: 25px;">
+    <table class="no-border">
+         <tr>
+           <td>
+            <label>Usuario</label>
+           </td>
+           <td>
+              <%= text_field_tag :login %>
+           </td>
+         </tr>
+
+         <tr>
+           <td>
+             <label>Clave</label>
+           </td>
+           <td>
+             <%= password_field_tag :password %>
+             <span style="float: right;"><a href="#">¿Olvido su clave?</a></span>
+           </td>
+         </tr>
+         <%#= render :partial => "qaptcha" %>
+
+         <tr>
+           <td colspan="2">
+             <% if @success == false %>
+              <div class="error">
+                La información de nombre de usuario o contraseña introducida no es correcta
+             </div>
+             <% end %>
+           </td>
+         </tr>
+
+         <tr>
+           <td>
+
+           </td>
+           <td>
+             <%= link_to "Entrar","/backend/orders/",:class => "button"%>
+           </td>
+         </tr>
+
+
+       </table>
+
+    <span style="clear: both"></span>
+    </div>
+</div>
+
+<script type="text/javascript">
+  $('#QapTcha').QapTcha(
+            {
+              disabledSubmit:true,
+              autoRevert:true,
+              txtUnlock: "Desbloqueado",
+              txtLock:"Bloqueado",
+              PHPfile: "/"
+
+          });
+</script>

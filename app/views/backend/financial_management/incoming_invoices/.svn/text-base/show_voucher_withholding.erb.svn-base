@@ -1,0 +1,138 @@
+
+  <div class="">
+	 <p class="center">
+		<b>COMPROBANTE DE RETENCION DE I.S.L.R.</b><br/>
+		<%= l @incoming_invoice.created_at,:format => :long_date_locate%>
+	 </p>
+<table>
+  <thead>
+	 <tr>
+		<th style="width: 50%">
+		  PROVEEDOR
+		</th>
+		<th style="width: 50%">
+		  EMPRESA
+		</th>
+	 </tr>
+  </thead>
+  <tbody>
+	 <tr>
+		<td class="border-right">
+		  <b><%= @incoming_invoice.supplier.name.upcase %></b><br/>
+		  R.I.F.: <%= @incoming_invoice.supplier.identification_document %><br/>
+		  Dirección: <%= @incoming_invoice.supplier.contact.address %><br/>
+		</td>
+		<td>
+		  <% supplier_owner = Supplier.find_owner %>
+		  <b><%= supplier_owner.name.upcase %></b><br/>
+		  R.I.F.: <%= supplier_owner.identification_document.upcase %><br/>
+		  Dirección: <%= supplier_owner.contact.address %><br/>
+		</td>
+	 </tr>
+  </tbody>
+</table>
+
+	 <br/>
+	 <br/>
+	 <div>
+		  <table>
+				<thead>
+				  <tr>
+					 <th class="border-right">
+						Fecha
+					 </th>
+					 <th class="border-right">
+						Concepto de retención
+					 </th>
+					 <th class="border-right">
+						Tipo
+					 </th>
+					 <th class="border-right">
+						Nº Factura
+					 </th>
+					 <th class="border-right">
+						Nº Control
+					 </th>
+					 <th class="border-right">
+						Base imponible
+					 </th>
+					 <th class="border-right">
+						Monto sujeto a la Retención
+					 </th>
+					 <th class="border-right">
+						Tarifa %
+					 </th>
+					 <th>
+						Impuesto retenido
+					 </th>
+				  </tr>
+				</thead>
+				<tbody>
+				  <% @retentions.each do |retention| %>
+					 <% unless retention.retained_amount.zero? %>
+						<tr>
+						  <td class="center border-right">
+							 <%= l @incoming_invoice.created_at,:format => :default_date %>
+						  </td>
+						  <td class="center border-right">
+							 <%= retention.accounting_withholding_taxe_type.fullname %>
+						  </td>
+						  <td class="center border-right">
+							 Factura
+						  </td>
+						  <td class="center border-right">
+							 <%= @incoming_invoice.reference %>
+						  </td>
+						  <td class="center border-right">
+							 <%= @incoming_invoice.control_number %>
+						  </td>
+						  <td class="center border-right">
+							 <%= number_to_currency(@incoming_invoice.sub_total_amount, :delimiter => ".", :separator => ",", :unit => "") %>
+						  </td>
+						  <td class="center border-right">
+							 <%= number_to_currency(retention.subject_retention_amount, :delimiter => ".", :separator => ",", :unit => "") %>
+						  </td>
+						  <td class="center border-right">
+							 <%= number_to_currency(retention.percentage, :delimiter => ".", :separator => ",", :unit => "") %>
+						  </td>
+						  <td class="center border-right">
+							 <%= number_to_currency(retention.retained_amount, :delimiter => ".", :separator => ",", :unit => "") %>
+						  </td>
+						</tr>
+					 <% end %>
+				  <% end %>
+				</tbody>
+			 </table>
+	 </div>
+	 <br/><br/>
+	 <br/><br/>
+	 <br/><br/>
+	 <br/><br/>
+	 <br/><br/>
+	 <br/><br/>
+	 <div>
+		<div class="c30l subc">
+
+		</div>
+		<div class="c30l subc border-top center">
+		  <span class="">
+			 Agente de retención
+		  </span>
+		</div>
+		<div class="c33r subc border-top center">
+		  <span class="">
+			 Contribuyente
+		  </span>
+		</div>
+	 </div>
+	 <br/>
+	 <br/>
+	 <br/>
+
+	 <span>
+		Reglamento parcial de la ley  ISLR  en materia de retenciones<br/>
+		aprobado el 12 de Mayo de 1997. Gaceta Ofical Nº 36.203<br/>
+		Decreto Nº 1.808
+	 </span>
+  </div>
+

@@ -1,0 +1,3 @@
+page << "$('#cash_bank_bank_reconciliation_initial_date').val('#{@initial_date}')"
+page << "$('#cash_bank_bank_reconciliation_final_date').val('#{@final_date}')"
+

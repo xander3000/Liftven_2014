@@ -1,0 +1,8 @@
+<div id="" class="content_form">
+  
+    <% f.inputs "Datos generales" do %>
+		  <%= f.input :name,:input_html => {:class => "top",:placeholder => "Ingrese el nombre corto del departamento"} %>
+        <%= f.input :tag_name,:input_html => {:placeholder => "Ingrese codigo identificativo del departamento"} %>
+  <% end %>
+
+</div>

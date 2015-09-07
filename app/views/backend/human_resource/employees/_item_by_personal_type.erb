@@ -1,0 +1,30 @@
+<div class="item">
+    <div class="toolbar">
+      <div class="c70l subc left pagination">
+        <%= link_to "<","",:class => "button" %>
+        <%= link_to ">","",:class => "button" %>
+        <span>1/10</span>
+      </div>
+      <div class="c30r subc right">
+        <h2>
+          <span class="count">(<%= employee_by_personal_type[:count]%>)</span>
+          &nbsp;
+          <span class="state"><%= employee_by_personal_type[:personal_type].name%></span>
+        </h2>
+      </div>
+    </div>
+    <div class="panel_items">
+      <%  employee_by_personal_type[:paginate].each do |employee|%>
+        <%= render :partial => "item",:locals => {:employee => employee,:item_class => cycle("side-left","side-right")}%>
+      <% end %>
+    </div>
+    <div class="clearing"></div>
+    <div class="right">
+      <%= link_to image_tag("/images/icons/expand.gif"),"#",:class => "goTop button" %>
+      <%= link_to image_tag("/images/icons/anchor.png"),"#",:class => "goTop button" %>
+    </div>
+    <hr/>
+    <br/>
+    <br/>
+
+</div>

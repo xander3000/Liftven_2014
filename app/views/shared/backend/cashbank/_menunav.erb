@@ -1,0 +1,161 @@
+<ul>
+	 <li><a href="#Home"><%= link_to(image_tag("clients/#{PROJECT_NAME}/logos/isotipo2.png"),backend_cpanel_home_index_url())%> </a></li>
+	 <li>
+			 <a href="#">Procesos<span class="arrow"></span></a>
+
+					<ul style=''>
+						<li>Cajas
+						  <ul style="width: 200px;">
+							  <li>
+								<%= link_to "Listado",backend_cashbank_cashes_url%>
+							 </li>
+							 <li>
+								<%= link_to "Nuevo",new_backend_cashbank_cash_url%>
+							 </li>
+							 <li type='separator'></li>
+							 <li>Caja menor o Caja chica
+								<ul>
+
+							  <li>
+								<%= link_to "Listado",backend_cashbank_cash_journals_url%>
+							 </li>
+							 <li>
+								<%= link_to "Nuevo",new_backend_cashbank_cash_journal_url%>
+							 </li>
+								</ul>
+							 </li>
+							 <li type='separator'></li>
+							 <li>
+								<%= link_to "Cierres de caja",""%>
+							 </li>
+						  </ul>
+						</li>
+						<li>Bancos
+						  <ul style="width: 200px">
+							 <li>
+								<%= link_to "Listado",backend_cashbank_banks_url%>
+							 </li>
+							 <li>
+								<%= link_to "Nuevo",new_backend_cashbank_bank_url%>
+							 </li>
+							 <li type='separator'></li>
+							 <li>Movimientos Bancarios
+								<ul>
+								  <li>
+									 <%= link_to "Listado",backend_cashbank_bank_movements_url%>
+								  </li>
+								  <li>
+									 <%= link_to "Nuevo",new_backend_cashbank_bank_movement_url%>
+								  </li>
+								</ul>
+							 </li>
+							 <li>Cuentas Bancarias
+								<ul>
+								  <li>
+									 <%= link_to "Listado",backend_cashbank_bank_accounts_url%>
+								  </li>
+								  <li>
+									 <%= link_to "Nuevo",new_backend_cashbank_bank_account_url%>
+								  </li>
+								</ul>
+							 </li>
+							 <li>Conciliaciones Bancarias
+								<ul>
+								  <li>
+									 <%= link_to "Listado",backend_cashbank_bank_reconciliations_url%>
+								  </li>
+								  <li>
+									 <%= link_to "Nuevo",new_backend_cashbank_bank_reconciliation_url%>
+								  </li>
+								</ul>
+							 </li>
+						  <li type='separator'></li>
+							<li>Chequeras
+								<ul>
+								  <li>
+									 <%= link_to "Listado",backend_cashbank_checkbooks_url%>
+								  </li>
+								  <li>
+									 <%= link_to "Nuevo",new_backend_cashbank_checkbook_url,:class => "external-overlay", :rel=>".overlay"%>
+								  </li>
+								</ul>
+							 </li>
+							<li>Cheques contabilizados
+								<ul>
+								  <li>
+									 <%= link_to "Listado",backend_cashbank_check_offereds_url%>
+								  </li>
+								  <li>
+									 <%= link_to("Anular",new_backend_cashbank_check_offered_url,:class => "external-overlay", :rel=>".overlay") %>
+								  </li>
+								</ul>
+							 </li>
+						  </ul>
+						</li>
+				  </ul>
+		</li>
+		<%= yield :aditional_options_menunav  %>
+		<li>
+			 <a href="#">Configuración<span class="arrow"></span></a>
+			 <ul style='width: 250px;'>
+				<li>Contabilidad financiera
+				  <ul style="width: 200px">
+					 <li>Conceptos contables
+						<ul>
+							 <li>
+								<%= link_to "Listado",backend_accountancy_accounting_concepts_url%>
+							 </li>
+							 <li>
+								<%= link_to "Nuevo",new_backend_accountancy_accounting_concept_url,:class => "external-overlay", :rel=>".overlay"%>
+							 </li>
+						</ul>
+					 </li>
+					 <li>Cuentas contables
+                                                <ul>
+                                                    <li>
+                                                           <%= link_to "Listado",backend_accountancy_accountant_accounts_url%>
+                                                    </li>
+                                                    <li>
+                                                           <%= link_to "Nuevo",new_backend_accountancy_accountant_account_url,:class => "external-overlay", :rel=>".overlay"%>
+                                                    </li>
+						</ul>
+                                         
+					</li>
+				  </ul>
+				</li>
+			 </ul>
+		</li>
+		<li>
+			 <a href="#">Reportes<span class="arrow"></span></a>
+			 <ul style="width: 200px">
+				<li>Bancos
+				  <ul style="width: 200px;">
+					 <li>
+						<%= link_to "Disponibilidad Bancaria",backend_cashbank_bank_disponibility_accounts_url%>
+					 </li>
+					 <li>
+						<%= link_to "Movimientos por criterio",movements_by_criterion_backend_cashbank_bank_movements_url,:class => "external-overlay", :rel=>".overlay"%>
+					 </li>
+				  </ul>
+				</li>
+				<li>Contabilidad financiera
+				  <ul style="width: 190px">
+					 <li>
+						<%= link_to "Mayor analitico",movements_by_criterion_backend_accountancy_accountant_accounts_url,:class => "external-overlay", :rel=>".overlay"%>
+					 </li>
+				  </ul>
+
+
+				</li>
+				
+				
+			 </ul>
+		</li>
+		<li>
+			 <a href="#">Ayuda<span class="arrow"></span></a>
+			 <ul>
+				 
+			 </ul>
+		</li>
+
+</ul>

@@ -1,0 +1,42 @@
+<div class="panel_header">
+    <div>
+      <br/>
+      <b><%= IncomingInvoice.human_attribute_name("supplier")%> :</b>&nbsp;
+      <%= @incoming_invoice.supplier.name %>
+    </div>
+    <div>
+      <br/>
+      <b><%= IncomingInvoice.human_attribute_name("id")%> :</b>&nbsp;
+      <%= format_code(@incoming_invoice.id,"05") %>
+    </div>
+    <div>
+      <br/>
+      <b><%= IncomingInvoice.human_attribute_name("reference")%> :</b>&nbsp;
+      <%= @incoming_invoice.reference %>
+    </div>
+    <div>
+      <br/>
+      <b><%= IncomingInvoice.human_attribute_name("control_number")%> :</b>&nbsp;
+      <%= @incoming_invoice.control_number %>
+    </div>
+    <div>
+      <br/>
+      <b><%= IncomingInvoice.human_attribute_name("description")%> :</b>&nbsp;
+      <%= @incoming_invoice.description %>
+    </div>
+
+  <br/>
+  <br/>
+</div>
+
+
+
+<script type="text/javascript">
+  			$("#incoming_invoice_payment_transaction_date").datepicker({
+          changeMonth: true,
+          dateFormat: 'yy-mm-dd',
+          maxDate: "-35",
+			 yearRange: 'c-80:c+30'
+        });
+</script>
+

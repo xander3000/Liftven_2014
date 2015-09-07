@@ -1,0 +1,62 @@
+<%= include_javascript("jquery.dataTables.min.js") %>
+<%= include_stylesheet("jquery.datatable.css") %>
+
+<div class="actionsBar right no-print">
+  <%= link_to(image_tag("icons/arrow_left.png"),backend_cpanel_home_index_url,:class => "button",:title => "Regresar") %>
+</div>
+<hr/>
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="items" width="100%">
+	<thead>
+		<tr>
+		  <th><%= CashBank::Checkbook.human_attribute_name("id")%> </th>
+			<th><%= CashBank::Checkbook.human_attribute_name("cash_bank_bank")%> </th>
+			<th><%= CashBank::Checkbook.human_attribute_name("cash_bank_bank_account")%> </th>
+			<th><%= CashBank::Checkbook.human_attribute_name("initial_check_number")%> </th>
+			<th><%= CashBank::Checkbook.human_attribute_name("final_check_number")%> </th>
+			
+		</tr>
+	</thead>
+	<tbody>
+	  <% @checkbooks.each do |cash_bank_checkbook|  %>
+		<tr onclick="window.location.href='<%= backend_cashbank_checkbook_check_offereds_url(cash_bank_checkbook.id) %>'">
+		  <td class="left"><%= cash_bank_checkbook.id.to_code %> </td>
+		  <td class="left"><%= cash_bank_checkbook.cash_bank_bank_account.cash_bank_bank.name%> </td>
+		  <td class="left"><%= cash_bank_checkbook.cash_bank_bank_account.fullname%> </td>
+		  <td class="left"><%= cash_bank_checkbook.initial_check_number%></td>
+		  <td class="left"><%= cash_bank_checkbook.final_check_number%></td>
+		  </tr>
+		<% end %>
+	</tbody>
+</table>
+
+
+
+
+<script type="text/javascript">
+  var oTable;
+
+  $(document).ready(function() {
+		oTable =  $('#items').dataTable({
+				scrollX: true,
+            oLanguage: {
+                sUrl: "/javascripts/i18n/jquery.DataTables-es.txt"
+            }
+        });
+
+
+		 $("a.external-overlay").overlay({
+		  mask: {
+					 color: '#000',
+					 loadSpeed: 200,
+					 opacity: 0.9
+		  },
+		  onBeforeLoad: function() {
+				var wrap = this.getOverlay().find(".contentWrap");
+				wrap.load(this.getTrigger().attr("href"));
+		  }
+		});
+  });
+
+
+
+</script>

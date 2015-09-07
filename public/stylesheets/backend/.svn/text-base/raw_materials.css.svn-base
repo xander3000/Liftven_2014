@@ -1,0 +1,133 @@
+/* 
+    Document   : raw_materials
+    Created on : 31/08/2011, 09:28:02 PM
+    Author     : gabriel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+@media all{
+
+
+    /*
+        Tabla de inventario
+    */
+    #table-header,#table-body{
+        width: 100%
+    }
+
+    #table-header .supplier,#table-body .supplier{
+        width: 10%;
+        text-align: center;
+    }
+    #table-header .reference_number,#table-body .reference_number{
+        width: 10%;
+        text-align: center;
+    }
+    #table-header .unit_cost,#table-body .unit_cost{
+        width: 10%;
+        text-align: center;
+    }
+
+    #table-header .quantity,#table-body .quantity{
+        width: 10%;
+        text-align: center;
+    }
+    #table-header .location_inventory,#table-body .location_inventory{
+        width: 10%;
+        text-align: center;
+    }
+    #table-header .reason_inventory,#table-body .reason_inventory{
+        width: 10%;
+        text-align: center;
+    }
+    #table-header .user,#table-body .user{
+        width: 10%;
+        text-align: center;
+    }
+    #table-header .date,#table-body .date{
+        width: 10%;
+        text-align: center;
+    }
+
+    #table-header .remove,#table-body .remove{
+        width: 3%;
+        text-align: center;
+    }
+
+    #table-body .quantity{
+        
+    }
+    #table-body .location_inventory{
+        
+    }
+    #table-body .reason_inventory{
+
+    }
+    #table-body .date{
+    
+    }
+
+    table.table-body{
+      margin: 0px 0;
+      border-collapse: separate;
+    }
+
+    table.table-body td.item{
+        border-left:  1px solid #D2D2D2;
+    }
+
+    table.table-body td.item.first{
+         border-left:  none;
+    }
+
+        /*BEGIN Block Items*/
+
+    .block-item{
+       width: 145px;
+    }
+
+    .block-item-text{
+        
+    }
+
+
+
+    /*BEGIN Accordion*/
+
+    .ui-accordion .ui-accordion-content{
+        padding: 1em;
+    }
+
+    /*BEGIN: Tabs*/
+    .ui-widget-content{
+        border: 0;
+    }
+
+
+    /*BEGIN Inventory*/
+
+    div.mainWrapContent fieldset legend span
+    {
+        color: #000000;
+        font-size: 120%;
+        letter-spacing: 2px;
+        padding: 5px;
+    }
+
+    div.mainWrapContent fieldset {
+        border: 1px solid #D2D2D2;
+        margin-bottom: 5px;
+        padding: 5px;
+    }
+
+	 form.formtastic fieldset > ol > li.boolean label{
+		 padding-left:25%;
+	}
+
+}
+

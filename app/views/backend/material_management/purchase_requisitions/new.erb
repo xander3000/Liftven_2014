@@ -1,0 +1,19 @@
+<div class="actionsBar right no-print">
+  <%= link_to(image_tag("icons/arrow_left.png"),backend_material_management_purchase_requisitions_url,:class => "button",:title => "Regresar") %>
+</div>
+<div>
+  <% semantic_form_remote_for @purchase_requisition, :update => "#{controller.controller_name}_container",:url => backend_material_management_purchase_requisitions_url,:html => {:class => "form_generate"} do |f| %>
+        <%= render :partial => "form",:locals => {:f => f} %>
+  <%= link_to_function "ORDENAR","generate()", :disable_with => "Por favor espere...",:id => "contable_document-button",:class => "button" %>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+        function generate()
+        {
+          result = confirm("¿Esta seguro de ejecutar esta acción?")
+          if (result)
+            $(".form_generate").submit();
+        }
+
+</script>

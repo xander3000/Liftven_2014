@@ -1,0 +1,6 @@
+if @success
+  page.redirect_to(backend_order_url(@order))
+else
+  page.alert("Su comentario no pudo ser guardado")
+  #page.replace_html "orders_container", :partial => ""
+end

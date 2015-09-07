@@ -1,0 +1,4 @@
+if @success
+  page.redirect_to frontend_user_url(@user)
+end
+

@@ -1,0 +1,62 @@
+<div id="cash_journal_count_position" class="content_form">
+<%  semantic_fields_for @cash_count_journal_position do |c| %>
+  <% c.inputs "Datos de Arqueo de caja" do %>
+  <div id="">
+	 <table frame="border" rules="cols" >
+		<thead>
+		  <tr>
+			 <th class="code">
+				<%= CashBank::CashJournalCountPosition.human_attribute_name("measure_change_denomination") %>
+			 </th>
+			 <th class="quantity">
+				<%= CashBank::CashJournalCountPosition.human_attribute_name("quantity") %>
+			 </th>
+			 <th class="amount" colspan="2">
+				<%= CashBank::CashJournalCountPosition.human_attribute_name("total_amount") %>
+			 </th>
+		  </tr>
+		  <tr id="item_product_form">
+			 <td class="code center">
+				<%= select "cash_bank_cash_journal_count_position","measure_change_denomination_id",option_groups_from_collection_for_select(MeasureChangeType.all, :measure_change_denominations, :name, :id, :name),:prompt => "-- Seleccione la denominación --" %>
+			 </td>
+			 <td class=" center">
+				<%= c.input :quantity,:label => false,:input_html => {:size => 5,:class => "right amount"} %>
+			 </td>
+			 <td id="" class="center amount">
+				<%= c.input :total_amount,:label => false,:input_html => {:size => 15,:class => "right",:readonly => true} %>
+			 </td>
+			 <td class="center">
+                           <%= link_to_remote image_tag("icons/add.png"), :url => backend_cashbank_cash_journal_add_cash_journal_count_position_url(@cash_journal),:with => "$('#cash_journal_count_position input,#cash_journal_count_position select').serialize()",:html => {:id => "add_button_cash",:class => "hidden"} %>
+			 </td>
+		  </tr>
+		</thead>
+		<tbody id="cash_count_positions_added">
+		  <%= render :partial => "cash_journal_count_positions_added" if @cash_journal_count_positions %>
+		</tbody>
+	 </table>
+  </div>
+  <% end %>
+<% end %>
+
+</div>
+
+<script type="text/javascript">
+	 function set_total_amount()
+	 {
+		measure_change_denomination = $("#cash_bank_cash_journal_count_position_measure_change_denomination_id option:selected").text();
+		//measure_change_denomination = measure_change_denomination.replace(".", "").replace(",", ".");
+		total_amount  = parseFloat($("#cash_bank_cash_journal_count_position_quantity").val())*parseFloat(measure_change_denomination);
+		if(isNaN(total_amount)){
+		  total_amount = 0;
+		  $("#add_button_cash").hide();
+		}
+		else
+		  $("#add_button_cash").show();
+
+		$("#cash_bank_cash_journal_count_position_total_amount").val(total_amount)
+	 }
+	$(document).ready(function(){
+	 $("#cash_bank_cash_journal_count_position_quantity").blur( function () { set_total_amount(); } );
+	 $("#cash_bank_cash_journal_count_position_measure_change_denomination_id").change( function () { set_total_amount(); } );
+	});
+</script>

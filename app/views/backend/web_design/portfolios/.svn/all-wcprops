@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/1205/trunk/Venom/app/views/backend/web_design/portfolios
+END
+_form_upload.erb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/web_design/portfolios/_form_upload.erb
+END
+index.erb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/web_design/portfolios/index.erb
+END
+new.erb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/1205/trunk/Venom/app/views/backend/web_design/portfolios/new.erb
+END
+create.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/1205/trunk/Venom/app/views/backend/web_design/portfolios/create.rjs
+END
+_form_prev.erb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/web_design/portfolios/_form_prev.erb
+END
+_form.erb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/web_design/portfolios/_form.erb
+END
+delete_prev.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/web_design/portfolios/delete_prev.rjs
+END

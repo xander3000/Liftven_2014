@@ -1,0 +1,21 @@
+
+<hr/>
+<fieldset class="inputs">
+  <legend><%= AccountPayable::IncomingInvoiceRetention.human_attribute_name("subject_retention_amount") %> para:</legend><br/><br/>
+	 <ol>
+
+		<% @retentions.each do |retention|%>
+		<li>
+		  <% accounting_withholding_taxe_type = retention.accounting_withholding_taxe_type %>
+		  <label> <%= accounting_withholding_taxe_type.full_name %></label>
+		  <%= hidden_field_tag "",retention.percentage,:size => 5 %>&nbsp;
+		  <%= text_field_tag "",retention.subject_retention_amount,:size => 15,:placeholder => AccountPayable::IncomingInvoiceRetention.human_attribute_name("subject_retention_amount"),:titles => AccountPayable::IncomingInvoiceRetention.human_attribute_name("subject_retention_amount"),:class => "right subject_retention_amount",:readonly => true  %>&nbsp;
+		  <%= text_field_tag "",retention.retained_amount,:size => 15,:placeholder =>  AccountPayable::IncomingInvoiceRetention.human_attribute_name("retained_amount"),:title => AccountPayable::IncomingInvoiceRetention.human_attribute_name("retained_amount"),:class => "right retained_amount",:readonly => true %>&nbsp;
+		</li>
+		<% end %>
+	 </ol>
+</fieldset>
+
+<hr/>
+
+

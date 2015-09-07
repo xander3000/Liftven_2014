@@ -1,0 +1,8 @@
+
+<div id="" class="">
+	 <br/>
+    <% f.inputs "" do %>
+		<%= f.input :name,:label => true,:input_html => {:size => "23",:class => "top",:placeholders => "Nombre"}%>
+		<%= f.input :description,:input_html => {:placeholders => "Descripción de la unidad"}%>
+    <% end %>
+</div>

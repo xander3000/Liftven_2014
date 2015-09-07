@@ -1,0 +1,11 @@
+<div>
+	<h3>Precios</h3>
+	<hr/>
+        <%= render :partial => "price_list_product"  %>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+
+	});
+</script>

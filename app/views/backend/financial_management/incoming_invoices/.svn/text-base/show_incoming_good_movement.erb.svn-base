@@ -1,0 +1,159 @@
+<%
+	 owner = Supplier.find_owner
+	 contact = owner.contact
+%>
+
+<div style="border: 1px solid #D2D2D2">
+  <div id="content_info_voucher">
+	 <div class="subc c55l">
+		<div class="border header">
+		  <h2><%= contact.fullname.upcase %></h2>
+		  <b><%= owner.identification_document %></b><br/>
+		  <b><%= contact.phone.upcase %></b>
+		</div>
+	 </div>
+	 <div class="subc c40r left">
+		<div class="border">
+		  <h2>COMPROBANTE DE ENTREGA DE MERCANCIA</h2>
+		  <br/>
+		  <h2>Nº <b class="red">CEM-<%= @incoming_invoice.id.to_code%></b></h2>
+		</div>
+	 </div>
+	 <br/>
+
+	 <table cellspacing="0" class="border">
+		  <thead>
+			 <tr>
+				<th class="border-top-left"><b>INFORMACION DEL CLIENTE</b></th>
+				<th>FECHA</th>
+				<th class="border-top-right">TOTAL</th>
+			 </tr>
+		  </thead>
+		 <tbody>
+			<tr>
+			  <td rowspan="5" class="border-bottom-left">
+				 <%	tenderer = @incoming_invoice.tenderer
+						contact   = tenderer.contact
+				  %>
+				 <h2><%= tenderer.name%></h2>
+				 <label>Doc Nº:</label> <b><%= tenderer.identification_document.upcase  %></b><br/>
+				 <label>Contacto:</label> <b><%= tenderer.person_name_contact.to_s.upcase%></b><br/>
+				 <label>Dirección:</label> <b><%= contact.address.upcase%></b><br/>
+				 <label>Teléfono:</label> <b><%= contact.phone.upcase%></b><br/>
+				 <label>Correo:</label> <b><%= contact.email.upcase%></b><br/>
+			  </td>
+			  <td class="center">
+					 <%= l  @incoming_invoice.invoice_date.to_date %>
+			  </td>
+			  <td class="right">
+					 <%= @incoming_invoice.total_amount.to_currency%>
+			  </td>
+			</tr>
+		  <tr>
+			 <td class="header" colspan="2"><%= AccountPayable::IncomingInvoice.human_attribute_name("account_payable_incoming_invoice_document_type").upcase%> </td>
+		  </tr>
+		  <tr class="center">
+			 <td colspan="2"><%= @incoming_invoice.account_payable_incoming_invoice_document_type.name%></td>
+		  </tr>
+			<tr>
+			  <td class="header"><%= AccountPayable::IncomingInvoice.human_attribute_name("control_number").upcase%></td>
+			  <td class="header"><%= AccountPayable::IncomingInvoice.human_attribute_name("reference").upcase%></td>
+			</tr>
+			<tr>
+			  <td><%= @incoming_invoice.control_number%></td>
+			  <td class="border-bottom-right"><%= @incoming_invoice.reference%></td>
+			</tr>
+	 </tbody>
+	 </table>
+	 <br/>
+	 <table>
+		<thead>
+		  <tr>
+			 <th class="center" style="width: 10px">ITEM</th>
+		
+			 <th class="left">DESCRIPCION</th>
+			 <th class="right">CANTIDAD</th>
+		  </tr>
+		</thead>
+		<tbody class="items">
+		  <% 
+		
+				item = 0
+		  %>
+				<% 
+					 @incoming_invoice.account_payable_incoming_invoice_positions.each do |position|
+					 item += 1
+                                         material_raw_material = position.material_raw_material 
+				%>
+                                <% if material_raw_material %>
+				<tr>
+				  <%  %>
+				  <td class="center"><%= item%></td>
+				  <td><%= position.description  %></td>
+				  <td class="right"><%= position.quantity  %></td>
+				</tr>
+                                <% end %>
+                              <% end %>
+
+		
+		</tbody>
+	 </table>
+	 <table>
+		<thead>
+		  <tr class="center">
+			 <td>
+				OBSERVACIONES
+			 </td>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr>
+			 <td></td>
+		  </tr>
+		</tbody>
+	 </table>
+<br/>
+  <div class="footer">
+	 <div class="subc c50l">
+		<table>
+		  <thead>
+		  <tr>
+			 <th>
+				Preparado
+			 </th>
+			 <th>
+				Aprobado
+			 </th>
+			 <th>
+				Contabilizado
+			 </th>
+			 <th>
+				Revisado
+			 </th>
+		  </tr>
+		  </thead>
+		  <tbody>
+			 <tr>
+				<td><%= @incoming_invoice.create_by.name %></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			 </tr>
+		  </tbody>
+		</table>
+	 </div>
+	 <div class="subc c50r">
+		<div class="border">
+		  <b>RECIBIDO:</b>
+		  <br/>
+		  <br/>
+		  <br/>
+		  <hr/>
+		  CI:
+		</div>
+	 </div>
+  </div>
+
+
+  </div>
+</div>

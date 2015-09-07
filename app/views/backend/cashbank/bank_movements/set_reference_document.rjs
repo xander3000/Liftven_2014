@@ -1,0 +1,24 @@
+page << "$('#form_retention .like_input').html('')"
+page << "$('#form_retention input.reset').val('0')"
+if @success
+#	page << "$('#cash_bank_bank_movement_amount,#subtotal_price_amount').val('#{@total_price}')"
+#	page << "$('#total_price_currency,.amount_subject_retention, #subtotal_price_currency').html('#{@total_price.to_currency(false)}')"
+#	page << "$('#item_product_form input, #item_product_form select').val('')"
+	page << "$('#cash_bank_bank_movement_position_reference_document_id').val('#{@reference_document.id.to_code}')"
+	page << "$('#cash_bank_bank_movement_position_reference_document_type').val('#{@reference_document.class}')"
+	page << "$('#cash_bank_bank_movement_position_reference_document_type_name').val('#{@reference_document.class.model_humanize_name}')"
+	page << "$('#cash_bank_bank_movement_position_amount').val('#{@reference_document.balance}')"
+	if CashBank::BankMovement.document_reference_is_debit_type(@reference_document)
+		page << "$('#cash_bank_bank_movement_position_beneficiary_name').val('#{@reference_document.supplier.name}')"
+		page << "$('#cash_bank_bank_movement_position_beneficiary_id').val('#{@reference_document.supplier.id}')"
+	else
+		page << "$('#cash_bank_bank_movement_position_beneficiary_name').val('#{Supplier.find_owner.name}')"
+		page << "$('#cash_bank_bank_movement_position_beneficiary_id').val('#{Supplier.find_owner.id}')"
+	end
+	page.show "item_product_form"
+else
+	page << "$('#cash_bank_bank_movement_position_beneficiary_name').val('')"
+		page << "$('#cash_bank_bank_movement_position_beneficiary_id').val('')"
+	page.show_message_errors(@errors, "message_overlay", nil)
+end
+

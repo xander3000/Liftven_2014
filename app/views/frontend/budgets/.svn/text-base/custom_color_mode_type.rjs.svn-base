@@ -1,0 +1,6 @@
+if @color_mode_type.is_sin_impresion?
+  page << "$('#PrintingType_#{@product_component_type_id}').hide()"
+else
+  page << "$('#PrintingType_#{@product_component_type_id}').show()"
+end
+

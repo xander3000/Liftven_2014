@@ -1,0 +1,17 @@
+page << "$('#concept_payroll_payroll_concept_personal_type_id,#concept_payroll_year,#concept_payroll_month,#concept_payroll_fortnight').children().remove().end()"
+page << "$('#concept_payroll_payroll_concept_personal_type_id').append(jQuery('<option></option>').val('').html('-- Todos --'));"
+page << "$('#concept_payroll_year').append(jQuery('<option></option>').val('').html('-- Seleccione --'));"
+page << "$('#concept_payroll_month').append(jQuery('<option></option>').val('').html('-- Seleccione --'));"
+page << "$('#concept_payroll_fortnight').append(jQuery('<option></option>').val('').html('-- Ambas --'));"
+@concept_personal_types.each do |concept_personal_type|
+			page << "$('#concept_payroll_payroll_concept_personal_type_id').append(jQuery('<option></option>').val('#{concept_personal_type.id}').html('#{concept_personal_type.name}'));"
+end
+@years.each do |year|
+			page << "$('#concept_payroll_year').append(jQuery('<option></option>').val('#{year}').html('#{year}'));"
+end
+@months.each do |month|
+			page << "$('#concept_payroll_month').append(jQuery('<option></option>').val('#{month}').html('#{month.to_code("02")}'));"
+end
+@fortnights.each do |fortnight|
+			page << "$('#concept_payroll_fortnight').append(jQuery('<option></option>').val('#{fortnight}').html('#{fortnight}º quincena'));"
+end

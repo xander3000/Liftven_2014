@@ -1,0 +1,55 @@
+<%= javascript_include_tag "jquery.lookupSeniat" %>
+<%= render :partial => "form_staff",:locals => {:f => f} %>
+<%= render :partial => "form_employee",:locals => {:f => f} %>
+
+<script type="text/javascript">
+
+		   $(document).ready(function(){
+
+                                  $("#payroll_staff_contact_fullname").blur(function() {
+                                    fullname = $("#payroll_staff_contact_fullname").val().split(" ")
+                                    $("#payroll_staff_first_name,#payroll_staff_second_name,#payroll_staff_last_name,#payroll_staff_second_last_name").val("")
+
+                                    
+                                    switch (fullname.length) {
+                                      case(1):
+                                        $("#payroll_staff_first_name").val(fullname[0])
+                                      break;
+                                      case(2):
+                                        $("#payroll_staff_first_name").val(fullname[0])
+                                        $("#payroll_staff_last_name").val(fullname[1])
+                                      break;
+                                      case(3):
+                                        $("#payroll_staff_first_name").val(fullname[0])
+                                        $("#payroll_staff_second_name").val(fullname[1])
+                                        $("#payroll_staff_last_name").val(fullname[2])
+                                      break;
+                                      case(4):
+                                        $("#payroll_staff_first_name").val(fullname[0])
+                                        $("#payroll_staff_second_name").val(fullname[1])
+                                        $("#payroll_staff_last_name").val(fullname[2])
+                                        $("#payroll_staff_second_last_name").val(fullname[3])
+                                      break;
+                                      default:
+                                        $("#payroll_staff_first_name").val(fullname[0])
+                                        $("#payroll_staff_second_name").val(fullname[1])
+                                        $("#payroll_staff_last_name").val(fullname[2])
+                                        $("#payroll_staff_second_last_name").val(fullname[3])
+
+                                      break;
+                                    }
+                                    
+                                  });
+				  $("#payroll_staff_identification_document").lookupSeniat({
+					 urlSearch: "<%= document_identification_lookup_seniat_backend_base_url %>",
+					 inputDocumentFiscalIdentification: "payroll_staff_rif",
+                                         inputFullname: "payroll_staff_contact_fullname",
+					 spinner: '<%= image_tag "icons/loader.gif",:width => "16" %>',
+					 blurEventInputFullname:true
+				  });
+
+
+
+			});
+
+</script>

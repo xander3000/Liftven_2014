@@ -1,0 +1,4 @@
+if @success
+	page << "$('#account_payable_payment_schedule_end_date').val('#{@payment_schedule_positions.last.expiration_date}')"
+	page.replace_html "payment_plan", :partial => "payment_plan"
+end

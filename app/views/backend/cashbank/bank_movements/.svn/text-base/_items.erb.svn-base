@@ -1,0 +1,30 @@
+<% @bank_movement_positions ||= current_bank_movement_positions_objects %>
+<% @bank_movement_positions.each do |bank_movement_position| %>
+
+	 <tr class="item <%= cycle("odd","ever")%> ">
+		<td class="center">
+		  <%= bank_movement_position.cash_bank_involvement_type.name%>
+		</td>
+		<td class="center">
+		  <%= eval(bank_movement_position.reference_document_type).model_humanize_name if(bank_movement_position.reference_document_type and bank_movement_position.reference_document_id)%>
+		</td>
+		<td class="center">
+		  <%= format_code(bank_movement_position.reference_document_id,"06") %>
+		</td>
+		<td class="center">
+		  <%= bank_movement_position.beneficiary_name %>
+		</td>
+		<td class="center hidden">
+		  <%= bank_movement_position.reference %>
+		</td>
+		<td class="center hidden">
+		  <%= bank_movement_position.description %>
+		</td>
+		<td class="center">
+		  <%= number_to_currency(bank_movement_position.amount, :delimiter => ".", :separator => ",", :unit => "Bs") %>
+		</td>
+		<td >
+		  <%= link_to_remote image_tag("icons/delete.png"), :url => backend_cashbank_remove_movement_position_url(bank_movement_position.id_temporal),:with => "'cash_bank_involvement_type_id='+$('#cash_bank_bank_movement_position_cash_bank_involvement_type_id').val()",:html => {:id => "",:class =>  "remove_item"} %>
+		</td>
+	 </tr>
+<% end %>

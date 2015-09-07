@@ -1,0 +1,30 @@
+<div id="tabs">
+	<ul>
+                <li id="tab-1"><a href="#tabs-1">General</a></li>
+                <li id="tab-2"><a href="#tabs-2">Valor 1/4 Pliego</a></li>
+                <li id="tab-3"><a href="#tabs-3">Valor por metro cuadrado</a></li>
+		<li id="tab-4"><a href="#tabs-4">Inventario</a></li>
+	</ul>
+	<div id="tabs-1">
+		<%= render :partial => "show_1" %>
+	</div>
+	<div id="tabs-2">
+		<%#= render :partial => "show_2" %>
+	</div>
+	<div id="tabs-3">
+                <%#= render :partial => "show_3" %>
+	</div>
+	<div id="tabs-4">
+                <%= render :partial => "show_4" %>
+	</div>
+</div>
+
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+                $( "#tabs" ).tabs();
+                $("button, input:submit,input:button,a.button ").button();
+
+	});
+</script>

@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/880/trunk/Venom/public/stylesheets/backend/material_management
+END
+raw_materials.css
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/804/trunk/Venom/public/stylesheets/backend/material_management/raw_materials.css
+END
+quotation_requisitions.css
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/880/trunk/Venom/public/stylesheets/backend/material_management/quotation_requisitions.css
+END
+production_orders.css
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/819/trunk/Venom/public/stylesheets/backend/material_management/production_orders.css
+END
+goods_movements.css
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/828/trunk/Venom/public/stylesheets/backend/material_management/goods_movements.css
+END
+purchase_orders.css
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/828/trunk/Venom/public/stylesheets/backend/material_management/purchase_orders.css
+END
+purchase_requisitions.css
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/879/trunk/Venom/public/stylesheets/backend/material_management/purchase_requisitions.css
+END

@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf8"/>
+  <title><%= SITE_NAME %></title>
+  <link rel="shortcut icon" href="<%="images/clients/#{PROJECT_NAME}/logos/favicon.ico"%>" type="image/x-icon" />
+
+  <%= stylesheet_link_tag "formtastic"%>
+  <%= stylesheet_link_tag "formtastic_changes"%>
+  <%= stylesheet_link_tag "backend/application"%>
+  <%= stylesheet_link_tag "backend/clients/#{PROJECT_NAME}/custom_application"%>
+
+  <%= stylesheet_link_tag "jquery-ui/smoothness/jquery-ui-1.11.2"%>
+  <%= stylesheet_link_tag "jquery-ui_hacks/smoothness/jquery-ui-1.8.14.custom"%>
+  <%= stylesheet_link_tag "#{controller.controller_path}"  %>
+  <%= stylesheet_link_tag "states"%>
+  <%= stylesheet_link_tag "jquery.overlay"  %>
+  <%= stylesheet_link_tag "jquery.notifyBar" %>
+  <%#= stylesheet_link_tag "jquery.fixedMenu" %>
+  <%= stylesheet_link_tag "jquery.slidemenu" %>
+  <%= stylesheet_link_tag "font-awesome/css/font-awesome.min"  %>
+  <%= stylesheet_link_tag "jqwidgets/v3.6.0/jqx.base"  %>
+  <%= stylesheet_link_tag "backend/jqx.custom"  %>
+    <%= stylesheet_link_tag "jquery.overlay_2"  %>
+  <!--yield head_stylesheet-->
+    <%= yield :head_stylesheet %>
+  <!--yield head_stylesheet-->
+
+  <!--[if lte IE 7]>
+  <![endif]-->
+
+  <%= javascript_include_tag "jquery-1.11.2.min" %>
+  <%= javascript_include_tag "jquery-migrate-1.2.1.min.js" %>
+  <%= javascript_include_tag "jrails" %>
+  <%= javascript_include_tag "jquery-ui-1.11.2.min" %>
+  <%= javascript_include_tag "jquery.tools.min" %>
+  <%= javascript_include_tag "jquery.ui.datepicker-es" %>
+  <%= javascript_include_tag "backend/application" %>
+  <%= javascript_include_tag "jquery.maskedinput-1.3.min" %>
+  <%= javascript_include_tag "jquery.jshashtable-2.1.min" %>
+  <%= javascript_include_tag "jquery.numberformatter.min" %>
+  <%= javascript_include_tag "jquery.highlightFade.min" %>
+  <%= javascript_include_tag "jquery.notifyBar" %>
+  <%#= javascript_include_tag "jquery.fixedMenu" %>
+  <%= javascript_include_tag "jquery.slidemenu" %>
+  <%= javascript_include_tag "jqwidgets/v3.6.0/jqxcore" %>
+  <%= javascript_include_tag "jqwidgets/v3.6.0/jqxmenu" %>
+ 
+
+  <!--yield head_javascript-->
+    <%= yield :head_javascript %>
+  <!--yield head_javascript-->
+
+</head>
+<body>
+      <!-- begin: #loading -->
+      <div style=" " id="loading">
+            <%= image_tag "global/loading.gif" %>
+      </div>
+      <!-- end: #loading -->
+      
+      <!-- begin: #topnav -->
+      <div id="topnav">
+		  <div class=" menunav">
+
+
+		  <div id='jqxMenu' style=''>
+             <%= render_topnav_menunav %>
+				  <div id="menu_session" class="right content ">
+					 <ol class="gbtc">
+						<li class="gbt first_name">
+						  <a><span><%= current_user.first_name.capitalize%> </span></a>
+						</li>
+
+						<li>
+						  <% order = count_active_orders %>
+						  <span class="notification <%= order.zero? ? "none" : ""%> " title="<%= "#{order} notificaciones por leer" %> "><%= order.zero? ? "" : order %></span>
+						</li>
+						<li>
+							<% user =  current_user %>
+						  <span class="avatar" onclick=""></span>
+						  <span class="arrow floating_box"></span>
+						  <div id="profile" class="floating_box">
+							 <div class="left">
+								<div><b><%= user.name.titleize %></b></div>
+								<div><%= "#{user.login}" %></div>
+								<hr/>
+								<%= link_to "Ver perfil",backend_session_url(current_user) %> - <%= link_to "Cerrar sesi&oacute;n",backend_session_url(current_user),:method => :delete,:class => "poweroff" %>
+							 </div>
+						  </div>
+						</li>
+					 </ol>
+				</div>
+			 </div>
+		  </div>
+      </div>
+      <!-- end: #topnav -->
+      <!-- begin: #header -->
+      <div id="header" class="hidden">
+        <div class="content">
+          <div>
+            <div id="logo" class="c30l subc">
+              <%= link_to image_tag("clients/#{PROJECT_NAME}/logos/logo3.png"),backend_home_index_url %>
+            </div>
+            <div id="menunav" class="c66l subc">
+              <%= link_to "<span class='orders'/>",backend_orders_url,:class => "first #{is_active_nav?("orders")}",:title => "Ordenes en Producción" %>
+              <%= link_to "<span class='contacts'/>",backend_contacts_url,:class => "first #{is_active_nav?("contacts")}",:title => "Contactos" %>
+              <%= link_to "<span class='raw_materials'/>",backend_raw_materials_url,:class => "first #{is_active_nav?("raw_materials")}",:title => "Materia Prima" %>
+              <%= link_to "<span class='products'/>",backend_products_url,:class => "first #{is_active_nav?("products")}",:title => "Productos" if current_user.is_administrator? %>
+              <%= link_to "<span class='budgets'/>",backend_budgets_url,:class => "first #{is_active_nav?("budgets")}",:title => "Presupuestos" %>
+              <%= link_to "<span class='invoices'/>",backend_invoices_url,:class => "first #{is_active_nav?("invoices")}",:title => "Facturas" %>
+              <%= link_to "<span class='credit_notes'/>",new_backend_credit_note_url,:class => "first #{is_active_nav?("credit_notes")}",:title => "Notas de Crédito" %>
+              <%#= link_to "<span class='reports'/>",backend_reports_url,:class => "first #{is_active_nav?("reports")}",:title => "Reportes" if current_user.is_administrator?%>
+              <%= link_to "<span class='shortcuts'/>",backend_shortcuts_url,:class => "first #{is_active_nav?("shortcuts")}",:title => "Accesos Directos" %>
+              <%= link_to "<span class='web_designs'/>",backend_web_design_base_index_url,:class => "first #{is_active_nav?("web_designs")}",:title => "Diseño Portal Web" if current_user.user_has_user_group?(UserGroup::SUPERVISOR_COMERCIAL)%>
+            </div>
+            <!--div id="search_top"class="c20l subc">
+              <%#= yield :search_top  %>
+              <%#= text_field_tag "","",:placeholder => "Buscador" %>
+            </div-->
+          </div>
+        </div>
+      </div>
+      <!-- end: #header -->
+
+      <!-- begin: #main -->
+      <div id="main">
+        <div class="content-block">
+          <div class="block-left block">
+            <div class="container">
+              <div class="content">
+                <%= yield :main_content_block_left  %>
+              </div>
+            </div>
+          </div>
+          <div class="block-center block">
+            <div class="container">
+              <div class="top">
+                <div class="content">
+                  <div class="c25l subc">
+                    <span class="modules module_<%= controller.controller_name %>"><%= @title %></span>
+                  </div>
+                  <div class="c74r subc right">
+                    <%= yield :main_content_block_center_right  %>
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="content">
+                <%= yield  %>
+              </div>
+              
+            </div>
+          </div>
+          <div class="block-right block">
+            <div class="container">
+              <div class="content">
+                <%= yield :main_content_block_right  %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end: #main -->
+		  <div class="slide-menu">
+			 <ul class="menu-items">
+				  <li class="menu-item" data-target="#Panel1" title="Panel 1">
+					  <div class="menu-icon">
+							<i class="fa fa-book"></i>
+						</div>
+					<div class="menu-content">
+							 <span>Panel 1</span>
+						</div>
+						<div class="menu-close">
+							<i class="fa fa-times"></i>
+						</div>
+				  </li>
+				  <li id="CalendarIcon" class="menu-item" data-target="#Panel2" title="Panel 2">
+					<div class="menu-icon">
+							<i class="fa fa-calendar"></i>
+						</div>
+					<div class="menu-content">
+							 <span>Panel 2</span>
+						</div>
+						<div class="menu-close">
+							<i class="fa fa-times"></i>
+						</div>
+				  </li>
+				  <li id="ShoppingIcon" class="menu-item" data-target="#Panel3" title="Panel 3">
+					<div class="menu-icon">
+							<i class="fa fa-folder-open"></i>
+						</div>
+					<div class="menu-content">
+							 <span>Panel 3</span>
+						</div>
+						<div class="menu-close">
+							<i class="fa fa-times"></i>
+						</div>
+				  </li>
+				  <li id="SearchIcon" class="menu-item" data-target="#Panel4" title="Panel 4">
+					<div class="menu-icon">
+							<i class="fa fa-search"></i>
+						</div>
+					<div class="menu-content">
+							 <span>Panel 4</span>
+						</div>
+						<div class="menu-close">
+							<i class="fa fa-times"></i>
+						</div>
+				  </li>
+				  <li id="BugIcon" class="menu-item" data-target="#Panel5" title="Panel 5">
+					<div class="menu-icon">
+							<i class="fa fa-bug"></i>
+						</div>
+						<div class="menu-content">
+							 <span>Panel 5</span>
+						</div>
+						<div class="menu-close">
+							<i class="fa fa-times"></i>
+						</div>
+				  </li>
+				  <li id="LogoffIcon" class="menu-item" data-target="#Panel6" title="Panel 6">
+					<div class="menu-icon">
+							<i class="fa fa-power-off"></i>
+						</div>
+						<div class="menu-content">
+							 <span>Panel 5</span>
+						</div>
+						<div class="menu-close">
+							<i class="fa fa-times"></i>
+						</div>
+				  </li>
+			 </ul>
+			 <div class="menu-panels">
+				  <div id="Panel1" class="menu-panel">
+						<h1>Panel 1 Contents</h1>
+				  </div>
+				  <div id="Panel2" class="menu-panel">
+						<h1>Panel 2 Contents</h1>
+				  </div>
+				  <div id="Panel3" class="menu-panel">
+						<h1>Panel 3 Contents</h1>
+				  </div>
+				  <div id="Panel4" class="menu-panel">
+					<h1>Panel 4 Contents</h1>
+				  </div>
+				  <div id="Panel5" class="menu-panel">
+					<h1>Panel 5 Contents</h1>
+				  </div>
+				  <div id="Panel6" class="menu-panel">
+					<h1>Panel 5 Contents</h1>
+				  </div>
+			 </div>
+		  </div>
+      <!-- begin: #overlay -->
+      <div class="overlay">
+        <a class="close button ">X</a>
+        <div class="contentWrap"></div>
+      </div>
+      <div id="message_overlay"></div>
+      <!-- end: #overlay -->
+
+		<!-- begin: #dialog-application-error -->
+		<div id="dialog-application-error" title="Registrar fecha de entrega">
+		  <div id="dialog-application-error-message">
+
+		  </div>
+		</div>
+		<!-- end: #dialog-application-error -->
+
+      <script type="text/javascript">
+       $(document).ready(function() {
+			<% if current_user.has_avatar? %>
+			 $("#topnav .content ol li span.avatar").css("background-image","url('<%= current_user.avatar.url %>')")
+			 <% end %>
+			$(".slide-menu").slidemenu();
+			$("#jqxMenu").jqxMenu({ width: 'auto', height: 'auto',showTopLevelArrows: true });
+			 $( "#dialog-application-error" ).dialog({
+				  autoOpen: false,
+				  height: 125,
+				  width: 310,
+				  modal: true,
+				  buttons: {
+						"Aceptar": function() {
+						  $( this ).dialog( "close" );
+						}
+				  },
+				  close: function() {
+
+				  }
+			 });
+
+
+          <% if flash[:notice] %>
+            $.notifyBar({
+              html: "<%= flash[:notice] %>",
+              delay: 3000,
+              animationSpeed: "normal",
+              cls: "success"
+            });
+          <% end %>
+            <% if flash[:error] %>
+              $.notifyBar({
+                html: "<%= flash[:error] %>",
+                delay: 3000,
+                animationSpeed: "normal",
+                cls: "error"
+              });
+            <% end %>
+				<% if flash[:warning] %>
+              $.notifyBar({
+                html: "<%= flash[:warning] %>",
+                delay: 3000,
+                animationSpeed: "normal",
+                cls: "warning"
+              });
+            <% end %>
+
+			  $("a.external-overlay").overlay({
+				mask: {
+						  color: '#000',
+						  loadSpeed: 200,
+						  opacity: 0.9
+				},
+				onBeforeLoad: function() {
+					 var wrap = this.getOverlay().find(".contentWrap");
+					 wrap.load(this.getTrigger().attr("href"));
+				},
+				onLoad:function() {}
+			 });
+
+      });
+      </script>
+
+  <!-- begin: #footer -->
+  <div id="footer">
+  </div>
+  <!-- end: #footer -->
+</body>
+</html>

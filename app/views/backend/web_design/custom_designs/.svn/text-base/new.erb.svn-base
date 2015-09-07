@@ -1,0 +1,38 @@
+<%= include_stylesheet("jquery.fileupload") %>
+<%= include_stylesheet("jquery.fileupload-ui") %>
+
+<%= include_javascript("jquery.tmpl.min") %>
+<%= include_javascript("jquery.load-image.all.min.js") %>
+<%= include_javascript("jquery.iframe-transport") %>
+<%= include_javascript("jquery.fileupload") %>
+<%= include_javascript("jquery.fileupload-process") %>
+<%= include_javascript("jquery.fileupload-image.js") %>
+<%= include_javascript("jquery.fileupload-validate.js") %>
+<%= include_javascript("jquery.fileupload-ui") %>
+<%= include_javascript("jquery.fileupload-jquery-ui.js") %>
+
+<% form_layout do %>
+  <% semantic_form_remote_for @custom_design, :url => backend_web_design_custom_designs_url do |f| %>
+      <div id="form_for_design">
+        <%= render :partial => "form",:locals => {:f => f} %>
+      </div>
+  <% end %>
+  <%= render :partial => "form_upload" %>
+  <br/>
+  <hr/>
+<div class="left">
+    <%= link_to "Cancelar",backend_cpanel_home_index_url %>
+    |
+    <%= button_to_function "Enviar al cliente","submit_form_for_design()",:id => "submit_for_design"%>
+  </div>
+<% end %>
+
+
+    <script  type="text/javascript">
+
+    function submit_form_for_design(){
+      $('#submit_for_design').val("Procesando...");
+      $('#submit_for_design').attr("disabled", true);
+      $("#new_custom_design").submit();
+    }
+  </script>

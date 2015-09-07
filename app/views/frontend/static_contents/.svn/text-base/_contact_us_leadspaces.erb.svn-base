@@ -1,0 +1,11 @@
+<div id="venom-leadspace-body">
+  <div id="venom-sp-nav">
+    <div id="venom-sp-logo">
+      <h1><%= @title %> </h1>
+    </div>
+  </div>
+  <div id="venom-leadspace-logo-container">
+    <div class="content-info">
+    </div>
+  </div>
+</div>

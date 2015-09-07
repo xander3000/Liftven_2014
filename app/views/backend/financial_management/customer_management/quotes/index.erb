@@ -1,0 +1,54 @@
+<%= include_javascript("jquery.dataTables.min.js") %>
+<%= include_stylesheet("jquery.datatable.css") %>
+
+
+<div class="actionsBar right no-print">
+  <%= link_to(image_tag("icons/arrow_left.png"),backend_cpanel_home_index_url,:class => "button",:title => "Regresar") %>
+  |
+  <%= link_to(image_tag("icons/add.png"),new_backend_financial_management_customer_management_quote_url,:class => "button") %>
+</div>
+<hr/>
+
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="listing" width="100%">
+	<thead>
+		<tr>
+			<th><%= Crm::Quote.human_attribute_name("name")%> </th>
+			<th><%= Crm::Quote.human_attribute_name("crm_account")%> </th>
+			<th><%= Crm::Quote.human_attribute_name("crm_quote_stage_type")%> </th>
+			<th><%= Crm::Quote.human_attribute_name("total")%> </th>
+			<th><%= Crm::Quote.human_attribute_name("assigned_to")%> </th>
+			<th><%= Crm::Quote.human_attribute_name("created_at")%> </th>
+		</tr>
+	</thead>
+	<tbody>
+	  <% @quotes.each do |item|  %>
+	  <tr>
+			 <td class="left"><%= item.name%> </td>
+			 <td class="left"><%= item.crm_account.name%> </td>
+			 <td class="left"><%= item.crm_quote_stage_type.name%> </td>
+			 <td class="left"><%= item.total.to_f.to_currency%> </td>
+			 <td class="left"><%= item.assigned_to.name%> </td>
+			 <td class="left"><%= l item.created_at%> </td>
+		  </tr>
+		<% end %>
+	</tbody>
+</table>
+
+
+
+
+<script type="text/javascript">
+  var oTable;
+
+  $(document).ready(function() {
+		oTable =  $('#listing').dataTable({
+            oLanguage: {
+                sUrl: "/javascripts/i18n/jquery.DataTables-es.txt"
+            }
+        });
+
+  });
+
+
+
+</script>

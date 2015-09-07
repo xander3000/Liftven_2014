@@ -1,0 +1,14 @@
+if @success
+	page << "$('#pos_card_terminal_position_form input').val('')";
+	page << "$('#pos_card_terminal_position_form select').children().remove().end()";
+	page << "$('#pos_card_terminal_position_form select').append(jQuery('<option></option>').val(' ').html(' '));"
+	@pos_card_terminals.each do |item|
+    page << "$('#pos_card_terminal_position_form select').append(jQuery('<option></option>').val('#{item.id}').html('#{item.name}'));"
+  end
+
+	page.hide "add_button_pos_card"
+
+	page.replace_html "pos_card_terminal_positions_added", :partial => "pos_card_terminal_positions_added"
+else
+	page.show_errors([@pos_card_terminal_position], "message_overlay", nil)
+end

@@ -1,0 +1,50 @@
+<div id="" class="content_form">
+  <% f.inputs "",:class => "no-border" do %>
+		<div>
+		  <div class="c15l subc">
+                          <%= f.input :code,:label => false,:input_html => {:size => 10,:disabled => true,:class => "top"} %>
+
+		  </div>
+		  <div class="c70r subc">
+                          <%=  f.input :name,:label => false,:input_html => {:disabled => true,:class => "top input_name",:id => "name_2",:name => "name_2"} %>
+		  </div>
+		</div>
+  <% end %>
+  <% f.inputs "Datos generales" do %>
+		<div>
+		  <div class="c50l subc">
+                    <% f.inputs "" do %>
+							 <%#= f.input :material_base_measure_unit,:input_html => {:disabled => true,:class => "select_measure_unit"} %>
+							 <%= f.input :material_purchasing_group,:input_html => {} %>
+							 <%= f.input :tax_exempt,:input_html => {} %>
+                    <%  end %>
+
+
+		  </div>
+		  <div class="c50r subc">
+                    <% f.inputs "" do %>
+			<%= f.input :material_order_measure_unit,:input_html => {:class =>"not-editabble"} %>
+                        <%#= f.input :material_packing_material,:input_html => {:class =>"not-editabble"} %>
+                        <%= f.input :automatic_po,:input_html => {} %>
+                    <% end %>
+		  </div>
+		</div>
+  <% end %>
+  <% f.inputs "Otros datos / datos fabricante" do %>
+		<div>
+		  <div class="c50l subc">
+                    <% f.inputs "" do %>
+			  <%= f.input :goods_receipt_processing_time,:input_html => {:class => "",:size => 10} %>
+                         
+                    <%  end %>
+
+
+		  </div>
+		  <div class="c50r subc">
+                    <% f.inputs "" do %>
+			
+                    <% end %>
+		  </div>
+		</div>
+  <% end %>
+</div>

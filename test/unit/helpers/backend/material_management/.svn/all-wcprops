@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/1186/trunk/Venom/test/unit/helpers/backend/material_management
+END
+measure_units_helper_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/1186/trunk/Venom/test/unit/helpers/backend/material_management/measure_units_helper_test.rb
+END
+production_orders_helper_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/819/trunk/Venom/test/unit/helpers/backend/material_management/production_orders_helper_test.rb
+END
+purchase_orders_helper_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/826/trunk/Venom/test/unit/helpers/backend/material_management/purchase_orders_helper_test.rb
+END
+goods_movements_helper_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/826/trunk/Venom/test/unit/helpers/backend/material_management/goods_movements_helper_test.rb
+END
+purchase_requisitions_helper_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/879/trunk/Venom/test/unit/helpers/backend/material_management/purchase_requisitions_helper_test.rb
+END
+goods_receipts_helper_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/826/trunk/Venom/test/unit/helpers/backend/material_management/goods_receipts_helper_test.rb
+END
+raw_materials_helper_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/798/trunk/Venom/test/unit/helpers/backend/material_management/raw_materials_helper_test.rb
+END
+raw_material_categories_helper_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/1186/trunk/Venom/test/unit/helpers/backend/material_management/raw_material_categories_helper_test.rb
+END
+quotation_requisitions_helper_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/880/trunk/Venom/test/unit/helpers/backend/material_management/quotation_requisitions_helper_test.rb
+END

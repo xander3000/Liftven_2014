@@ -1,0 +1,22 @@
+<div class="top-actions">
+  <%= link_to_remote(image_tag("icons/page_edit.png"), :url => edit_backend_raw_material_url(@raw_material),:method => :get,:html => {:title => "Editar #{@raw_material.name}",:class => "button"}) %>
+  
+  <%#= link_to_remote(image_tag("icons/page_delete.png"), :url => backend_raw_material_url(@raw_material),:confirm => "¿Está seguro que desea eliminar '#{@raw_material.name}'?",:html => {:title => "Eliminar #{@raw_material.name}",:class => "button"}) %>
+  &nbsp;&nbsp;|&nbsp;
+  <%= link_to_remote(image_tag("icons/page.png"), :update => "form_container", :update => "#{controller.controller_name}_container", :url => new_backend_raw_material_url,:html => {:title => "Nueva Materia Prima",:class => "button"}) %>
+</div>
+<hr/>
+<h2><%= "#{@raw_material.name} (#{format_code(@raw_material.id, "05")})"%></h2>
+<br/>
+<% if @raw_material.packing_material %>
+<b>Empaquetado(s):</b>&nbsp;
+<%= @raw_material.packing_material.full_name %>
+<% end %>
+<br/>
+<% if @raw_material.raw_material_category.is_a_paper_type? %>
+  <b><%= @raw_material.class.human_attribute_name('dossier_dependence')  %>:</b>&nbsp;
+	 <%= @raw_material.dossier_dependence ? "Sí" : "No" %>
+<% end %>
+<br/>
+<br/>
+

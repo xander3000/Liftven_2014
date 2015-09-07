@@ -1,0 +1,8 @@
+<li>
+  <a href="#">Posible cliente<span class="arrow"></span></a>
+  <ul style='width: 250px;'>
+      <li><%= link_to "Nuevo",new_backend_financial_management_customer_management_lead_url%></li>
+      <li class="disabled"><%= link_to "Detalle",backend_financial_management_customer_management_lead_url(@lead)%></li>
+      <li><%= link_to "Editar",edit_backend_financial_management_customer_management_lead_url(@lead)%> </li>
+  </ul>
+</li>

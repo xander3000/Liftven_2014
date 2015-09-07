@@ -1,0 +1,6 @@
+if @success
+	page << "$('#new-element-dialog-form').dialog( 'destroy' )"
+else
+	page.show_errors([@accounting_concept], "message_overlay", nil)
+end
+

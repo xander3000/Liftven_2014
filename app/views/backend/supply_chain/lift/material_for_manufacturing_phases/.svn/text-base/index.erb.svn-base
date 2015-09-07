@@ -1,0 +1,47 @@
+<%= include_javascript("jquery.dataTables.min.js") %>
+<%= include_stylesheet("jquery.datatable.css") %>
+<div class="actionsBar right no-print">
+  <%= link_to(image_tag("icons/arrow_left.png"),backend_cpanel_home_index_url,:class => "button",:title => "Regresar") %>
+</div>
+<hr/>
+
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="lift_models" width="100%">
+	<thead>
+		<tr>
+
+			<th><%= Crm::Projects::LiftModel.human_attribute_name("crm_projects_lift_category_type")%> </th>
+			<th><%= Crm::Projects::LiftModel.human_attribute_name("name")%> </th>
+			
+		</tr>
+	</thead>
+	<tbody>
+	  <% @lift_models.each do |lift_model|  %>
+		 <tr onclick="window.location.href='<%= backend_supply_chain_lift_material_for_manufacturing_phase_url(lift_model) %>'">
+			
+			 <td class="left"><%= lift_model.crm_projects_lift_category_type.name%> </td>
+			 <td class="left"><%= lift_model.name%> </td>
+			 
+		  </tr>
+		<% end %>
+	</tbody>
+</table>
+
+
+
+
+<script type="text/javascript">
+  var oTable;
+
+  $(document).ready(function() {
+		oTable =  $('#lift_models').dataTable({
+            oLanguage: {
+                sUrl: "/javascripts/i18n/jquery.DataTables-es.txt"
+            }
+        });
+
+
+  });
+
+
+
+</script>

@@ -1,0 +1,179 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/1493/trunk/Venom/app/models/cash_bank
+END
+bank_autoreconciliation_by_description.rb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/1347/trunk/Venom/app/models/cash_bank/bank_autoreconciliation_by_description.rb
+END
+pos_card_terminal.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/672/trunk/Venom/app/models/cash_bank/pos_card_terminal.rb
+END
+bank_movement.rb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/1406/trunk/Venom/app/models/cash_bank/bank_movement.rb
+END
+bank_account.rb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/1207/trunk/Venom/app/models/cash_bank/bank_account.rb
+END
+bank_account_type.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/571/trunk/Venom/app/models/cash_bank/bank_account_type.rb
+END
+checkbook.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/1203/trunk/Venom/app/models/cash_bank/checkbook.rb
+END
+cash_journal_position_category_type.rb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/1047/trunk/Venom/app/models/cash_bank/cash_journal_position_category_type.rb
+END
+cash_journal_position.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/1467/trunk/Venom/app/models/cash_bank/cash_journal_position.rb
+END
+bank_reconciliation.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/1347/trunk/Venom/app/models/cash_bank/bank_reconciliation.rb
+END
+pos_card_terminal_movement.rb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/681/trunk/Venom/app/models/cash_bank/pos_card_terminal_movement.rb
+END
+bank_movement_retention_position.rb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/576/trunk/Venom/app/models/cash_bank/bank_movement_retention_position.rb
+END
+cash_count_movement.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/681/trunk/Venom/app/models/cash_bank/cash_count_movement.rb
+END
+cash_journal_count_position.rb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/1463/trunk/Venom/app/models/cash_bank/cash_journal_count_position.rb
+END
+bank_movement_operation_type.rb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/1013/trunk/Venom/app/models/cash_bank/bank_movement_operation_type.rb
+END
+involvement_type.rb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/690/trunk/Venom/app/models/cash_bank/involvement_type.rb
+END
+check_offered.rb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/595/trunk/Venom/app/models/cash_bank/check_offered.rb
+END
+cash_journal.rb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/1463/trunk/Venom/app/models/cash_bank/cash_journal.rb
+END
+cash_journal_position_concept_type.rb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/1046/trunk/Venom/app/models/cash_bank/cash_journal_position_concept_type.rb
+END
+bank_movement_position.rb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/1416/trunk/Venom/app/models/cash_bank/bank_movement_position.rb
+END
+pos_card_terminal_position.rb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/672/trunk/Venom/app/models/cash_bank/pos_card_terminal_position.rb
+END
+cash_count_position.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/642/trunk/Venom/app/models/cash_bank/cash_count_position.rb
+END
+bank.rb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/1347/trunk/Venom/app/models/cash_bank/bank.rb
+END
+bank_reconciliation_bank_statement.rb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/641/trunk/Venom/app/models/cash_bank/bank_reconciliation_bank_statement.rb
+END
+daily_cash_closing.rb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/854/trunk/Venom/app/models/cash_bank/daily_cash_closing.rb
+END
+cash.rb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/1047/trunk/Venom/app/models/cash_bank/cash.rb
+END
+cash_type.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/1046/trunk/Venom/app/models/cash_bank/cash_type.rb
+END
+daily_cash_opening.rb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/681/trunk/Venom/app/models/cash_bank/daily_cash_opening.rb
+END
+cash_journal_count.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/1493/trunk/Venom/app/models/cash_bank/cash_journal_count.rb
+END
+check_status_type.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/571/trunk/Venom/app/models/cash_bank/check_status_type.rb
+END

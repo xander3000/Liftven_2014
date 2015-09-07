@@ -1,0 +1,24 @@
+<%= render :partial => "form_1" %>
+<%= render :partial => "form_2" %>
+
+
+<script type="text/javascript">
+
+		   $(document).ready(function(){
+
+				$("input.blocked").attr("readonly", true).click(function() {
+				    return false;
+				});
+
+				  $("#contact_identification_document").lookupSeniat({
+					 urlSearch: "<%= document_identification_lookup_seniat_backend_base_url %>",
+					 inputFullname: "contact_fullname",
+					 spinner: '<%= image_tag "icons/loader.gif",:width => "16" %>',
+					 inputRateRetention: "client_rate_retention",
+					 inputIsTaxpayer: "client_is_taxpayer",
+					 inputIsRetentionAgent: "client_is_retention_agent"
+				  });
+
+			});
+
+</script>

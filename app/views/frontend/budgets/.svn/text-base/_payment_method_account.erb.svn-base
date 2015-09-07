@@ -1,0 +1,17 @@
+    <div class="subc c25l">
+        <%= image_tag "logos/#{PROJECT_NAME}/logo3.png" %>
+    </div>
+    <div class="subc c70r">
+      <h2>Monto abonados a la cuenta</h2>
+      <p class="note">Use los montos abonados a su cuenta personal de <%= COMPANY_NAME %>.</p>
+      <fieldset class="hidden form">
+        <legend>Su saldo actual es de:</legend>
+        <%= f.radio_button :payment_method_type_id,"3",{:class => "hidden"} %>
+        <ul>
+          <li>
+            <%= number_to_currency(0, :delimiter => ".", :separator => ",", :unit => "Bs") %>
+          </li>
+        </ul>
+
+      </fieldset>
+    </div>

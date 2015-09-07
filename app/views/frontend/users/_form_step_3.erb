@@ -1,0 +1,19 @@
+<h2 class="StepTitle">Información de contacto</h2>
+<% fields_for @contact do |c| %>
+  <fieldset>
+     <p>
+        <%= c.label :phone, @contact.class.human_attribute_name('phone') %>
+        <%= c.text_field :phone %>
+       <span id="msg_phone" class="error"></span>
+    </p>
+    <p  class="last-child">
+        <%= c.label :cellphone, @contact.class.human_attribute_name('cellphone') %>
+        <%= c.text_field :cellphone %>
+    </p>
+    <p>
+        <%= c.label :address, @contact.class.human_attribute_name('address') %>
+        <%= c.text_area :address,:cols => 60, :rows => 3%>
+
+    </p>
+  </fieldset>
+<% end %>

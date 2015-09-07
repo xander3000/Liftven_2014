@@ -1,0 +1,15 @@
+<% semantic_fields_for @bank_movement do |f| %>
+  <% f.inputs do %>
+		  <%= f.input :amount,:input_html => {:disabled => true,:size => 15,:class => "right",:value => @bank_movement.amount.to_currency(false)} %>
+		<%= f.input :cash_bank_bank_movement_operation_type,:input_html => {:disabled => true} %>
+		<%= f.input :accounting_accounting_concept,:input_html => {:disabled => true}%>
+		<%= f.input :cash_bank_bank,:input_html  => {:disabled => true}%>
+      <%= f.input :cash_bank_bank_account,:input_html => {:disabled => true} %>
+		<%= f.input :accounting_accountant_account,:input_html => {:disabled => true} %>
+		<%= f.input :cash_bank_involvement_type,:input_html => {:disabled => true} %>
+		<%= f.input :beneficiary,:input_html => {:disabled => true,:size => 15} %>
+		<%= f.input :vale,:input_html => {:disabled => true,:size => 15} %>
+		<%= f.input :description,:input_html => {:disabled => true,:size => 25} %>
+		<%= f.input :date,:input_html => {:disabled => true,:size => 15} %>
+  <% end %>
+<% end %>

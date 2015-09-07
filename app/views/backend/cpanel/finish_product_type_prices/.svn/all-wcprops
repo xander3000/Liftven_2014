@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/1342/trunk/Venom/app/views/backend/cpanel/finish_product_type_prices
+END
+edit.erb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/1342/trunk/Venom/app/views/backend/cpanel/finish_product_type_prices/edit.erb
+END
+index.erb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/1342/trunk/Venom/app/views/backend/cpanel/finish_product_type_prices/index.erb
+END
+update.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/1342/trunk/Venom/app/views/backend/cpanel/finish_product_type_prices/update.rjs
+END

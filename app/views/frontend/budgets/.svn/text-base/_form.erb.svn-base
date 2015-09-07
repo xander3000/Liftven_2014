@@ -1,0 +1,9 @@
+<div>
+  <div class="subc c33l">
+    <%= render :partial => "form_1",:locals => {:f => f} %>
+  </div>
+  <div id="form_for_details" class=" subc c60r ">
+    <%= render :partial => "form_2",:locals => {:f => f} %>
+  </div>
+</div>
+

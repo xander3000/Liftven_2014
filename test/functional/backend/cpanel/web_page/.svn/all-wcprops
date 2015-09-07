@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/780/trunk/Venom/test/functional/backend/cpanel/web_page
+END
+custom_designs_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/763/trunk/Venom/test/functional/backend/cpanel/web_page/custom_designs_controller_test.rb
+END
+home_page_slides_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/780/trunk/Venom/test/functional/backend/cpanel/web_page/home_page_slides_controller_test.rb
+END

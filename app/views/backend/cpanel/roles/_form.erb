@@ -1,0 +1,66 @@
+<div id="" class="content_form">
+  <% f.inputs "Datos generales" do %>
+    <%= f.input :name %>
+    <%= f.input :tag_name %>
+    <%= f.input :note %>
+  <% end %>
+
+<% f.inputs "Permisos" do %>
+    <table class="">
+      <thead>
+        <tr>
+          <th>
+            Módulo
+          </th>
+          <th class="left">
+            Acciones
+          </th>
+          <th class="right">
+            <%= link_to(image_tag("icons/add.png"),backend_cpanel_role_new_permission_url(@role),:class => "external-overlay button",:rel=>".overlay",:title => "Agregar") if edit %>
+          </th>
+        </tr>
+        </thead>
+        <tbody id="permissions">
+          <%= render :partial => "permissions",:locals => {:edit => edit} %>
+        </tbody>
+    </table>
+
+  <% end %>
+
+</div>
+
+
+<script type="text/javascript">
+
+
+
+
+
+  $(document).ready(function() {
+		overlay_content = $("a.external-overlay[rel]").overlay({
+		  mask: {
+					 color: '#000',
+					 loadSpeed: 200,
+					 opacity: 0.9
+		  },
+		  api: true,
+		  onBeforeLoad: function() {
+				var wrap = this.getOverlay().find(".contentWrap");
+				wrap.load(this.getTrigger().attr("href"),function(responseTxt,statusTxt,xhr){
+				if(statusTxt=="error"){
+				  overlay_content.close();
+					 $.notifyBar({
+						html: responseTxt,
+						delay: 3000,
+						animationSpeed: "normal",
+						cls: "error"
+					 });
+				}
+			 });
+		  }
+		});
+  });
+
+
+
+</script>

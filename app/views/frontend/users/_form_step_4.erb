@@ -1,0 +1,14 @@
+<h2 class="StepTitle">Confirma tus datos</h2>
+<div>
+  <fieldset>
+  <%= f.label :login, "Correo Electrónico" %> <span id="confirmation_user_login"></span>
+  <% fields_for @contact do |c| %>
+    <%= c.label :fullname, @contact.class.human_attribute_name('fullname') %> <span id="confirmation_contact_fullname"></span>
+    <%= c.label :identification_document, @contact.class.human_attribute_name('identification_document') %> <span id="confirmation_contact_identification_document"></span>
+    <%= c.label :phone, @contact.class.human_attribute_name('phone') %> <span id="confirmation_contact_phone"></span>
+    <%= c.label :cellphone, @contact.class.human_attribute_name('cellphone') %> <span id="confirmation_contact_cellphone"></span>
+    <%= c.label :address, @contact.class.human_attribute_name('address') %> <span id="confirmation_contact_address"></span>
+  <% end %>
+  </fieldset>
+</div>
+

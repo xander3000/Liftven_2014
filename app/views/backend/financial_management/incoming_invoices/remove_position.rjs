@@ -1,0 +1,11 @@
+
+	page.replace_html "totals_container", :partial => "totals"
+	page.replace_html "items", :partial => "items"
+	page.replace_html "incoming_invoice_taxes", :partial => "incoming_invoice_taxes"
+	page << "$('#item_product_form input, #item_product_form select').val('')"
+	page << "$('#total_currency').html('')"
+  #page << "$('#account_payable_incoming_invoice_sub_total_amount').val(#{@taxable}).blur()"
+	page.hide "add_product_button"
+	page << "calculate_total_amount()"
+
+

@@ -1,0 +1,127 @@
+<style type="text/css">
+  #content_info_voucher table label{
+	 width: 150px;
+}
+</style>
+
+<div style="border: 1px solid #D2D2D2">
+  <div id="content_info_voucher">
+	 <div class="subc c55l">
+		<div class="border header">
+		  <h2><%= COMPANY_NAME.upcase %></h2>
+		  <b><%= COMPANY_IDENTIFICATION_DOCUMENT.upcase %></b><br/>
+		  <b><%= COMPANY_PHONE.upcase %></b>
+		</div>
+	 </div>
+	 <div class="subc c40r left">
+		<div class="border">
+		  <h2>ORDEN DE MOVIMIENTO DE MERCANCIA</h2>
+		  <br/>
+		  <h2>Nº <b class="red">OMM-<%= @production_order.id.to_code  %> </b></h2>
+		</div>
+	 </div>
+	 <br/>
+
+	 <table cellspacing="0" class="border">
+		  <thead>
+			 <tr>
+				<th class="border-top-left border-top-right"><b>INFORMACION DE ORDEN</b></th>
+			 </tr>
+		  </thead>
+		 <tbody>
+			<tr>
+			  <td class="border-bottom-left border-bottom-right">
+				 <label><%= Material::ProductionOrder.human_attribute_name("requesting_unit")%>:</label><h2><%= @production_order.requesting_unit.name%></h2>
+				 <label><%= Material::ProductionOrder.human_attribute_name("material_production_orden_type")%>:</label> <b><%= @production_order.material_production_orden_type.name.upcase%></b><br/>
+				 <label><%= Material::ProductionOrder.human_attribute_name("proyect_name")%>:</label> <b><%= @production_order.proyect_name.upcase%></b><br/>
+				 <label><%= Material::ProductionOrder.human_attribute_name("delivery_date")%>:</label> <b><%= l @production_order.delivery_date.upcase.to_date%></b><br/>
+			  </td>
+			</tr>
+	 </tbody>
+	 </table>
+	 <br/>
+	 <table>
+		<thead>
+		  <tr>
+			 <th class="center" style="width: 10px">ITEM</th>
+			 <th class="left">CODIGO</th>
+			 <th class="left">DESCRIPCION</th>
+			 <th class="right">CANTIDAD</th>
+		  </tr>
+		</thead>
+		<tbody class="items">
+				<%
+					 item = 0
+					 @production_order_positions.each do |position|
+					 item += 1
+				%>
+				<tr>
+				  <% material_raw_material = position.material_raw_material  %>
+				  <td class="center"><%= item%></td>
+				  <td><%= material_raw_material.id.to_code  %></td>
+				  <td><%= material_raw_material.name  %></td>
+				  <td class="right"><%= position.quantity.to_currency(false)  %>  <%= material_raw_material.material_issue_measure_unit.name  %></td>
+				</tr>
+			 <% end %>
+		</tbody>
+	 </table>
+<br/>
+	 <table>
+		<thead>
+		  <tr class="center">
+			 <td>
+				OBSERVACIONES
+			 </td>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr>
+			 <td><%= @production_order.description.upcase%></td>
+		  </tr>
+		</tbody>
+	 </table>
+<br/>
+  <div class="footer">
+	 <div class="subc c50l">
+		<table>
+		  <thead>
+		  <tr>
+			 <th>
+				Preparado
+			 </th>
+			 <th>
+				Aprobado
+			 </th>
+			 <th>
+				Contabilizado
+			 </th>
+			 <th>
+				Revisado
+			 </th>
+		  </tr>
+		  </thead>
+		  <tbody>
+			 <tr>
+				<td><br/><br/><br/></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			 </tr>
+		  </tbody>
+		</table>
+	 </div>
+	 <div class="subc c50r">
+		<div class="border">
+		  <b>RECIBIDO:</b>
+		  <br/>
+		  <br/>
+		  <br/>
+		  <hr/>
+		  CI:
+		</div>
+	 </div>
+  </div>
+
+
+  </div>
+</div>

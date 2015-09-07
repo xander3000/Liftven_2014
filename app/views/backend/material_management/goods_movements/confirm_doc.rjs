@@ -1,0 +1,18 @@
+if @doc
+		page << "$('#material_goods_movement_supplier_id,#material_goods_movement_supplier_name').val('')"
+	if Material::GoodsMovementType::IN_GOODS_MOVEMENT.eql?(@goods_movement_type.tag_name)
+		page.show("material_goods_movement_supplier_name_input")
+		page << "$('#material_goods_movement_supplier_id').val('#{@doc.supplier.id}')"
+		page << "$('#material_goods_movement_supplier_name').val('#{@doc.supplier.name}')"
+	else
+		page.hide("material_goods_movement_supplier_name_input")
+	end
+
+
+		page.replace_html "items", :partial => "items"
+		page.show("form_items")
+else
+	page.show_message_errors(@errors, "message_overlay", nil)
+	page << "$('#material_goods_movement_supplier_name').val('')"
+	page.replace_html "items", :text => ""
+end

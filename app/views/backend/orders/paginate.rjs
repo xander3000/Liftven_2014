@@ -1,0 +1,3 @@
+# TODO Operate on the page object
+page.replace_html "orders", :partial => "orders_by_states"
+

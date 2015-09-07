@@ -1,0 +1,34 @@
+    <div class="block info product">
+      <ul>
+      <li class="product_item">
+        <p class="title">Item</p>
+        <p class="item-spec"><%= product_by_budget.product.finished_product_category_type.full_name %> </p>
+      </li>
+      <li class="product_price">
+        <p class="title">Precio
+        </p><p class="item-spec"><%= number_to_currency(product_by_budget.unit_price, :delimiter => ".", :separator => ",", :unit => "Bs")  %></p>
+      </li>
+      <li class="product_amount">
+        <p class="title">Cantidad
+        </p><p class="item-spec"><%= text_field_tag "quantity_product_#{product_by_budget.id_temporal}",product_by_budget.quantity,:class => "right" %></p>
+      </li>
+      <li class="subtotal product_subtotal">
+        <p class="title">Subtotal</p>
+        <p class="item-spec"><%= number_to_currency(product_by_budget.total_price, :delimiter => ".", :separator => ",", :unit => "Bs")   %></p>
+      </li>
+    </ul>
+      <div >
+        <div id="product_description"class="subc c70l">
+          <p class=""><%= product_by_budget.product.name %> </p>
+          <p class="">Medidas: <%= product_by_budget.side_dimensions %> </p>
+          <br/>
+          <p>Item: <%= product_by_budget.id_temporal%></p>
+			 <% if product_by_budget.digital_card_id_temporal %>
+				<p>Diseño asociado: <%= product_by_budget.digital_card_id_temporal%></p>
+			 <% end %>
+        </div>
+        <div id="product_actions" class="subc c28r">
+          <p><%= link_to_remote("Remover del carrito", :url => remove_item_frontend_budgets_url,:with => "'id_temporal='+#{product_by_budget.id_temporal}",:html => {:class => ""},:confirm => "¿Seguro que desea eliminar este item, #{product_by_budget.product.name}?") %></p>
+        </div>
+      </div>
+</div>

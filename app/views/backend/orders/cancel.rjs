@@ -1,0 +1,2 @@
+
+page.redirect_to(backend_orders_url)

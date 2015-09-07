@@ -1,0 +1,25 @@
+<%= javascript_include_tag "jquery.lookupSeniat" %>
+
+<% content_for :aditional_options_menunav do %>
+  <%= render  "#{controller.controller_path}/aditional_options_menunav/show" %>
+<% end %>
+
+
+<div class="actionsBar right no-print">
+  <%= link_to(image_tag("icons/arrow_left.png"),backend_financial_management_suppliers_url,:class => "button",:title => "Regresar") %>
+</div>
+<hr/>
+<div>
+  <% semantic_form_remote_for @supplier, :update => "#{controller.controller_name}_container",:url => "",:html => {:class => "form_generate"} do |f| %>
+  <div class="">
+	 <%= render :partial => "form",:locals => {:f => f,:show => true} %>
+  </div>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+       	$(document).ready(function(){
+                $(".supplier input, .supplier select, .supplier textarea").attr("disabled","disabled")
+					 $("#tabs li").show()
+	});
+</script>

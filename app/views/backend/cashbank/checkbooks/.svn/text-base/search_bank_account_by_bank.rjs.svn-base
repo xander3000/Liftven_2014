@@ -1,0 +1,6 @@
+page << "$('#cash_bank_checkbook_cash_bank_bank_account_id').children().remove().end()"
+page << "$('#cash_bank_checkbook_cash_bank_bank_account_id').append(jQuery('<option></option>').val(' ').html('-- Seleccione una cuenta --'));"
+@bank_acounts.each do |item|
+	page << "$('#cash_bank_checkbook_cash_bank_bank_account_id').append(jQuery('<option></option>').val('#{item.id}').html('#{item.fullname}'));"
+end
+

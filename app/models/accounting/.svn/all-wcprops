@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/1501/trunk/Venom/app/models/accounting
+END
+accounting_concept.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/1179/trunk/Venom/app/models/accounting/accounting_concept.rb
+END
+accounting_concept_operation_type.rb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/1047/trunk/Venom/app/models/accounting/accounting_concept_operation_type.rb
+END
+payable_account.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/1410/trunk/Venom/app/models/accounting/payable_account.rb
+END
+accountant_account.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/1195/trunk/Venom/app/models/accounting/accountant_account.rb
+END
+basic_config_accounting_concept.rb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/1274/trunk/Venom/app/models/accounting/basic_config_accounting_concept.rb
+END
+service_order.rb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/1495/trunk/Venom/app/models/accounting/service_order.rb
+END
+receivable_account.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/1109/trunk/Venom/app/models/accounting/receivable_account.rb
+END
+service_order_position.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/1495/trunk/Venom/app/models/accounting/service_order_position.rb
+END
+advance.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/1206/trunk/Venom/app/models/accounting/advance.rb
+END
+retention_accounting_type.rb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/575/trunk/Venom/app/models/accounting/retention_accounting_type.rb
+END
+withholding_taxe_type.rb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/1501/trunk/Venom/app/models/accounting/withholding_taxe_type.rb
+END
+ledger_type.rb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/1274/trunk/Venom/app/models/accounting/ledger_type.rb
+END
+transaction_movement_accounting_concept.rb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/1276/trunk/Venom/app/models/accounting/transaction_movement_accounting_concept.rb
+END

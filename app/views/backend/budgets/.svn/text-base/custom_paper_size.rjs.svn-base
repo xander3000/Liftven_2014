@@ -1,0 +1,13 @@
+if @page_size_type
+    page << "$('#product_side_dimension_x').val('#{@page_size_type.side_dimension_x}')"
+    page << "$('#product_side_dimension_y').val('#{@page_size_type.side_dimension_y}')"
+    
+  if @page_size_type.requiere_other_size?
+    page << "$('input.dimension').val('')"
+    page << "$('input.dimension').attr('readonly',false)"
+    page << "$('.like_input').html('0,00');"
+  else
+    page << "$('input.dimension').attr('readonly',true)"
+  end
+  page << "$('#page_size_type').val('#{@page_size_type.id}')"
+end

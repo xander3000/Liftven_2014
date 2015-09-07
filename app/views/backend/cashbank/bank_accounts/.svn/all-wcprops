@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/1203/trunk/Venom/app/views/backend/cashbank/bank_accounts
+END
+index.erb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/1202/trunk/Venom/app/views/backend/cashbank/bank_accounts/index.erb
+END
+bank_movements.erb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/1202/trunk/Venom/app/views/backend/cashbank/bank_accounts/bank_movements.erb
+END
+new.erb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/1202/trunk/Venom/app/views/backend/cashbank/bank_accounts/new.erb
+END
+create.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/cashbank/bank_accounts/create.rjs
+END
+checkbooks.erb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/1203/trunk/Venom/app/views/backend/cashbank/bank_accounts/checkbooks.erb
+END
+show.erb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/1202/trunk/Venom/app/views/backend/cashbank/bank_accounts/show.erb
+END
+_form.erb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/1202/trunk/Venom/app/views/backend/cashbank/bank_accounts/_form.erb
+END

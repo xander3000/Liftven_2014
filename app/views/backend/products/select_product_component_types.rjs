@@ -1,0 +1,35 @@
+page << "$('#product_components_input ol').empty()"
+count = 1;
+ checked = false
+if @product_type
+  @product_component_types.each do |item|
+    if @product_component_types.size > 1
+      checked = current_element_types_selected.has_key?("element_type_#{item.id}") if !current_element_types_selected.keys.empty?
+    else
+      checked = true
+    end
+    
+    page << "$('#product_components_input ol').append(
+          $('<li>').append(
+            $('<label>').
+              append($('<input>').attr('type','hidden').attr('name','product_components_id[]')).
+              append($('<input>').
+                    attr('type','checkbox').
+                    attr('name','product_components_id[]').
+                    attr('value',#{item.id}).
+                    attr('id','product_components_id_#{count}').
+                  
+                    attr('checked',#{checked})).
+              append('#{item.name}').
+              attr('for','product_components_id_#{count}')
+          )
+    )"
+
+    count +=1
+ end
+  if @product_component_types.size == 1
+    page.hide("product_components_input")
+  else
+    page.show("product_components_input")
+  end
+end

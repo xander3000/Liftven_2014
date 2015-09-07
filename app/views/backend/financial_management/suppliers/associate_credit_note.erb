@@ -1,0 +1,60 @@
+<%= include_stylesheet("jquery.overlay_2.css") %>
+
+<% content_for :aditional_options_menunav do %>
+  <%= render  "#{controller.controller_path}/aditional_options_menunav/show" %>
+<% end %>
+
+<div>
+  <% semantic_form_remote_for @supplier_credit_note,:url => backend_financial_management_supplier_process_associate_credit_note_url(@supplier),:html => {:class => "form_generate"} do |f| %>
+   <div id="" class="content_form">
+	 <% f.inputs "Datos de cabecera" do %>
+		<%= f.input :supplier,:input_html => {:disabled => true} %>
+		<%= f.input :create_by,:input_html => {:disabled => true}  %>
+		<%= f.input :posting_date,:input_html => {:disabled => true,:size => 10}  %>
+		<%= f.input :description,:input_html => {}  %>
+	 <% end %>
+	 <% f.inputs "Datos fiscales" do%>
+		<%= f.input :date,:input_html => {}  %>
+		<%= f.input :reference,:input_html => {:size => 10}  %>
+		<%= f.input :control_number,:input_html => {:size => 10}  %>
+		<%= f.input :sub_total_amount,:input_html => {:class => "amount"}  %>
+		<%= f.input :tax,:input_html => {:size => 3,:disabled => true}  %>
+		<%= f.input :tax_amount,:input_html => {:class => "amount",:readonly => true}  %>
+		<%= f.input :total_amount,:input_html => {:class => "amount",:readonly => true}  %>
+		<%= f.input :balance,:input_html => {:class => "amount",:readonly => true}  %>
+	 <% end %>
+	</div>
+  <%= link_to_function "PROCESAR","generate()", :disable_with => "Por favor espere...",:id => "contable_document-button",:class => "button" %>
+  <% end %>
+  
+
+</div>
+
+<script type="text/javascript">
+		  function generate()
+        {
+          result = confirm("¿Esta seguro de ejecutar esta acción?")
+          if (result)
+            $(".form_generate").submit();
+        }
+      $(document).ready(function(){ // Script del Navegador
+        $("button, input:submit,input:button,a.button ").button();
+		  $("#account_payable_supplier_credit_note_date").datepicker({
+          changeMonth: true,
+          dateFormat: 'yy-mm-dd',
+          minDate: "-35",
+          maxDate: "0",
+          yearRange: 'c-80:c+30',
+          beforeShowDay: noWeekendsOrHolidays
+        });
+
+		  $("#account_payable_supplier_credit_note_sub_total_amount").blur( function () {
+			 sub_total = parseFloat($(this).val())
+			 tax = parseFloat($("#account_payable_supplier_credit_note_tax").val())
+			 tax_amount = sub_total*tax/100;
+			 total = sub_total + tax_amount;
+			 $("#account_payable_supplier_credit_note_tax_amount").val(tax_amount)
+			 $("#account_payable_supplier_credit_note_total_amount,#account_payable_supplier_credit_note_balance").val(total)
+		  });
+      });
+</script>

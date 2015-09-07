@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/941/trunk/Venom/app/views/frontend/designs
+END
+model_design_preview_2.erb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/894/trunk/Venom/app/views/frontend/designs/model_design_preview_2.erb
+END
+select_digital_card.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/287/trunk/Venom/app/views/frontend/designs/select_digital_card.rjs
+END
+_form_step_1.erb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/941/trunk/Venom/app/views/frontend/designs/_form_step_1.erb
+END
+_form_step_2.erb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/894/trunk/Venom/app/views/frontend/designs/_form_step_2.erb
+END
+_form_step_3.erb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/511/trunk/Venom/app/views/frontend/designs/_form_step_3.erb
+END
+_form_step_4.erb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/807/trunk/Venom/app/views/frontend/designs/_form_step_4.erb
+END
+_form_step_4_1.erb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/521/trunk/Venom/app/views/frontend/designs/_form_step_4_1.erb
+END
+_form.erb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/896/trunk/Venom/app/views/frontend/designs/_form.erb
+END
+form_step_1_categories.erb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/941/trunk/Venom/app/views/frontend/designs/form_step_1_categories.erb
+END
+_leadspaces.erb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/347/trunk/Venom/app/views/frontend/designs/_leadspaces.erb
+END
+_product_components.erb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/511/trunk/Venom/app/views/frontend/designs/_product_components.erb
+END
+preview.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/322/trunk/Venom/app/views/frontend/designs/preview.rjs
+END
+new.erb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/511/trunk/Venom/app/views/frontend/designs/new.erb
+END
+model_design_preview.erb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/897/trunk/Venom/app/views/frontend/designs/model_design_preview.erb
+END

@@ -1,0 +1,20 @@
+<%=  include_stylesheet("backend/listing") %>
+
+<% content_for :main_content_block_center_right do %>
+  <div id="search_form">
+    <%= text_field_tag "search_term",nil,:placeholders => "Buscador por cedula/presupuesto" %>
+    <%= link_to_remote(image_tag("icons/search.gif"),:url => search_backend_budgets_url,:with => "jQuery('#search_term').serialize()",:html => {:id => "search_form_button",:class => "button"}) %>
+  </div>
+<% end %>
+
+
+
+<div id="budgets">
+<%= render :partial => "list" %>
+</div>
+  <div class="clearing"></div>
+  <div class="right">
+	 <%= link_to image_tag("/images/icons/cart_add.png"),new_backend_budget_url,:class => "button",:title => "nuevo presupuesto" %>
+	 <%= link_to image_tag("/images/icons/anchor.png"),"#",:class => "goTop button" %>
+  </div>
+  <hr/>

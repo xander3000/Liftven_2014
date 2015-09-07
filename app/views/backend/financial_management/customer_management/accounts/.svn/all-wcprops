@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/1430/trunk/Venom/app/views/backend/financial_management/customer_management/accounts
+END
+edit.erb
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/1115/trunk/Venom/app/views/backend/financial_management/customer_management/accounts/edit.erb
+END
+index.erb
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/1115/trunk/Venom/app/views/backend/financial_management/customer_management/accounts/index.erb
+END
+update.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/1115/trunk/Venom/app/views/backend/financial_management/customer_management/accounts/update.rjs
+END
+new.erb
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/1186/trunk/Venom/app/views/backend/financial_management/customer_management/accounts/new.erb
+END
+create.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/1115/trunk/Venom/app/views/backend/financial_management/customer_management/accounts/create.rjs
+END
+show.erb
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/1124/trunk/Venom/app/views/backend/financial_management/customer_management/accounts/show.erb
+END
+_form.erb
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/1430/trunk/Venom/app/views/backend/financial_management/customer_management/accounts/_form.erb
+END

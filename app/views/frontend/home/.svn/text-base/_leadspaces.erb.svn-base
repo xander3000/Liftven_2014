@@ -1,0 +1,41 @@
+<div id="venom-leadspace-head">
+  <div id="venom-leadspace-body">
+  <!------------------------------------- THE CONTENT ------------------------------------------------->
+    <div id="lofslidecontent45" class="lof-slidecontent" style="width:100%;  height:400px;">
+      <div class="preload"><div></div></div>
+     <!-- MAIN CONTENT -->
+      <div class="lof-main-outer" style="width:100%; height:400px;">
+            <ul class="lof-main-wapper">
+
+
+             <% @home_page_slide.multimedia_files.each do |item| %>
+               <li>
+                     <%= image_tag item.attach.url,:id => "#{item.id}",:rel => "#{item.id}" %>
+                    <div class="lof-main-item-desc">
+
+                    </div>
+                </li>
+              <% end if @home_page_slide %>
+
+
+          </ul>
+      </div>
+      <!-- END MAIN CONTENT -->
+      <!-- NAVIGATOR -->
+      <div class="lof-navigator-wapper">
+        <!--div onclick="return false" href="" class="lof-next"></div-->
+        <div class="lof-navigator-outer">
+              <ul class="lof-navigator">
+                <% @home_page_slide.multimedia_files.each do |item| %>
+                 <li><%= image_tag item.attach.url,:id => "#{item.id}",:rel => "#{item.id}" %></li>
+                 <% end if @home_page_slide%>
+                
+              </ul>
+        </div>
+        <!--div onclick="return false" href="" class="lof-previous"></div-->
+      </div>
+    <!----------------- --------------------->
+    </div>
+<!------------------------------------- END OF THE CONTENT ------------------------------------------------->
+  </div>
+</div>

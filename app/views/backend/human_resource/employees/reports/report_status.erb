@@ -1,0 +1,33 @@
+<% cont = 0 %>
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="employees" width="100%">
+	<thead>
+		<tr>
+		  <th>#</th>
+			<th><%= Payroll::Staff.human_attribute_name("identification_document")%> </th>
+			<th><%= Payroll::Staff.human_attribute_name("fullname")%> </th>
+			<th><%= Payroll::Staff.human_attribute_name("payroll_gender")%> </th>
+			<th><%= Payroll::Employee.human_attribute_name("payroll_personal_type")%> </th>
+			<th><%= Payroll::Employee.human_attribute_name("payroll_position")%> </th>
+			<th><%= Payroll::Employee.human_attribute_name("payroll_department")%> </th>
+			<th><%= Payroll::Employee.human_attribute_name("salary")%> </th>
+			<th><%= Payroll::Employee.human_attribute_name("income_date")%> </th>
+			<th><%= Payroll::Employee.human_attribute_name("discharge_date")%> </th>
+		</tr>
+	</thead>
+	<tbody>
+	  <% @payroll_employees.each do |payroll_employee|  %>
+		 <tr onclick="window.location.href='<%= backend_human_resource_employee_url(payroll_employee) %>'">
+			 <td><%= cont +=1 %> </td>
+			 <td class="center"><%= payroll_employee.payroll_staff.identification_document%> </td>
+			 <td class="center"><%= payroll_employee.payroll_staff.fullname%></td>
+			 <td class="center"><%= payroll_employee.payroll_staff.payroll_gender.tag_name%></td>
+			 <td class="center"><%= payroll_employee.payroll_personal_type.name%> </td>
+			 <td class="center"><%= payroll_employee.payroll_position.name%> </td>
+			 <td class="center"><%= payroll_employee.payroll_department.name%> </td>
+			 <td class="center"><b><%= payroll_employee.salary.to_currency(false)%></b></td>
+			 <td class="center"><%= payroll_employee.income_date.to_default_date%> </td>
+			 <td class="center"><%= payroll_employee.discharge_date%> </td>
+		  </tr>
+		<% end %>
+	</tbody>
+</table>

@@ -1,0 +1,14 @@
+	<% @multimedia_files.each do |multimedia_file| %>
+		<tr class="<%= "multimedia_file_id_#{multimedia_file.id}"%> ">
+			 <td class="center">
+				<%= link_to multimedia_file.name,multimedia_file.attach.url,:popup => true %>
+			 </td>
+			 <td class="center">
+				<%= image_tag multimedia_file.attach.url,:width => "80", :height=>"45" %>
+			 </td>
+			 <td class="add_button center">
+				<%= hidden_field_tag "multimedia_file_id",multimedia_file.id,:id => "multimedia_file_id_#{multimedia_file.id}" %>
+				<%= link_to_remote(image_tag("icons/delete.png"),:url => delete_prev_backend_web_design_home_page_slides_url,:with => "$('#multimedia_file_id_#{multimedia_file.id}').serialize()") %>
+			 </td>
+		  </tr>
+	<% end %>

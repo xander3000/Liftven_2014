@@ -1,0 +1,2 @@
+module Backend::Accountancy::BasicConfigAccountingConceptsHelper
+end

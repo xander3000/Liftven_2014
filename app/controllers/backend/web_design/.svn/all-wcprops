@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/1339/trunk/Venom/app/controllers/backend/web_design
+END
+portfolios_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/881/trunk/Venom/app/controllers/backend/web_design/portfolios_controller.rb
+END
+custom_designs_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/1339/trunk/Venom/app/controllers/backend/web_design/custom_designs_controller.rb
+END
+home_page_slides_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/1338/trunk/Venom/app/controllers/backend/web_design/home_page_slides_controller.rb
+END
+base_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/1339/trunk/Venom/app/controllers/backend/web_design/base_controller.rb
+END

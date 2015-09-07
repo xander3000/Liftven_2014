@@ -1,0 +1,36 @@
+<%
+  @service_order_positions ||= current_service_order_positions_objects
+  sub_total = 0
+  total = 0
+%>
+<% @service_order_positions.each do |service_order_position| %>
+        <%
+          sub_total += service_order_position.sub_total
+          total += service_order_position.total
+        %>
+	 <tr class="item <%= cycle("odd","ever")%> ">
+		<td>
+		  <%= service_order_position.concept %>
+		</td>
+		<td>
+		  <%= service_order_position.quantity %>
+		</td>
+		<td>
+		  <%= service_order_position.delivery_date %>
+		</td>
+                <td class="right">
+		  <%= number_to_currency(service_order_position.sub_total, :delimiter => ".", :separator => ",", :unit => "Bs") %>
+		</td>
+                <td class="right">
+		  <%= number_to_currency(service_order_position.total, :delimiter => ".", :separator => ",", :unit => "Bs") %>
+		</td>
+	 </tr>
+<% end %>
+         <tr>
+           <td colspan="4" class="right border-top">
+             <b><%= number_to_currency(sub_total, :delimiter => ".", :separator => ",", :unit => "Bs") %></b>
+           </td>
+           <td class="border-top right">
+             <b><%= number_to_currency(total, :delimiter => ".", :separator => ",", :unit => "Bs") %></b>
+           </td>
+         </tr>

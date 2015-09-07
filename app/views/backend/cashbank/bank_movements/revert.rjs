@@ -1,0 +1,5 @@
+if @success
+	page << "$('#new-element-dialog-form').dialog( 'destroy' )"
+else
+	page.show_errors([@bank_movement_revert], "message_overlay", nil)
+end

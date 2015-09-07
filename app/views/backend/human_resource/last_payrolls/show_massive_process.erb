@@ -1,0 +1,251 @@
+<%= include_javascript("jquery.dataTables.min.js") %>
+<%= include_stylesheet("jquery.datatable.css") %>
+
+<% content_for :aditional_options_menunav do %>
+  <%= render  "#{controller.controller_path}/aditional_options_menunav/show_massive_process" %>
+<% end %>
+
+
+<div class="actionsBar right no-print">
+	 <%= link_to(image_tag("icons/arrow_left.png"),new_massive_process_backend_human_resource_last_payrolls_url,:class => "button",:title => "Regresar") %>
+	 |
+          <%= print_to("backend_human_resource_show_massive_process_url(@payroll_regular_payroll_check,'FORMAT')") %>
+          <%#= link_to(image_tag("icons/printer.png"),backend_human_resource_show_massive_process_url(@payroll_regular_payroll_check,"pdf"),:class => "button") %>
+</div>
+<hr/>
+<div class="">
+  <div class=" center">
+	 <p>
+		<b>PROCESO DE NOMINA PERSONAL <%= @payroll_regular_payroll_check.payroll_personal_type.name.upcase %> Nº <%= format_code(@payroll_regular_payroll_check.id, "05") %>   </b> <br/>
+		<%= l @payroll_regular_payroll_check.created_at,:format => :long%>
+	 </p>
+  </div>
+  <div>
+	 <table>
+		<tr>
+
+		  <th>
+			 <%= Payroll::RegularPayrollCheck.human_attribute_name("payroll_personal_type")%>
+		  </th>
+		  <th>
+			 <%= Payroll::RegularPayrollCheck.human_attribute_name("fortnight")%>
+			 
+		  </th>
+		  <th>
+			 <%= Payroll::RegularPayrollCheck.human_attribute_name("init_date")%>
+			 
+		  </th>
+		  <th>
+			 <%= Payroll::RegularPayrollCheck.human_attribute_name("end_date")%>
+		  </th>
+		  <th>
+			 <%= Payroll::RegularPayrollCheck.human_attribute_name("process_date")%>
+		  </th>
+		  <th>
+                          <%= Payroll::RegularPayrollCheck.human_attribute_name("paid_employees")%>
+		  </th>
+		  <th>
+                          <%= Payroll::RegularPayrollCheck.human_attribute_name("paid_total")%>
+		  </th>
+		  <th>
+                          <%= Payroll::RegularPayrollCheck.human_attribute_name("user")%>
+		  </th>
+		  <th>
+                          <%= Payroll::RegularPayrollCheck.human_attribute_name("paid")%>
+		  </th>
+		</tr>
+		<tbody>
+		  <tr>
+
+			 <td class="center border-right">
+				<%= @payroll_regular_payroll_check.payroll_personal_type.name %>
+			 </td>
+			 <td class="center border-right">
+				<%= @payroll_regular_payroll_check.fortnight %>
+			 </td>
+			 <td class="center border-right">
+				<%= @payroll_regular_payroll_check.init_date%>
+			 </td>
+			 <td class="center border-right">
+				<%= @payroll_regular_payroll_check.end_date %>
+			 </td>
+			 <td class="center border-right">
+				<%= @payroll_regular_payroll_check.process_date %>
+			 </td>
+			 <td class="center border-right">
+				<%= @payroll_regular_payroll_check.paid_employees.size %>
+			 </td>
+			 <td class="center border-right">
+				<%= number_to_currency(@payroll_regular_payroll_check.paid_total, :delimiter => ".", :separator => ",", :unit => "") %>
+			 </td>
+			 <td class="center border-right">
+				<%= @payroll_regular_payroll_check.user.name %>
+			 </td>
+			 <td class="center">
+				<%= @payroll_regular_payroll_check.paid ? "Sí" : "No" %>
+			 </td>
+
+		  </tr>
+		</tbody>
+	 </table>
+	 <hr/>
+	 <div>
+
+		<table cellpadding="0" cellspacing="0" border="0" class="display" id="items" width="100%">
+			<thead>
+				<tr>
+					<th style="width: 10px;">St</th>
+					<th><%= Payroll::Employee.human_attribute_name("id")%> </th>
+					<th><%= Payroll::Staff.human_attribute_name("fullname")%> </th>
+                                        <th><%= Payroll::Staff.human_attribute_name("identification_document")%> </th>
+                                        <th><%= Payroll::Employee.human_attribute_name("payroll_position")%> </th>
+					<th><%= Payroll::Employee.human_attribute_name("salary")%> </th>
+					<th><%= Payroll::Employee.human_attribute_name("salary_fortnight")%> </th>
+					<th> Resumen Nomina </th>
+					<th> Recibo </th>
+				</tr>
+			</thead>
+			<tbody>
+			  <% 
+                              @payroll_regular_payroll_check.paid_employees.each do |employee|
+                               salary = Payroll::LastPayroll.base_amount_by_concept(@payroll_regular_payroll_check,employee,Payroll::Concept.basic_salary)
+                          %>
+				 <tr class="external-overlays <%= cycle("odd","ever")%> " rel=".overlay" ref="" >
+					 <td class="center" title="Vigente"><%= image_tag "icons/bullet_square_green.png" %></td>
+					 <td class="center"><%=  format_code(employee.id, "05")%> </td>
+					 <td class="center"><b><%= employee.fullname%></b></td>
+					 <td class="center"><%= employee.identification_document%></td>
+					 <td class="center"><%= employee.payroll_position.name%></td>
+					 <td class="right"><%=  number_to_currency(salary, :delimiter => ".", :separator => ",", :unit => "")%></td>
+					 <td class="right"><%= number_to_currency(salary/2, :delimiter => ".", :separator => ",", :unit => "") %></td>
+					 <td>
+						<table>
+						  <thead>
+							 <tr>
+								<th>
+								  Concepto
+								</th>
+								<th>
+								  Asignaciones
+								</th>
+								<th>
+								  Deducciones
+								</th>
+							 </tr>
+						  </thead>
+						  <tbody>
+							 <%  amount_allocated = 0%>
+							 <%  amount_deducted = 0%>
+							 <% employee.payroll_by_regular_payroll_check(@payroll_regular_payroll_check).each do |last_payroll| %>
+								<%
+									 amount_allocated +=last_payroll.amount_allocated
+									 amount_deducted +=last_payroll.amount_deducted 
+								%>
+
+							 <tr>
+								<td>
+								  <%= last_payroll.payroll_concept_personal_type.payroll_concept.name %>
+								</td>
+								<td class="right">
+								  <%= last_payroll.amount_allocated.zero? ? "" : number_to_currency(last_payroll.amount_allocated, :delimiter => ".", :separator => ",", :unit => "") %>
+								</td>
+								<td class="right">
+								  <%= last_payroll.amount_allocated.zero? ?  number_to_currency(last_payroll.amount_deducted, :delimiter => ".", :separator => ",", :unit => "") : ""%>
+								</td>
+							 </tr>
+							 <% end %>
+						  </tbody>
+						  <tfoot>
+							 <tr>
+								<td class=" border-top">
+								  <i>Totales</i>
+								</td>
+								<td class="right border-top">
+								  <%= number_to_currency(amount_allocated, :delimiter => ".", :separator => ",", :unit => "") %>
+								</td>
+								<td class="right border-top">
+								  <%= number_to_currency(amount_deducted, :delimiter => ".", :separator => ",", :unit => "") %>
+								</td>
+							 </tr>
+						  <tr>
+							 <td colspan="2" class=" border-top">
+								<i>Neto</i>
+							 </td>
+							 <td class="right border-top">
+								<%= number_to_currency(amount_allocated-amount_deducted, :delimiter => ".", :separator => ",", :unit => "") %>
+							 </td>
+						  </tr>
+						  </tfoot>
+						</table>
+					 </td>
+					 <td class="center">
+						<%= link_to(image_tag("icons/page_white_acrobat.png"),backend_human_resource_last_payroll_payment_receipt_by_employee_url(@payroll_regular_payroll_check,employee,"pdf")) %>
+					 </td>
+				  </tr>
+				<% end %>
+			</tbody>
+		</table>
+	 </div>
+
+		
+  </div>
+</div>
+<br/>
+<br/>
+<hr/>
+<div class="actionsBar right no-print">
+	 <%= link_to(image_tag("icons/arrow_left.png"),new_massive_process_backend_human_resource_last_payrolls_url,:class => "button",:title => "Regresar") %>
+	 |
+    <%= link_to(image_tag("icons/printer.png"),backend_human_resource_show_massive_process_url(@payroll_regular_payroll_check,"pdf"),:class => "button") %>
+</div>
+
+
+<script type="text/javascript">
+  
+ var oTable;
+  $("#items tbody").click(function (event) {
+		$(oTable.fnSettings().aoData).each(function () {
+			 $(this.nTr).removeClass('row_selected');
+		});
+		$(event.target.parentNode).addClass('row_selected');
+  });
+
+
+
+
+
+  function fnGetSelected(oTableLocal) {
+    var aReturn = new Array();
+    var aTrs = oTableLocal.fnGetNodes();
+
+    for (var i = 0; i < aTrs.length; i++) {
+        if ($(aTrs[i]).hasClass('row_selected')) {
+            aReturn.push(aTrs[i]);
+        }
+    }
+    return aReturn;
+  }
+  $(document).ready(function() {
+		oTable =  $('#items').dataTable({
+
+				scrollX: true,
+            oLanguage: {
+                sUrl: "/javascripts/i18n/jquery.DataTables-es.txt"
+            }
+        });
+
+		$("tr.external-overlay[rel]").overlay({
+		  mask: {
+					 color: '#000',
+					 loadSpeed: 200,
+					 opacity: 0.9
+		  },
+		  onBeforeLoad: function() {
+				var wrap = this.getOverlay().find(".contentWrap");
+				wrap.load(this.getTrigger().attr("ref"));
+		  }
+		});
+  });
+
+
+</script>

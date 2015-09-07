@@ -1,0 +1,34 @@
+<div>
+        <h3>Costo/Precio</h3>
+	<hr/>
+        <% if @product_price_definition_set %>
+          <b><%= @product_price_definition_set.class.human_attribute_name('amount')  %>:</b>&nbsp;
+          <%= number_to_currency(@product_price_definition_set.amount, :delimiter => ".", :separator => ",", :unit => "Bs") %>
+          <br/>
+          <br/>
+          <b><%= @product_price_definition_set.class.human_attribute_name('price_list')  %>:</b>&nbsp;
+          <%= @product_price_definition_set.price_list.name %>
+          <br/>
+          <br/>
+          <b><%= @product_price_definition_set.class.human_attribute_name('lower_limit')  %>:</b>&nbsp;
+          <%= @product_price_definition_set.lower_limit %>
+          <br/>
+          <br/>
+          <b><%= @product_price_definition_set.class.human_attribute_name('upper_limit')  %>:</b>&nbsp;
+          <%= @product_price_definition_set.upper_limit %>
+          <br/>
+          <br/>
+        <% end %>
+              
+              
+              
+              
+
+
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+
+	});
+</script>

@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/1186/trunk/Venom/app/views/backend/material_management/purchase_orders
+END
+add.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/material_management/purchase_orders/add.rjs
+END
+show.erb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/1104/trunk/Venom/app/views/backend/material_management/purchase_orders/show.erb
+END
+_items.erb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/material_management/purchase_orders/_items.erb
+END
+_form.erb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/1102/trunk/Venom/app/views/backend/material_management/purchase_orders/_form.erb
+END
+_form_items.erb
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/1072/trunk/Venom/app/views/backend/material_management/purchase_orders/_form_items.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/1186/trunk/Venom/app/views/backend/material_management/purchase_orders/show.html.erb
+END
+get_quotation_requisition_supplier.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/!svn/ver/1072/trunk/Venom/app/views/backend/material_management/purchase_orders/get_quotation_requisition_supplier.rjs
+END
+index.erb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/material_management/purchase_orders/index.erb
+END
+new.erb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/1186/trunk/Venom/app/views/backend/material_management/purchase_orders/new.erb
+END
+create.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/material_management/purchase_orders/create.rjs
+END
+_form_header.erb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/1102/trunk/Venom/app/views/backend/material_management/purchase_orders/_form_header.erb
+END

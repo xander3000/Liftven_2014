@@ -1,0 +1,31 @@
+<% semantic_fields_for @inventory do |p| %>
+  <% p.inputs  do  %>
+<div id="inventory-form">
+    <div>
+      <div class="c50l subc">
+        <%= p.input :quantity,:input_html => {:class => "right",:size => 18} %>
+      </div>
+      <div class="c50r subc">
+        <%= p.input :date,:as => :string,:input_html => {:class => "date",:size => 25} %>
+      </div>
+     </div>
+    <br/>
+    <div>
+      <div class="c50l subc">
+        <%= p.input  :location_inventory %>
+      </div>
+      <div class="c50r subc">
+        <%= p.input  :reason_inventory %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+<% end %>
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+          $("#inventory-form label").after("<br/>");
+          $(".date").datepicker();
+	});
+</script>

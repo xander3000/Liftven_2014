@@ -1,0 +1,1 @@
+page << "$('a[rel]').each(function() {$(this).overlay().close();});"

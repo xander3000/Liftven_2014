@@ -1,0 +1,32 @@
+<div class="item">
+    <div class="toolbar">
+      <div class="c70l subc left pagination">
+
+        <%= link_to_remote "<",:url => paginate_backend_orders_url,:with => "'page=' + #{order_by_state[:current_page]-1}",:html => {:class => "button"}  if !order_by_state[:current_page].eql?(1)%>
+        <%= link_to_remote ">",:url => paginate_backend_orders_url,:with => "'page=' + #{order_by_state[:current_page]+1}",:html => {:class => "button"} if !order_by_state[:current_page].eql?(order_by_state[:total_page])%>
+		  
+        <span><%= order_by_state[:current_page]%>/<%= order_by_state[:total_page] %></span>
+      </div>
+      <div class="c30r subc right">
+        <h2>
+          <span class="count">(<%= order_by_state[:count]%>)</span>
+          &nbsp;
+          <span class="state"><%= order_by_state[:state].name%></span>
+        </h2>
+      </div>
+    </div>
+    <div class="panel_items">
+      <%  order_by_state[:paginate].each do |order|%>
+        <%= render :partial => "item",:locals => {:order => order,:item_class => cycle("side-left","side-right")} %>
+      <% end %>
+    </div>
+    <div class="clearing"></div>
+    <div class="right">
+      <%= link_to image_tag("/images/icons/expand.gif"),"#",:class => "goTop button" %>
+      <%= link_to image_tag("/images/icons/anchor.png"),"#",:class => "goTop button" %>
+    </div>
+    <hr/>
+    <br/>
+    <br/>
+    
+</div>

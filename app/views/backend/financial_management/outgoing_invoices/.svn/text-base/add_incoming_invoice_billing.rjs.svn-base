@@ -1,0 +1,6 @@
+if @success
+	page.replace_html "incoming_invoice_billings_by_invoice", :partial => "incoming_invoice_billings_by_invoice"
+	page << "$('#incoming_invoice_billing input,#incoming_invoice_billing select').val('')"
+else
+	page.show_errors([@incoming_invoice_billing], "message_overlay", nil)
+end

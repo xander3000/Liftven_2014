@@ -1,0 +1,137 @@
+<%= hidden_field(:invoice, :from_budget_id)  %>
+<%= render :partial => "form_client",:locals => {:f => f} %>
+<div id="container_products_incoming_invoice_billings" class="">
+  <%= render :partial => "form_items",:locals => {:f => f} %>
+  <%= render :partial => "form_incoming_invoice_billing",:locals => {:f => f} %>
+</div>
+
+
+<script type="text/javascript">
+
+  function product_after_complete(item){
+    switch (item.code_response) {
+        case ("ok"):
+            $('#item_product_form input,#item_product_form select,#item_product_form textarea ').val('');
+            $('.like_input').html('0,00');
+            
+            $("#product_product_id").val(item.id);
+            $("#product_side_dimension_x").val(item.side_dimension_x);
+            $("#product_side_dimension_y").val(item.side_dimension_y);
+            $("#page_size_type").val(0)
+            $("input.dimension").removeAttr("readonly");
+            $("#product_code").val(item.reference_code);
+            $("#product_quantity").removeAttr("readonly");
+            increase_total_price();
+            
+            break;
+        case ("no-ok"):
+            alert('no-ok');
+            break;
+        case ("no-found"):
+            alert('Producto no registrado');
+            break;
+        default:
+            alert('problemas buscando');
+    }
+
+  }
+
+  function set_current_client(){
+			 $.ajax({
+                  type: "POST",
+                  url: "<%= set_current_client_backend_invoices_url %>",
+                  data: "client_id="+$("#invoice_client_id").val()
+          });
+  }
+
+
+    function client_after_complete(item){
+    switch (item.code_response) {
+        case ("ok"):
+            $("#invoice_client_id").val(item.client_id)
+            $("#contact_fullname").val(item.fullname.toUpperCase());
+            $("#contact_identification_document").val(item.identification_document.toUpperCase());
+            $("#contact_phone").val(item.phone);
+            $("#contact_address").val(item.address);
+            $("#contact_email").val(item.email);
+            $("#container_products_incoming_invoice_billings").show('slow');
+            $("#product_code").focus();
+            set_current_client();
+           /* if(item.islr_retained)
+              $("#islr_row").show();
+            else
+              $("#islr_row").hide();
+            set_current_client();*/
+            break;
+        case ("no-ok"):
+            $("#container_products_incoming_invoice_billings").show('slow');
+            break;
+        default:
+            $("#container_products_incoming_invoice_billings").show('slow');
+    }
+  }
+
+  function increase_total_price(){
+    
+    val = $("#product_quantity").val()*$("#product_unit_price").val();
+    $("#product_total_price").val(val);
+  }
+
+$(document).ready(function(){
+
+              <% if @from_budget %>
+                $("#invoice_payment_method_type_id").change();
+					 $("#container_products_incoming_invoice_billings").show('slow');
+					 set_current_client();
+              <% end %>
+              $("#product_code").autocomplete({
+                 source: "<%= autocomplete_by_code_backend_products_url %>",
+                 minLength: 3,
+                 select: function( event, ui ) {
+                   if(ui.item)
+                     product_after_complete(ui.item);
+                    $.ajax({
+                          type: "POST",
+                          url: "<%= find_product_components_by_product_backend_invoices_url %>",
+                          data: {product_id: $('#product_product_id').val()}
+                      }).done(function() {
+								$(this).addClass("done");
+							 });;
+                 }
+              });
+
+              $("#contact_fullname").autocomplete({
+                 source: "<%= autocomplete_by_client_name_backend_contacts_url %>",
+                 minLength: 3,
+					 search: function( event, ui ) {
+						$(".input_client").val("")
+					  },
+                 select: function( event, ui ) {
+                   if(ui.item)
+                    client_after_complete(ui.item);
+                 }
+              });
+              
+              $("#contact_identification_document").autocomplete({
+                 source: "<%= autocomplete_by_client_identification_backend_contacts_url %>",
+                 minLength: 3,
+					  search: function( event, ui ) {
+						$(".input_client").val("");
+					 },
+                 select: function( event, ui ) {
+                   if(ui.item)
+                    client_after_complete(ui.item);
+                 }
+              });
+
+				  $("#contact_identification_document_temp").lookupSeniat({
+					 urlSearch: "<%= document_identification_lookup_seniat_backend_base_url %>",
+					 inputFullname: "contact_fullname",
+					 spinner: '<%= image_tag "icons/loader.gif",:width => "16" %>',
+					 clearInput: false
+				  });
+
+
+              
+	});
+</script>

@@ -1,0 +1,3 @@
+page << "$('#contacts .slider-tabs a').removeClass('selected')"
+page << "$('#contacts .slider-tabs a.slider-tab-#{@contact_type_id}').addClass('selected')"
+page.replace_html "slider", :partial => "index_slider"

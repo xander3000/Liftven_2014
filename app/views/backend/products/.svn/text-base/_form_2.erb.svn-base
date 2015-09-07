@@ -1,0 +1,16 @@
+<div>
+        <h3>Componentes</h3>
+	<hr/>
+        <div id="product_component_types_elements">
+
+        </div>
+
+        <br/>
+
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+          
+	});
+</script>

@@ -1,0 +1,39 @@
+    <div class="item">
+
+    <table>
+        <thead>
+          <tr>
+            <th>Componente</th>
+            <th><%= ProductPriceDefinitionSetByComponent.human_attribute_name(:amount_t)%> </th>
+            <th><%= ProductPriceDefinitionSetByComponent.human_attribute_name(:amount_tr)%> </th>
+            <th><%= ProductPriceDefinitionSetByComponent.human_attribute_name(:lower_limit)%> </th>
+            <th><%= ProductPriceDefinitionSetByComponent.human_attribute_name(:upper_limit)%> </th>
+            <th><%= ProductPriceDefinitionSetByComponent.human_attribute_name(:price_list)%> </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @product_price_definition_set_by_components.each do |product_price_definition_set_by_component| %>
+          <tr>
+            <td>
+              <%= product_price_definition_set_by_component.component.name %>
+            </td>
+            <td>
+              <%= number_to_currency(product_price_definition_set_by_component.amount_t, :delimiter => ".", :separator => ",", :unit => "Bs") %>
+            </td>
+            <td>
+              <%= number_to_currency(product_price_definition_set_by_component.amount_tr, :delimiter => ".", :separator => ",", :unit => "Bs") %>
+            </td>
+            <td>
+              <%= product_price_definition_set_by_component.lower_limit %>
+            </td>
+            <td>
+              <%= product_price_definition_set_by_component.upper_limit %>
+            </td>
+            <td>
+              <%= product_price_definition_set_by_component.price_list.name%>
+            </td>
+          </tr>
+          <% end if @product_price_definition_set_by_components%>
+        </tbody>
+      </table>
+    </div>

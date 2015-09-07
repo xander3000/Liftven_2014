@@ -1,0 +1,37 @@
+<%= render :partial => "form_header",:locals => {:f => f} %>
+<%= render :partial => "form_items",:locals => {:f => f} %>
+
+
+
+
+<script type="text/javascript">
+
+  function action_after_complete_for_raw_materials(item){
+    switch (item.code_response) {
+        case ("ok"):
+            $("#material_production_order_position_material_raw_material_id").val(item.id);
+				$("#add_product_button").show();
+            break;
+        case ("no-ok"):
+            alert('no-ok');
+            break;
+        default:
+            alert('problemas buscando');
+    }
+  }
+
+	$(document).ready(function(){
+		  $("#material_name").autocomplete({
+			  source: "<%= autocomplete_by_name_backend_material_management_raw_materials_url %>",
+			  minLength: 3,
+
+
+			  select: function( event, ui ) {
+				 if(ui.item)
+					 action_after_complete_for_raw_materials(ui.item);
+			  }
+		  });
+                $("button, input:submit,input:button,a.button ").button();
+
+	});
+</script>

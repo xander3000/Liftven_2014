@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/1186/trunk/Venom/app/views/backend/material_management/goods_receipts
+END
+index.erb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/material_management/goods_receipts/index.erb
+END
+confirm_purchase_order.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/material_management/goods_receipts/confirm_purchase_order.rjs
+END
+new.erb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/1186/trunk/Venom/app/views/backend/material_management/goods_receipts/new.erb
+END
+create.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/material_management/goods_receipts/create.rjs
+END
+_form_header.erb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/material_management/goods_receipts/_form_header.erb
+END
+add.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/material_management/goods_receipts/add.rjs
+END
+show.erb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/1186/trunk/Venom/app/views/backend/material_management/goods_receipts/show.erb
+END
+_items.erb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/material_management/goods_receipts/_items.erb
+END
+_form.erb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/material_management/goods_receipts/_form.erb
+END
+_form_items.erb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/977/trunk/Venom/app/views/backend/material_management/goods_receipts/_form_items.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/1186/trunk/Venom/app/views/backend/material_management/goods_receipts/show.html.erb
+END

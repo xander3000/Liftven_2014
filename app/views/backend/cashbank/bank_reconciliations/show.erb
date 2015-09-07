@@ -1,0 +1,140 @@
+  <div>
+    <%= link_to "Volver",backend_cashbank_bank_reconciliations_url,:class => "buttons"%>
+    | Detalle de la conciliación
+  </div>
+<div class="panel_header">
+      <div class="c50l subc">
+        <h2>Nº <%= format_code(@bank_reconciliation.id,"06") %></h2>
+      </div>
+      <div class="c50l subc right">
+      </div>
+    <div>
+     <b>
+      <%= CashBank::BankReconciliation.human_attribute_name("period")%> 
+    </b>
+      <br/>
+      <b class="value"><%= @bank_reconciliation.period %></b>
+    </div>
+	 <br/>
+	 <div>
+     <b>
+      <%= CashBank::BankReconciliation.human_attribute_name("cash_bank_bank_account")%>
+    </b>
+      <br/>
+      <b class="value"><%= @bank_reconciliation.cash_bank_bank_account.fullname %></b>
+    </div>
+	 <br/>
+	 <div>
+     <b>
+      <%= CashBank::BankReconciliation.human_attribute_name("cash_bank_bank")%>
+    </b>
+      <br/>
+      <b class="value"><%= @bank_reconciliation.cash_bank_bank.name %></b>
+    </div>
+    <br/>
+	 	 <div>
+     <b>
+      <%= CashBank::BankReconciliation.human_attribute_name("accounting_accountant_account")%>
+    </b>
+      <br/>
+      <b class="value"><%= @bank_reconciliation.accounting_accountant_account.name %></b>
+    </div>
+    <br/>
+  </div>
+<div>
+	 <div class="panel_header">
+      <h3>Detalle de la conciliación</h3>
+    </div>
+    <div class="panel_items">
+        <div class="c50l subc">
+				<div class="item">
+				  <div class="left c40l subc subcl ">
+					  <%= CashBank::BankReconciliation.human_attribute_name("balance_according_bank_currency")%>
+				  </div>
+				  <div class="c50r subc ">
+					 <b><%= @bank_reconciliation.balance_according_bank_currency %></b>
+				  </div>
+				</div>
+				<div class="item">
+				  <div class="left c40l subc subcl ">
+					  <%= CashBank::BankReconciliation.human_attribute_name("transaction_not_registered_at_bank_currency")%>
+				  </div>
+				  <div class="c50r subc ">
+					 <b><%= @bank_reconciliation.transaction_not_registered_at_bank_currency %></b>
+				  </div>
+				</div>
+				<div class="item">
+				  <div class="left c40l subc subcl ">
+					  <%= CashBank::BankReconciliation.human_attribute_name("automatic_reconciled_transaction_at_bank_currency")%>
+				  </div>
+				  <div class="c50r subc ">
+					 <b><%= @bank_reconciliation.automatic_reconciled_transaction_at_bank_currency %></b>
+				  </div>
+				</div>
+				<div class="item">
+				  <div class="left c40l subc subcl ">
+					  <%= CashBank::BankReconciliation.human_attribute_name("error_at_bank_currency")%>
+				  </div>
+				  <div class="c50r subc ">
+					 <b><%= @bank_reconciliation.error_at_bank_currency %></b>
+				  </div>
+				</div>
+				<div class="item">
+				  <div class="left c40l subc subcl ">
+					  <%= CashBank::BankReconciliation.human_attribute_name("balance_movement_reconciliation_currency")%>
+				  </div>
+				  <div class="c50r subc ">
+					 <b><%= @bank_reconciliation.balance_movement_reconciliation_currency %></b>
+				  </div>
+				</div>
+		  </div>
+		  <div class="c50r subc">
+				<div class="item">
+				  <div class="left c40l subc subcl ">
+					  <%= CashBank::BankReconciliation.human_attribute_name("balance_according_book_currency")%>
+				  </div>
+				  <div class="c50r subc ">
+					 <b><%= @bank_reconciliation.balance_according_book_currency %></b>
+				  </div>
+				</div>
+				<div class="item">
+				  <div class="left c40l subc subcl ">
+					  <%= CashBank::BankReconciliation.human_attribute_name("transaction_not_registered_at_book_currency")%>
+				  </div>
+				  <div class="c50r subc ">
+					 <b><%= @bank_reconciliation.transaction_not_registered_at_book_currency %></b>
+				  </div>
+				</div>
+				<div class="item">
+				  <div class="left c40l subc subcl ">
+					  <%= CashBank::BankReconciliation.human_attribute_name("automatic_reconciled_transaction_at_book_currency")%>
+				  </div>
+				  <div class="c50r subc ">
+					 <b><%= @bank_reconciliation.automatic_reconciled_transaction_at_book_currency %></b>
+				  </div>
+				</div>
+				<div class="item">
+				  <div class="left c40l subc subcl ">
+					  <%= CashBank::BankReconciliation.human_attribute_name("error_at_book_currency")%>
+				  </div>
+				  <div class="c50r subc ">
+					 <b><%= @bank_reconciliation.error_at_book_currency %></b>
+				  </div>
+				</div>
+				<div class="item">
+				  <div class="left c40l subc subcl ">
+					  <%= CashBank::BankReconciliation.human_attribute_name("diference_currency")%>
+				  </div>
+				  <div class="c50r subc">
+					 <b><%= @bank_reconciliation.diference_currency %></b>
+				  </div>
+				</div>
+		  </div>
+		<div class="right">
+		  <%= link_to "Extracto Bancario",backend_cashbank_bank_reconciliation_bank_statement_url(@bank_reconciliation,"pdf") %> |
+		  <%= link_to "Libro de Banco",backend_cashbank_bank_reconciliation_bank_book_url(@bank_reconciliation,"pdf") %> |
+		  <%= link_to "Resumen de Conciliación",backend_cashbank_bank_reconciliation_bank_statement_url(@bank_reconciliation,"pdf") %>
+		</div>
+    </div>
+</div>
+

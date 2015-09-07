@@ -1,0 +1,5 @@
+if @success
+	page.redirect_to new_backend_human_resource_monitoring_assistance_url
+else
+	page.show_errors([@monitoring_assistance], "message_overlay", nil)
+end

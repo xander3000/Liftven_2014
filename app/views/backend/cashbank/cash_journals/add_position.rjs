@@ -1,0 +1,8 @@
+if @success
+#	page.redirect_to  << "$('#cash_bank_cash_journal_current_balance_amount').val(#{@cash_journal.current_balance_amount})"
+#	page << "$('#item_product_form input, #item_product_form select').val('')"
+#	page.replace_html "items", :partial => "items"
+page.redirect_to backend_cashbank_cash_journal_url(@cash_journal)
+else
+	page.show_errors([@cash_journal_position], "message_overlay", nil)
+end

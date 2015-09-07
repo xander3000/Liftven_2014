@@ -1,0 +1,77 @@
+<style type="text/css">
+  fieldset {padding: 0.5em 0.19em;text-align: center}
+</style>
+
+<fieldset class="border">
+  <hr/>
+  <legend>Componentes Adicionales</legend>
+
+
+    <table>
+      <thead>
+        <tr>
+          
+          <th>
+				<%= PriceListComponentAccesory.human_attribute_name("name") %>
+			 </th>
+			 <th>
+				<%= PriceListComponentAccesory.human_attribute_name("amount") %>
+			 </th>
+			 <th>
+				<%= PriceListComponentAccesory.human_attribute_name("lower_limit") %>
+			 </th>
+			 <th>
+				<%= PriceListComponentAccesory.human_attribute_name("upper_limit") %>
+			 </th>
+			 <th>
+				Acción
+			 </th>
+        </tr>
+      </thead>
+      <tbody class="">
+		  <% @price_list_component_accesories.each do |price_list_component_accesory| %>
+			 <tr>
+				<td>
+					 <%= price_list_component_accesory.name %>
+				</td>
+				<td>
+					 <%= number_to_currency(price_list_component_accesory.amount, :delimiter => ".", :separator => ",", :unit => "Bs.") %>
+				</td>
+				<td>
+					 <%= price_list_component_accesory.lower_limit %>
+				</td>
+				<td>
+					 <%= price_list_component_accesory.upper_limit%>
+				</td>
+				<td>
+				  <%= link_to(image_tag("icons/page_edit.png"), edit_backend_cpanel_price_list_component_accesory_url(price_list_component_accesory),:class => "external-overlay button",:rel => ".overlay" ) %>
+				</td>
+			 </tr>
+		  <% end %>
+      </tbody>
+    </table>
+  <br/>
+</fieldset>
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+
+
+
+      $("a.external-overlay[rel]").overlay({
+            mask: {
+                    color: '#000',
+                    loadSpeed: 200,
+                    opacity: 0.9
+            },
+            onBeforeLoad: function() {
+                var wrap = this.getOverlay().find(".contentWrap");
+                wrap.load(this.getTrigger().attr("href"));
+            }
+          });
+
+
+      });
+</script>

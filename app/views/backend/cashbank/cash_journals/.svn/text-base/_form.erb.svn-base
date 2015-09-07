@@ -1,0 +1,121 @@
+<%= render :partial => "form_header",:locals => {:f => f} %>
+
+
+
+
+<script type="text/javascript">
+    function action_after_complete_for_tenderer(item,tender_type){
+    switch (item.code_response) {
+        case ("ok"):
+            $("#account_payable_incoming_invoice_tenderer_id").val(item.supplier_id)
+            break;
+        case ("no-ok"):
+            alert('no-ok');
+            break;
+        /*default:
+            alert('problemas buscando');*/
+    }
+  }
+
+
+
+  function action_after_complete_for_contacts(item){
+    switch (item.code_response) {
+        case ("ok"):
+            $("#incoming_invoice_supplier_id").val(item.supplier_id)
+				
+            break;
+        case ("no-ok"):
+            alert('no-ok');
+            break;
+        default:
+            alert('problemas buscando');
+    }
+  }
+
+  function action_after_complete_for_raw_materials(item){
+    switch (item.code_response) {
+        case ("ok"):
+            $("#account_payable_incoming_invoice_position_material_raw_material_id").val(item.id);
+            $("#add_product_button").show();
+            break;
+        case ("no-ok"):
+            alert('no-ok');
+            break;
+        default:
+            alert('problemas buscando');
+    }
+  }
+
+		$(document).ready(function(){
+                   $("#account_payable_incoming_invoice_tenderer_name").autocomplete({
+                          source: "<%= autocomplete_by_supplier_name_backend_contacts_url %>",
+                          minLength: 3,
+                          select: function( event, ui ) {
+                            if(ui.item)
+                                action_after_complete_for_tenderer(ui.item);
+                          },
+                          open: function( event, ui ) {
+                             $('#account_payable_incoming_invoice_tenderer_id').val('')
+                          }
+                     });
+
+		  $("#account_payable_incoming_invoice_material_purchase_order").blur( function () {
+			 $(this).strPadLeft(6);
+			 $.ajax({
+				  type: "POST",
+				  url: "<%= confirm_purchase_order_backend_financial_management_incoming_invoices_url %>",
+				  data: {purchase_order_id: $(this).val()}
+				});
+		  });
+
+		  $("#material_name").autocomplete({
+			  source: "<%= autocomplete_by_name_backend_material_management_raw_materials_url %>",
+			  minLength: 3,
+			  search: function( event, ui ) {
+				 $("#incoming_invoice_position_raw_material_id").val("");
+			  },
+			  select: function( event, ui ) {
+				 if(ui.item)
+					 action_after_complete_for_raw_materials(ui.item);
+			  }
+		  });
+
+          $("#account_payable_incoming_invoice_posting_date").datepicker({
+          changeMonth: true,
+          dateFormat: 'yy-mm-dd',
+          minDate: "-0",
+          maxDate: "+35",
+          yearRange: 'c-80:c+30',
+          beforeShowDay: noWeekendsOrHolidays
+        });
+
+        $("#account_payable_incoming_invoice_invoice_date").datepicker({
+          changeMonth: true,
+          dateFormat: 'yy-mm-dd',
+          maxDate: "-35",
+          yearRange: 'c-80:c+30'
+        });
+
+		$("#account_payable_incoming_invoice_position_sub_total,#account_payable_incoming_invoice_position_quantity").blur(function(){
+		  //$("#account_payable_incoming_invoice_position_sub_total").val($("#sub_total_currency").val());
+		  if($("#account_payable_incoming_invoice_position_sub_total").val()!= "" && $("#account_payable_incoming_invoice_position_quantity").val() != ""){
+                    sub_total = $("#account_payable_incoming_invoice_position_sub_total").val();
+                    quantity = $("#account_payable_incoming_invoice_position_quantity").val();
+                    total = parseFloat(sub_total)*parseInt(quantity)
+                    tax = <%= AppConfig.tax %>
+                    total += total*tax/100
+
+                    $("#account_payable_incoming_invoice_position_total").val((total).toFixed(2));
+                  }
+			/*$("#sub_total_currency").parseNumber({format:"#,###.00", locale:"es"});
+			$("#sub_total_currency").formatNumber({format:"#,###.00", locale:"es"});
+			$("#total_currency").html($("#incoming_invoice_position_total").val());
+			$("#total_currency").parseNumber({format:"#,###.00", locale:"es"});
+			$("#total_currency").formatNumber({format:"#,###.00", locale:"es"});*/
+
+
+		});
+		  
+	});
+</script>

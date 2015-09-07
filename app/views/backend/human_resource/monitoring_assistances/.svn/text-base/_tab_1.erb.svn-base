@@ -1,0 +1,87 @@
+<div>
+  <div class="c30l subc">
+	 Fecha inicio: <%= @init_date%><br/>
+	 Fecha fin: <%=  @end_date%><br/>
+	 Quincena: <%=  @fortnight%><br/>
+  </div>
+  <div class="c70r subc">
+	 <div class="actionsBar right no-print">
+		<%=  select("regular_paroll_check","id",@regular_paroll_checks.collect {|p| [ p.name, p.id ] }, { :include_blank => true} ,:onchange => remote_function(:url => select_date_backend_human_resource_monitoring_assistances_url,:with => "$(this).serialize()"),:style => "padding:3px;")%>
+	 | <%= link_to(image_tag("icons/printer.png"),"",:class => "button") %>
+	 </div>
+  </div>
+</div>
+
+<hr/>
+
+
+
+<hr/>
+<table border="1">
+  <thead>
+	 <tr>
+		<th>
+		  Empleado
+		</th>
+		<th>
+		  Fecha
+		</th>
+		<th>
+		  Hora entrada
+		</th>
+		<th>
+		  Comida ini
+		</th>
+		<th>
+		  Comida fin
+		</th>
+		<th>
+		  Salida
+		</th>
+		<th>
+		  Retraso (min)
+		</th>
+	 </tr>
+  </thead>
+  <tbody>
+	 <% @monitoring_assistances.each do |assistance| %>
+
+	 <tr>
+		<td>
+		  <%= assistance.payroll_employee.fullname %>
+		</td>
+
+		<td>
+		  <%= assistance.date %>
+		</td>
+		<td>
+
+		  <%= assistance.time_check_in %>
+		</td>
+		<td>
+		  <%= assistance.time_lunch_in %>
+		</td>
+		<td>
+		  <%= assistance.time_lunch_out %>
+		</td>
+		<td>
+		  <%= assistance.time_check_out %>
+		</td>
+		<td>
+		  <%
+				ye,mo,da = assistance.date.split("-")
+				ho,min,sec = assistance.time_check_in.split(":")
+				 later = ((Time.local(ye,mo,da,7,30,0) - Time.local(ye,mo,da,ho,min,sec))/60).round(2)
+
+		%>
+		  <%= later if later < 0  %>
+		</td>
+	 </tr>
+	 <% end %>
+  </tbody>
+
+
+</table>
+
+
+

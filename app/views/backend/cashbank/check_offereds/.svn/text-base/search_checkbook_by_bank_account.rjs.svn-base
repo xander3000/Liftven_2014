@@ -1,0 +1,5 @@
+page << "$('#cash_bank_check_offered_cash_bank_checkbook_id').children().remove().end()"
+@checkbooks.each do |item|
+	page << "$('#cash_bank_check_offered_cash_bank_checkbook_id').append(jQuery('<option></option>').val('#{item.id}').html('#{item.full_name}'));"
+end
+

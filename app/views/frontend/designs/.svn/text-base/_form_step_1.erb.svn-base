@@ -1,0 +1,64 @@
+
+<h2 class="StepTitle">Paso 1: Selecciona el trabajo</h2>
+<ul id="template_1_step_1">
+  <% CustomDesignType.all.each do |custom_design_type| %>
+	 <li>
+		<% if custom_design_type.external_url.nil?  %>
+		  <%= image_tag(custom_design_type.icon_path,:id => custom_design_type.id,:ref => custom_design_type.product_id) %>
+		<% else %>
+		  <%= link_to(image_tag(custom_design_type.icon_path,:id => custom_design_type.id,:ref => custom_design_type.product_id),eval(custom_design_type.external_url),:data_ref => custom_design_type.id,:class => "externalDesign",:rel => "#modal-external") %>
+		<% end %>
+	 </li>
+  <% end %>
+
+ 
+</ul>
+<%= hidden_field_tag "category_design","none" %>
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+
+
+			$("a.externalDesign[rel]").overlay({
+				mask: '#fff',
+				closeOnClick: false,
+				 closeOnEsc: false,
+				onBeforeLoad: function() {
+								  var wrap = this.getOverlay().find(".contentWrap");
+								  wrap.css("backgroundColor","#F8F8F8")
+								  wrap.load(this.getTrigger().attr("href")+"?custom_design_type_id="+this.getTrigger().attr("data_ref"));
+								  
+								  this.getOverlay().addClass("custom");
+				},
+							 onBeforeClose: function() {
+								  this.getOverlay().removeClass("custom");
+				}
+			});
+
+		  
+        $("#template_1_step_1 li img").click(function () {
+			  $('#category_design').val("none");
+
+        $('#template_1_step_1 li img.selected').removeClass("selected");
+        $(this).addClass("selected");
+
+        $.ajax({
+                  type: "POST",
+                  url: "<%= set_type_design_frontend_designs_url %>",
+                  data:  {type_design : $(this).attr("id"),category_design: $("#category_design").val() }
+          });
+
+      });
+      <%
+         unless current_session_wizard_step.empty?
+         type_design = current_session_wizard_step["step_1"][:value]
+       %>
+        $("#template_1_step_1 li #type_design_<%= type_design %>").addClass("selected");
+      <% end %>
+    });
+
+
+
+
+
+    </script>

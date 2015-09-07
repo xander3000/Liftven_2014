@@ -1,0 +1,96 @@
+<%= render :partial => "form_header",:locals => {:f => f} %>
+<%= render :partial => "form_items",:locals => {:f => f} %>
+<br/>
+<%#= render :partial => "form_retentions",:locals => {:f => f} %>
+<%= render :partial => "form_total",:locals => {:f => f} %>
+
+
+
+<script type="text/javascript">
+  var total_retenctions = 0;
+  function action_after_complete_for_supplier(item){
+    switch (item.code_response) {
+        case ("ok"):
+				 $("#cash_bank_bank_movement_position_beneficiary_id,#cash_bank_bank_movement_beneficiary_id").val(item.supplier_id)
+		 break;
+        case ("no-ok"):
+            alert('no-ok');
+            break;
+        /*default:
+            alert('problemas buscando');*/
+    }
+  }
+  
+  function action_after_complete_for_document_number(item){
+    switch (item.code_response) {
+        case ("ok"):
+            $("#incoming_invoice_supplier_id").val(item.supplier_id)
+				
+            break;
+        case ("no-ok"):
+            alert('no-ok');
+            break;
+        default:
+            alert('problemas buscando');
+    }
+  }
+
+  function calculate_amount_retained(item){
+		bank_movement_amount = parseFloat($('#subtotal_price_amount').val());
+		percentage = parseFloat($("#retention_percentage_"+item.val()).val());
+		amount_retained = bank_movement_amount*percentage/100;
+
+	 if(item.is(':checked')){
+		total_retenctions += amount_retained;
+		$("#amount_retained_"+item.val()).html((amount_retained));
+	 }
+	 else{
+		total_retenctions -= amount_retained;
+		$("#amount_retained_"+item.val()).html('');
+	 }
+	 $("#total_retentions_currency").html(total_retenctions);
+	 $("#cash_bank_bank_movement_amount").val(bank_movement_amount-total_retenctions);
+	 $("#total_price_currency").html(bank_movement_amount-total_retenctions);
+	 $("#total_retentions_currency,#total_price_currency,#amount_retained_"+item.val()).formatNumber({format:"#,###.00", locale:"es"});
+  }
+
+  
+
+		$(document).ready(function(){
+
+				$('.autoselect').each(function (index, domEle) {
+
+				  if($('#'+$(this).attr("id")+' > option').length <= 2){
+					 $(this)[0].selectedIndex = 1;
+					 if($(this).val() != "null" || $(this).val() != "")
+						$(this).change();
+					 //$(this).removeAttr("onchange")
+				  }
+				});
+
+		  $('#cash_bank_bank_movement_description').blur( function () {
+			 $('#cash_bank_bank_movement_position_description').val($('#cash_bank_bank_movement_description').val())
+		  });
+
+
+			 $("#cash_bank_bank_movement_position_beneficiary_name,#cash_bank_bank_movement_beneficiary_name").autocomplete({
+				 source: "<%= autocomplete_by_supplier_name_backend_contacts_url %>",
+				 minLength: 3,
+				 search: function( event, ui ) {
+				  $("#cash_bank_bank_movement_position_beneficiary_id,cash_bank_bank_movement_beneficiary_id").val("")
+				 },
+				 select: function( event, ui ) {
+					if(ui.item)
+						action_after_complete_for_supplier(ui.item);
+				 }
+			 });
+
+		  $("#cash_bank_bank_movement_date").datepicker({
+          changeMonth: true,
+          dateFormat: 'yy-mm-dd',
+          maxDate: "+0"
+        });
+
+		  
+	});
+</script>

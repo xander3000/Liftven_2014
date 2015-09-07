@@ -1,0 +1,19 @@
+<% @purchase_requisition_positions ||= current_purchase_requisition_positions_objects %>
+<% @purchase_requisition_positions.each do |purchase_requisition_position| %>
+
+	 <tr class="item <%= cycle("odd","ever")%> ">
+		<td class="">
+		  <%= purchase_requisition_position.material_raw_material.name %>
+		</td>
+		<td class="center">
+		  <%= purchase_requisition_position.quantity %>
+		</td>
+		<td class="center">
+		  <%= purchase_requisition_position.material_order_measure_unit.name %>
+		</td>
+		<td class="center">
+		  <%= purchase_requisition_position.reason %>
+		</td>
+		
+	 </tr>
+<% end %>

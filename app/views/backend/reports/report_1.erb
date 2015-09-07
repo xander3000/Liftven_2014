@@ -1,0 +1,106 @@
+<div id="container"></div>
+
+
+<script type="text/javascript">
+  $(function() {
+        $("button, input:submit,input:button,a.button ").button();
+	var seriesOptions = [],
+		yAxisOptions = [],
+		seriesCounter = 0,
+		names = ['SubTotal','Total','IVA'],
+		colors = Highcharts.getOptions().colors;
+
+                
+                seriesOptions[0] = {
+                  name: 'SubTotal',
+                  data:<%= @reports["SubTotal"].inspect %>,
+//[[1349065800000, 103.61], [1349929800000, 58.24], [1350016200000, 49.52], [1350102600000, 34.87], [1350189000000, 21.50], [1350275400000, 17.52], [1350361800000, 48.21], [1349152200000, 77.04], [1349238600000, 57.6295], [1349325000000, 166.1191]]
+//[[1351123200000,103.61],[1351209600000,604.00],[1351641600000,58.24],[1351728000000,49.52],[1351814400000,34.87]],
+                  tooltip: {
+                              valueDecimals: 2
+                            }
+                };
+
+                  seriesOptions[1] = {
+                  name: 'Total',
+                  data: <%= @reports["Total"].inspect %>,
+//[[1349065800000, 103.61], [1349929800000, 58.24], [1350016200000, 49.52], [1350102600000, 34.87], [1350189000000, 21.50], [1350275400000, 17.52], [1350361800000, 48.21], [1349152200000, 77.04], [1349238600000, 57.6295], [1349325000000, 166.1191]]
+//[[1351123200000,103.61],[1351209600000,604.00],[1351641600000,58.24],[1351728000000,49.52],[1351814400000,34.87]],
+                  tooltip: {
+                              valueDecimals: 2
+                            }
+                };
+
+                  seriesOptions[2] = {
+                  name: 'IVA',
+                  data: <%= @reports["IVA"].inspect %>,
+//[[1349065800000, 103.61], [1349929800000, 58.24], [1350016200000, 49.52], [1350102600000, 34.87], [1350189000000, 21.50], [1350275400000, 17.52], [1350361800000, 48.21], [1349152200000, 77.04], [1349238600000, 57.6295], [1349325000000, 166.1191]]
+//[[1351123200000,103.61],[1351209600000,604.00],[1351641600000,58.24],[1351728000000,49.52],[1351814400000,34.87]],
+                  tooltip: {
+                              valueDecimals: 2
+                            }
+                };
+
+                createChart();
+                /*
+	$.each(names, function(i, name) {
+
+		$.getJSON('http://www.highcharts.com/samples/data/jsonp.php?filename='+ name.toLowerCase() +'-c.json&callback=?',	function(data) {
+
+			seriesOptions[i] = {
+				name: name,
+				data: data
+			};
+
+			// As we're loading the data asynchronously, we don't know what order it will arrive. So
+			// we keep a counter and create the chart when all the data is loaded.
+			seriesCounter++;
+
+			if (seriesCounter == names.length) {
+                          alert(seriesOptions[0]);
+				createChart();
+			}
+		});
+	});
+*/
+
+
+	// create the chart when all data is loaded
+	function createChart() {
+
+		chart = new Highcharts.StockChart({
+			chart : {
+				renderTo : 'container'
+			},
+
+			rangeSelector : {
+				selected : 1
+			},
+
+			title : {
+				text : 'Resumen de facturación por mes'
+			},
+                        exporting: {
+                          buttons: 
+                          {
+                             popUpBtn: {
+                               symbol: 'url(<%= image_path("icons/page_excel.png")%>)',
+                                x: -62,
+                                symbolFill: '#B5C9DF',
+                                hoverSymbolFill: '#779ABF',
+                                _titleKey: 'Exportar a Excel',
+                                onclick: function() {
+                                    window.location="<%= export_report_1_backend_reports_url %>";
+                                }
+                              }
+                          }
+                        
+                },
+		    series: seriesOptions
+		});
+	}
+
+});
+</script>
+
+

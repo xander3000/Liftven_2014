@@ -1,0 +1,16 @@
+<div>
+        <h3>Costo/Precio</h3>
+	<hr/>
+        Agregados:
+        <div id="price_list_product_added">
+          <%= render :partial => "price_list_product_added" %>
+        </div>
+        <br/>
+
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+
+	});
+</script>

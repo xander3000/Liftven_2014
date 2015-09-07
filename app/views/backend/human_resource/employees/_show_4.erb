@@ -1,0 +1,24 @@
+<div id="variable_concepts" style="max-height: 80px; overflow-y: scroll">
+  <%= render :partial => "show_variable_concepts"  %>
+</div>
+<hr/>
+<div class="actionsBar right no-print">
+  <%= link_to(image_tag("icons/add.png"),backend_human_resource_employee_new_variable_concept_url(@payroll_employee),:class => "external-overlay button",:rel=>".overlay",:title => "Agregar") %>
+</div>
+
+<script type="text/javascript">
+   $(document).ready(function(){
+     $("a.external-overlay[rel]").overlay({
+		  mask: {
+					 color: '#000',
+					 loadSpeed: 200,
+					 opacity: 0.9
+		  },
+		  onBeforeLoad: function() {
+				var wrap = this.getOverlay().find(".contentWrap");
+				wrap.load(this.getTrigger().attr("href"));
+		  }
+		});
+   });
+
+</script>

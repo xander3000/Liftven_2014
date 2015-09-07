@@ -1,0 +1,96 @@
+
+<?php
+
+
+echo $_SERVER['REMOTE_ADDR'] function get_real_ip()
+{
+
+    if (isset($_SERVER["HTTP_CLIENT_IP"]))
+    {
+        return $_SERVER["HTTP_CLIENT_IP"];
+    }
+    elseif (isset($_SERVER["HTTP_X_FORWARDED_FOR"]))
+    {
+        return $_SERVER["HTTP_X_FORWARDED_FOR"];
+    }
+    elseif (isset($_SERVER["HTTP_X_FORWARDED"]))
+    {
+        return $_SERVER["HTTP_X_FORWARDED"];
+    }
+    elseif (isset($_SERVER["HTTP_FORWARDED_FOR"]))
+    {
+        return $_SERVER["HTTP_FORWARDED_FOR"];
+    }
+    elseif (isset($_SERVER["HTTP_FORWARDED"]))
+    {
+        return $_SERVER["HTTP_FORWARDED"];
+    }
+    else
+    {
+        return $_SERVER["REMOTE_ADDR"];
+    }
+}
+ function get_real_ip()
+{
+
+    if (isset($_SERVER["HTTP_CLIENT_IP"]))
+    {
+        return $_SERVER["HTTP_CLIENT_IP"];
+    }
+    elseif (isset($_SERVER["HTTP_X_FORWARDED_FOR"]))
+    {
+        return $_SERVER["HTTP_X_FORWARDED_FOR"];
+    }
+    elseif (isset($_SERVER["HTTP_X_FORWARDED"]))
+    {
+        return $_SERVER["HTTP_X_FORWARDED"];
+    }
+    elseif (isset($_SERVER["HTTP_FORWARDED_FOR"]))
+    {
+        return $_SERVER["HTTP_FORWARDED_FOR"];
+    }
+    elseif (isset($_SERVER["HTTP_FORWARDED"]))
+    {
+        return $_SERVER["HTTP_FORWARDED"];
+    }
+    else
+    {
+        return $_SERVER["REMOTE_ADDR"];
+    }
+}
+
+
+
+?>
+
+
+<!--
+
+		// Obtener IP
+		
+		$ip = $this->input->ip_address();
+		
+		// IP de la abse de datos
+		
+		$this->db->select('ip');
+		$this->db->from('tabla');
+		
+		//condicional para usuario en acceso
+		$this->db->where('user_id', $id);
+		
+		$query = $this->db->get();
+		
+		//Si:
+		if ($ip != $query->row()->ip)
+		{
+			$query = $this->db->query("UPDATE players p, accuracy a SET p.ip='$ip',
+						a.ip='$ip' WHERE a.user_id='$id' AND p.user_id='$id'");
+			return TRUE;
+		}
+		else 
+		{
+		//No:
+			return FALSE;
+		}
+	}	
+-->

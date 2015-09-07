@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/1339/trunk/Venom/app/views/frontend/home
+END
+_leadspaces.erb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/782/trunk/Venom/app/views/frontend/home/_leadspaces.erb
+END
+_promotion.erb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/1339/trunk/Venom/app/views/frontend/home/_promotion.erb
+END
+index.html_1.erb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/288/trunk/Venom/app/views/frontend/home/index.html_1.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/524/trunk/Venom/app/views/frontend/home/index.html.erb
+END
+_news.erb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/873/trunk/Venom/app/views/frontend/home/_news.erb
+END

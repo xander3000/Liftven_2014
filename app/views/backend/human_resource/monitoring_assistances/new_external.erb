@@ -1,0 +1,76 @@
+            <div style="position: absolute; right: 10px;top: 4px;" class="">
+				  <div class="left"><b>Tiempo restante para jornada laboral:</b></div>
+                <div id="counter" ></div>
+                <div class="desc">
+                    <div>Horas</div>
+                    <div>Minutos</div>
+                    <div>Segundos</div>
+                </div>
+                  <br />
+                  <br />
+                  <br />
+            </div>
+<span style="clear: both"></span>
+  <div id="login-box">
+	 <div id="document_identification_search">
+		<div>
+		  <h2></h2>
+		</div>
+		<% form_for @monitoring_assistance, :url => search_employee_backend_human_resource_monitoring_assistances_url, :method => :post do |f| %>
+		<div style="">
+		  <%= f.text_field :employee_document_identificacion,:class => "top",:placeholder => "Ingresa tu cédula",:size => 15,:autocomplete => "off" %>
+		  <%= submit_tag "Buscar",:class => "ui-button ui-widget ui-state-default ui-corner-all"%>
+		  <span style="clear: both"></span><br/>
+                  <span class="left"><%= link_to "Otra cuenta",new_external_backend_human_resource_monitoring_assistances_url  %></span>
+		</div>
+		<% end %>
+		</div>
+
+ </div>
+<br/>
+<hr/>
+<br/>
+
+<h2>
+  Elige tu cuenta
+</h2>
+<div id="employess" class="block-container-items">
+	 <% @employees.each do |employee| %>
+			<div class="block-item external-overlay" href="<%= backend_human_resource_new_external_form_url(employee.id)%>" rel=".overlay" >
+			 <div class="block-item-text state">
+				<div class="subc c15l image_icon">
+				  <%= image_tag "icons/backend/human_resources/user_thumb.png" %>
+				</div>
+				<div class="subc c80r name_document_identificacion" >
+				  <span class="name"><%= employee.fullname %> </span><br/>
+				  <span class="document_identificacion"><%= employee.identification_document %></span><br/>
+				  <span class="location"><%= employee.location %></span><br/>
+				</div>
+			 </div>
+		  </div>
+	 <% end %>
+	 	  
+  </div>
+
+<script type="text/javascript">
+   $(document).ready(function() {
+		  $("#counter").countdown({
+			 startTime: '<%= @startTime%>',
+			 /*timerEnd: function(){ alert('La jornada ha empezado'); },*/
+			 format: 'hh:mm:ss',
+			 image:"/images/backgrounds/digits.png"
+		  });
+
+        $("div.external-overlay[rel]").overlay({
+            mask: {
+                    color: '#000',
+                    loadSpeed: 200,
+                    opacity: 0.9
+            },
+            onBeforeLoad: function() {
+                var wrap = this.getOverlay().find(".contentWrap");
+                wrap.load(this.getTrigger().attr("href"));
+            }
+          });
+	 });
+</script>

@@ -1,0 +1,35 @@
+<% budget = caso.budget %>
+<div class="item <%= item_class %>" onclick="window.location.href='<%= backend_case_docs_url(caso) %>'">
+  <div class="c20l subc subcl center code">
+    <h2><%= format_code(caso.id, "06") %></h2>
+  </div>
+  <div class="description c75r subc no-border">
+    <div>
+          <div class="attr_1 <%= caso.has_new_notifications? ? "new_notification" : "" %> ">
+            <div class="left">
+              <%= budget.client.name %>.
+            </div>
+            <!--div class="c20r subc right date">
+              <%#= l order.created_at,:format => :default_date %>. <br/>
+            </div-->
+          </div>
+          <div class="attr_2">
+            <span>Supervisor asignado: </span>
+            <%= caso.actual_trackers %> <br/>
+            <% if caso.has_budget? %>
+             
+              <span> Nº Presupuesto: </span><%= format_code(budget.id,"06") %>. <span> Monto: </span><%= number_to_currency(budget.total, :delimiter => ".", :separator => ",", :unit => "Bs.")%><br/>
+              <b class="color_green"><span > Fecha de entrega: </span><%= l budget.delivery_date,:format => :short %></b><br/>
+            <% end %>
+
+              <span>Detalle: </span><%= link_to("Detalle breve de la obra.","#") %>
+            
+          </div>
+          <div class="attr_3">
+            <p>
+              Porcentaje de avance: 25%
+            </p>
+          </div>
+    </div>
+  </div>
+</div>

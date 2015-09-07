@@ -1,0 +1,31 @@
+/* 
+    Document   : quotation_requisitions
+    Created on : 20/07/2014, 04:34:49 PM
+    Author     : gabriel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+@import "../contable_document.css";
+
+
+.bg_supplier_1{
+	background: #AED1FF;
+}
+.bg_supplier_2{
+	background: #F7F9CC;
+}
+.bg_supplier_3{
+	background: #F9DECC;
+}
+
+#quotation_requisition_positions{
+		width:100%;
+		overflow-x: scroll;
+}
+

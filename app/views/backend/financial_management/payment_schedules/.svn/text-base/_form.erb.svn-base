@@ -1,0 +1,71 @@
+ <%= render :partial => "form_header",:locals => {:f => f}  %>
+ <%= render :partial => "form_payment_plan",:locals => {:f => f}  %>
+
+<script type="text/javascript">
+  function action_after_complete_for_tenderer(item){
+	
+    switch (item.code_response) {
+        case ("ok"):
+				 $("#account_payable_payment_schedule_account_payable_incoming_invoice_input")
+				 $('#account_payable_payment_schedule_account_payable_incoming_invoice_input  select').val('').children().remove().end().append(jQuery('<option></option>').val(' ').html(' '));
+				 $.each( item.incoming_invoices, function( key, value ) {
+					 $('#account_payable_payment_schedule_account_payable_incoming_invoice_input  select').append(jQuery('<option></option>').val(value.id).html(value.fullname));
+				});
+				alert($("#account_payable_payment_schedule_account_payable_incoming_invoice_id").css("width"))
+				resizeAllSelect();
+				$("#account_payable_payment_schedule_account_payable_incoming_invoice_input").show('slow');
+				$("#account_payable_payment_schedule_tenderer_id").val(item.supplier_id)
+		 break;
+        case ("no-ok"):
+            alert('no-ok');
+            break;
+        /*default:
+            alert('problemas buscando');*/
+    }
+  }
+
+function set_payment_plan(){
+
+	 if($(".for_payment_plan").val() != "")
+  			 $.ajax({
+				  type: "POST",
+				  url: "<%= set_payment_plan_backend_financial_management_payment_schedules_url %>",
+				  data: $(".for_payment_plan").serialize()
+				});
+	 
+}
+
+  		$(document).ready(function(){
+		  var tender_type;
+
+      $(".date").datepicker({
+          changeMonth: true,
+          dateFormat: 'yy-mm-dd',
+          minDate: "0"
+        }).attr('readonly',true);
+
+
+					 $("#account_payable_payment_schedule_tenderer_name_input").show('slow')
+					 $("#account_payable_payment_schedule_tenderer_name").autocomplete({
+							source: "<%= autocomplete_by_supplier_name_backend_contacts_url %>",
+							minLength: 3,
+							response: function( event, ui ) {
+							   $("#account_payable_payment_schedule_tenderer_id").val('');
+								$("#account_payable_payment_schedule_account_payable_incoming_invoice_id_input").hide('slow');
+							},
+							select: function( event, ui ) {
+							  if(ui.item)
+								  action_after_complete_for_tenderer(ui.item);
+							}
+					 });
+				  
+
+
+		  $(".for_payment_plan ").blur( function () {
+				  set_payment_plan();
+		  }).change(function () {
+				  set_payment_plan();
+		  });
+	 });
+
+</script>

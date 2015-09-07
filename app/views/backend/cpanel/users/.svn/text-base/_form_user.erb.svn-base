@@ -1,0 +1,17 @@
+  <div id="" class="content_form">
+	 <% f.inputs "Datos del usuario",:id => "" do  %>
+		<%= f.input :login,:input_html => {:size => 15} %>
+		<%= f.input :password,:input_html => {} %>
+		<%= f.input :password_confirmation,:input_html => {} %>
+		<%= f.input :security_roles,:input_html => {} %>
+		<%= f.input :active,:input_html => {} %>
+	 <% end %>
+  </div>
+
+<script type="text/javascript">
+
+  $(document).ready(function(){
+           
+		  
+});
+</script>

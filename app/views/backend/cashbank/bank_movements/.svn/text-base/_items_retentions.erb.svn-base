@@ -1,0 +1,20 @@
+<% @retention_accounting_types.each do |retention_accounting_type| %>
+	 <tr class="item <%= cycle("odd","ever")%> ">
+		<td style="width: 5px;" class="center">
+			 <%= check_box_tag "cash_bank_retention_accounting_type[]","#{retention_accounting_type.id}",nil,:onclick => "calculate_amount_retained($(this))",:id => "cash_bank_retention_accounting_type_#{retention_accounting_type.id}" %>
+		  </td>
+        <td class="left">
+          <%= retention_accounting_type.name%>
+        </td>
+		  <td style="width: 5px;" class="left">
+			 <%= hidden_field_tag "retention_percentage_#{retention_accounting_type.id}",retention_accounting_type.retention_percentage %>
+          <%= number_to_currency(retention_accounting_type.retention_percentage, :delimiter => ".", :separator => ",", :unit => "%")%>
+        </td>
+		  <td class="">
+			 <p id="" class="like_input amount_subject_retention center"></p>
+        </td>
+        <td class="">
+			 <p id="amount_retained_<%= retention_accounting_type.id %>" class="like_input amount_retained center"></p>
+        </td>
+      </tr>
+<% end %>

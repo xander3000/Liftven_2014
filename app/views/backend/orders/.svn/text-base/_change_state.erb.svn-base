@@ -1,0 +1,103 @@
+<% states = caso.actual_state.destination_states %>
+<% form_remote_for @order, :url => backend_order_change_state_url(@order), :html => {:method => "post", :class => "formtastic"} do |f| %>
+  <p>
+     <% if not @order.canceled  %>
+      <% if caso.budget.delivery_date %>
+          <% if current_user.has_permission?("orders_backend_by_user") or current_user.has_permission?("orders_backend")   %>
+              <%= select("state", "id", states.collect {|p| [ p.name, p.id ] }, {:prompt => '[- cambiar estado -]'}) %>
+              <%= link_to_function "OK","change_state_confirmation()",:class => "button",:id => "change_state_button" %>
+          <% end %>
+        <% else %>
+          <span>Debe fijar la fecha de entrega</span> | 
+      <% end %>
+    <% end %>
+      <span id="cambio_estado">
+        <b><%= caso.actual_state.name %> <%= l caso.actual_tracking_state.created_at,:format => :default_date  %></b>
+        <span class="box_status_order <%= @order.actual_status %>_order" title="<%= translate_status(@order.actual_status)%>: <%= @order.days_after_last_tracking_state %> días tras última actualización" />
+      </span>
+        
+      <span>
+       
+      </span>
+  </p>
+<% end %>
+
+<div id="dialog-form_state_6" class="dialog-form" title="Verificación">
+
+   <div>
+     A continuación:
+     <ul style="padding-left: 25px;">
+       <li>Verificó color</li>
+       <li>Medida</li>
+       <li>Registro</li>
+       <li>Lineas doblado</li>
+       <li>Lineas de corte</li>
+       <li>Sangrado</li>
+     </ul>
+   </div>
+</div>
+
+<div id="dialog-form_state_9" class="dialog-form" title="Verificación">
+   <div>
+     A continuación:
+     <ul style="padding-left: 25px;">
+       <li>Verificó cantidad</li>
+       <li>Verificó calidad</li>
+     </ul>
+   </div>
+</div>
+
+
+
+
+  <script type="text/javascript">
+
+    function change_state_confirmation()
+    {
+      
+      if($("#state_id").val() > 0){
+        state = $("#state_id option:selected").text();
+        state_id = $("#state_id").val();
+        result = confirm("¿Esta seguro de cambiar el estado de < <%= caso.actual_state.name %> >  a < "+state+" >?")
+        
+        if(result){
+          if(state_id == "6" || state_id == "9")
+            $( "#dialog-form_state_"+state_id ).dialog( "open" );
+          else{
+				$("#change_state_button span").html("Por favor espere...");
+				$("#change_state_button span").click(function () {
+				  return false;
+				})
+            $("#change_state form").submit();
+				}
+          }
+      }
+    }
+
+    $(document).ready(function(){ // Script del Navegador
+      $("button, input:submit,input:button,a.button ").button();
+
+      $( ".dialog-form" ).dialog({
+            autoOpen: false,
+            height: 200,
+            width: 350,
+            modal: true,
+            buttons: {
+                "Conforme": function() {
+                  $("#change_state form").submit();
+                },
+                "No Conforme": function() {
+                    $( this ).dialog( "close" );
+                }
+            },
+            close: function() {
+                allFields.val( "" ).removeClass( "ui-state-error" );
+            }
+        });
+
+
+
+    });
+
+  </script>
+

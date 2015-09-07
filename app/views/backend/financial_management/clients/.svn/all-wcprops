@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/1186/trunk/Venom/app/views/backend/financial_management/clients
+END
+_show_invoices.erb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/1090/trunk/Venom/app/views/backend/financial_management/clients/_show_invoices.erb
+END
+show.erb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/1186/trunk/Venom/app/views/backend/financial_management/clients/show.erb
+END
+_show_credit_notes.erb
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/1090/trunk/Venom/app/views/backend/financial_management/clients/_show_credit_notes.erb
+END
+_form_1.erb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/1018/trunk/Venom/app/views/backend/financial_management/clients/_form_1.erb
+END
+_show_advances.erb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/1090/trunk/Venom/app/views/backend/financial_management/clients/_show_advances.erb
+END
+_form_2.erb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/1017/trunk/Venom/app/views/backend/financial_management/clients/_form_2.erb
+END
+edit.erb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/1186/trunk/Venom/app/views/backend/financial_management/clients/edit.erb
+END
+_show_projects.erb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/1090/trunk/Venom/app/views/backend/financial_management/clients/_show_projects.erb
+END
+create.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/1018/trunk/Venom/app/views/backend/financial_management/clients/create.rjs
+END
+new.erb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/1186/trunk/Venom/app/views/backend/financial_management/clients/new.erb
+END
+_show_budgets.erb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/1090/trunk/Venom/app/views/backend/financial_management/clients/_show_budgets.erb
+END
+_show_receivable_accounts.erb
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/1090/trunk/Venom/app/views/backend/financial_management/clients/_show_receivable_accounts.erb
+END
+_form.erb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/1085/trunk/Venom/app/views/backend/financial_management/clients/_form.erb
+END
+index.erb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/1186/trunk/Venom/app/views/backend/financial_management/clients/index.erb
+END
+update.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/1017/trunk/Venom/app/views/backend/financial_management/clients/update.rjs
+END

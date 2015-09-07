@@ -1,0 +1,19 @@
+
+<div class="actionsBar right no-print">
+  <%= link_to(image_tag("icons/arrow_left.png"),backend_financial_management_customer_management_opportunities_url,:class => "button",:title => "Regresar") %>
+</div>
+<hr/>
+<div>
+  <% semantic_form_remote_for @opportunity, :update => "#{controller.controller_name}_container",:url => backend_financial_management_customer_management_opportunities_url,:html => {:class => "form_generate"} do |f| %>
+  <div class="">
+	 <%= render :partial => "form",:locals => {:f => f} %>
+  </div>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+	 $(document).ready(function(){
+                $(".crm_opportunity input, .crm_opportunity select, .crm_opportunity textarea").attr("disabled","disabled");
+	});
+
+</script>

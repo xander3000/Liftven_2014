@@ -1,0 +1,1 @@
+page.replace_html "form_prev", :partial => "form_prev"

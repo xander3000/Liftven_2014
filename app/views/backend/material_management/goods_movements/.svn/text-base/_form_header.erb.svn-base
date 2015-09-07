@@ -1,0 +1,22 @@
+
+<div id="contact_form" class="content_form">
+  <% semantic_fields_for @goods_movement do |p| %>
+    <% p.inputs "Datos de cabecera" do %>
+		<%= p.input :material_goods_movement_type,:input_html => {:onchange => remote_function(:url => set_goods_movement_type_backend_material_management_goods_movements_url,:with => "$(this).serialize()")} %>
+		<%= p.input :material_goods_movement_reason,:collection => @goods_movement.new_record? ? [] : [@goods_movement.material_goods_movement_reason],:input_html => {:onchange => remote_function(:url => set_goods_movement_reason_backend_material_management_goods_movements_url,:with => "$(this).serialize()"),:class => "reset"} %>
+		<%= p.input :doc_id,:wrapper_html => {:class => "#{(@goods_movement.new_record? )? 'hidden' : ''} reset"},:as => :string,:input_html => {:class => "reset",:size => 10}%>
+		<%= p.input :doc_type,:as => :hidden,:input_html => {:class => "reset"}%>
+		<%#= p.input :doc,:as => :string,:input_html => {:size => 10,:class => "right reset",:name => "doc_name"}%>
+		<%= p.input :supplier,:wrapper_html => {:class => "hidden reset"}%>
+      <%= p.input :supplier_name,:as => :string,:wrapper_html => {:class => "#{(@goods_movement.new_record? or @goods_movement.supplier_name.eql?('') )? 'hidden' : ''} reset"},:input_html => {:name => " reset", :readonly => true} %>
+      <%#= p.input :supplier,:wrapper_html => {:class => "hidden reset",:id => "goods_movement_supplier_input_name"},:as => :string,:input_html => {:name => "supplier_name",:class => "reset",:size => 30} %>
+      <%= p.input :create_by,:input_html => {:disabled => "disabled"} %>
+      <%= p.input :posting_date,:as => :string,:input_html => {:disabled => "disabled",:size => 10}  %>
+    <% end %>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+
+</script>
+

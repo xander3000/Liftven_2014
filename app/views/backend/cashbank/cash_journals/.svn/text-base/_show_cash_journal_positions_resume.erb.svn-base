@@ -1,0 +1,45 @@
+<% amount_total = 0 %>
+<p><b class="border-bottom">Resumen de posiciones</b></p>
+		<div>
+		
+
+			 <div class="<%= cycle("c50l","c50r") %>  subc">
+			 <table>
+				<thead>
+				  <tr>
+					 <th><%= CashBank::CashJournalPosition.human_attribute_name(:cash_bank_cash_journal_position_category_type)%></th>
+					 <th><%= CashBank::CashJournalPosition.human_attribute_name(:total)%></th>
+				  </tr>
+
+				</thead>
+				<tbody>
+
+				<% @consolidate_concept_cash_journal_positions.each do |denomination_id,consolidate_concept_cash_journal_position| %>
+				  <tr>
+					 <td class="left">
+						<%= consolidate_concept_cash_journal_position[:name] %>
+					 </td>
+
+					 <td class="right">
+						<% amount_total += consolidate_concept_cash_journal_position[:total_amount] %>
+						<%= number_to_currency(consolidate_concept_cash_journal_position[:total_amount], :delimiter => ".", :separator => ",", :unit => "") %>
+					 </td>
+				  </tr>
+				  <% end %>
+				</tbody>
+				<tfoot>
+				  <tr>
+					 <td class="right border-top">
+						Total:
+					 </td>
+					 <td class="right border-top">
+						<%= number_to_currency(amount_total, :delimiter => ".", :separator => ",", :unit => "") %>
+					 </td>
+				  </tr>
+				</tfoot>
+
+			 </table>
+		  </div>
+
+
+		</div>

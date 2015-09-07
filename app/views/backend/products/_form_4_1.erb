@@ -1,0 +1,18 @@
+<div>
+	<h3>Precios</h3>
+	<hr/>
+        <% semantic_fields_for @product_price_definition_set do |p| %>
+          <% p.inputs "",:class => "" do  %>
+              <%= p.input :amount,:input_html => {:size => 5,:class => :right} %>
+              <%= p.input :price_list %>
+              <%= p.input :lower_limit,:input_html => {:size => 5} %>
+              <%= p.input :upper_limit,:input_html => {:size => 5} %>
+          <% end %>
+        <% end %>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+
+	});
+</script>

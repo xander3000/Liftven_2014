@@ -1,0 +1,57 @@
+
+<div class="actionsBar right no-print">
+  <%= link_to(image_tag("icons/add.png"),new_backend_financial_management_client_customer_management_project_lift_url(@client,@project),:class => "button") %>
+</div>
+<hr/>
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="lifts" width="100%">
+	<thead>
+		<tr>
+			 <th><%= Crm::Projects::Lift.human_attribute_name("id")%> </th>
+			 <th><%= Crm::Projects::Lift.human_attribute_name("crm_projects_lift_category_type")%> </th>
+			 <th><%= Crm::Projects::Lift.human_attribute_name("tower")%> </th>
+			<th><%= Crm::Projects::Lift.human_attribute_name("route")%> </th>
+			<th><%= Crm::Projects::Lift.human_attribute_name("about_travel")%> </th>
+			<th><%= Crm::Projects::Lift.human_attribute_name("levels")%> </th>
+			<th><%= Crm::Projects::Lift.human_attribute_name("stops")%> </th>
+			 <th><%= Crm::Projects::Lift.human_attribute_name("passenger_capacity")%> </th>
+			 <th><%= Crm::Projects::Lift.human_attribute_name("load_capacity")%> </th>
+			 <th><%= Crm::Projects::Lift.human_attribute_name("width_pit")%> </th>
+			 <th><%= Crm::Projects::Lift.human_attribute_name("fund_pit")%> </th>
+			 <th><%= Crm::Projects::Lift.human_attribute_name("moat")%> </th>
+		</tr>
+	</thead>
+	<tbody>
+	 <% @lifts.each do |lift| %>
+	  <tr>
+		  <td class="center"><%= lift.id.to_code %> </td>
+		  <td class="center"><%= lift.crm_projects_lift_category_type.name %> </td>
+		  <td class="center"><%= lift.tower %> </td>
+		  <td class="center"><%= lift.route %> </td>
+		  <td class="center"><%= lift.about_travel %> </td>
+		  <td class="center"><%= lift.levels %> </td>
+		  <td class="center"><%= lift.stops %> </td>
+		  <td class="center"><%= lift.passenger_capacity %> </td>
+		  <td class="center"><%= lift.load_capacity %> </td>
+		  <td class="center"><%= lift.width_pit %> </td>
+		  <td class="center"><%= lift.fund_pit %> </td>
+		  <td class="center"><%= lift.moat %> </td>
+	  </tr>
+	  <% end %>
+	</tbody>
+</table>
+<br/>
+
+
+
+
+<script type="text/javascript">
+  var oTable;
+
+  $(document).ready(function() {
+		oTable =  $('#credit_notes').dataTable({
+            oLanguage: {
+                sUrl: "/javascripts/i18n/jquery.DataTables-es.txt"
+            }
+        });
+  });
+</script>

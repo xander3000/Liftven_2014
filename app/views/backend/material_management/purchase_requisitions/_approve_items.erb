@@ -1,0 +1,40 @@
+<% @purchase_requisition_positions ||= current_purchase_requisition_positions_objects %>
+<% @purchase_requisition_positions.each do |purchase_requisition_position| %>
+  <%# purchase_requisition_position.update_attributes!(:approved_by_id => current_user.id) %>
+  <% semantic_fields_for purchase_requisition_position do |prq| %>
+	 <% purchase_requisition_position.approved_by = current_user %>
+	 <tr class="item <%= cycle("odd","ever")%> ">
+		<td class="">
+		  <%= purchase_requisition_position.material_raw_material.name %>
+
+		</td>
+		<td class="center quantity">
+		  <%= purchase_requisition_position.quantity %>
+		</td>
+		<td class="center quantity">
+		  <%= purchase_requisition_position.verified_quantity%>
+		</td>
+		<td class="center quantity">
+		  <%= prq.input :approved_quantity,:label => false,:input_html => {:size => 1,:name => "material_purchase_requisition_position[#{purchase_requisition_position.id}][approved_quantity]"}%>
+		</td>
+		<td class="center">
+		  <%= purchase_requisition_position.material_order_measure_unit.name %>
+		</td>
+		<td class="center">
+		  <%= purchase_requisition_position.reason %>
+		</td>
+		<td class="center">
+		  <%= purchase_requisition_position.verified_by.name if purchase_requisition_position.verified_by %>
+		</td>
+		<td class="center">
+		  <%= current_user.name %>
+		  <%#= prq.input :approved_by,:collection => [current_user],:label => false,:input_html => {:disabled => true}%>
+		  <%= prq.input :approved_by,:collection => [current_user],:label => false,:input_html => {:name => "material_purchase_requisition_position[#{purchase_requisition_position.id}][approved_by_id]"},:wrapper_html => {:class => "hidden"}%>
+		</td>
+
+		  <td class="center">
+		  <%= prq.input :material_purchase_requisition_position_status_type,:collection => Material::PurchaseRequisitionPositionStatusType.all_for_approve,:label => false,:input_html => {:name => "material_purchase_requisition_position[#{purchase_requisition_position.id}][material_purchase_requisition_position_status_type_id]"}%>
+		</td>
+  <% end %>
+	 </tr>
+<% end %>

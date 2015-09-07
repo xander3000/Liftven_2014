@@ -1,0 +1,58 @@
+<% @lift_material_for_manufacturing_phases ||= current_lift_material_for_manufacturing_phases %>
+
+
+<% if !@lift_material_for_manufacturing_phases.empty? %>
+  <table>
+	 <thead>
+		<tr>
+		  <th><%= Crm::Projects::LiftMaterialForManufacturingPhase.human_attribute_name("crm_projects_lift_manufacturing_phase")%> </th>
+		  <th><%= Crm::Projects::LiftMaterialForManufacturingPhase.human_attribute_name("material_raw_material")%></th>
+		  <th><%= Crm::Projects::LiftMaterialForManufacturingPhase.human_attribute_name("quantity")%></th>
+		  <th></th>
+		</tr>
+	 </thead>
+	 <tbody>
+	 <% @lift_material_for_manufacturing_phases.each do |lift_material_for_manufacturing_phase| %>
+		<tr>
+		  <td class="center"><%= lift_material_for_manufacturing_phase.crm_projects_lift_manufacturing_phase.name %> </td>
+		  <td class="center"><%= lift_material_for_manufacturing_phase.material_raw_material.name %></td>
+		  <td class="center"><%= lift_material_for_manufacturing_phase.quantity.to_f.to_currency(false) %></td>
+		  <td class="center" style="width: 5px"><%= link_to_remote(image_tag("icons/delete.png"),:url => backend_supply_chain_lift_delete_lift_material_for_manufacturing_phase_url(lift_material_for_manufacturing_phase.id_temporal),:confirm => "¿Esta seguro de remover este item?") if !@current_action.eql?("show")%></td>
+		</tr>
+		<% end %>
+	 </tbody>
+  </table>
+<br/>
+<div class="right">
+  <%= link_to "+  Añadir materiales de línea",new_lift_material_for_manufacturing_phase_backend_supply_chain_lift_material_for_manufacturing_phases_url,:class => "external-overlay-lift_material",:rel=>".overlay"  unless @current_action.eql?("show")%>
+</div>
+<% else %>
+
+<div id="" class="center" style="background-color: #F9F8F8;border: 1px dashed #E3E3E3;color: #137DCF !important; margin-bottom: 12px; padding: 12px 0 12px 9px; text-align: center;">
+  <%= link_to "+  Añadir materiales de línea",new_lift_material_for_manufacturing_phase_backend_supply_chain_lift_material_for_manufacturing_phases_url,:class => "external-overlay-lift_material new_lift_material_for_manufacturing_phase",:rel=>".overlay" unless @current_action.eql?("show") %>
+  <%= "Ningún dato disponible en esta tabla" if @current_action.eql?("show")%>
+</div>
+<% end %>
+
+
+<script type="text/javascript">
+ $(document).ready(function() {
+
+
+			 $("a.external-overlay-lift_material").overlay({
+				mask: {
+						  color: '#000',
+						  loadSpeed: 200,
+						  opacity: 0.9
+				},
+				onBeforeLoad: function() {
+
+					 var wrap = this.getOverlay().find(".contentWrap");
+					 wrap.load(this.getTrigger().attr("href"));
+					
+				},
+				onLoad:function() {}
+			 });
+  });
+
+</script>

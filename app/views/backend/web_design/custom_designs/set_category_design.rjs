@@ -1,0 +1,17 @@
+page << "$('#custom_design_category_design').children().remove().end()";
+	page << "$('#custom_design_category_design').append(jQuery('<option></option>').val(' ').html(' '));"
+page.hide "form_prev"
+if @type_design
+	if @custom_design_type.external_url.nil?
+		page.hide "custom_design_category_design_input"
+		page << "$('#custom_design_category_design').append(jQuery('<option></option>').val('none').html('No aplica'));"
+		page << "$('#custom_design_category_design').val('none')"
+		page << "$('#custom_design_category_design').change();"
+	else
+		@custom_design_type.custom_design_category_types.each do |custom_design_category_type|
+			page << "$('#custom_design_category_design').append(jQuery('<option></option>').val('category_design_#{custom_design_category_type.id}').html('#{custom_design_category_type.name}'));"
+		end
+		page.show "custom_design_category_design_input"
+		
+	end
+end

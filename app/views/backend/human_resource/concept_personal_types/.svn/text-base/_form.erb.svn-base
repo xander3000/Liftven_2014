@@ -1,0 +1,19 @@
+<div id="" class="content_form">
+  
+    <% f.inputs "Datos generales" do %>
+        <%= f.input :payroll_personal_type,:input_html => {} %>
+        
+        <%= f.input :payroll_concept,:input_html  => {}%>
+        <%= f.input :payroll_amount_type,:input_html => {} %>
+        <%= f.input :payroll_payment_frequency,:input_html => {} %>
+        <%= f.input :unit,:input_html => {:size => 5} %>
+        <%= f.input :value,:input_html => {:size => 5} %>
+        <%= f.input :retains_islr,:input_html => {} %>
+        <%= f.input :retains_faov,:input_html => {} %>
+        <%= f.input :retains_sso,:input_html => {} %>
+        <%= f.input :retains_spf,:input_html => {} %>
+        <%= f.input :retains_fju,:input_html => {} %>
+
+  <% end %>
+
+</div>

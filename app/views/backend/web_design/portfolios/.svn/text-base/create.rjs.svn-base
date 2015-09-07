@@ -1,0 +1,7 @@
+if @success
+  page.redirect_to backend_cpanel_home_index_url
+else
+  page << "$('#submit_for_design').val('Enviar al cliente'); "
+  page << "$('#submit_for_design').removeAttr('disabled'); "
+  page.replace_html "form_for_design", :partial => "form"
+end

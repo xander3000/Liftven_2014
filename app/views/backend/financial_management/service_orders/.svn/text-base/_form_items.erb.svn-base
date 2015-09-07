@@ -1,0 +1,63 @@
+<div id="contact_form" class="content_form">
+<% f.inputs "Posiciones" do %>
+	 <div id="form_items">
+		<table frame="border" rules="cols" >
+		  <thead>
+			 <tr>
+				<th class="material">
+				  <%= Accounting::ServiceOrderPosition.human_attribute_name(:concept)%>
+				</th>
+				<th class="delivery_date">
+				  <%= Accounting::ServiceOrderPosition.human_attribute_name(:delivery_date)%>
+				</th>
+				<th class="quantity">
+				  <%= Accounting::ServiceOrderPosition.human_attribute_name(:quantity)%>
+				</th>
+				<th class="unit_price">
+				  <%= Accounting::ServiceOrderPosition.human_attribute_name(:sub_total)%>
+				</th>
+				<th colspan="2" class="total_price">
+				  <%= Accounting::ServiceOrderPosition.human_attribute_name(:total)%>
+				</th>
+			 </tr>
+			 <tr id="item_product_form">
+                           <% semantic_fields_for Accounting::ServiceOrderPosition.new do |pop| %>
+				<td class=" center">
+				  <%#= text_field_tag "concept","",:placeholder => "Ingrese concepto/descripcion" %>
+				  <%= pop.input :concept,:label => false,:wrapper_html => {:placeholder => "Ingrese concepto/descripcion"}  %>
+				</td>
+				<td class="delivery_date">
+                                     <%= pop.input :delivery_date,:label => false,:as => :string,:input_html => {:class => "quantity",:size => 5,:readonly => true}%>
+				</td>
+				<td class="center quantity">
+				  <%= pop.input :quantity,:label => false,:input_html => {:class => "quantity"}%>
+				</td>
+
+
+				<td class="sub_total right">
+				  <%= pop.input :sub_total,:as => :hidden,:label => false,:input_html => {:class => "right prices",:size => 11,:placeholder => "Sub total"}%>
+				  <%= text_field_tag "sub_total_currency","",:placeholder => "Sub total",:class => "right prices",:size => "11" %>
+				</td>
+				<td class="total right">
+				  <p id="total_currency" class="like_input"></p>
+                                  <%= pop.input :total,:as => :hidden,:label => false,:input_html => {:placeholder => "Precio total",:readonly => true,:class => "right prices",:size => "11"}%>
+				</td>
+				<td class="center" style="width: 25px;">
+				  <%= link_to_remote image_tag("icons/add.png"), :url => add_backend_financial_management_service_orders_url,:with => "$('#item_product_form input, #item_product_form select').serialize()",:html => {:id => "add_product_button",:class => ""} %>
+				</td>
+			 </tr>
+                         <% end %>
+		  </thead>
+		  <tbody id="items">
+			 <%= render :partial => "items" %>
+		  </tbody>
+		</table>
+	 </div>
+  <% end %>
+</div>
+<script type="text/javascript">
+
+	$(document).ready(function(){
+
+	});
+</script>

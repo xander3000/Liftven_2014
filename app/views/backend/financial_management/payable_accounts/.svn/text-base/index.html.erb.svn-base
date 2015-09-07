@@ -1,0 +1,58 @@
+<%= include_javascript("jquery.dataTables.min.js") %>
+<%= include_stylesheet("jquery.datatable.css") %>
+<div class="actionsBar right no-print">
+  <%= link_to(image_tag("icons/arrow_left.png"),backend_cpanel_home_index_url,:class => "button",:title => "Regresar") %>
+  |
+  <%= link_to(image_tag("icons/printer.png"),backend_financial_management_payable_accounts_url("pdf"),:class => "button",:title => "Imprmir listado") %>
+</div>
+<hr/>
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="payable_accounts" width="100%">
+	<thead>
+		<tr>
+			<th style="width: 10px;">St</th>
+			<th><%= Accounting::PayableAccount.human_attribute_name("doc")%> </th>
+			<th><%= Accounting::PayableAccount.human_attribute_name("tenderer")%> </th>
+			<th><%= Accounting::PayableAccount.human_attribute_name("reference")%> </th>
+			<th><%= Accounting::PayableAccount.human_attribute_name("date_doc")%> </th>
+			<th><%= Accounting::PayableAccount.human_attribute_name("date_doc_expiration")%> </th>
+			<th><%= Accounting::PayableAccount.human_attribute_name("total")%> </th>
+			<th><%= Accounting::PayableAccount.human_attribute_name("balance")%> </th>
+		  <th style="width: 10px;">Acción</th>
+		</tr>
+	</thead>
+	<tbody>
+	 <% @payable_accounts.each do |payable_account| %>
+	  <tr>
+		  <td class="center" title="Vigente"><%= image_tag "icons/semaphore/#{payable_account.semaphore_time_to_expiration}.png" %></td>
+		  <td class="center"><%= payable_account.doc.full_name %> </td>
+		  <td class="center"><%= payable_account.tenderer.name %> </td>
+		  <td class="center"><%= payable_account.reference %> </td>
+		  <td class="center"><%= l payable_account.date_doc.to_date %> </td>
+		  <td class="center"><%= l payable_account.date_doc_expiration.to_date %> </td>
+		  <td class="right"><%= number_to_currency(payable_account.total, :delimiter => ".", :separator => ",", :unit => "")%></td>
+		  <td class="right"><%= number_to_currency(payable_account.balance, :delimiter => ".", :separator => ",", :unit => "")%></td>
+		  <td class="center"><%= link_to(image_tag("icons/money_add.png",:title => "Agregar abono"),backend_financial_management_new_payment_order_from_payable_account_url(payable_account)) if !payable_account.doc.has_payment_order? %></td>
+	  </tr>
+	  <% end %>
+	</tbody>
+</table>
+
+
+
+
+<script type="text/javascript">
+  var oTable;
+
+  $(document).ready(function() {
+		oTable =  $('#payable_accounts').dataTable({
+				scrollX: true,
+            oLanguage: {
+                sUrl: "/javascripts/i18n/jquery.DataTables-es.txt"
+            }
+        });
+	 
+  });
+
+
+
+</script>

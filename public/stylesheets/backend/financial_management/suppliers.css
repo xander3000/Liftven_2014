@@ -1,0 +1,42 @@
+/* 
+    Document   : payment_schedules
+    Created on : 07/06/2014, 07:08:58 PM
+    Author     : gabriel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+@import "../contable_document.css";
+
+
+form.formtastic fieldset > ol > li.boolean label{
+	padding-left: 14%;
+}
+
+table.display {
+    border: 0px solid #D3D3D3;
+}
+
+table.display thead,table.display tbody {
+    border: 1px solid #D3D3D3;
+}
+table.display tfoot tr td{
+	 font-weight: bold;
+    border: 0px solid #D3D3D3;
+}
+
+#fiscal_sumary{
+	border: 0px solid #D3D3D3;
+}
+
+#fiscal_sumary tr td{
+	border: 1px solid #D3D3D3;
+}
+
+#fiscal_sumary tr.first td{
+	border: 0px solid #D3D3D3;
+}

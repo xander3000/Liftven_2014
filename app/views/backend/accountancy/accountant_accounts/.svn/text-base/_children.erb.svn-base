@@ -1,0 +1,18 @@
+  <% @accountant_account.accounting_accountant_accounts.each do |accountant_account| %>
+  <li id="accountant_account-<%= accountant_account.id%> " class="closed remote context-menu-accountant_account"  url="<%= backend_accountancy_accountant_account_show_children_url(accountant_account) %>">
+		<% accounting_accountant_accounts = accountant_account.accounting_accountant_accounts  %>
+		<span class="<%= accounting_accountant_accounts.empty? ? "file" : "folder"%> "> <%= accountant_account.fullname %> </span>
+		<% if !accounting_accountant_accounts.empty? %>
+		  <ul id="accountant_account-children-<%= accountant_account.id%>" class="treeview-children"></ul>
+		<% end %>
+  </li>
+  <% end %>
+
+
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+	 $("#accountant_account-children-<%= @accountant_account.id%>").treeview();
+});
+</script>

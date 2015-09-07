@@ -1,0 +1,39 @@
+<% cont = 0 %>
+<% @incoming_invoice_positions ||= current_incoming_invoice_positions_objects %>
+<% @incoming_invoice_positions.each do |incoming_invoice_position| %>
+
+	 <tr class="item <%= cycle("odd","ever")%> ">
+                <td class="border-right">
+                  <%= cont +=1  %>
+                 </td>
+                <td>
+		  <%= incoming_invoice_position.description %>
+		</td>
+		<td>
+		  <%= incoming_invoice_position.material_order_measure_unit.name %>
+		</td>
+		<td class="center">
+		  <%= incoming_invoice_position.quantity %>
+		</td>
+		<td class="right">
+		  <%= number_to_currency(incoming_invoice_position.sub_total, :delimiter => ".", :separator => ",", :unit => "Bs") %>
+		</td>
+		<td class="right">
+		  <%= number_to_currency(incoming_invoice_position.taxable, :delimiter => ".", :separator => ",", :unit => "") %>
+		</td>
+		<td class="right">
+		  <%= number_to_currency(incoming_invoice_position.tax.amount, :delimiter => ".", :separator => ",", :unit => "") %>
+		</td>
+		<td class="right">
+		  <%= number_to_currency(incoming_invoice_position.tax_amount, :delimiter => ".", :separator => ",", :unit => "") %>
+		</td>
+
+		<td class="right">
+		  <%= number_to_currency(incoming_invoice_position.total, :delimiter => ".", :separator => ",", :unit => "Bs") %>
+		</td>
+                <td id="remove_button" class="center" style="width: 24px;">
+                  <%= link_to_remote image_tag("icons/delete.png"), :url => backend_financial_management_remove_position_url(incoming_invoice_position.id_temporal),:with => "",:confirm => "¿Esta seguro de remover esta posición?",:html => {:id => "add_product_button",:class => ""} %>
+                </td>
+	 </tr>
+         
+<% end %>

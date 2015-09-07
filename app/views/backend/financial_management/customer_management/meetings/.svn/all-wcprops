@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/1186/trunk/Venom/app/views/backend/financial_management/customer_management/meetings
+END
+relation_type.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/!svn/ver/1120/trunk/Venom/app/views/backend/financial_management/customer_management/meetings/relation_type.rjs
+END
+edit.erb
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/1120/trunk/Venom/app/views/backend/financial_management/customer_management/meetings/edit.erb
+END
+index.erb
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/1120/trunk/Venom/app/views/backend/financial_management/customer_management/meetings/index.erb
+END
+update.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/1120/trunk/Venom/app/views/backend/financial_management/customer_management/meetings/update.rjs
+END
+new.erb
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/1186/trunk/Venom/app/views/backend/financial_management/customer_management/meetings/new.erb
+END
+create.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/1120/trunk/Venom/app/views/backend/financial_management/customer_management/meetings/create.rjs
+END
+show.erb
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/1124/trunk/Venom/app/views/backend/financial_management/customer_management/meetings/show.erb
+END
+_form.erb
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/1120/trunk/Venom/app/views/backend/financial_management/customer_management/meetings/_form.erb
+END

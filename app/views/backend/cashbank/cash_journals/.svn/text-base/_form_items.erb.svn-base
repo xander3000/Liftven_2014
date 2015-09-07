@@ -1,0 +1,159 @@
+<% f.inputs "" do %>
+  <div id="form_items" class="content_form">
+    <div class="actionsBar right no-print">
+
+    <%= link_to(image_tag("icons/printer.png"),backend_cashbank_cash_journal_url(@cash_journal,"csv"),:class => "button") %>
+      <br/><br/>
+</div>
+    <table frame="border" rules="cols" >
+      <thead>
+        <tr>
+          <th class="material">
+            <%= CashBank::CashJournalPosition.human_attribute_name(:id)%>
+          </th>            
+          <th class="material">
+            <%= CashBank::CashJournalPosition.human_attribute_name(:cash_bank_cash_journal_position_category_type)%>
+          </th>
+          <th class="material">
+            <%= CashBank::CashJournalPosition.human_attribute_name(:cash_bank_cash_journal_position_concept_type)%>
+          </th>
+          <th class="quantity">
+            <%= CashBank::CashJournalPosition.human_attribute_name(:total)%>
+          </th>
+			 <th colspan="" class="">
+            <%= CashBank::CashJournalPosition.human_attribute_name(:invoice_tenderer)%>
+          </th>
+          <th colspan="" class="">
+            <%= CashBank::CashJournalPosition.human_attribute_name(:invoice_date)%>
+          </th>
+          <th class="unit_price">
+            <%= CashBank::CashJournalPosition.human_attribute_name(:is_fiscal)%>
+          </th>
+          <th colspan="" class="">
+            <%= CashBank::CashJournalPosition.human_attribute_name(:invoice_sub_total)%>
+          </th>
+          <th colspan="" class="">
+            <%= CashBank::CashJournalPosition.human_attribute_name(:invoice_tax)%>
+          </th>
+          
+          <th colspan="" class="">
+            <%= CashBank::CashJournalPosition.human_attribute_name(:invoice_control_number)%>
+          </th>
+          <th colspan="2" class="">
+            <%= CashBank::CashJournalPosition.human_attribute_name(:invoice_reference)%>
+          </th>
+
+        </tr>
+        <tr id="item_product_form" class="">
+         <% semantic_fields_for CashBank::CashJournalPosition.new do |cjp| %>
+              <td>
+                    
+              </td>
+              <td class=" center">
+                <%= cjp.input :cash_bank_cash_journal_position_category_type,:label => false,:input_html => {:onchange => remote_function(:url => set_concept_position_backend_cashbank_cash_journals_url,:with => "$(this).serialize()"),:class => "",:style => "width:150px"}%>
+              </td>
+              <td class="center unit">
+                <%= cjp.input :cash_bank_cash_journal_position_concept_type,:collection => [],:label => false,:input_html => {:class => "",:style => "width:150px"}  %>
+              </td>
+              <td class="center quantity">
+                <%= cjp.input :total,:label => false,:input_html => {:class => "right"}%>
+              </td>
+              <td class=" center">
+                <%= cjp.input :invoice_tenderer,:label => false,:wrapper_html => {:class => "hidden"}%>
+                <%= cjp.input :tenderer_name,:label => false,:wrapper_html => {:class => ""},:input_html => {:size => 10}%>
+              </td>
+              <td class="center ">
+                <%= cjp.input :invoice_date,:label => false,:input_html => {:class => "",:size => 5}%>
+              </td>
+              <td class="center quantity">
+                <li id="cash_bank_cash_journal_position_is_fiscal_input" class="boolean optional"><input type="checkbox" value="1" name="cash_bank_cash_journal_position[is_fiscal]" id="cash_bank_cash_journal_position_is_fiscal" class=""/></li>
+              </td>
+              <td class="quantity right">
+                <%= cjp.input :invoice_sub_total,:label => false,:input_html => {:placeholder => "Precio total",:class => "right prices amount only-fiscal",:size => "8",:disabled => true}%>
+              </td>
+              <td class="quantity right">
+                <%= cjp.input :invoice_tax,:label => false,:input_html => {:placeholder => "I.V.A.",:class => "right prices amount only-fiscal",:size => "5",:disabled => true}%>
+              </td>
+
+              <td class="center quantity ">
+                <%= cjp.input :invoice_control_number,:label => false,:input_html => {:size => 4,:disabled => true,:class => "only-fiscal"}%>
+              </td>
+              <td class="center quantity ">
+                <%= cjp.input :invoice_reference,:label => false,:input_html => {:size => 4,:disabled => true,:class => "only-fiscal"}%>
+              </td>
+              <td class="center" style="width: 25px;">
+						  <%= link_to_remote image_tag("icons/add.png"), :url => backend_cashbank_cash_journal_add_position_url(@cash_journal),:with => "$('#item_product_form input, #item_product_form select').serialize()",:confirm => "¿Desea agregar este item?",:html => {:id => "add_product_button",:class => ""} %>
+				  </td>
+          <% end %>
+       </tr>
+      </thead>
+      <tbody id="items">
+        <%= render :partial => "items" %>
+      </tbody>
+    </table>
+  </div>
+<% end %>
+<script type="text/javascript">
+
+    function action_after_complete_for_tenderer(item){
+    switch (item.code_response) {
+        case ("ok"):
+            $("#cash_bank_cash_journal_position_invoice_tenderer_id").val(item.supplier_id)
+            break;
+        case ("no-ok"):
+            alert('no-ok');
+            break;
+        /*default:
+            alert('problemas buscando');*/
+    }
+  }
+	 function check_only_fiscal(){
+		if($("#cash_bank_cash_journal_position_is_fiscal").is(":checked")){
+			 $(".only-fiscal").removeAttr("disabled").val("")
+			 total = parseFloat($("#cash_bank_cash_journal_position_total").val())
+			 tax_percentage = parseFloat(<%= AppConfig.tax_percentage %> + 1)
+			 sub_total = parseFloat(total/tax_percentage).toFixed(2)
+			 tax = (total - sub_total).toFixed(2)
+			 $("#cash_bank_cash_journal_position_invoice_sub_total").val(sub_total).attr("readonly",true)
+			 $("#cash_bank_cash_journal_position_invoice_tax").val(tax).attr("readonly",true)
+		  }
+		  else{
+
+			 $(".only-fiscal").attr("disabled",true).val("").attr("readonly",false)
+		  }
+	 }
+
+	$(document).ready(function(){
+		 $("#cash_bank_cash_journal_position_invoice_date").datepicker({
+          changeMonth: true,
+          dateFormat: 'yy-mm-dd',
+          minDate: "-35",
+          maxDate: "+0",
+			 yearRange: 'c-80:c+30'
+        });
+
+			$("#cash_bank_cash_journal_position_tenderer_name").autocomplete({
+					 source: "<%= autocomplete_by_supplier_name_backend_contacts_url %>",
+					 minLength: 3,
+					 select: function( event, ui ) {
+						if(ui.item)
+							 action_after_complete_for_tenderer(ui.item);
+					 },
+					 open: function( event, ui ) {
+						 $('#cash_bank_cash_journal_position_invoice_tenderer_id').val('')
+					 }
+			  });
+
+
+	  check_only_fiscal();
+
+	 $("#cash_bank_cash_journal_position_is_fiscal").click(function () {
+		 check_only_fiscal();
+     });
+	  $("#cash_bank_cash_journal_position_total").blur(function () {
+		 check_only_fiscal();
+     });
+
+
+	});
+</script>

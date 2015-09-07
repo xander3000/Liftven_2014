@@ -1,0 +1,17 @@
+<div id="" class="content_form">
+  <%  semantic_fields_for @client do |s| %>
+    <% s.inputs "Datos bancarios" do %>
+		<%= s.input :bank,:input_html  => {:size => 23}%>
+		<%= s.input :bank_account_number,:input_html  => {:size => 23,:class => "account_number"}%>
+		<%= s.input :bank_account_name,:input_html => {:size => 35} %>
+	 <% end %>
+  <% s.inputs "Datos fiscales" do %>
+		<%= s.input :is_national %>
+		<%= s.input :is_retention_agent,:input_html => {:class => "blocked"}%>
+		<%= s.input :is_taxpayer,:input_html => {:class => "blocked"}%>
+		<%= s.input :rate_retention,:input_html  => {:size => 5}%>
+    <% end %>
+  <% end %>
+
+</div>
+

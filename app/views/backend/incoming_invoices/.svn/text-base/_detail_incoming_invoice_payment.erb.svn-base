@@ -1,0 +1,23 @@
+<div>
+  <% semantic_form_remote_for @incoming_invoice_payment,:url => backend_incoming_invoice_add_payment_url(@incoming_invoice),:html => {:class => "form_generate"} do |f| %>
+	 <% f.inputs do%>
+		<%= f.input :amount,:label => false,:input_html => {:placeholder => "Monto",:class => "top",:size => 40} %>
+		<%= f.input :payment_method_type %>
+		<%= f.input :transaction_reference,:input_html => {:size => 30} %>
+		<%= f.input :transaction_date %>
+	 <% end %>
+  <% end %>
+<div class="footerWrap">
+    <div class="footerWrapContent right">
+      <%= button_to_function("Agregar", "$(\"#new_incoming_invoice_payment\").submit()")  %>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="incoming_invoice_payments" style="max-height: 80px; overflow-y: scroll">
+  <%= render :partial => "detail_payments"  %>
+</div>
+
+  

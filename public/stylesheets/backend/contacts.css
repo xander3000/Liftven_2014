@@ -1,0 +1,87 @@
+/* 
+    Document   : contacts
+    Created on : 02/08/2011, 08:42:25 PM
+    Author     : gabriel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+@import "listing.css";
+
+#contacts #general_actions
+{
+    margin-left: 1px;
+}
+#contacts #general_actions a
+{
+    background-color: #fff;
+    color: #333333;
+    font-weight: bold;
+    padding: 5px;
+    text-decoration: none;
+    border-bottom: 1px solid #FFF;
+}
+
+
+#contacts #general_actions a.selected
+{
+    background-color: #333333;
+    color: #FFFFFF;
+    
+}
+
+#contacts #general_actions a:hover
+{
+    background-color: #272727;
+    color: #FFFFFF;
+}
+
+#contacts  .contacts-block-left
+{
+    width: 30%;
+}
+
+#contacts  .contacts-block-center
+{
+    width: 65%;
+    border-left: 1px solid #D2D2D2;
+    min-height: 560px;
+    
+}
+
+#contacts-block-center-container
+{
+    padding-left: 15px;
+    width: 55em;
+}
+
+#tabs
+{
+    border: 0;
+}
+
+#tabs .ui-tabs-panel
+{
+   padding: 1em 0;
+}
+
+
+#client_orders .panel_items .item b{
+ color: #5C708A;   
+}
+
+#client_orders div.panel_items div.item div.subcl
+{
+    padding:  4% 0;
+}
+
+#more_info ul {
+    padding-left: 25px;
+}
+#more_info ul li{
+    list-style: none;
+}

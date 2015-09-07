@@ -1,0 +1,14 @@
+<%= include_javascript("jquery.smartwizard.min.js") %>
+<%= include_stylesheet("jquery.smartwizard.css") %>
+
+<% content_for :venom_leadspace_head do %>
+<div id="users_leadspaces">
+    <%= render :partial => "users_leadspaces" %>
+</div>
+<% end %>
+
+<div id="user_account_content">
+  <% form_remote_for @user, :url => frontend_users_url,:method => :post do |f| %>
+        <%= render :partial => "form",:locals => {:f => f} %>
+  <% end %>
+</div>

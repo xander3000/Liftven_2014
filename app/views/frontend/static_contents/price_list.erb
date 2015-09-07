@@ -1,0 +1,424 @@
+<% content_for :venom_leadspace_head do %>
+<div id="price_list_leadspaces">
+    <%= render :partial => "price_list_leadspaces" %>
+</div>
+<% end %>
+
+<style type="text/css">
+
+  .ui-tabs .ui-tabs-panel{
+    font-size: 10px;
+   
+    
+  }
+    .ui-tabs .ui-tabs-nav
+    {
+      position: relative;
+       padding: 0.2em 0.0em 0;
+
+    }
+
+    .ui-tabs .ui-tabs-nav li.ui-tabs-selected
+    {
+      background: #FFF;
+      border: none;
+      border-left: 1px solid #E5E5E5;
+      border-right: 1px solid #E5E5E5;
+      border-top: 1px solid #E5E5E5;
+    }
+
+  .ui-state-default p, .ui-widget-content .ui-state-default  p, .ui-widget-header .ui-state-default  p{
+        margin: 0;
+  }
+
+  .panes{
+    height: 210px;
+    padding: 5px;
+    background: #FFF;
+  }
+
+  #venom-tabs{
+    background: #FFF;
+   overflow-y: auto;
+
+  }
+
+  #modal-external.facebox.custom{
+    width: 800px;
+  }
+
+ #venom-tabs table {
+    border-collapse: collapse;
+    border-spacing: 0;
+            -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+}
+
+  .panes th, .panes td{
+    padding: 5px;
+
+  }
+  .panes thead tr th{
+    font-weight: bolder;
+    font-size: 11px;
+  }
+  .panes tr{
+    background: #FFF;
+  }
+  .panes tr.even{
+    background: #F5F5F5;
+  }
+  
+</style>
+
+
+<div id="venom-tabs" class=" ">
+    	<ul>
+                <li><a href="#venom-tabs-1"><p>Impresión Digital</p></a></li>
+		<li><a href="#venom-tabs-2"><p>Impresión Litográfica</p></a></li>
+		<li><a href="#venom-tabs-3"><p>Gigantografía</p></a></li>
+                <li><a href="#venom-tabs-4"><p>Servicios de Impresión</p></a></li>
+	</ul>
+        <div id="venom-tabs-1" class="panes">
+          <table>
+            <thead style="">
+            <tr>
+              <th rowspan="2" style="">
+                Descripción
+              </th>
+              <th colspan="11">
+                Valor en Bs. de cuarto de pliego a partir de:
+              </th>
+            </tr>
+            <tr>
+              <th>10</th>
+              <th>25</th>
+              <th>50</th>
+              <th>100</th>
+              <th>200</th>
+              <th>300</th>
+              <th>400</th>
+              <th>500</th>
+              <th>600</th>
+              <th>800</th>
+              <th>1000</th>
+            </tr>
+            </thead>
+            <tbody>
+              <tr class="">
+                <td>Bond 20, Tiro</td>
+                <td>7,25</td>
+                <td>5,87</td>
+                <td>5,17</td>
+                <td>4,81</td>
+                <td>4,71</td>
+                <td>4,57</td>
+                <td>4,42</td>
+                <td>4,25</td>
+                <td>4,12</td>
+                <td>4,01</td>
+                <td>3,61</td>
+              </tr>
+              <tr>
+                <td>Bond 20, Tiro / Retiro</td>
+                <td>13,05</td>
+                <td>11,04</td>
+                <td>9,72</td>
+                <td>9,13</td>
+                <td>9,04</td>
+                <td>8,68</td>
+                <td>8,40</td>
+                <td>8,07</td>
+                <td>7,91</td>
+                <td>7,62</td>
+                <td>6,93</td>
+              </tr>
+              <tr>
+                <td>Glase 115 grs., Tiro</td>
+                <td>8,50</td>
+                <td>6,89</td>
+                <td>6,06</td>
+                <td>5,63</td>
+                <td>5,52</td>
+                <td>5,36</td>
+                <td>5,18</td>
+                <td>4,98</td>
+                <td>4,83</td>
+                <td>4,70</td>
+                <td>4,23</td>
+              </tr>
+              <tr>
+                <td>Glase 115 grs., Tiro / Retiro</td>
+                <td>15,30</td>
+              <td>12,94</td>
+              <td>11,39</td>
+              <td>10,71</td>
+              <td>10,60</td>
+              <td>10,18</td>
+              <td>9,85</td>
+              <td>9,46</td>
+              <td>9,27</td>
+              <td>8,94</td>
+              <td>8,13</td>
+              </tr>
+              <tr>
+                <td>Glase 150 grs., Tiro </td>
+                <td>8,70</td>
+              <td>7,05</td>
+              <td>6,20</td>
+              <td>5,77</td>
+              <td>5,65</td>
+              <td>5,48</td>
+              <td>5,31</td>
+              <td>5,09</td>
+              <td>4,94</td>
+              <td>4,81</td>
+              <td>4,33</td>
+              </tr>
+              <tr>
+                <td>Glase 150 grs., Tiro / Retiro </td>
+                <td>15,66</td>
+              <td>13,25</td>
+              <td>11,66</td>
+              <td>10,96</td>
+              <td>10,85</td>
+              <td>10,42</td>
+              <td>10,08</td>
+              <td>9,68</td>
+              <td>9,49</td>
+              <td>9,15</td>
+              <td>8,32</td>
+              </tr>
+              <tr>
+                <td>Glase 200 grs., Tiro </td>
+                <td>8,78</td>
+              <td>7,11</td>
+              <td>6,25</td>
+              <td>5,82</td>
+              <td>5,70</td>
+              <td>5,53</td>
+              <td>5,35</td>
+              <td>5,14</td>
+              <td>4,98</td>
+              <td>4,85</td>
+              <td>4,37</td>
+              </tr>
+              <tr>
+                <td>Glase 200 grs., Tiro / Retiro </td>
+                <td>15,80</td>
+              <td>13,36</td>
+              <td>11,76</td>
+              <td>11,05</td>
+              <td>10,95</td>
+              <td>10,51</td>
+              <td>10,17</td>
+              <td>9,76</td>
+              <td>9,57</td>
+              <td>9,22</td>
+              <td>8,39</td>
+              </tr>
+              <tr>
+                <td>Glase 250 grs., Tiro</td>
+                <td>8,80</td>
+              <td>7,13</td>
+              <td>6,27</td>
+              <td>5,83</td>
+              <td>5,72</td>
+              <td>5,55</td>
+              <td>5,37</td>
+              <td>5,15</td>
+              <td>5,00</td>
+              <td>4,87</td>
+              <td>4,38</td>
+              </tr>
+              <tr>
+                <td>Glase 250 grs., Tiro / Retiro</td>
+                <td>15,84</td>
+              <td>13,40</td>
+              <td>11,79</td>
+              <td>11,08</td>
+              <td>10,98</td>
+              <td>10,54</td>
+              <td>10,20</td>
+              <td>9,79</td>
+              <td>9,60</td>
+              <td>9,25</td>
+              <td>8,41</td>
+              </tr>
+              <tr>
+                <td>Glase 300 grs., Tiro</td>
+              <td>9,30</td>
+              <td>7,53</td>
+              <td>6,63</td>
+              <td>6,17</td>
+              <td>6,04</td>
+              <td>5,86</td>
+              <td>5,67</td>
+              <td>5,45</td>
+              <td>5,28</td>
+              <td>5,15</td>
+              <td>4,63</td>
+              </tr>
+
+              <tr>
+                <td>Glase 300 grs., Tiro / Retiro</td>
+                <td>16,74</td>
+              <td>14,16</td>
+              <td>12,46</td>
+              <td>11,71</td>
+              <td>11,60</td>
+              <td>11,13</td>
+              <td>10,78</td>
+              <td>10,35</td>
+              <td>10,14</td>
+              <td>9,78</td>
+              <td>8,89</td>
+              </tr>
+              <tr>
+                <td>Sulfato 0,12</td>
+                <td>9,40</td>
+              <td>7,61</td>
+              <td>6,70</td>
+              <td>6,23</td>
+              <td>6,11</td>
+              <td>5,92</td>
+              <td>5,73</td>
+              <td>5,50</td>
+              <td>5,34</td>
+              <td>5,20</td>
+              <td>4,68</td>
+              </tr>
+              <tr>
+                <td>Opalina 220 grs. Tiro</td>
+                <td>9,50</td>
+              <td>7,70</td>
+              <td>6,77</td>
+              <td>6,30</td>
+              <td>6,17</td>
+              <td>5,99</td>
+              <td>5,79</td>
+              <td>5,56</td>
+              <td>5,40</td>
+              <td>5,26</td>
+              <td>4,73</td>
+              </tr>
+              <tr>
+                <td>Opalina 220 grs., Tiro / Retiro </td>
+                <td>17,10</td>
+              <td>14,47</td>
+              <td>12,73</td>
+              <td>11,97</td>
+              <td>11,85</td>
+              <td>11,37</td>
+              <td>11,01</td>
+              <td>10,57</td>
+              <td>10,36</td>
+              <td>9,99</td>
+              <td>9,08</td>
+              </tr>
+              <tr>
+                <td>Kimberly 180 grs. Blanco nordico o marfil natural, Tiro</td>
+                <td>11,50</td>
+              <td>9,32</td>
+              <td>8,20</td>
+              <td>7,62</td>
+              <td>7,47</td>
+              <td>7,25</td>
+              <td>7,01</td>
+              <td>6,73</td>
+              <td>6,53</td>
+              <td>6,36</td>
+              <td>5,73</td>
+              </tr>
+              <tr>
+                <td>Kimberly 180 grs. Tiro / Retiro</td>
+                <td>20,70</td>
+              <td>17,51</td>
+              <td>15,41</td>
+              <td>14,48</td>
+              <td>14,34</td>
+              <td>13,77</td>
+              <td>13,33</td>
+              <td>12,80</td>
+              <td>12,54</td>
+              <td>12,09</td>
+              <td>10,99</td>
+              </tr>
+              <tr>
+                <td>Kimberly 180 grs. Blanco titanio, Tiro</td>
+                <td>12,05</td>
+              <td>9,76</td>
+              <td>8,59</td>
+              <td>7,99</td>
+              <td>7,83</td>
+              <td>7,59</td>
+              <td>7,35</td>
+              <td>7,06</td>
+              <td>6,84</td>
+              <td>6,67</td>
+              <td>6,00</td>
+              </tr>
+              <tr>
+                <td>Kimberly 180 grs.blanco titanio  Tiro / Retiro</td>
+                <td>21,69</td>
+              <td>18,35</td>
+              <td>16,15</td>
+              <td>15,18</td>
+              <td>15,03</td>
+              <td>14,43</td>
+              <td>13,97</td>
+              <td>13,41</td>
+              <td>13,14</td>
+              <td>12,67</td>
+              <td>11,52</td>
+              </tr>
+              <tr>
+                <td>Litho Autoadhesivo 80 grs.</td>
+                <td>12,00</td>
+              <td>9,72</td>
+              <td>8,55</td>
+              <td>7,95</td>
+              <td>7,80</td>
+              <td>7,56</td>
+              <td>7,32</td>
+              <td>7,03</td>
+              <td>6,82</td>
+              <td>6,64</td>
+              <td>5,98</td>
+              </tr>
+          </tbody>
+            
+          </table>
+
+	</div>
+	<div id="venom-tabs-2" class="panes">
+		<p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
+	</div>
+	<div id="venom-tabs-3" class="panes">
+		<p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
+		<p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
+                <p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
+		<p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
+                <p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
+		<p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
+                <p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
+		<p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
+	</div>
+  	<div id="venom-tabs-4" class="panes">
+		<p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
+		<p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
+	</div>
+
+
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+            $("#venom-tabs").tabs();
+            $("#venom-tabs tbody tr:even").addClass("even");
+            //$("#modal-external.facebox").addClass("custom");
+	});
+
+
+</script>

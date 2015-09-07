@@ -1,0 +1,42 @@
+<% total = 0 %>
+<div class="">
+   <%= link_to("<< Volver",backend_show_daily_cash_closing_url(@daily_cash_closing)) %><br/><br/>
+	 <div>
+		<table cellpadding="0" cellspacing="0" border="0" class="display" id="invoices" width="100%">
+			<thead>
+				<tr>
+					<th><%= Invoice.human_attribute_name("id")%> </th>
+					<th><%= Invoice.human_attribute_name("client")%> </th>
+					<th><%= Invoice.human_attribute_name("created_at")%> </th>
+					<th><%= IncomingInvoiceBilling.human_attribute_name("transaction_date")%> </th>
+					<th><%= IncomingInvoiceBilling.human_attribute_name("transaction_reference")%> </th>
+					<th><%= Invoice.human_attribute_name("invoice_printing_type")%> </th>
+					<th><%= Invoice.human_attribute_name("total")%> </th>
+				</tr>
+			</thead>
+			<tbody>
+			  <% @invoices.each do |invoice|  %>
+				 <tr>
+					<td class="left"><%= link_to(format_code(invoice.id,"05"), backend_invoice_url(invoice))%></td>
+					<td class="left"><%=  invoice.client.name%> </td>
+					<td class="center"><%= l invoice.created_at,:format => :default_date%></td>
+					<td class="left"><%=  invoice.incoming_invoice_billings.map(&:transaction_date).join(", ")%> </td>
+					<td class="left"><%=  invoice.incoming_invoice_billings.map(&:transaction_reference).join(", ")%> </td>
+					<td class="left"><%=  invoice.invoice_printing_type.name%> </td>
+					<td class="right"><%=  number_to_currency(invoice.total, :delimiter => ".", :separator => ",", :unit => "")%></td>
+					<% total += invoice.total%>
+				  </tr>
+				<% end %>
+				  <tr>
+					 <td colspan="6" class="right border-top">
+						<i>Total</i>
+					 </td>
+					 <td class="right border-top">
+						<%=  number_to_currency(total, :delimiter => ".", :separator => ",", :unit => "")%>
+					 </td>
+				  </tr>
+			</tbody>
+		  </table>
+	 </div>
+  </div>
+

@@ -1,0 +1,50 @@
+<div id="" class="content_form">
+<% f.inputs "Posiciones" do %>
+	 <div id="form_items">
+		<table frame="border" rules="cols" >
+		  <thead>
+			 <tr>
+				<th class="material">
+				  <%= Material::PurchaseRequisitionPosition.human_attribute_name(:material_raw_material)%>
+				</th>
+				<th class="quantity">
+				  <%= Material::PurchaseRequisitionPosition.human_attribute_name(:quantity)%>
+				</th>
+				<th class="quantity">
+				  <%= Material::PurchaseRequisitionPosition.human_attribute_name(:verified_quantity)%>
+				</th>
+				<th class="quantity">
+				  <%= Material::PurchaseRequisitionPosition.human_attribute_name(:approved_quantity)%>
+				</th>
+				<th class="unit">
+				  <%= Material::PurchaseRequisitionPosition.human_attribute_name(:material_order_measure_unit)%>
+				</th>
+				<th class="unit">
+				  <%= Material::PurchaseRequisitionPosition.human_attribute_name(:reason)%>
+				</th>
+				<th class="unit">
+				  <%= Material::PurchaseRequisitionPosition.human_attribute_name(:verified_by)%>
+				</th>
+				<th class="unit">
+				  <%= Material::PurchaseRequisitionPosition.human_attribute_name(:approved_by)%>
+				</th>
+
+				<th class="unit">
+				  <%= Material::PurchaseRequisitionPosition.human_attribute_name(:material_purchase_requisition_position_status_type)%>
+				</th>
+			 </tr>
+
+		  </thead>
+		  <tbody id="items">
+			 <%= render :partial => "show_items" %>
+		  </tbody>
+		</table>
+	 </div>
+  <% end %>
+</div>
+<script type="text/javascript">
+
+	$(document).ready(function(){
+
+	});
+</script>

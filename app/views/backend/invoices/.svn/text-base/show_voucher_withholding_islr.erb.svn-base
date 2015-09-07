@@ -1,0 +1,140 @@
+
+  <div class="">
+	 <p class="center">
+		<b>COMPROBANTE DE RETENCION DE I.S.L.R.</b><br/>
+		<%= l @invoice.created_at,:format => :long_date_locate%>
+	 </p>
+<table>
+  <thead>
+	 <tr>
+		<th style="width: 50%">
+		  PROVEEDOR
+		</th>
+		<th style="width: 50%">
+		  EMPRESA
+		</th>
+	 </tr>
+  </thead>
+  <tbody>
+	 <tr>
+		<td class="border-right">
+		  <b><%= @invoice.client.name.upcase %></b><br/>
+		  R.I.F.: <%= @invoice.client.identification_document %><br/>
+		  Dirección: <%= @invoice.client.address %><br/>
+		</td>
+		<td>
+		  <% supplier_owner = Supplier.find_owner %>
+		  <b><%= supplier_owner.name.upcase %></b><br/>
+		  R.I.F.: <%= supplier_owner.identification_document.upcase %><br/>
+		  Dirección: <%= supplier_owner.contact.address %><br/>
+		</td>
+	 </tr>
+  </tbody>
+</table>
+
+	 <br/>
+	 <br/>
+	 <div>
+		  <table>
+				<thead>
+				  <tr>
+					 <th class="border-right">
+						Concepto de retención
+					 </th>
+					 <th class="border-right">
+						Nº Factura
+					 </th>
+					 <th class="border-right">
+						Fecha
+					 </th>
+					 <th class="border-right">
+						Total
+					 </th>
+					 <th class="border-right">
+						Base imponible
+					 </th>
+					 <th class="border-right">
+						% sobre IVA
+					 </th>
+					 <th class="border-right">
+						% sobre la base
+					 </th>
+					 <th class="border-right">
+						Sustraendo 1
+					 </th>
+					 <th class="border-right">
+						ISLR sobre IVA
+					 </th>
+					 <th>
+						ISLR sobre la base
+					 </th>
+				  </tr>
+				</thead>
+				<tbody>
+				  <tr>
+					 <td class="center border-right">
+						053
+					 </td>
+					 <td class="center border-right">
+						<%= format_code(@invoice.id,"05") %>
+					 </td>
+					 <td class="center border-right">
+						<%= l @invoice.created_at,:format => :default_date %>
+					 </td>
+					 <td class="right border-right">
+						<%= number_to_currency(@invoice.total, :delimiter => ".", :separator => ",", :unit => "") %>
+					 </td>
+					 <td class="right border-right">
+						<%= number_to_currency(@invoice.total, :delimiter => ".", :separator => ",", :unit => "") %>
+					 </td>
+					 <td class="right border-right">
+						<%= number_to_currency(@invoice.client.contact.retention_rate_islr, :delimiter => ".", :separator => ",", :unit => "") %>
+					 </td>
+					 <td class="right border-right">
+						<%= number_to_currency(@invoice.client.contact.retention_rate_islr_2, :delimiter => ".", :separator => ",", :unit => "") %>
+					 </td>
+					 <td class="center border-right">
+						0
+					 </td>
+					 <td class="right border-right">
+						 <%= number_to_currency(@invoice.retention_islr, :delimiter => ".", :separator => ",", :unit => "") %>
+					 </td>
+					 <td class="right">
+						 <%= number_to_currency(@invoice.retention_islr_2, :delimiter => ".", :separator => ",", :unit => "") %>
+					 </td>
+				  </tr>
+				</tbody>
+			 </table>
+	 </div>
+	 <br/><br/>
+	 <br/><br/>
+	 <br/><br/>
+	 <br/><br/>
+	 <br/><br/>
+	 <br/><br/>
+	 <div>
+		<div class="c30l subc">
+
+		</div>
+		<div class="c30l subc border-top center">
+		  <span class="">
+			 Agente de retención
+		  </span>
+		</div>
+		<div class="c33r subc border-top center">
+		  <span class="">
+			 Contribuyente
+		  </span>
+		</div>
+	 </div>
+	 <br/>
+	 <br/>
+	 <br/>
+
+	 <span>
+		Reglamento parcial de la ley  ISLR  en materia de retenciones<br/>
+		aprobado el 12 de Mayo de 1997. Gaceta Ofical Nº 36.203<br/>
+		Decreto Nº 1.808
+	 </span>
+  </div>
+

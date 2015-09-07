@@ -1,0 +1,7 @@
+page << "jQuery('#product_presentation_type_id').children().remove().end()"
+if @finished_product
+  #page << "$('fieldset.reset input').attr('readonly',false)"
+  @presentation_types.each do |item|
+    page << "jQuery('#product_presentation_type_id').append(jQuery('<option></option>').val('#{item.id}').html('#{item.name}'));"
+  end
+end

@@ -1,0 +1,26 @@
+<div id="tabs">
+	<ul>
+		<li><a href="#tabs-1">General</a></li>
+		<li><a href="#tabs-2">Otros</a></li>
+                <!--li><a href="#tabs-3">Inventario</a></li-->
+	</ul>
+	<div id="tabs-1">
+		<%= render :partial => "form_1",:locals => {:f => f} %>
+	</div>
+	<div id="tabs-2">
+		<%#= render :partial => "form_2",:locals => {:f => f} %>
+	</div>
+	<div id="tabs-3">
+		<%#= render :partial => "form_3",:locals => {:f => f} %>
+	</div>
+</div>
+
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+                $( "#tabs" ).tabs();
+                $("button, input:submit,input:button,a.button ").button();
+                $("#finished_product_side_dimension_x_y").mask("9?9 x 9?9");
+	});
+</script>

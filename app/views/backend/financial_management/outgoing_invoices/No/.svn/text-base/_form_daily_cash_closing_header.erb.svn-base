@@ -1,0 +1,39 @@
+<div id="" class="content_form">
+ 
+    <% f.inputs "Datos de cabecera" do %>
+      <%= f.input :cash_bank_cash,:input_html => {:disabled => true} %>
+		<%= f.input :date,:input_html => {:size => 15,:disabled => true} %>
+		<%= f.input :total_amount_sales,:input_html => {:size => 15,:disabled => true} %>
+		<%#= f.input :total_amount_cash,:input_html => {:size => 15,:disabled => true} %>
+		<%#= f.input :total_amount_credit,:input_html => {:size => 15,:disabled => true} %>
+		<%#= f.input :total_amount_debit,:input_html => {:size => 15,:disabled => true} %>
+		<%#= f.input :total_amount_check,:input_html => {:size => 15,:disabled => true} %>
+		<%#= f.input :total_amount_deposit,:input_html => {:size => 15,:disabled => true} %>
+		<%= f.input :report_z_number,:input_html => {:size => 15} %>
+		<div>
+		  <div class="c50l subc">
+			 <% f.inputs "Cierre impresora fiscal" do %>
+				
+				<%= f.input :total_amount_sales_fiscal,:input_html => {:size => 15,:disabled => true} %>
+				<%= f.input :total_amount_cash_fiscal,:input_html => {:size => 15,:disabled => true} %>
+				<%= f.input :total_amount_credit_fiscal,:input_html => {:size => 15,:disabled => true} %>
+				<%= f.input :total_amount_debit_fiscal,:input_html => {:size => 15,:disabled => true} %>
+				<%= f.input :total_amount_check_fiscal,:input_html => {:size => 15,:disabled => true} %>
+				<%= f.input :total_amount_deposit_fiscal,:input_html => {:size => 15,:disabled => true} %>
+			 <% end %>
+		  </div>
+		  <div class="c50r subc">
+			 <% f.inputs "Cierre forma libre" do %>
+				<%= f.input :total_amount_sales_free_form,:input_html => {:size => 15,:disabled => true} %>
+				<%= f.input :total_amount_cash_free_form,:input_html => {:size => 15,:disabled => true} %>
+				<%= f.input :total_amount_credit_free_form,:input_html => {:size => 15,:disabled => true} %>
+				<%= f.input :total_amount_debit_free_form,:input_html => {:size => 15,:disabled => true} %>
+				<%= f.input :total_amount_check_free_form,:input_html => {:size => 15,:disabled => true} %>
+				<%= f.input :total_amount_deposit_free_form,:input_html => {:size => 15,:disabled => true} %>
+			 <% end %>
+		  </div>
+		</div>
+      
+    <% end %>
+
+</div>

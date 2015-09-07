@@ -1,0 +1,117 @@
+/* tables */
+
+.ui-widget-header
+{
+    
+    background: url("/images/backgrouds/ui-bg_highlight-soft_75_cccccc_1x100.png") repeat-x scroll 50% 50% #CCCCCC;
+    border: 1px solid #AAAAAA;
+    color: #222222;
+    font-weight: bold;
+}
+.ui-corner-tr {
+    border-top-right-radius: 4px;
+}
+.ui-corner-tl {
+    border-top-left-radius: 4px;
+}
+.ui-corner-br {
+    border-bottom-right-radius: 4px;
+}
+.ui-corner-bl {
+    border-bottom-left-radius: 4px;
+}
+
+.table-container
+{
+    padding: 5px;
+}
+
+.table-container div.block
+{
+  display: inline-block;
+  vertical-align: top;
+}
+
+#table-top-left
+{
+    width: 20%;
+    padding-top: 5px;
+}
+#table-top-center
+{
+    width: 0px;
+}
+#table-top-right
+{
+    width: 78%;
+    position: relative;
+}
+
+#table-top-right #search {
+    font-size: 12px;
+}
+
+#table-top-right #search input[type="search"] {
+    background: none repeat scroll 0 0 #FFF;
+    border: medium none;
+    border-radius: 5px 5px 5px 5px;
+    color: #9E9E9E;
+    font-size: 11px;
+    padding: 5px 25px 5px 5px;
+    width: 130px;
+}
+
+#table-top-right #search input[type="submit"] {
+    background: url("/images/buttons/search-icon.png") no-repeat scroll center center transparent;
+    border: 0 none;
+    display: block;
+    font-size: 0;
+    height: 15px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    width: 15px;
+}
+
+
+
+table.tablesorter {
+        color: #555555;
+	background: #E6E6E6;
+	margin:0;
+        border: 1px solid #D3D3D3;
+	font-size: 8pt;
+	width: 100%;
+	text-align: left;
+}
+table.tablesorter thead tr th, table.tablesorter tfoot tr th {
+	background-color: #E6E6E6;
+	border: 1px solid #FFF;
+	font-size: 8pt;
+	padding: 4px;
+}
+table.tablesorter thead tr .header {
+	background-image: url(/images/buttons/bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+        padding: 8px 0 8px 10px;
+}
+table.tablesorter tbody td {
+	color: #3D3D3D;
+	padding: 4px;
+	background-color: #FFF;
+	vertical-align: top;
+}
+table.tablesorter tbody tr.odd td {
+	background-color:#F0F0F6;
+}
+table.tablesorter thead tr .headerSortUp {
+	background-image: url(/images/buttons/asc.gif);
+}
+table.tablesorter thead tr .headerSortDown {
+	background-image: url(/images/buttons/desc.gif);
+}
+table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
+background-color: #CCCCCC;
+}

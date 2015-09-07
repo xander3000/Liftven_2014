@@ -1,0 +1,27 @@
+  <div class="headerWrap">
+    <div class="headerWrapContent">
+          <h2>Anular cheque</h2>
+    </div>
+  </div>
+
+<div class="mainWrapContent">
+  <% semantic_form_remote_for @check_offered, :update => "#{controller.controller_name}_container",:url => backend_cashbank_check_offereds_url,:html => {:class => "form_generate"} do |f| %>
+        <%= render :partial => "form",:locals => {:f => f} %>
+  <% end %>
+</div>
+
+  <div class="footerWrap">
+    <div class="footerWrapContent right">
+      <%= button_to_function("Guardar", "$(\"#new_cash_bank_check_offered\").submit()")  %>
+    </div>
+  </div>
+<script type="text/javascript">
+
+
+
+    $(document).ready(function(){
+
+	  $("#cash_bank_check_offered_number").masked("99999999");
+	  $("button, input:submit,input:button,a.button ").button();
+});
+</script>

@@ -1,0 +1,6 @@
+if @success
+	page << "$('#item_product_form input').val('')"
+	page.replace_html "items",:partial => "items"
+else
+		page.show_errors([@production_order_position], "message_overlay", nil)
+end

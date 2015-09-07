@@ -1,0 +1,7 @@
+ <% semantic_form_remote_for @delivery_note, :url =>backend_order_create_delivery_note_url(@order) do |f| %>
+	 <% f.inputs do  %>
+		<%= f.input :order_id,:as => :hidden,:input_html => {:value => @order.id} %>
+		<%= f.input :quantity,:input_html => {:size => 5} %>
+		<%= f.input :note,:input_html => {:size => 5} %>
+	 <% end %>
+  <% end %>

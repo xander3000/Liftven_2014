@@ -1,0 +1,4 @@
+<div id="index_content">
+  <%= render :partial => "index_content" %>
+</div>
+

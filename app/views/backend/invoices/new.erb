@@ -1,0 +1,52 @@
+<%= javascript_include_tag "jquery.lookupSeniat" %>
+<div>
+  <% semantic_form_remote_for @invoice, :update => "#{controller.controller_name}_container",:url => backend_invoices_url,:html => {:class => "form_invoice_generate"} do |f| %>
+        <%= render :partial => "form",:locals => {:f => f} %>
+  <%#= submit_tag "FACTURAR", :disable_with => "Por favor espere...",:id => "invoice-button" %>
+  <%= link_to_function "FACTURAR","invoiceGenerate()", :disable_with => "Por favor espere...",:id => "contable_document-button",:class => "button" %>
+  <% end %>
+</div>
+<div id="dialog-print" title="Selecione impresora de salida">
+  <% InvoicePrintingType.all.each do |invoice_printing_type|  %>
+  <%= link_to_function(image_tag(invoice_printing_type.logo_src), "changeMethodInvoicePrintingType(#{invoice_printing_type.id})",:class => "button",:title => invoice_printing_type.fullname) %>
+  <% end %>
+  
+</div>
+
+
+<script type="text/javascript">
+        function invoiceGenerate()
+        {
+			 $("#invoice_invoice_printing_type_id").val('');
+			 if($("#invoice_only_issue").is(":checked")){
+				result = confirm("¿Esta seguro de ejecutar esta acción?")
+				if (result)
+				  $(".form_invoice_generate").submit();
+				}
+			 else
+				  $( "#dialog-print" ).dialog( "open" );
+
+        }
+		  function changeMethodInvoicePrintingType(invoice_printing_type_id){
+			 $("#invoice_invoice_printing_type_id").val(invoice_printing_type_id);
+			 $(".form_invoice_generate").submit();
+		  }
+ $(document).ready(function(){
+				
+			  $( "#dialog-print" ).dialog({
+					 autoOpen: false,
+					 height: 210,
+					 width: 280,
+					 modal: true,
+					 buttons: {
+						  Cancelar: function() {
+								$( this ).dialog( "close" );
+						  }
+					 },
+					 close: function() {
+						  allFields.val( "" ).removeClass( "ui-state-error" );
+					 }
+				});
+				
+		  });
+</script>

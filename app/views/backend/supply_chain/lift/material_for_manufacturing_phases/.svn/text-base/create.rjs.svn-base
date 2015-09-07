@@ -1,0 +1,6 @@
+if @success
+	page.redirect_to  backend_supply_chain_lift_material_for_manufacturing_phase_url(@lift_model)
+else
+	page.show_errors([@lift_model], "message_overlay", nil)
+end
+

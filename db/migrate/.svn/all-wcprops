@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/1598/trunk/Venom/db/migrate
+END
+20150804124308_create_cash_bank_cash_journal_count_positions.rb
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/1466/trunk/Venom/db/migrate/20150804124308_create_cash_bank_cash_journal_count_positions.rb
+END
+20150804171154_add_column_count_to_cash_bank_cash_journal_positions.rb
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/1467/trunk/Venom/db/migrate/20150804171154_add_column_count_to_cash_bank_cash_journal_positions.rb
+END
+20150810143757_create_accounting_service_order_positions.rb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/1495/trunk/Venom/db/migrate/20150810143757_create_accounting_service_order_positions.rb
+END
+20150814140415_add_column_product_name_to_invoice.rb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/1532/trunk/Venom/db/migrate/20150814140415_add_column_product_name_to_invoice.rb
+END
+20150811114535_add_column_subtrahend_to_supplier_withholding_taxe.rb
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/1502/trunk/Venom/db/migrate/20150811114535_add_column_subtrahend_to_supplier_withholding_taxe.rb
+END
+20150811170308_create_payroll_historical_personal_type_changes.rb
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/1502/trunk/Venom/db/migrate/20150811170308_create_payroll_historical_personal_type_changes.rb
+END
+20150804123348_create_cash_bank_cash_journal_counts.rb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/1466/trunk/Venom/db/migrate/20150804123348_create_cash_bank_cash_journal_counts.rb
+END
+20150806122558_add_column_cash_journal_balance_amount.rb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/1493/trunk/Venom/db/migrate/20150806122558_add_column_cash_journal_balance_amount.rb
+END
+20150810143729_create_accounting_service_orders.rb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/1495/trunk/Venom/db/migrate/20150810143729_create_accounting_service_orders.rb
+END

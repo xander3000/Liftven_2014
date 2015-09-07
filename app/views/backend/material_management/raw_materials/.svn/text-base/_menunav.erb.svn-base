@@ -1,0 +1,80 @@
+<ul >
+	 <li><a href="#Home"><%= link_to(image_tag("clients/#{PROJECT_NAME}/logos/isotipo2.png"),backend_cpanel_home_index_url())%> </a></li>
+	 <li>
+			 <a href="#">Procesos<span class="arrow"></span></a>
+
+			 		  <ul style='width: 250px;'>
+						<li>Materiales
+                                                  <ul style='width: 250px;'>
+                                                    <li>
+                                                      <%= link_to "Listado",backend_material_management_raw_materials_url%>
+                                                    </li>
+                                                    <li>
+                                                      <%= link_to "Nuevo",new_backend_material_management_raw_material_url%>
+                                                    </li>
+                                                  </ul>
+                                                </li>
+						<li>Ordenes Mov. mercancia
+                                                  <ul style='width: 250px;'>
+                                                    <li>
+                                                      <%= link_to "Listado",backend_material_management_production_orders_url%>
+                                                    </li>
+                                                    <li>
+                                                      <%= link_to "Nuevo",new_backend_material_management_production_order_url%>
+                                                    </li>
+                                                  </ul>
+                                                </li>
+						<li>Movimientos de mercancia
+                                                  <ul style='width: 250px;'>
+                                                    <li>
+                                                      <%= link_to "Listado",backend_material_management_goods_movements_url%>
+                                                    </li>
+                                                    <li>
+                                                      <%= link_to "Nuevo",new_backend_material_management_goods_movement_url%>
+                                                    </li>
+                                                  </ul>
+                                                </li>
+						<li type='separator'></li>
+						<li>Software Solutions
+							 <ul style='width: 220px;'>
+								  <li><a href="#ConsumerPhoto">Consumer photo and video</a></li>
+								  <li><a href="#Mobile">Mobile</a></li>
+								  <li><a href="#RIA">Rich Internet applications</a></li>
+								  <li><a href="#TechnicalCommunication">Technical communication</a></li>
+								  <li><a href="#Training">Training and eLearning</a></li>
+								  <li><a href="#WebConferencing">Web conferencing</a></li>
+							 </ul>
+						</li>
+						<li><a href="#">All industries and solutions</a></li>
+				  </ul>
+		</li>
+		<li>
+			 <a href="#">Configuración<span class="arrow"></span></a>
+			 <ul>
+				  <li><a href="http://www.ajaxshake.com/en/JS/12131/galleries.html">Galleries</a></li>
+				  <li><a href="http://www.ajaxshake.com/en/JS/1191/menus.html">DropDown Menus</a></li>
+				  <li><a href="http://www.ajaxshake.com/en/JS/12581/image-slider.html">Content Slider</a></li>
+				  <li><a href="http://www.ajaxshake.com/en/JS/12261/lightbox.html">LightBox</a></li>
+			 </ul>
+		</li>
+		<li>
+			 <a href="#">Reportes<span class="arrow"></span></a>
+			 <ul>
+				  <li><a href="http://www.ajaxshake.com/en/JS/12131/galleries.html">Galleries</a></li>
+				  <li><a href="http://www.ajaxshake.com/en/JS/1191/menus.html">DropDown Menus</a></li>
+				  <li><a href="http://www.ajaxshake.com/en/JS/12581/image-slider.html">Content Slider</a></li>
+				  <li><a href="http://www.ajaxshake.com/en/JS/12261/lightbox.html">LightBox</a></li>
+			 </ul>
+		</li>
+		<li>
+			 <a href="#">Ayuda<span class="arrow"></span></a>
+			 <ul>
+				  <li><a href="http://www.ajaxshake.com">www.ajaxshake.com</a></li>
+				  <li><a href="http://www.solvingequations.net">www.solvingequations.net</a></li>
+				  <li><a href="http://www.tutorialjquery.com">www.tutorialjQuery.com</a></li>
+				  <li><a href="http://www.jqueryload.com">www.jqueryload.com</a></li>
+			 </ul>
+		</li>
+
+</ul>
+

@@ -1,0 +1,29 @@
+<div id="" class="content_form">
+
+    <% f.inputs "Datos generales" do %>
+
+		  <%= f.input    :cash_bank_bank,:input_html => {:onchange => remote_function(:url => set_bank_backend_financial_management_payment_schedules_url,:with => "$(this).serialize()")} %>
+		  <%= f.input    :cash_bank_bank_account,:collection => [],:input_html => {} %>
+		  <hr/>
+		  <%= f.input    :tenderer_type,:as => :radio,:collection => {"Proveedor" => "Supplier","Cliente" => "Client"},:wrapper_html => {:class => ""},:input_html => {} %>
+		  <%= f.input    :tenderer_id,:as => :string,:wrapper_html => {:class => "hidden"},:input_html => {:size => 10} %>
+		  <%= f.input    :tenderer_name,:wrapper_html => {:class => "hidden"},:input_html => {} %>
+		  <%= f.input    :account_payable_incoming_invoice_id,:as => :string,:wrapper_html => {:class => "hidden"},:input_html => {:size => 10,:onblur => "$(this).strPadLeft(6);"+remote_function(:url => set_incoming_invoice_backend_financial_management_payment_schedules_url,:with => "$(this).serialize()" )} %>
+		  <hr/>
+		  <%= f.input    :account_payable_payment_frequency,:input_html => {:class => "for_payment_plan"} %>
+		  <%= f.input    :init_date,:input_html => {:class => "date for_payment_plan"} %>
+		  <%= f.input    :end_date,:input_html => {:readonly => true,:class => " ",:style => "width: 100px"} %>
+		  <%= f.input    :share,:input_html => {:size => 5,:class => "for_payment_plan"} %>
+		  <%= f.input    :total_amount, :precision => 20, :scale => 0,:input_html => {:readonly => true,:size => 10,:class => "right for_payment_plan "} %>
+		  <%= f.input    :balance_amount, :precision => 20, :scale => 0,:input_html => {:readonly => true,:size => 10,:class => "right for_payment_plan"} %>
+		  
+		  <%= f.input    :description,:input_html => {} %>
+		  <hr/>
+  		  <%= f.input    :currency_type,:input_html => {:disabled => true} %>
+		  <%= f.input    :create_by,:input_html => {:readonly => true,:disabled => true} %>
+		  <%#= f.input    :paid,:input_html => {} %>
+
+  <% end %>
+
+
+</div>

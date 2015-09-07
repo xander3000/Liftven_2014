@@ -1,0 +1,43 @@
+  <div class="headerWrap">
+    <div class="headerWrapContent">
+          <h2>Agregar nuevo registro</h2>
+    </div>
+  </div>
+
+<div id=""  class="mainWrapContent">
+  <% semantic_form_remote_for @call_manager_register, :update => "#{controller.controller_name}_container",:url => backend_financial_management_client_customer_management_project_call_manager_registers_url(@client,@project),:html => {:class => "form_generate"} do |f| %>
+        <% f.inputs do %>
+          <%= f.input :phone,:as => :select,:collection => @phones,:input_html => {} %>
+          <%= f.input :comment,:input_html => {} %>
+			 <%= f.input :next_call_date,:input_html => {:class => "date"} %>
+			 <%= f.input :next_call_time,:input_html => {:class => "time"} %>
+        <% end %>
+        <hr/>
+        <div id="actions" class="border">
+
+        </div>
+  <% end %>
+
+</div>
+
+  <div class="footerWrap">
+    <div class="footerWrapContent right">
+      <%= button_to_function("Guardar", "$(\"#new_crm_projects_call_manager_register \").submit()")  %>
+    </div>
+  </div>
+<script type="text/javascript">
+
+
+
+    $(document).ready(function(){
+        $("button, input:submit,input:button,a.button ").button();
+			 $(".date").datepicker({
+				changeMonth: true,
+				dateFormat: 'yy-mm-dd',
+				minDate: "0"
+			 }).attr('readonly',true);
+			 $(".time").timepicker({
+				  timeFormat: "hh:mm:ss"
+			 });
+});
+</script>

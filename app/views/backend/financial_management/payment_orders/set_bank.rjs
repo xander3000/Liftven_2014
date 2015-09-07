@@ -1,0 +1,22 @@
+	page << "$('#account_payable_payment_order_cash_bank_bank_account_id').children().remove().end()"
+	page << "$('#account_payable_payment_order_accounting_accountant_account_id').children().remove().end()"
+	page << "$('#account_payable_payment_order_cash_bank_checkbook_id').children().remove().end()"
+if @success
+		if @bank_accounts.size > 1
+			page << "$('#account_payable_payment_order_cash_bank_bank_account_id').append(jQuery('<option></option>').val(' ').html('-- Seleccione una cuenta --'));"
+		end
+		@bank_accounts.each do |bank_account|
+			page << "$('#account_payable_payment_order_cash_bank_bank_account_id').append(jQuery('<option></option>').val('#{bank_account.id}').html('#{bank_account.number_with_current_balance}'));"
+		end
+
+		if @bank_accounts.size == 1
+			page << "$('#account_payable_payment_order_cash_bank_bank_account_id').change();"
+      page << "$('#account_payable_payment_order_cash_bank_bank_movement_operation_type_id').change()"
+		end
+
+
+
+		#page << "$('#account_payable_payment_order_accounting_accountant_account_id').append(jQuery('<option></option>').val('#{@accountant_account.id}').html('#{@accountant_account.fullname}'));"
+		#page << "$('#account_payable_payment_order_vale').val('#{@voucher}')"
+
+end

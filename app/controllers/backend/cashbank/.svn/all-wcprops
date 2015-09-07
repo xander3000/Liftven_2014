@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/1493/trunk/Venom/app/controllers/backend/cashbank
+END
+cashes_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/975/trunk/Venom/app/controllers/backend/cashbank/cashes_controller.rb
+END
+bank_movements_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/1367/trunk/Venom/app/controllers/backend/cashbank/bank_movements_controller.rb
+END
+base_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/831/trunk/Venom/app/controllers/backend/cashbank/base_controller.rb
+END
+bank_accounts_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/1203/trunk/Venom/app/controllers/backend/cashbank/bank_accounts_controller.rb
+END
+check_offereds_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/934/trunk/Venom/app/controllers/backend/cashbank/check_offereds_controller.rb
+END
+checkbooks_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/1203/trunk/Venom/app/controllers/backend/cashbank/checkbooks_controller.rb
+END
+cash_journals_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/1493/trunk/Venom/app/controllers/backend/cashbank/cash_journals_controller.rb
+END
+banks_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/1207/trunk/Venom/app/controllers/backend/cashbank/banks_controller.rb
+END
+bank_reconciliations_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/1347/trunk/Venom/app/controllers/backend/cashbank/bank_reconciliations_controller.rb
+END

@@ -1,0 +1,112 @@
+<% @quotation_requisition_positions ||= current_quotation_requisition_positions_objects %>
+<% @quotation_requisition_positions.each do |quotation_requisition_position| %>
+<% semantic_fields_for quotation_requisition_position do |qrq| %>
+	 <tr class="item <%= cycle("odd","ever")%> ">
+		<td class="">
+		  <%= quotation_requisition_position.material_raw_material.name %>
+		  <%= qrq.input :material_raw_material,:label => false,:wrapper_html => {:class => "hidden"},:input_html => {:name => "material_quotation_requisition_position[#{quotation_requisition_position.material_purchase_requisition_position.id}][material_raw_material_id]"}%>
+		</td>
+		<td class="center">
+		  <%= quotation_requisition_position.quantity %>
+		  <%= qrq.input :quantity,:label => false,:wrapper_html => {:class => "hidden"},:input_html => {:name => "material_quotation_requisition_position[#{quotation_requisition_position.material_purchase_requisition_position.id}][quantity]"}%>
+		</td>
+		<td class="center">
+		  <%= quotation_requisition_position.material_order_measure_unit.name %>
+		  <%= qrq.input :material_order_measure_unit,:label => false,:wrapper_html => {:class => "hidden"},:input_html => {:name => "material_quotation_requisition_position[#{quotation_requisition_position.material_purchase_requisition_position.id}][material_order_measure_unit_id]"}%>
+		</td>
+		<td class="center bg_supplier_1">
+		  <%= qrq.input :supplier_1,:collection => [],:label => false,:as => :string,:input_html => {:rel => "supplier_1_#{quotation_requisition_position.material_purchase_requisition_position.id}",:name => "supplier_name",:class => "supplier_name",:value => quotation_requisition_position.supplier_1 ? quotation_requisition_position.supplier_1.name : ""} %>
+		  <%= qrq.input :supplier_1,:collection => [],:as => :string,:label => false,:wrapper_html => {:class => "hidden"},:input_html => {:id => "supplier_1_#{quotation_requisition_position.material_purchase_requisition_position.id}",:name => "material_quotation_requisition_position[#{quotation_requisition_position.material_purchase_requisition_position.id}][supplier_1_id]",:value => quotation_requisition_position.supplier_1_id} %>
+		</td>
+		<td class="center bg_supplier_1">
+		  <%= qrq.input :sub_total_supplier_1,:label => false,:wrapper_html => {:class => ""},:input_html => {:name => "material_quotation_requisition_position[#{quotation_requisition_position.material_purchase_requisition_position.id}][sub_total_supplier_1]",:class => "subtotal",:rel => "supplier_1_#{quotation_requisition_position.material_purchase_requisition_position.id}",:value => quotation_requisition_position.sub_total_supplier_1 }%>
+		</td>
+		<td class="center bg_supplier_1">
+		  <%= qrq.input :tax_supplier_1,:label => false,:wrapper_html => {:class => ""},:input_html => {:id => "tax_supplier_1_#{quotation_requisition_position.material_purchase_requisition_position.id}",:name => "material_quotation_requisition_position[#{quotation_requisition_position.material_purchase_requisition_position.id}][tax_supplier_1]",:readonly => true,:value => quotation_requisition_position.tax_supplier_1 }%>
+		</td>
+		<td class="center bg_supplier_1">
+		  <%= qrq.input :total_supplier_1,:label => false,:wrapper_html => {:class => ""},:input_html => {:id => "total_supplier_1_#{quotation_requisition_position.material_purchase_requisition_position.id}",:name => "material_quotation_requisition_position[#{quotation_requisition_position.material_purchase_requisition_position.id}][total_supplier_1]",:readonly => true,:value => quotation_requisition_position.total_supplier_1 }%>
+		</td>
+		<td class="center bg_supplier_2">
+		  <%= qrq.input :supplier_2,:collection => [],:label => false,:as => :string,:input_html => {:rel => "supplier_2_#{quotation_requisition_position.material_purchase_requisition_position.id}",:name => "supplier_name",:class => "supplier_name",:value => quotation_requisition_position.supplier_2 ? quotation_requisition_position.supplier_2.name : ""} %>
+		  <%= qrq.input :supplier_2,:collection => [],:as => :string,:label => false,:wrapper_html => {:class => "hidden"},:input_html => {:id => "supplier_2_#{quotation_requisition_position.material_purchase_requisition_position.id}",:name => "material_quotation_requisition_position[#{quotation_requisition_position.material_purchase_requisition_position.id}][supplier_2_id]",:value => quotation_requisition_position.supplier_2_id}%>
+		</td>
+		<td class="center bg_supplier_2">
+		  <%= qrq.input :sub_total_supplier_2,:label => false,:wrapper_html => {:class => ""},:input_html => {:name => "material_quotation_requisition_position[#{quotation_requisition_position.material_purchase_requisition_position.id}][sub_total_supplier_2]",:class => "subtotal",:rel => "supplier_2_#{quotation_requisition_position.material_purchase_requisition_position.id}",:value => quotation_requisition_position.sub_total_supplier_2 }%>
+		</td>
+		<td class="center bg_supplier_2">
+		  <%= qrq.input :tax_supplier_2,:label => false,:wrapper_html => {:class => ""},:input_html => {:id => "tax_supplier_2_#{quotation_requisition_position.material_purchase_requisition_position.id}",:name => "material_quotation_requisition_position[#{quotation_requisition_position.material_purchase_requisition_position.id}][tax_supplier_2]",:readonly => true,:value => quotation_requisition_position.tax_supplier_2 }%>
+		</td>
+		<td class="center bg_supplier_2">
+		  <%= qrq.input :total_supplier_2,:label => false,:wrapper_html => {:class => ""},:input_html => {:id => "total_supplier_2_#{quotation_requisition_position.material_purchase_requisition_position.id}",:name => "material_quotation_requisition_position[#{quotation_requisition_position.material_purchase_requisition_position.id}][total_supplier_2]",:readonly => true,:value => quotation_requisition_position.total_supplier_2 }%>
+		</td>
+		<td class="center bg_supplier_3">
+		  <%= qrq.input :supplier_3,:collection => [],:label => false,:as => :string,:input_html => {:rel => "supplier_3_#{quotation_requisition_position.material_purchase_requisition_position.id}",:name => "supplier_name",:class => "supplier_name",:value => quotation_requisition_position.supplier_3 ? quotation_requisition_position.supplier_3.name : ""} %>
+		  <%= qrq.input :supplier_3,:collection => [],:as => :string,:label => false,:wrapper_html => {:class => "hidden"},:input_html => {:id => "supplier_3_#{quotation_requisition_position.material_purchase_requisition_position.id}",:name => "material_quotation_requisition_position[#{quotation_requisition_position.material_purchase_requisition_position.id}][supplier_3_id]",:value => quotation_requisition_position.supplier_3_id}%>
+		</td>
+		<td class="center bg_supplier_3">
+		  <%= qrq.input :sub_total_supplier_3,:label => false,:wrapper_html => {:class => ""},:input_html => {:name => "material_quotation_requisition_position[#{quotation_requisition_position.material_purchase_requisition_position.id}][sub_total_supplier_3]",:class => "subtotal",:rel => "supplier_3_#{quotation_requisition_position.material_purchase_requisition_position.id}",:value => quotation_requisition_position.sub_total_supplier_3 }%>
+		</td>
+		<td class="center bg_supplier_3">
+		  <%= qrq.input :tax_supplier_3,:label => false,:wrapper_html => {:class => ""},:input_html => {:id => "tax_supplier_3_#{quotation_requisition_position.material_purchase_requisition_position.id}",:name => "material_quotation_requisition_position[#{quotation_requisition_position.material_purchase_requisition_position.id}][tax_supplier_3]",:readonly => true,:value => quotation_requisition_position.tax_supplier_3 }%>
+		</td>
+		<td class="center bg_supplier_3">
+		  <%= qrq.input :total_supplier_3,:label => false,:wrapper_html => {:class => ""},:input_html => {:id => "total_supplier_3_#{quotation_requisition_position.material_purchase_requisition_position.id}",:name => "material_quotation_requisition_position[#{quotation_requisition_position.material_purchase_requisition_position.id}][total_supplier_3]",:readonly => true,:value => quotation_requisition_position.total_supplier_3 }%>
+		</td>
+
+		  <td class="">
+			 <%= qrq.input :selected_supplier,:collection => [quotation_requisition_position.selected_supplier],:label => false,:wrapper_html => {:class => ""},:input_html => {} if quotation_requisition_position.selected_supplier %>
+		  </td>
+
+		<td class="center">
+		  <%= qrq.input :note,:label => false,:input_html => {:name => "material_quotation_requisition_position[#{quotation_requisition_position.material_purchase_requisition_position.id}][note]"} %>
+		</td>
+	 </tr>
+	 <% end %>
+<% end %>
+
+         
+         <script type="text/javascript">
+           
+            $(document).ready(function(){
+                $(".supplier_name").autocomplete({
+                      source: "<%= autocomplete_by_supplier_name_backend_contacts_url %>",
+                      minLength: 3,
+                      open: function( event, ui ) {
+                             $("#"+$(this).attr("rel")).val("")
+                      },
+                      select: function( event, ui ) {
+                             if(ui.item)
+                                     action_after_complete_for_suppliers(ui.item,$(this).attr("rel"));
+                      }
+		  }).blur(function(){
+                    val = $(this).val()
+                    if(val == ""){
+                      id = $(this).attr("rel")
+                      $("#"+id).val("");
+                    }
+                  });
+                });
+           
+           
+              $("#sub_total_currency,#material_quotation_requisition_position_quantity").blur(function(){
+		  $("#material_quotation_requisition_position_sub_total").val($("#sub_total_currency").val());
+		  sub_total = $("#material_quotation_requisition_position_sub_total").val();
+		  quantity = $("#material_quotation_requisition_position_quantity").val();
+		  $("#material_quotation_requisition_position_total").val(parseFloat(sub_total)*parseInt(quantity));
+			$("#total_currency").html($("#material_quotation_requisition_position_total").val());
+                  });
+                  
+              tax = parseFloat(<%= AppConfig.tax %>)
+              $(".subtotal").blur( function () {
+                rel = $(this).attr("rel")
+                subtotal = parseFloat($(this).val())
+                quantity = parseFloat($("#material_quotation_requisition_position_quantity").val())
+                tax_value = (tax*subtotal/100)
+                $("#tax_"+rel).val(tax_value.toFixed(2))
+                total = (tax_value+subtotal)
+                $("#total_"+rel).val(total.toFixed(2))
+              });                  
+         </script>
+           
+           

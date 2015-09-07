@@ -1,0 +1,1 @@
+page.redirect_to backend_cashbank_bank_movement_url(@bank_movement)

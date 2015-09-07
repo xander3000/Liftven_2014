@@ -1,0 +1,81 @@
+<%
+	 owner = Supplier.find_owner
+	 contact = owner.contact
+%>
+
+<div>
+  <div id="content_info_voucher">
+	 <div class="subc c55l">
+		<div class="">
+		  <h2><%= contact.fullname.upcase %></h2>
+		  <b><%= owner.identification_document %></b><br/>
+		</div>
+	 </div>
+	 <div class="subc c40r left">
+		<div class="">
+		  <h2>DETALLE DE MOVIMIENTOS BANCARIOS</h2>
+		  <b class="center">Desde <%= l @date_from.to_date %> hasta <%= l @date_to.to_date  %></b>
+		</div>
+	 </div>
+	 <br/>
+	 <hr/>
+
+
+	 <table class="no-border">
+		<thead>
+	  <tr>
+			<th><%= CashBank::BankMovement.human_attribute_name("cash_bank_bank")%> </th>
+			<th><%= CashBank::BankMovement.human_attribute_name("cash_bank_bank_account")%> </th>
+			<th><%= CashBank::BankMovement.human_attribute_name("cash_bank_bank_movement_operation_type")%> </th>
+			<th><%= CashBank::BankMovement.human_attribute_name("accounting_accounting_concept")%> </th>
+			<th><%= CashBank::BankMovement.human_attribute_name("beneficiary")%> </th>
+			<th><%= CashBank::BankMovement.human_attribute_name("amount")%> </th>
+			<th><%= CashBank::BankMovement.human_attribute_name("reference_document")%> </th>
+			<th><%= CashBank::BankMovement.human_attribute_name("date")%> </th>
+
+		</tr>
+		</thead>
+		<tbody class="">
+		  <% 
+				@bank_movements.each do |bank_movement|
+				 cash_bank =  bank_movement.first
+				 movements =  bank_movement.last
+				
+
+			 %>
+				<tr>
+					<td><b><%= "#{cash_bank.name}"%></b></td>
+					<td colspan="7"></td>
+				</tr>
+				<% movements.each do |movement| %>
+				<tr>
+				  <td colspan="2" class="right">
+					 <%= movement.cash_bank_bank_account.fullname %>
+				  </td>
+				  <td>
+					 <%= movement.cash_bank_bank_movement_operation_type.name %>
+				  </td>
+				  <td>
+					 <%= movement.accounting_accounting_concept.name %>
+				  </td>
+				  <td>
+					 <%= movement.beneficiary.name %>
+				  </td>
+				  <td>
+					 <%= movement.amount.to_currency(false) %>
+				  </td>
+				  <td>
+					 <%= movement.reference_document.name if movement.reference_document %>
+				  </td>
+				  <td>
+					 <%= l movement.date.to_date %>
+				  </td>
+				</tr>
+				<% end %>
+			 <% end %>
+		</tbody>
+	 </table>
+
+
+  </div>
+</div>

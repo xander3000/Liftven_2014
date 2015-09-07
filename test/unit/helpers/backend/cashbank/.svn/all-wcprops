@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/1046/trunk/Venom/test/unit/helpers/backend/cashbank
+END
+cashes_helper_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/602/trunk/Venom/test/unit/helpers/backend/cashbank/cashes_helper_test.rb
+END
+bank_movements_helper_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/572/trunk/Venom/test/unit/helpers/backend/cashbank/bank_movements_helper_test.rb
+END
+bank_accounts_helper_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/594/trunk/Venom/test/unit/helpers/backend/cashbank/bank_accounts_helper_test.rb
+END
+check_offereds_helper_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/595/trunk/Venom/test/unit/helpers/backend/cashbank/check_offereds_helper_test.rb
+END
+checkbooks_helper_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/595/trunk/Venom/test/unit/helpers/backend/cashbank/checkbooks_helper_test.rb
+END
+cash_journals_helper_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/1046/trunk/Venom/test/unit/helpers/backend/cashbank/cash_journals_helper_test.rb
+END
+banks_helper_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/593/trunk/Venom/test/unit/helpers/backend/cashbank/banks_helper_test.rb
+END
+bank_reconciliations_helper_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/626/trunk/Venom/test/unit/helpers/backend/cashbank/bank_reconciliations_helper_test.rb
+END

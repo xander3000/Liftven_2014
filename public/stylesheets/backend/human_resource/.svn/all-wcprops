@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/1131/trunk/Venom/public/stylesheets/backend/human_resource
+END
+concepts.css
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/784/trunk/Venom/public/stylesheets/backend/human_resource/concepts.css
+END
+concept_personal_types.css
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/784/trunk/Venom/public/stylesheets/backend/human_resource/concept_personal_types.css
+END
+employees.css
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/768/trunk/Venom/public/stylesheets/backend/human_resource/employees.css
+END
+monitoring_assistances.css
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/862/trunk/Venom/public/stylesheets/backend/human_resource/monitoring_assistances.css
+END
+departments.css
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/1131/trunk/Venom/public/stylesheets/backend/human_resource/departments.css
+END
+external_monitoring_assistances.css
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/865/trunk/Venom/public/stylesheets/backend/human_resource/external_monitoring_assistances.css
+END
+positions.css
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/1130/trunk/Venom/public/stylesheets/backend/human_resource/positions.css
+END
+last_payrolls.css
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/757/trunk/Venom/public/stylesheets/backend/human_resource/last_payrolls.css
+END

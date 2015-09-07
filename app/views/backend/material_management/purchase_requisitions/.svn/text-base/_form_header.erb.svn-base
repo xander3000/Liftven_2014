@@ -1,0 +1,16 @@
+<div id="contact_form" class="content_form">
+  
+    <% f.inputs "Datos de cabecera" do %>
+		<%= f.input :material_purchase_requisition_status_type,:input_html => {:disabled => "disabled"}  %>
+		<%= f.input :create_by,:input_html => {:disabled => "disabled"} %>
+		<%= f.input :delivery_date,:as => :string,:input_html => {}  %>
+      <%= f.input :posting_date,:as => :string,:input_html => {:disabled => "disabled"}  %>
+		<%= f.input :note,:input_html => {}  %>
+
+    <% end %>
+</div>
+
+<script type="text/javascript">
+
+</script>
+

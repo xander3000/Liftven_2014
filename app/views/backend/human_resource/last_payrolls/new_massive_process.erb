@@ -1,0 +1,23 @@
+<div>
+
+  <% semantic_form_remote_for @payroll_regular_payroll_check, :update => "#{controller.controller_name}_container",:url => create_massive_process_backend_human_resource_last_payrolls_url,:html => {:class => "form_generate"} do |f| %>
+  <div id="form_massive_process" class="content_form">
+	 <%= render :partial => "form_massive_process",:locals => {:f => f} %>
+  </div>
+
+  <%= link_to_function "GENERAR NOMINA","generate()", :disable_with => "Por favor espere...",:id => "contable_document-button",:class => "button" %>
+  <% end %>
+  <hr/>
+  
+  
+</div>
+
+<script type="text/javascript">
+        function generate()
+        {
+          result = confirm("¿Esta seguro de ejecutar esta acción?")
+          if (result)
+            $(".form_generate").submit();
+        }
+
+</script>

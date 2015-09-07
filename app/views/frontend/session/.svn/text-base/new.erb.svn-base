@@ -1,0 +1,16 @@
+  <div id="new_session">
+      <% form_remote_for @user_session, :url => frontend_session_index_url, :method => :post do |f| %>
+        <div >
+          <h2>Iniciar</h2>
+          <p class="separator">Para cualquier problema con su cuenta, por favor <a href="">contáctenos</a></p>
+          <label for="login_email">Correo</label>
+          <%= f.text_field :login %>
+          <label for="login_password">Clave</label>
+          <%= f.password_field :password %>
+          <p><a class="modal" href="/user/password/new">¿Olvido su clave?</a></p>
+          <p>
+            <%= submit_tag "ingresar",:class => "gray" %>
+          </p>
+        </div>
+      <% end %>
+    </div>

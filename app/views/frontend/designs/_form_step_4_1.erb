@@ -1,0 +1,71 @@
+<% form_remote_for ProductByBudget.new, :url => add_cart_frontend_budgets_url do  |f| %>
+  <%= f.hidden_field :id_temporal %>
+  <% @product = Product.find(current_session_wizard_step["step_1"][:value]) %>
+<fieldset>
+    <p>
+      <%= f.hidden_field(:product_id,:value => @product.id) %>
+		<%= hidden_field_tag(:digital_card_id_temporal,current_session_wizard_design) %>
+    </p>
+</fieldset>
+	 <p>
+		<%= f.label :quantity, f.object.class.human_attribute_name('quantity')+" *" %>
+		<span id="product_by_budget_quantity_decrease" class="product_by_budget_quantity_button decrease"></span>
+		<%= f.text_field :quantity,:size => 2,:maxlength => 4 %>
+		<span id="product_by_budget_quantity_increase" class="product_by_budget_quantity_button increase"></span>
+    </p>
+  <div id="product_components" class="">
+    <%= render :partial => "product_components" %>
+  </div>
+
+  <p>
+    <%#= f.label :note, f.object.class.human_attribute_name('note') %>
+    <%#= f.text_area :note,:cols => 60, :rows => 3 %>
+  </p>
+  <div class="separator"></div>
+
+  <fieldset id="prices" class="hidden">
+    <p>
+       <%= f.label :unit_price, f.object.class.human_attribute_name('unit_price')+" *" %>
+      <%= f.text_field :unit_price,:size => 5,:maxlength => "10",:disabled => true %>
+    </p>
+    <p>
+       <%= f.label :total_price, f.object.class.human_attribute_name('total_price')+" *" %>
+      <%= f.text_field :total_price,:size => 5,:maxlength => "10",:disabled => true %>
+    </p>
+  </fieldset>
+<div class="actions">
+  <ul>
+    <li>
+      <%= link_to_remote("Calcular",:url => calculate_frontend_budgets_url,:with => "$('#budget_design form').serialize()",:html => {:class => "secondary",:id => "calculator"})  %>
+    </li>
+
+  </ul>
+
+
+
+</div>
+
+
+
+<% end %>
+
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+
+    $(".product_by_budget_quantity_button").click(function () {
+      value = parseInt($("#product_by_budget_quantity").val());
+      if(isNaN(value))
+        value = 0;
+      if($(this).hasClass("decrease")){
+        if(value > 0)
+          $("#product_by_budget_quantity").val(value - 1)
+      }
+      else
+       $("#product_by_budget_quantity").val(value + 1)
+     });
+  });
+
+</script>
+

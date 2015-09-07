@@ -1,0 +1,47 @@
+<div id="" class="content_form">
+    <% f.inputs "Datos generales" do %>
+		<%= f.input :name,:label => false,:input_html  => {:class => "top",:placeholder => "Nombre del contrato"}%>
+		<div class="subc c50l">
+		  <% f.inputs do  %>
+			 <%= f.input :reference_code,:input_html => {} %>
+			 <%= f.input :crm_account,:input_html => {} %>
+			 <%= f.input :crm_opportunity,:input_html => {} %>
+			 <li>&nbsp;</li>
+			 <li>&nbsp;</li>
+			 <li>&nbsp;</li>
+			 <%= f.input :contract_value,:input_html => {:class => "amount"} %>
+
+		<% end %>
+		</div>
+		<div class="subc c50r">
+		  <% f.inputs do  %>
+			 <%= f.input :crm_contract_status_type,:input_html => {} %>
+			 <%= f.input :start_date,:input_html => {:class => "date"} %>
+			 <%= f.input :end_date,:input_html => {:class => "date"} %>
+			 <%= f.input :customer_signed_date,:input_html => {:class => "date"} %>
+			 <%= f.input :company_signed_date,:input_html => {:class => "date"} %>
+			 <%= f.input :expiration_notice,:input_html => {:class => "date"} %>
+
+		  <% end %>
+		</div>
+		  <% f.inputs :class => "" do %>
+			 <%= f.input :description,:input_html => {} %>
+		  <% end %>
+	 <% end %>
+
+  <% f.inputs :class => "" do %>
+	 <%= f.input :assigned_to,:input_html => {} %>
+  <% end %>
+  
+  
+</div>
+
+
+<script type="text/javascript">
+  			$(".date").datepicker({
+          changeMonth: true,
+          dateFormat: 'yy-mm-dd',
+          maxDate: "-35",
+			 yearRange: 'c-80:c+30'
+        });
+</script>

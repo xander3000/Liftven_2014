@@ -1,0 +1,70 @@
+<div id="form_items">
+  <table frame="border" rules="cols" >
+    <thead>
+      <tr>
+        <th class="" style="width: 150px">
+          <%= CashBank::BankMovementPosition.human_attribute_name(:cash_bank_involvement_type)%>
+        </th>
+        <th class="" style="width: 150px">
+          <%= CashBank::BankMovementPosition.human_attribute_name(:reference_document_type)%>
+        </th>
+		  <th class="" style="width: 80px">
+          <%= CashBank::BankMovementPosition.human_attribute_name(:reference_document_id)%>
+        </th>
+        <th class="" style="width: 200px">
+          <%= CashBank::BankMovementPosition.human_attribute_name(:beneficiary_name)%>
+        </th>
+		  <th class="hidden">
+          <%= CashBank::BankMovementPosition.human_attribute_name(:reference)%>
+        </th>
+		  <th class="hidden" style="width: 200px">
+          <%= CashBank::BankMovementPosition.human_attribute_name(:description)%>
+        </th>
+        <th class="unit_price" style="width: 60px">
+          <%= CashBank::BankMovementPosition.human_attribute_name(:amount)%>
+        </th>
+        <th style="width: 25px;">
+          
+        </th>
+      </tr>
+      <tr id="item_product_form" class="hidden">
+        <td class="center">
+             <%= select_tag "cash_bank_bank_movement_position[cash_bank_involvement_type_id]",options_from_collection_for_select(CashBank::InvolvementType.all, "id", "name"),:onchange => remote_function(:url => set_involvement_type_backend_cashbank_bank_movements_url,:with => "$(this).serialize()+'&movement_external_doc_id='+$('#cash_bank_bank_movement_external_doc_id').val()+'&movement_external_doc_type='+$('#cash_bank_bank_movement_external_doc_type').val()")%>
+        </td>
+        <td class=" center">
+             <%= select_tag "cash_bank_bank_movement_position[reference_document_type]",nil%>
+        </td>
+		  <td class="center">
+			 <%= text_field_tag "cash_bank_bank_movement_position[reference_document_id]","",:onblur => "$(this).strPadLeft(6);"+remote_function(:url => set_reference_document_backend_cashbank_bank_movements_url,:with => "$(this).serialize()+'&reference_document_type='+$('#cash_bank_bank_movement_position_reference_document_type').val()"),:class => "right"%>
+        </td>
+        <td class="center">
+			 <%= hidden_field_tag "cash_bank_bank_movement_position[beneficiary_id]","",:class => ""%>
+			 <%= text_field_tag "cash_bank_bank_movement_position[beneficiary_name]","",:class => ""%>
+			 <%= hidden_field_tag "cash_bank_bank_movement_position[control_number]","",:class => ""%>
+        </td>
+        <td class="center hidden">
+			 <%= text_field_tag "cash_bank_bank_movement_position[reference]","",:placeholder => "",:class => " ",:size => "11" %>
+        </td>
+		  <td class="center hidden">
+			 <%= text_field_tag "cash_bank_bank_movement_position[description]","",:placeholder => "",:class => " ",:size => "20" %>
+        </td>
+		  <td class="total right">
+			 <%= text_field_tag "cash_bank_bank_movement_position[amount]","",:placeholder => "Precio total",:class => "right prices amount",:size => "10" %>
+        </td>
+        <td class="center" style="width: 25px;">
+          <%= link_to_remote image_tag("icons/add.png"), :url => add_movement_position_backend_cashbank_bank_movements_url,:with => "$('#item_product_form input, #item_product_form select').serialize()+'&movement_external_doc_id='+$('#cash_bank_bank_movement_external_doc_id').val()",:html => {:id => "add_product_button",:class => ""} %>
+        </td>
+      </tr>
+    </thead>
+    <tbody id="items">
+      <%= render :partial => "items" %>
+    </tbody>
+  </table>
+</div>
+
+<script type="text/javascript">
+
+	$(document).ready(function(){
+
+	});
+</script>

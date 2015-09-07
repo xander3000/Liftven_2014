@@ -1,0 +1,6 @@
+if  @success
+	page.redirect_to backend_material_goods_receipt_url(@goods_receipt)
+else
+  page.show_errors([@goods_receipt], "message_overlay", nil)
+end
+

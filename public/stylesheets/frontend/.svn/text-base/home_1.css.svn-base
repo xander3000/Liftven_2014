@@ -1,0 +1,122 @@
+/* 
+    Document   : home
+    Created on : 02/10/2011, 10:05:26 PM
+    Author     : gabriel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+@import "home_slide.css";
+
+html{
+    height: auto;
+}
+
+html,body{
+    background-color: #403D3D;
+    background-image: -moz-linear-gradient(center top , #4F4F4F, #1E1E1E);
+    
+}
+
+#content-container {
+    background-image: url(/images/backgrounds/bg_home.png);
+    border: thin solid #403D3D;
+    float: none;
+    padding-top: 0;
+}
+
+#home_conatiner{
+    
+}
+
+/*
+    BEGIN: Slide
+*/
+
+#header-slide {
+    font-size: 80%;
+    margin-top: 20px;
+   /* padding: 20px 0px 0;*/
+}
+
+/*BEGIN: columns*/
+
+#content-tareas{
+    padding: 50px 0px;
+    vertical-align:top;
+    height: 245px;
+}
+
+ul.company-promos{
+    list-style: none;
+}
+ul.company-promos li{
+    display: inline;
+    float: left;
+    margin: 0px;
+    padding: 0 10px;
+    text-align: left;
+    width: 200px;
+    height: 230px;
+}
+
+ul.company-promos li a{
+    color: #FFFFFF;
+    display: block;
+    font-size: 11px;
+    height: 96px;
+    padding-top:0px;
+    text-decoration: none;
+    text-shadow: 0 -1px 0 #222222;
+}
+
+ul.company-promos li a:hover{
+    color: #999;
+}
+
+ul.company-promos li a img{
+
+}
+
+ul.company-promos li.last
+{
+    background: url("/images/home/contactos.png") no-repeat scroll 0px 46px transparent;
+   
+}
+
+.tareas{
+    width:190px;
+    height:240px;
+    display:inline-block;
+    color:#CCC;
+    padding-left:5px;
+}
+
+
+.tarea-titulo{
+    display:inline;
+    padding-top:10px;
+    margin-top:10px;
+    font-size: 70%;
+}
+
+.tarea-titulo a{
+    text-decoration:none;
+    color:#fff;
+    font-size:16px;
+    font-weight:bold;
+    font-variant:small-caps;
+    display:inline;
+}
+.contacto { display:inline; padding-top:-70px}
+
+#contactus{
+    background: transparent url(/images/home/contactos.png) no-repeat scroll;
+}
+
+

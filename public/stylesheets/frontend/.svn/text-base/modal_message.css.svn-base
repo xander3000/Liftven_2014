@@ -1,0 +1,14 @@
+/* 
+    Document   : modal_message
+    Created on : 11/02/2013, 01:21:47 PM
+    Author     : gabriel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+@import "../jquery.overlay_2.css";

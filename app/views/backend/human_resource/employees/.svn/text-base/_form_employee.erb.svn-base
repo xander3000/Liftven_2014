@@ -1,0 +1,55 @@
+  <div id="" class="content_form">
+	 <% f.inputs "Datos del trabajador",:id => "" do  %>
+		<%= f.input :income_date,:input_html => {:size => 15} %>
+		<%= f.input :payroll_personal_type,:input_html => {:class => "not-editabble"} %>
+		<%= f.input :payroll_department,:input_html => {} %>
+		<%= f.input :payroll_employee_status_type,:input_html => {:class => "not-editabble"} %>
+		<%= f.input :payroll_position,:input_html => {} %>
+		<%= f.input :assistance_validate %>
+		<%= f.input :access_code,:as => :password,:wrapper_html => {:class => "hidden"},:input_html => {:class => "not-editabble"} %>
+		
+		<hr/>
+		<%= f.input :payroll_payment_method_type,:input_html => {} %>
+		<%= f.input :account_number,:input_html => {:class => "account_number",:size => 25} %>
+		<hr/>
+		<%= f.input :salary,:input_html => {:size => 6,:class => "right not-editabble"} %>
+		<%= f.input :islr_percentage,:input_html => {:size => 6,:class => "right"} %>
+		<%= f.input :faov_listed,:input_html => {} %>
+		<%= f.input :sso_listed,:input_html => {} %>
+		<%= f.input :spf_listed,:input_html => {} %>
+		<%= f.input :fju_listed,:input_html => {} %>
+		<hr/>
+	 <% end %>
+  </div>
+
+<script type="text/javascript">
+  function is_checked_assistance_validate(){
+	 if($("#payroll_employee_assistance_validate").is(':checked')){
+		$("#payroll_employee_access_code_input").show()
+		$("#payroll_employee_access_code").val('')
+	 }
+	 else{
+		$("#payroll_employee_access_code_input").hide()
+		$("#payroll_employee_access_code").val('<%= Payroll::Employee::DEFAULT_ACCESS_CODE%>')
+	 }
+		
+  }
+
+  $(document).ready(function(){
+           
+  			$("#payroll_employee_income_date").datepicker({
+          changeMonth: true,
+			 changeYear:true,
+          dateFormat: 'yy-mm-dd',
+			 maxDate:'-30',
+                         maxDate:'0',
+			 yearRange: 'c-1:c'
+        }).attr("readonly",true);
+		  is_checked_assistance_validate();
+		  $("#payroll_employee_assistance_validate").click(function() {
+			 is_checked_assistance_validate()
+		  });
+
+		  
+});
+</script>

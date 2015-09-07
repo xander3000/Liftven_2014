@@ -1,0 +1,98 @@
+/* -------------------------------------------------------------------------------------------------
+
+Load this stylesheet after formtastic.css in your layouts to override the CSS to suit your needs.
+This will allow you to update formtastic.css with new releases without clobbering your own changes.
+
+For example, to make the inline hint paragraphs a little darker in color than the standard #666:
+
+form.formtastic fieldset > ol > li p.inline-hints { color:#333; }
+
+HINT:
+The following style may be *conditionally* included for improved support on older versions of IE(<8)
+form.formtastic fieldset ol li fieldset legend { margin-left: -6px;}
+
+--------------------------------------------------------------------------------------------------*/
+form.formtastic fieldset > ol > li.boolean label
+{
+    /*padding-left: 30%;*/
+}
+form.formtastic fieldset  ol li p.inline-errors {
+    color: #CC0000;
+    margin: 0.5em 0 0 25%;
+}
+
+
+form.formtastic select
+{
+    padding: 3px;
+}
+
+form.formtastic input[type="text"],form.formtastic input[type="password"], form.formtastic textarea
+{
+    border: 1px solid #C2C2C2;
+    padding: 4px;
+}
+
+form.formtastic input[type="text"].top,form.formtastic input[type="password"].top, form.formtastic textarea.top
+{
+    font-size: 2em;
+    color: #A8B2AC;
+    letter-spacing: 0;
+}
+
+form.formtastic input[type="text"]:focus,form.formtastic input[type="password"]:focus, form.formtastic textarea:focus{
+
+-moz-box-shadow:1px 1px 4px #666;
+    -webkit-box-shadow:1px 1px 4px #666;
+    box-shadow:1px 1px 4px #666
+}
+form.formtastic fieldset > ol > li.text textarea
+{
+    max-width: 35%;
+    height: 50px;
+    width: auto;
+}
+
+form.formtastic abbr, form.formtastic acronym
+{
+    color: #006633;
+    font-size: 0.8em;
+    letter-spacing: 0.1em;
+    padding-left: 10px;
+}
+
+    form.formtastic fieldset.border
+    {
+            border:1px solid #C2C2C2;
+            -moz-border-radius:4px;
+            -webkit-border-radius:4px;
+            border-radius:4px;
+            margin-bottom:6px;
+            padding:15px 15px 0px 15px;
+    }
+
+    form.formtastic fieldset.no-border
+    {
+        border:0px solid #C2C2C2;
+    }
+
+    fieldset.border legend
+    {
+        color:#666666;
+        font-weight:bold;
+    }
+
+/*input[type="text"],select,textarea{
+    
+    border: 1px solid #C2C2C2;
+    padding: 4px;
+    font-family: 'Trebuchet MS',Verdana,Helvetica,Arial,sans-serif;
+}
+
+border: 1px solid #D1D3D4;
+    color: #000000;
+    font-size: 0.8em;
+    padding: 5px;
+    width: 460px;
+
+    */
